@@ -34,7 +34,7 @@ body {
 	border-radius: 8px;
 	border:rgba(204,204,204,1) thin solid ;
 	padding:5px;
-	margin-bottom:20px;
+	margin: 0 20px 0 0 ;
 	box-sizing:border-box;
 	
 }
@@ -78,7 +78,7 @@ body {
 	padding:1%;
 	background:rgba(204,255,153,1);
 	margin:1%;
-	width:12%;
+	width:28%;
 	float:left;
 	display:block;	
 }
