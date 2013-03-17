@@ -1,9 +1,10 @@
 /* CSS Document */
 body {
-	background:url(image/bg.png) top center no-repeat fixed ;
+/*	background:url(image/bg.png) top center no-repeat fixed ;*/
+	background:rgba(204,204,204,1);
 }
 #hd_photo {
-	margin:10px;
+	margin:19px;
 	float:left;
 	border-radius: 5px;
 	border:rgba(153,153,153,1) thin solid ;
@@ -18,14 +19,17 @@ body {
 	border:rgba(153,153,153,1) thin solid ;
 	box-shadow: 0 8px 6px -6px #999;
 	padding:5px;
-	box-sizing: border-box;
-	margin-bottom:10px;
+	margin-top : 20px;
+	margin-bottom: 20px;
 }
 
 #banner h1 {
 	color:blue;
 }
 #bookmarks {
+	font-size:medium;
+	float:right;
+	display:inline-block;
 	background:rgba(204,204,204,1);
 	border-radius: 8px;
 	border:rgba(204,204,204,1) thin solid ;
@@ -34,15 +38,59 @@ body {
 	box-sizing:border-box;
 	
 }
-.edu {
-	background:rgba(204,255,255,1);
-	border-radius: 4px;
-	border:rgba(153,153,153,1) thin solid ;
+#edu{}
+
+.tag{
+	background:rgba(255,255,255,1);
+	text-align:center;
+	box-sizing: border-box;
+	border-radius: 4px 4px 0px 0px;
+	bor
+
+}
+.tag h1 {
+	font-size:18px;
+	line-height:80%;
+
+	
+}
+	
+
+.classBox {
+	background:rgba(255,255,255,1);
+	border-radius: 0px 4px 4px 4px;
+	padding:10px;
+	
 	box-shadow: 0 8px 6px -6px #999;
 	box-sizing: border-box;
-	padding:8px;
 	margin-bottom:20px;
 }
-.edu p {
+.edu {
+	padding:1%;
+	background:rgba(255,204,255,1);
+	margin:1%;
+	width:21%;
+	float:left;
+	display:block;
+}
 
+.act {
+	padding:1%;
+	background:rgba(204,255,153,1);
+	margin:1%;
+	width:12%;
+	float:left;
+	display:block;	
+}
+
+
+#interests {
+	padding:1%;
+}
+.init {
+	float:left;
+	width:46%;
+	background:rgba(102,255,204,1);
+	padding:1%;
+	margin:1%;
 }

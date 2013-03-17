@@ -41,6 +41,7 @@ body {
 .grid_10,
 .grid_11,
 .grid_12 {
+  box-sizing: border-box;
   display: inline;
   float: left;
   margin-left: 10px;
@@ -354,4 +355,5 @@ body {
 .clearfix,
 .container_12 {
   zoom: 1;
+  box-sizing:border-box;
 }
