@@ -1,2 +1,48 @@
 /* CSS Document */
+body {
+	background:url(image/bg.png) top center no-repeat fixed ;
+}
+#hd_photo {
+	margin:10px;
+	float:left;
+	border-radius: 5px;
+	border:rgba(153,153,153,1) thin solid ;
+	box-shadow: 0 8px 6px -6px #999;
+	box-sizing:border-box;
+	
+}
 
+#banner {
+	background:rgba(255,255,255,1);
+	border-radius: 4px;
+	border:rgba(153,153,153,1) thin solid ;
+	box-shadow: 0 8px 6px -6px #999;
+	padding:5px;
+	box-sizing: border-box;
+	margin-bottom:10px;
+}
+
+#banner h1 {
+	color:blue;
+}
+#bookmarks {
+	background:rgba(204,204,204,1);
+	border-radius: 8px;
+	border:rgba(204,204,204,1) thin solid ;
+	padding:5px;
+	margin-bottom:20px;
+	box-sizing:border-box;
+	
+}
+.edu {
+	background:rgba(204,255,255,1);
+	border-radius: 4px;
+	border:rgba(153,153,153,1) thin solid ;
+	box-shadow: 0 8px 6px -6px #999;
+	box-sizing: border-box;
+	padding:8px;
+	margin-bottom:20px;
+}
+.edu p {
+
+}
