@@ -1,5 +1,7 @@
 /* CSS Document */
-
+a:hover {
+	text-decoration:none;
+}
 body {
 /*	background:url(image/bg.png) top center no-repeat fixed ;*/
 	background:url(http://www.imagehosting.gr/wallpapers/nature_reflection_shine_sky_sun_water-1920x1200.jpg) top center no-repeat fixed;
