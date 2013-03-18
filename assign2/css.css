@@ -1,9 +1,10 @@
 /* CSS Document */
+
 body {
 /*	background:url(image/bg.png) top center no-repeat fixed ;*/
-	background:rgba(204,204,204,1);
+	background:url(http://www.imagehosting.gr/wallpapers/nature_reflection_shine_sky_sun_water-1920x1200.jpg) top center no-repeat fixed;
 }
-#banner {
+#banner , footer{
 	background:rgba(255,255,255,1);
 	border-radius: 4px;
 	border:rgba(153,153,153,1) thin solid ;
@@ -12,8 +13,10 @@ body {
 	margin-bottom: 20px;
 }
 
-#banner h1 {
+
+#banner h1 , footer h1 , footer h2{
 	color:blue;
+	margin:20px 20px 10px 20px;
 }
 #hd_photo {
 	margin:20px;
@@ -28,17 +31,83 @@ body {
 #bookmarks {
 	font-size:medium;
 	float:right;
-	display:inline-block;
+	display:block;
 	background:rgba(204,204,204,1);
 	border-radius: 8px;
 	border:rgba(204,204,204,1) thin solid ;
 	padding:5px;
 	margin: 0 20px 0 0 ;
-	box-sizing:border-box;
+	box-sizing:border-box;	
+}
+
+#connect {
 	
 }
 
+dl {
+	font:medium bold;
+	margin: 0;
+	float:left;
+	display:block;
+	width:40%;
+}
 
+dt {
+	display:block;
+	width:30%;
+	float:left;
+	border-right:#CCCCCC solid thin ;
+
+}
+dd {
+	margin-left:5%;
+	width:60%;
+	display:block;
+	float:left;
+}
+dt , dd {
+	margin-top:8px;
+}
+#interests .inBox h1 {
+	font-size:medium;
+	font-weight:bolder;
+	line-height:110%;
+	margin:0;	
+}
+#interests .inBox p {
+	margin:0;
+	line-height:120%;
+	
+	}
+.inBox ul li {
+	margin:0px;
+	list-style:inside;
+	margin-left:3px;
+	
+}
+.inBox ul {
+	margin:0;
+}
+
+
+#cnt {
+	margin-top:50px;
+	float:left;
+}
+#cnt li {
+	margin-right:10px;
+	list-style:none;
+	float:left;
+	display:block;
+	width:50px;
+	height:50px;
+}
+
+.fb {background:url(image/cnt_sprite.png) ;}
+.gp {background:url(image/cnt_sprite.png) -54px no-repeat;}
+.ti {background:url(image/cnt_sprite.png) -109px no-repeat;}
+.tm {background:url(image/cnt_sprite.png) -164px no-repeat;}
+	
 
 .tag{
 	background:rgba(255,255,255,1);
@@ -72,7 +141,7 @@ body {
 .act {
 	margin:1.6% 0 1.6% 1.6%;
 	background:rgba(204,255,153,1);
-	width:31.2%;
+	width:14.8%;
 	float:left;
 	display:block;	
 }
@@ -102,3 +171,52 @@ body {
 	height:100px;
 	margin-right:10px;
 }
+footer p {
+	margin:0;
+	margin-left:50px;
+	line-height:130%;
+	
+	
+}
+#thx {
+	float:left;
+	width:45%;
+	border-right:#CCCCCC solid thin	
+}
+#thx ul li {
+	margin-left:50px;
+	list-style:inside;
+}
+
+#ctm {
+	height:40px;
+	float:left;
+	width:34%;
+	margin:auto 10%;
+	margin-top:50px;
+	background:#00FFFF;
+	font: xx-large bolder ;
+	color:white;
+	text-align:center;
+	border-radius:5px;
+	
+}
+#links {
+
+}
+	
+#links li {
+	margin-right:10px;
+	list-style:none;
+	float:left;
+	display:block;
+	width:40%;
+	height:50px;
+}
+
+.words {width:46px;height:35px;background-position:-0px -1px;background-repeat:no-repeat;}
+.photo {width:39px;height:33px;background-position:-80px -1px;background-repeat:no-repeat;}
+.music {width:38px;height:35px;background-position:-381px -1px;background-repeat:no-repeat;}
+.video {width:37px;height:35px;background-position:-456px -0px;background-repeat:no-repeat;}
+
+.words, .photo, .music, .video {background-image:url(image/img_sprite.png);}
