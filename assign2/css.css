@@ -32,7 +32,7 @@ body {
 #bookmarks {
 	font-size:medium;
 	float:right;
-	display:block;
+	display:inline-block;
 	background:rgba(204,204,204,1);
 	border-radius: 8px;
 	border:rgba(204,204,204,1) thin solid ;
