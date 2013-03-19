@@ -222,3 +222,26 @@ footer p {
 .video {width:37px;height:35px;background-position:-456px -0px;background-repeat:no-repeat;}
 
 .words, .photo, .music, .video {background-image:url(image/img_sprite.png);}
+
+/*----------------------------*/
+
+
+
+.contact {
+	padding:10px;
+	margin:10px;
+	background:#66FFFF;
+}
+#contactBox .cnt {
+	background-color:#CCFF99;
+	height:200px;
+	width:18.08%;
+	float:left;
+	margin:1.6% 0px 1.6% 1.6% ;
+}
+#contactBox .cnt h1 {
+	font-size:medium;
+}
+#cnt_sub{
+	float:right;
+	margin:10px;

@@ -2,18 +2,66 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>無標題文件</title>
+<link href="css.css" rel="stylesheet" type="text/css" >
+<link href="grid_css/960_12_col.css" rel="stylesheet" type="text/css">
+<title>Contact me</title>
 </head>
 
 <body>
-<form name="form1" method="post" action="">
+<div class="container_12">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="tag grid_2"><h1>Contact Me</h1></div>
+<div id="contactBox" class="grid_12 classBox" >
 
-<input type="text" name="entry.0.single" value="Your ID"><br>
-<input type="" name="entry.1.group" >
+<form action="https://docs.google.com/spreadsheet/formResponse?formkey=dDhFdFBITDc2X3FaUGNPaGRWb29mNlE6MQ&ifq" method="POST">
 
+<input type="hidden" name="entry.0.single" value="100102035">
+<div class="cnt"><div class="inBox">
+<h1>Gender</h1>
+<input type="radio" name="entry.1.group" value="Boy">Boy<br>
+<input type="radio" name="entry.1.group" value="Girl">Girl<br>
+<br></div></div>
 
+<div class="cnt"><div class="inBox">
+  <h1>Favorite Foods</h1>
+  <p>
+    <input type="checkbox" name="entry.2.group" value="Apple">
+    Apple<br>
+  <input type="checkbox" name="entry.2.group" value="Banana">Banana<br>
+  <input type="checkbox" name="entry.2.group" value="Lemon">Lemon<br>
+  <input type="checkbox" name="entry.2.group" value="Watermelon">Watermelom</p>
+  <p><br>
+    <br>
+  </p>
+</div></div>
 
+<div class="cnt"><div class="inBox">
+  <h1>Relationship</h1>
+<select name="entry.3.single" id="entry.3.single">
+  <option value="Single" selected>Single</option>
+  <option value="Dating">Dating</option>
+  <option value="Married">Married</option>
+  <option value="Hard to explain">Hard to explain</option>
+</select><br></div></div>
 
+<div class="cnt"><div class="inBox">
+  <h1>Email</h1>
+<input name="entry.4.single" type="text" size="18" ><br>
+<br></div></div>
+
+<div class="cnt"><div class="inBox">
+  <h1>Comments</h1>
+<textarea name="entry.5.single" cols="15" rows="5"></textarea><br>
+</div></div>
+<p>
+  <div id="cnt_sub"><a href="myCV.html"><input type="button" value="Go Back"></a><input type="submit" name="button" id="button" value="Submit"></div>
+</p>
+<p>&nbsp;</p>
 </form>
+</div>
+</div>
+
 </body>
 </html>
