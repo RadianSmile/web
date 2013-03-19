@@ -31,13 +31,14 @@ body {
 }
 #bookmarks {
 	font-size:14px;
+	color: white;
 	float:right;
 	display:inline-block;
 	background:rgba(204,204,204,1);
 	border-radius: 8px;
 	border:rgba(204,204,204,1) thin solid ;
 	padding:5px;
-	margin: 0 10px 0 0 ;
+	margin: 30px 30px 0 0 ;
 	box-sizing:border-box;	
 }
 
