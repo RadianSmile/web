@@ -3,18 +3,17 @@ a:hover {
 	text-decoration:none;
 }
 body {
-/*	background:url(image/bg.png) top center no-repeat fixed ;*/
+	font-family: 'Inder', sans-serif;
 	background:url(http://www.imagehosting.gr/wallpapers/nature_reflection_shine_sky_sun_water-1920x1200.jpg) top center no-repeat fixed;
 }
-#banner , footer{
+#banner , footer{ 
 	background:rgba(255,255,255,1);
 	border-radius: 4px;
 	border:rgba(153,153,153,1) thin solid ;
-	box-shadow: 0 8px 6px -6px #999;
+	box-shadow: 0 10px 20px -6ptmx #999;
 	margin-top : 20px;
 	margin-bottom: 20px;
 }
-
 
 #banner h1 , footer h1 , footer h2{
 	color:blue;
@@ -42,24 +41,19 @@ body {
 	box-sizing:border-box;	
 }
 
-#connect {
-	
-}
-
 dl {
+	
 	font:medium bold;
 	margin: 0;
 	float:left;
 	display:block;
 	width:40%;
 }
-
 dt {
 	display:block;
 	width:30%;
 	float:left;
 	border-right:#CCCCCC solid thin ;
-
 }
 dd {
 	margin-left:5%;
@@ -70,27 +64,6 @@ dd {
 dt , dd {
 	margin-top:8px;
 }
-#interests .inBox h1 {
-	font-size:medium;
-	font-weight:bolder;
-	line-height:110%;
-	margin:0;	
-}
-#interests .inBox p {
-	margin:0;
-	line-height:120%;
-	
-	}
-.inBox ul li {
-	margin:0px;
-	list-style:inside;
-	margin-left:3px;
-	
-}
-.inBox ul {
-	margin:0;
-}
-
 
 #cnt {
 	margin-top:50px;
@@ -109,6 +82,29 @@ dt , dd {
 .gp {background:url(image/cnt_sprite.png) -54px no-repeat;}
 .ti {background:url(image/cnt_sprite.png) -109px no-repeat;}
 .tm {background:url(image/cnt_sprite.png) -164px no-repeat;}
+
+
+/* content  ------------------------*/
+
+#interests .inBox h1 {
+	font-size:medium;
+	font-weight:bolder;
+	line-height:110%;
+	margin:0;
+}
+#interests .inBox p {
+	margin:0;
+	line-height:120%;
+}
+.inBox ul li {
+	margin:0px;
+	list-style:inside;
+	margin-left:3px;
+}
+.inBox ul {
+	margin:2px;
+}
+
 	
 
 .tag{
@@ -126,7 +122,7 @@ dt , dd {
 .classBox {
 	background:rgba(255,255,255,1);
 	border-radius: 0px 4px 4px 4px;
-	box-shadow: 0 8px 6px -6px #999;
+	box-shadow: 0 10px 20px -6px #999;
 	box-sizing: border-box;
 	margin-bottom:20px;
 }
@@ -164,18 +160,20 @@ dt , dd {
 	line-height:100%;
 }
 
+.cnt ,.edu ,.init ,img {
+	border-radius:5px;
+}
 .img {
 	float:left;
 	overflow:hidden;
-	
 }
 #interests .inBox .img {
 	height:100px;
 	margin-right:10px;
 }
-footer p {
+#thx p {
 	margin:0;
-	margin-left:50px;
+	margin: auto 50px;
 	line-height:130%;
 	
 	
@@ -191,18 +189,29 @@ footer p {
 }
 
 #ctm {
-	height:40px;
+	height:20%;
+	
 	float:left;
 	width:34%;
-	margin:auto 10%;
-	margin-top:50px;
-	background:#00FFFF;
+	margin:65px 10%;
+
+	background:#999999;
 	font: xx-large bolder ;
 	color:white;
 	text-align:center;
-	border-radius:5px;
-	
+	border-radius:5px;	
 }
+
+#ctm:hover {
+	opacity:.8;
+}
+
+
+
+.r {
+	text-align:right;
+}
+/*
 #links {
 
 }
@@ -222,8 +231,14 @@ footer p {
 .video {width:37px;height:35px;background-position:-456px -0px;background-repeat:no-repeat;}
 
 .words, .photo, .music, .video {background-image:url(image/img_sprite.png);}
+*/
 
-/*----------------------------*/
+
+
+
+
+
+/*-------contact me---------------------*/
 
 
 
@@ -243,5 +258,22 @@ footer p {
 	font-size:medium;
 }
 #cnt_sub{
+	width:100%;
 	float:right;
-	margin:10px;
+	margin:0 1.6% 20px 0;
+}
+input[type=submit] , input[type=button] {
+	background:#999999;
+	color:white;
+	font-size:large;
+	border:none;
+	border-radius:4px;
+	width:18.08%;
+	margin-left:1.6%;
+	float:right;
+	
+}
+input[type=submit]:hover , input[type=button]:hover {
+	opacity:.8;
+	cursor:pointer;	
+}
