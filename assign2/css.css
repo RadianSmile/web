@@ -30,7 +30,7 @@ body {
 	box-sizing:border-box;
 }
 #bookmarks {
-	font-size:medium;
+	font-size:14px;
 	float:right;
 	display:inline-block;
 	background:rgba(204,204,204,1);
