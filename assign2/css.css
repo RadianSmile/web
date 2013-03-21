@@ -2,6 +2,13 @@
 a:hover {
 	text-decoration:none;
 }
+nav a {
+	text-decoration:none;
+	color:white;
+}
+nav a:hover {
+	color:#0033FF;
+}
 body {
 	font-family: 'Inder', sans-serif;
 	background:url(http://www.imagehosting.gr/wallpapers/nature_reflection_shine_sky_sun_water-1920x1200.jpg) top center no-repeat fixed;
