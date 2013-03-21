@@ -78,12 +78,16 @@ dt , dd {
 	float:left;
 }
 #cnt li {
+	backface-visibility:.8;
 	margin-right:10px;
 	list-style:none;
 	float:left;
 	display:block;
 	width:50px;
 	height:50px;
+}
+#cnt li {
+	opacity:1;
 }
 
 .fb {background:url(image/cnt_sprite.png) ;}
@@ -128,6 +132,7 @@ dt , dd {
 	line-height:80%;	
 }
 .classBox {
+	
 	background:rgba(255,255,255,1);
 	border-radius: 0px 4px 4px 4px;
 	box-shadow: 0 10px 20px -6px #999;
@@ -159,8 +164,12 @@ dt , dd {
 	width:47.6%;
 	background:rgba(102,255,204,1);
 }
-
+.classBox  > div {
+	
+	opacity:none;
+}
 .inBox {
+	
 	overflow:hidden;
 	margin:10px;
 }
@@ -248,7 +257,16 @@ dt , dd {
 
 /*-------contact me---------------------*/
 
-
+label:hover {
+	cursor:pointer;
+	opacity:.8;
+}
+input:checked + label , textarea , input[type=text], select {
+	color:#003399;
+}
+option {
+	color:#000000;
+}
 
 .contact {
 	padding:10px;
@@ -264,6 +282,7 @@ dt , dd {
 }
 #contactBox .cnt h1 {
 	font-size:medium;
+	color:#CC3300;
 }
 #cnt_sub{
 	width:100%;
