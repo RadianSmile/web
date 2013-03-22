@@ -18,7 +18,7 @@ body {
 	border-radius: 4px;
 	border:rgba(153,153,153,1) thin solid ;
 	box-shadow: 0 10px 20px -6ptmx #999;
-	margin-top : 20px;
+	margin-top : 40px;
 	margin-bottom: 20px;
 }
 
@@ -27,7 +27,7 @@ body {
 	margin:20px 20px 10px 20px;
 }
 #hd_photo {
-	margin:20px;
+	margin:1.6%;
 	height:200px;
 	overflow:hidden;
 	float:left;
@@ -78,7 +78,7 @@ dt , dd {
 	float:left;
 }
 #cnt li {
-	backface-visibility:.8;
+	opacity:.8;
 	margin-right:10px;
 	list-style:none;
 	float:left;
@@ -86,7 +86,7 @@ dt , dd {
 	width:50px;
 	height:50px;
 }
-#cnt li {
+#cnt li:hover {
 	opacity:1;
 }
 
@@ -108,16 +108,23 @@ dt , dd {
 	margin:0;
 	line-height:120%;
 }
-.inBox ul li {
+.txt ul li{
 	margin:0px;
-	list-style:inside;
-	margin-left:3px;
+	margin-top:2px;
 }
-.inBox ul {
-	margin:2px;
+.txt ul{
+	float:left
+	display:inline;
+	padding-left:20px;
+	margin:0px;
 }
 
-	
+.img , .txt{
+	float:left;
+}
+.txt {
+	width:290px;
+}
 
 .tag{
 	background:rgba(255,255,255,1);
@@ -138,11 +145,12 @@ dt , dd {
 	box-shadow: 0 10px 20px -6px #999;
 	box-sizing: border-box;
 	margin-bottom:20px;
+	padding-bottom:1.6%;
 }
 
 #edu{}
 .edu {
-	margin:1.6% 0 1.6% 1.6%;
+	margin:1.6% 0px 0px 1.6%;
 	background:rgba(255,204,255,1);
 	width:23%;
 	float:left;
@@ -159,7 +167,7 @@ dt , dd {
 
 #interests {}
 .init {
-	margin:1.6% 0 1.6% 1.6%;
+	margin:1.6% 0 0 1.6%;
 	float:left;
 	width:47.6%;
 	background:rgba(102,255,204,1);

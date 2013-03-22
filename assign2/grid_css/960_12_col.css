@@ -42,10 +42,9 @@ body {
 .grid_11,
 .grid_12 {
   box-sizing: border-box;
-  display: inline;
+  display:block;
   float: left;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0px 10px;
 }
 
 .push_1, .pull_1,
