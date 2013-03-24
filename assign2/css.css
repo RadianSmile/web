@@ -214,6 +214,7 @@ dt , dd {
 }
 
 #ctm {
+	font-family:Verdana, Geneva, sans-serif;
 	height:20%;
 	
 	float:left;
@@ -221,10 +222,13 @@ dt , dd {
 	margin:65px 10%;
 
 	background:#999999;
-	font: xx-large bolder ;
+
 	color:white;
 	text-align:center;
 	border-radius:5px;	
+}
+#ctm h1 {
+	color:white;
 }
 
 #ctm:hover {
