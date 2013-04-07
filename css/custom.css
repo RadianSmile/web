@@ -1,0 +1,18 @@
+/* CSS Document */
+body{
+	background:url(../image/noisy_grid.png);
+	padding:60px 0px ;
+}
+#banner {
+	background:url(../image/retina_wood.png);
+	border-radiaus:5px;
+	box-shadow:5px 5px 5px #666666;
+}
+.box1 {
+	padding:10px;
+	box-sizing:border-box;
+	border-radius:3px;
+	box-shadow:#666666 3px 3px 3px;
+	background:#FFFFFF;
+	margin-bottom-20px;
+}

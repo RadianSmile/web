@@ -1,52 +1,73 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<link href="960.css" rel="stylesheet" type="text/css">
-<link href="css.css" rel="stylesheet" type="text/css">
-<meta charset="utf-8">
-<title>WebPro</title>
+  <head>
+    <title>Radian Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/custom.css" rel="stylesheet" type="text/css" media="screen" >
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
 
-<style>
-
-.btn{
-	border-radius:5px;
-	box-shadow:	 3px 4px 10px 1px  #0066CC;
-	height:40px;
-	width:100px;
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(79,133,187,1)), color-stop(100%,rgba(49,85,89,1))); /* Chrome,Safari4+ */
-
-}
-.btn:hover {
-	 3px 4px 10px 8px rgba(122, 100, 0, 5);
-	cursor:pointer;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(53,84,124,.8)), color-stop(100%,rgba(79,133,187,1)));
-		border-radius:5px;
-	box-shadow:5px 5px 20px 3px #CC6699;
-	height:40px;
-	width:100px;
-}
-	
-</style>
-</head>
-
-<body>
-
-
-<header>
-<div id="banner" class="container_12"></div>
-<nav class="container_12 "><div class="btn"> </div></nav>
-</header>
-
-
-
-<div id="content"></div>
-
-
-
-
-
-<footer></footer>
-
-
-</body>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <i class="icon-bar"></i>
+            <i class="icon-bar"></i>
+            <i class="icon-bar"></i>
+          </button>
+          <a class="brand" href="#">Radian Studio</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="flash.html">Flash</a></li>
+              <li><a href="photoshop.html">PhotoShop</a></li>
+              <li><a href="illustrator.html">Illustrator</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Works<i class="caret"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Page1</a></li>
+                  <li><a href="#">Page2</a></li>
+                  <li><a href="#">Page3</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div id="banner" class="hero-unit">
+        <h1>Radian Studio</h1>
+        <p>Welcome to my website!! Here You could see my works and my ideas! I would be glad if you leave some message for me!</p>
+        <br>
+        <div ><a class=" btn btn-primary btn-large" href="#">Good Days!!</a></div>
+      </div>
+      <div class="row">
+        <div class="span4 box1">
+          <h2>Assign2</h2>
+          <p>This assign require us to make our profile page! Just take a look :)</p>
+          <div>
+            <a class="btn" href="http://radiansmile.github.io/web/assign2/myCV.html">My Profile</a>
+          </div>
+        </div>
+        <div class="span4 box1">
+          <h2>Cat and Mouse</h2>
+          <p>This assign is made by flash! Try the game! It's very exciting!</p>
+          <div>
+            <a class="btn" href="http://nccu.edu.tw/100102035/CatAndMouse.swf">Cat And Mosue</a>
+          </div>
+        </div>
+        <div class="span4 box1">
+          <h2>Some of my Works</h2>
+          <p>I want to join a lab. Thus, here is a page prepared for the entry.</p>
+          <div>
+            <a class="btn" href="http://nccu.edu.tw/100102035/100102035_LivingLab.html">Test</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>
