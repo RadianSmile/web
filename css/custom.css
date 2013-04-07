@@ -8,6 +8,10 @@ body{
 	border-radiaus:5px;
 	box-shadow:5px 5px 5px #666666;
 }
+#banner>h1 {
+	color:#660000;
+	margin-bottom:10px;
+}
 .box1 {
 	padding:10px;
 	box-sizing:border-box;
