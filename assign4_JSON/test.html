@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>無標題文件</title>
+<style>
+.container 
+{
+	background:#CCCCFF;
+	position:relative;
+	margin:auto;
+	width:1000px;
+	height:1000px;
+}
+
+
+
+.cloudy1 {width:206px;height:179px;background-position:-202px -0px;background-repeat:no-repeat;}
+.cloudy2 {width:195px;height:129px;background-position:-0px -192px;background-repeat:no-repeat;}
+.rain {width:170px;height:141px;background-position:-219px -185px;background-repeat:no-repeat;}
+.sunny {width:191px;height:181px;background-position:-0px -0px;background-repeat:no-repeat;}
+
+.cloudy1, .cloudy2, .rain, .sunny { margin-left:300px; margin-top:200px; position:absolute; background-image:url(weather.png);}
+</style>
+
+</head>
+
+<body>
+
+
+<div class="container" >
+  <div id="weather">
+  </div>
+
+<div class="btn">CHANGE</div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+$('.btn').click(function() {
+	$('#weather').addClass('sunny');
+});
+</script>
+
+
+</body>
+</html>

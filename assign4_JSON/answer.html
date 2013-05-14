@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Homework 2</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <style>
+            body {
+                padding-top: 60px;
+                /* 60px to make the container go all the way to the bottom of the topbar */
+            }
+        </style>
+        <link href="css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="css/bootstrap-select.min.css" rel="stylesheet" type="text/css" media="screen">
+    </head>
+    
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button><a class="brand" href="#">Homework City's combo box</a>
+                    <div class="nav-collapse collapse"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="span4">
+                <h3>功能1. 直接點擊</h3>
+                <div id="method1"></div>
+                <h3>功能2. 下拉式選單</h3>
+                <div id="method2">
+                    <select class="selectpicker show-tick" id="citybox1"></select>
+                    <select class="selectpicker show-tick" id="citybox2"></select>
+                </div>
+                <div id="method3"></div>
+            </div>
+            <div class="span7">
+                <div class="hero-unit" id="result">
+                    <h4>Title</h4>
+                    <div id="title">No data.
+                        <br>
+                    </div>
+                    <h4>Date</h4>
+                    <div id="date">No data.
+                        <br>
+                    </div>
+                    <h4>Location</h4>
+                    <div id="location">No data.</div>
+                    <h4>Temp</h4>
+                    <div id="temp">No data.</div>
+                    <h4>Text</h4>
+                    <div id="text">No data.</div>
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-select.min.js"></script>
+        <script src="js/all.js"></script>
+        <script type="text/javascript">
+            window.onload = function() {
+                cityInit();
+            };
+        </script>
+    </body>
+
+</html>

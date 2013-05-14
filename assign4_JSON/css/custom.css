@@ -1,0 +1,37 @@
+/* CSS Document */
+#con
+{
+	margin-top:70px;
+}
+
+.locate
+{
+	display:inline-block;
+	margin:5px;
+
+}
+
+.box 
+{
+	padding:3%;
+	float:left;
+	background:#CCCCCC;
+	width:86.5%;
+	margin-left:5%;
+	margin-right:2.5%;
+	margin-bottom:5%;
+	
+}
+#weather {
+	float:left;
+	position:absolute;
+	margin-left:280px;
+	margin-top:180px;
+}
+
+.cloudy1 {width:206px;height:179px;background-position:-202px -0px;background-repeat:no-repeat;}
+.cloudy2 {width:195px;height:129px;background-position:-0px -192px;background-repeat:no-repeat;}
+.rain {width:170px;height:141px;background-position:-219px -185px;background-repeat:no-repeat;}
+.sunny {width:191px;height:181px;background-position:-0px -0px;background-repeat:no-repeat;}
+
+.cloudy1, .cloudy2, .rain, .sunny {  position:absolute; background-image:url(../weather.png);}
