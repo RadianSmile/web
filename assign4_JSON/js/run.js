@@ -1,6 +1,8 @@
-function JsonQ(ID)
+function JsonQ(txt)
 {
-	var woeid = ID;
+	$('#theTitle').text( txt + " condition");
+	var woeid = cities[txt] ;
+	
 	var query = 'select * from weather.forecast where woeid=' + woeid;
 	var url = 'http://query.yahooapis.com/v1/public/yql?format=json&q=' + query;
 	$.getJSON(url,{},
@@ -9,7 +11,7 @@ function DataProcess (data,status)
 {
 	console.log("data:",data);
     var a = data.query.results.channel.item,
-    title = a.title + $(this).text();
+    title = a.title ;
     locate = a.lat + "," + a.long,
     date = a.pubDate,
     temp = a.condition.temp + "°F" +" , "+ parseInt((a.condition.temp-32)*5/9) +"°C";
@@ -74,14 +76,18 @@ function init ()
   var arr = [] ;
   for ( var i in cities){arr.push("<div class='locate'><a href='#'>"+ i + "</a></div>");};
   $("#locations").append(arr);
-  $('.locate').click(function(e){JsonQ(cities[$(e.currentTarget).text()]);});
+  $('.locate').click(function(e){
+	  JsonQ($(e.currentTarget).text());
+	  $(e.currentTarget).parent().children().removeClass('b');
+	  $(e.currentTarget).addClass('b');
+	  });
 
   var a =[];
   var k;
   for ( k in region ) {a.push ("<option>" + k +"</option>")};
 
   $("#county").append(a); 
-  $('#city').change(function (){JsonQ(cities[$(this).find(':selected').text()]);});
+  $('#city').change(function (){JsonQ($(this).find(':selected').text());});
   $("#county").trigger("change");
 };
 
