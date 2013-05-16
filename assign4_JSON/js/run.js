@@ -23,6 +23,7 @@ function DataProcess (data,status)
 		case "Showers in the Vicinity" :$('#weather').removeClass(); $('#weather').addClass('rain');console.log ("yes");break;
 		case "Thunderstorm": $('#weather').removeClass(); $('#weather').addClass('rain');break;
 		case "Cloudy" :$('#weather').removeClass();$('#weather').addClass('cloudy2');break;
+		case "Mist" :$('#weather').removeClass();$('#weather').addClass('cloudy2');break;
 		case "Partly Cloudy" :$('#weather').removeClass();$('#weather').addClass('cloudy1');break;
 		case "Mostly Cloudy" :$('#weather').removeClass();$('#weather').addClass('cloudy2');break;
 		case "Sunny" :$('#weather').removeClass();$('#weather').addClass('sunny');break;
