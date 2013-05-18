@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>TweenMax</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="css/custom.css" rel="stylesheet">
+</head>
+
+<body>
+<div id="imgSection" class="container">
+  <!--div class="row">
+    <div class="logo">
+      <canvas id="pic" width="300px" height="300px"></canvas>
+    </div>
+  </div-->
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/scrolling-parallax.js"></script>
+<script type="text/javascript">
+var i = 0 ;
+
+var addObj = function (id,func)
+{
+	console.log('yes');
+  $('#imgSection').append("<div class='row'><div class='span4 logo'><canvas class='pic' id='" +   id + "' width='300px' height='300px'></canvas></div></div>");
+  var img = new Image();
+  img.onload = function (){
+  document.getElementById(id).getContext('2d').drawImage(img,0,0);}
+  img.src="img/logo.png";
+  var a = "#" +id;
+  $(a).click(func);
+};
+
+
+addObj("tweenFrom",function (e){
+var twn = 	 TweenLite.from(e.currentTarget, 1.5, 
+	 {
+		 left:500,
+		 width:100,
+		 opacity:0,
+		 ease:Power3.easeOut,
+		 rotationX:45,
+		 transformPerspective:200,
+		 rotationY:90,z:-300
+	 });
+  });
+
+addObj("tweenTo",function(e){
+var twn =  TweenLite.to(e.currentTarget, 1.5, 
+	 {
+		 onComplete:function (){twn.reverse()},
+		 left:500,
+		 width:100,
+		 ease:Power3.easeInOut,
+		 rotationY:30,z:-300
+	 });
+  });
+addObj("transformOrigin1",function(e){
+	$(e.currentTarget).css(	"-webkit-transform: matrix3d",(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.005, 0, 0, 0, 1));
+var twn =	TweenMax.to(e.currentTarget, 3, {
+		rotationY:360, 
+		transformPerspective:400,
+		transformOrigin:"center",
+		onComplete: function(){ $("#transformOrigin1").removeAttr("style");console.log("cmt");twn.reverse();}
+		});
+});
+
+addObj("whiteBlur",function(e){
+
+var twn = TweenMax.to(e.currentTarget, 3, {
+    boxShadow: "0px 0px 24px 6px white",
+    backgroundColor:"white",
+    color:"#999",
+	onComplete:function(){twn.reverse();}
+});
+});
+//addObj("tweenTo");
+/*
+$('#pic').click(
+  function (e){
+	  console.log(e);
+	  console.log("test");
+
+	 TweenLite.to(window, 2, {scrollTo:{y:300}, ease:Bounce.easeOut});
+
+  });*/
+//$(document).scroll(function (){ var ScrollTop=$(this).scrollTop(); console.log (document.height,window.innerHeight,window.outerHeight,ScrollTop);});
+</script>
+</body>
+</html>

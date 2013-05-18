@@ -1,0 +1,14 @@
+/* CSS Document */
+.container {
+	height:2000px;
+	background:#999999;
+}
+	
+.logo {
+	width:300px;
+	height:300px;
+	position:relative;
+}
+.pic {
+	position:absolute;
+}
