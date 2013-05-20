@@ -23,7 +23,7 @@ h2 {
 </head>
 
 <body>
-<div class="container" style="height:5000px">
+<div class="container">
 		<div style=" width:auto;height:400px">
         <h1>Start to Scroll!!</h1></div>
 		<div id="examples-1">
@@ -34,6 +34,16 @@ h2 {
 			<h2 id="smush-it">Smush It</h2>
             <h2 id="fade-it">Fade It</h2>
 		</div>
+
+<div id="parallax" style="position:relative">
+
+  <h2>JJJJJJJJ</h2>
+<div id="bg" style="margin-left:500px; z-index:99999;position:relative">  <img src="img/bg.jpg"></div>
+<div id="logo" style="margin-left:500px; z-index:99999;position:relative"> <img src="img/logo.png"></div>
+  <h2>JJJJJJJJ</h2>
+</div>
+
+
 
 <div id="examples-2">
   <h2 id="move-it" style="color:#CC00FF; z-index:300">The End</h2>
@@ -83,8 +93,8 @@ controller.pin($('#examples-2'), 3000, {
 		   TweenMax.to(('#move-it'), .5,
 		    {css:{top:-700}})
 		 ),
-		offset:-500,
-		pushFollowers:false // tre is to push them down
+	  offset:-500,
+	  pushFollowers:true // tre is to push them down
 	});		
 		
 		
@@ -105,6 +115,26 @@ controller.pin($('#examples-2'), 3000, {
 		controller.addTween('#smush-it1', TweenMax.fromTo( $('#smush-it1'), .25, {css:{opacity:0, 'letter-spacing':'60px'}, immediateRender:true, ease:Quad.easeInOut}, {css:{'opacity':'1', 'letter-spacing':'0px'}, ease:Quad.easeInOut}), 0, startPX); // 100 px offset for better timing
 		controller.addTween('#fade-it1', TweenMax.from( $('#fade-it1'), .5, {css:{opacity: 0}}),300,startPX);
 
+		controller.addTween(
+		  '#parallax',
+		  (new TimelineLite())
+		    .append([
+		      TweenMax.fromTo(
+			    $('#logo'),
+				1,
+		        {css:{top:500},immediateRender:true},
+		        {css:{top:-800},immediateRender:true}
+		      ),
+			  TweenMax.fromTo(
+			    $('#bg'),
+				1,
+		        {css:{top:0},immediateRender:true},
+		        {css:{top:-200},immediateRender:true}
+				)				
+			]),
+		  400,
+		  startPX
+		)
 	});
 
 </script>

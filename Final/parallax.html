@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Blank</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+
+<style>
+body {	
+	margin-top:0px;
+	padding-top:0px;
+	position:relative;
+}
+#container{
+	overflow:hidden;
+	padding:0;
+	margin:0px;
+	position:relative;
+	}
+#section1 {
+	overflow:hidden;
+	padding:0;
+	margin:0px;
+}
+#page1_bg
+{
+	width:1349px;
+	height:768px;
+	position:relative;
+}
+#page1_cnt {
+	padding:10px;
+	display:block;
+	opacity:.7;
+	background:#FFFFFF;
+	width:450px;
+	top:100px;
+	left:500px;
+	position:relative;
+}
+#page1_cnt > h2 {
+	color:#CC6633;
+	text-shadow:#999999;
+	opacity:.8;
+	line-height:100%;
+	font-size:60px;
+}
+#page1_cnt >p {
+	color:#000000;
+	font-size:18px;
+	font-weight:bold;
+}
+#page1_sprite{
+	opacity:.7;
+	width:262px;
+	-webkit-transform:rotate(30deg);
+	border-radius:5px;
+	position:relative;
+	height:auto;
+	border:#FF6600 20px solid;
+	top:500px;
+	left:100px;
+}
+
+</style>
+</head>
+
+
+<body>
+  <div id="section1" style="background:url(img/page1.jpg) top center scroll no-repeat ;" >
+    <div id="page1_sprite"><img id="spr1" src="img/spr1.jpg" ></div>
+    <div id="page1_cnt">
+      <h2>This is Page 1</h2>
+      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p></div>
+    <div id="page1_bg"></div>
+  </div>
+
+  <div id="page2"></div>
+</div>
+  
+<script src="js/jquery.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/jquery.superscrollorama.js"></script>
+
+<script type="text/javascript">
+
+ $(document).ready(function(e) {
+    var ctrl = $.superscrollorama({
+	  triggerAtCenter:false,
+	  playoutAnimations: false
+	});
+	/*
+	ctrl.addTween (
+	  '#section1',
+	  (new TimelineLite())
+	    .append([
+	  	  TweenMax.fromTo(
+		    $('#page1_sprite'),
+	        .5,
+		    {css:{top:400,opacity:0}},
+		    {css:{top:100,opacity:1}}
+		  ),
+	      TweenMax.fromTo(
+		    $('#page1_cnt'),
+		    .5,
+		    {css:{top:500},ease:Quad.easeOut},
+		    {css:{top:-500}}
+		  )
+	    ]),
+	  500);
+	*/
+	ctrl.pin(
+	  $('#section1'),1000,
+	  {anim:(new TimelineLite())
+	     .append([
+	  	   TweenMax.fromTo($('#page1_sprite'),.4,{css:{top:400,opacity:0}},{css:{top:100,opacity:1}}),
+		   TweenMax.fromTo($('#page1_bg'),.5,{css:{opacity:0}},{css:{opacity:1}}),
+		   TweenMax.fromTo($('#page1_cnt'),.5,{css:{top:-100,opacity:0}},{css:{top:100,opacity:.8},ease:Bounce.easeIn}),
+	   	   TweenMax.fromTo($('#page1_cnt'),.5,{css:{opacity:0}},{css:{opacity:.8}})]),
+
+	   pushFollowers:true,
+	   					onPin: function() {
+						$('#section1').css('height','100%');
+					}, 
+					onUnpin: function() {
+						$('#section1').css('height','768px');
+					}
+
+	  });
+	  
+	  
+	  
+	  
+	/*ctrl.pin ($('#container'),3000,
+	{
+		anim:(new TimelineLite())
+		  .append(TweenMax.fromTo($('#section1'),.5,{css:{top:0},immediateRender:true},{css:{top:300},immediateRender:true})),
+		pushFollowers:false,
+		offset:-768
+	});*/
+		
+})
+	  
+</script>
+</body>
+</html>
