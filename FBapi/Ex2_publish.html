@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<title>Example2 - Publish to your friends timeline</title>
+		<style>
+			body{
+				font-family:sans-serif;
+			}
+			
+			#friendsList{
+				width:300px;
+				text-align:left;
+				height:600px;
+				overflow:auto;
+				display:inline-block;
+				float:left;
+			}
+			
+			#friendsList div{
+				background:#3b5998;
+				margin-bottom:1px;
+				color:#FFFFFF;
+			}
+			
+			#friendsList img{
+				margin-top:4px;
+				margin-left:3px;
+			}
+			
+			#friendsList span{
+				float:right;
+				font-size:19px;
+			}
+			
+			#friendsList div:hover{
+				background:#DFDFDF;
+				color:#3b5998;
+				cursor:pointer;
+			}
+			#friendsInfo{
+				margin-left:50px;
+				float:left;
+				font-weight:bold;
+				font-size:22px;
+				color:#3b5998;
+			}
+			
+			#friendsInfo span{
+				color:#111111;
+				font-size:20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="fb-root"></div>
+		<script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script>
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId: "393763780659040", // Your facebook app id
+					status: true,
+					cookie: true,
+					xfbml: true
+				});
+			}
+			
+			(function(d, s, id) {
+ 			var js, fjs = d.getElementsByTagName(s)[0];
+ 			if (d.getElementById(id)) return;
+ 			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=393763780659040";
+ 			fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<script>
+			var uid;
+			var Access_Token;
+			
+			//You don't have to acquire any permissions if friends only
+			$(window).load(function () {
+ 				FB.login( successCall, { scope: 'friends_birthday, friends_hometown, friends_location, '});
+			});
+			
+			//Login or authentication may be failed, so check the user's status is recommended.
+			function successCall(){
+				
+				FB.getLoginStatus(function(response) {
+					if (response.status === 'connected') {
+					
+					/* the form returned
+					{
+						status: 'connected',
+						authResponse: {
+							accessToken: '...',
+							expiresIn:'...',
+							signedRequest:'...',
+							userID:'...'
+						}
+					}
+					*/
+					
+						uid = response.authResponse.userID;
+						Access_Token = response.authResponse.accessToken;
+						
+						
+						listFriends();
+					} else if (response.status === 'not_authorized') {
+					// the user is logged in to Facebook, but not connected to the app
+						alert("Please authorize this app!");
+						window.location = defaultPath;
+					} else {
+					// the user isn't even logged in to Facebook.
+						alert("Please Login with your Facebook account!");
+						window.location = defaultPath;
+					}
+				});
+			}
+			
+			function listFriends(){
+				
+				var friendsDiv = document.getElementById("friendsList");
+				
+				FB.api('/me/friends', function(response){
+				
+					var i=0;
+					
+					while(response['data'][i] != null){
+						var userFriends = document.createElement("div");
+						
+						var fId = response['data'][i]['id'];
+						var fName = response['data'][i]['name'];
+						
+						userFriends.innerHTML = '<img src="https://graph.facebook.com/' + fId + '/picture" />' + '<span>' + fName + '</span>';
+						userFriends.setAttribute("onclick", "changeInfo("+fId+");");
+						friendsDiv.appendChild(userFriends);
+						
+						i++;
+					}
+				});
+			}
+			
+			function changeInfo(friends){
+				
+				var name = document.getElementById("name");
+				var gender = document.getElementById("gender");
+				var birth = document.getElementById("birth");
+				var loca = document.getElementById("loca");
+				
+				FB.api("/"+friends, function(response) {
+					
+					name.innerHTML = response.name
+					gender.innerHTML =  response.gender;
+					birth.innerHTML = response.birthday;
+					loca.innerHTML = response.location.name;
+					console.log(response);
+					
+				});
+				
+			}
+			
+		</script>
+		<h1>Friends List</h1>
+		<div id="friendsList">
+		</div>
+		<div id="friendsInfo">
+			姓名：<span id="name"></span><br/>
+			性別：<span id="gender"></span><br/>
+			生日：<span id="birth"></span><br/>
+			住處：<span id="loca"></span><br/>
+		</div>
+	</body>
+</html>
