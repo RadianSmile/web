@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<title>Example1 - List your friends</title>
+		<style>
+			body{
+				text-align:center;
+				font-family:sans-serif;
+			}
+			
+			#friendsList{
+				margin:0px auto;
+				width:300px;
+				text-align:left;
+				height:600px;
+				overflow:auto;
+			}
+			
+			#friendsList div{
+				background:#3b5998;
+				margin-bottom:1px;
+				color:#FFFFFF;
+			}
+			
+			#friendsList img{
+				margin-top:4px;
+				margin-left:3px;
+			}
+			
+			#friendsList span{
+				float:right;
+				font-size:19px;
+			}
+			
+			#friendsList div:hover{
+				background:#DFDFDF;
+				color:#3b5998;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="fb-root"></div>
+		<script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script>
+			var defaultPath = "http://ckchen.dorma.nccu.edu.tw/~ckchen/Week2/Ex1_friends.html";
+		
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId: "181895091940078", // Your facebook app id
+					status: true,
+					cookie: true,
+					xfbml: true
+				});
+			}
+			
+			(function(d, s, id) {
+ 			var js, fjs = d.getElementsByTagName(s)[0];
+ 			if (d.getElementById(id)) return;
+ 			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=181895091940078";
+ 			fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<script>
+			var uid;
+			var Access_Token;
+			
+			//You don't have to acquire any permissions if friends only
+			$(window).load(function () {
+ 				FB.login( successCall, { scope: ''});//We only need the basic information
+			});
+			
+			//Login or authentication may be failed, so check the user's status is recommended.
+			function successCall(){
+				
+				FB.getLoginStatus(function(response) {
+					if (response.status === 'connected') {
+					
+					//authResponse returns the list such as below
+					//If you store these informations, you can further use them to promote your website
+					/* the form returned
+					{
+						status: 'connected',
+						authResponse: {
+							accessToken: '...',
+							expiresIn:'...',
+							signedRequest:'...',
+							userID:'...'
+						}
+					}
+					*/
+	
+						listFriends();//Check that if the user is connected with the facebook. If yes, call the next function.
+					} else if (response.status === 'not_authorized') {
+					// the user is logged in to Facebook, but not connected to the app
+						alert("Please authorize this app!");
+						window.location = defaultPath;
+					} else {
+					// the user isn't even logged in to Facebook.
+						alert("Please Login with your Facebook account!");
+						window.location = defaultPath;
+					}
+				});
+			}
+			
+			function listFriends(){
+				
+				var friendsDiv = document.getElementById("friendsList");
+				
+				FB.api('/me/friends', function(response){
+				
+					var i=0;
+					
+					while(response['data'][i] != null){
+						var friendsLink = document.createElement("a");
+						var userFriends = document.createElement("div");
+						
+						var fId = response['data'][i]['id'];
+						var fName = response['data'][i]['name'];
+						
+						userFriends.innerHTML = '<img src="https://graph.facebook.com/' + fId + '/picture" />' + '<span>' + fName + '</span>';
+						friendsLink.setAttribute("href", "https://www.facebook.com/" + fId);
+						friendsLink.setAttribute("target", "_blank");
+						friendsLink.appendChild(userFriends);
+						friendsDiv.appendChild(friendsLink);
+						
+						i++;
+					}
+				});
+			}
+			
+		</script>
+		<h1>Friends List</h1>
+		<div id="friendsList">
+		</div>
+	</body>
+</html>
