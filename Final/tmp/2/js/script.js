@@ -36,21 +36,18 @@ $(document).ready(function(){
 			// If this section is in view
 			if ( ($window.scrollTop() + $window.height()) > (topOffset) &&
 				 ( (topOffset + $self.height()) > $window.scrollTop() ) ) {
-				console.log ("$window.scrollTop()",$window.scrollTop());
-				console.log ("topOffset" ,topOffset);
-				
+	
 				// Scroll the background at var speed
 				// the yPos is a negative value because we're scrolling it UP!								
 				var yPos = -($window.scrollTop() / $self.data('speed')); 
 				
 				// If this element has a Y offset then add it on
-				
 				if ($self.data('offsetY')) {
 					yPos += $self.data('offsetY');
 				}
 				
 				// Put together our final background position
-				var coords = '50%'+ yPos + 'px';
+				var coords = '50% '+ yPos + 'px';
 
 				// Move the background
 				$self.css({ backgroundPosition: coords });
@@ -64,7 +61,7 @@ $(document).ready(function(){
 					// Use the same calculation to work out how far to scroll the sprite
 					var yPos = -($window.scrollTop() / $sprite.data('speed'));					
 					var coords = $sprite.data('Xposition') + ' ' + (yPos + $sprite.data('offsetY')) + 'px';
-					//console.log (coords);
+					
 					$sprite.css({ backgroundPosition: coords });													
 					
 				}); // sprites

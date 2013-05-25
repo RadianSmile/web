@@ -4,29 +4,130 @@
 <meta charset="utf-8">
 <title>Blank</title>
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+<style>
+body { margin:0; padding:0; visibility: visible; display:block}
+#container { position:relative; width:100%; overflow:hidden; height:4000px}
+.section { height:1000px; position:relative; width:100%;}
+.sprite { position:relative; background:no-repeat center top; }
+.content { position:relative; padding:20px; background: rgba(255,255,255,.6); color:#FFCC00; width:300px;}
+
+#sec1, #sec2,#sec3 ,#sec4 { background-image:url(images/slide2.jpg);}
+#sprite1, #sprite2, #sprite3 ,#sprite4 { left:20%}
+#content1,#content2,#content3, #content4 { left:60%;  }
+#slide { width:100%; height:100%; position:relative; top:0; left:0}
+#sec4 , #sec3 { position:absolute; height:100%; width:100%; overflow:hidden;
+} 
+
+</style>
+
 </head>
 
 <body>
-<div class="container">
-		<div id="examples-pin">
-			<div id="pin-frame-pin" class="pin-frame"><h2>Pin It</h2></div>
-			<div id="pin-frame-slide" class="pin-frame"><h2>Slide It</h2></div>
-			<div id="pin-frame-wipe" class="pin-frame"><h2>Wipe It</h2></div>
-			<div id="pin-frame-bounce" class="pin-frame"><h2>Bounce It</h2></div>
-			<div id="pin-frame-color" class="pin-frame"><h2>Color It</h2></div>
-			<div id="pin-frame-unpin" class="pin-frame"><h2>Unpin It</h2></div>
-		</div>
 
+<div id="container">
+  <section id="sec1" class="section">
+    <article id="content1" class="content">
+      <h2>This is section 1</h2>
+      <p>a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop</p>
+    </article>
+    <div id="sprite1" class="sprite"><img src="images/photo.png"></div>
+  </section>
+  
+  <section id="sec2" class="section">
+    <article id="content2" class="content">
+      <h2>This is section 1</h2>
+      <p>a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop</p>
+    </article>
+    <div id="sprite2" class="sprite"><img src="images/photo.png"></div>
+  </section>
+
+<div id="slide">
+  <section id="sec3" class="section">
+    <article id="content3" class="content">
+      <h2>This is section 1</h2>
+      <p>a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop</p>
+    </article>
+    <div id="sprite3" class="sprite"><img src="images/photo.png"></div>
+  </section>
+  
+  <section id="sec4" class="section">
+    <article id="content4" class="content">
+      <h2>This is section 1</h2>
+      <p>a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop</p>
+    </article>
+    <div id="sprite4" class="sprite"><img src="images/photo.png"></div>
+  </section>
 </div>
+
+
+  
+</div>
+
+
+
+
 <script src="js/jquery.min.js"></script>
 <script src="js/TweenMax.min.js"></script>
 <script src="js/jquery.superscrollorama.js"></script>
 
 <script type="text/javascript" >
+$(document).ready(function(e) {
+  var ctr = $.superscrollorama({
+	  triggerAtCenter:false
+	});
+	
+
+	
+ /* ctr.pin(
+    $('#sec2'),
+    1400,
+    {
+      anmi:(new TimelineLite())
+        .append(
+          TweenMax.fromTo(
+            $('#sec2'),10,
+            {css:{opacity:1}},
+            {css:{opacity:.8}}
+            )
+          ),
+	  onUnpin:function (){
+		ctr.addTween('#sec2',TweenMax.fromTo($('#sec2'),2,{css:{left:0}},{css:{"left":"-100%"}}))
+	  }
+    }
+  
+  )*/
+  ctr.addTween(
+    '#sec2',
+    (new TimelineLite())
+      .append([
+        TweenMax.fromTo($('#sprite2'),1,{css:{top:-150}},{css:{top:200}}),
+        TweenMax.fromTo($('#content2'),1,{css:{top:200}},{css:{top:400}})
+      ]),
+	$(window).height()/2
+  )	;
 
 
+  ctr.pin ($('#slide'),1000,
+  {
+    anim:(new TimelineLite())
+      .append([
+        TweenMax.fromTo($('#sec3'),1,{css:{'marginLeft':"0%"}},{css:{'marginLeft':'-100%'}}),
+        TweenMax.fromTo($('#sec4'),1,{css:{'marginLeft':'100%'}},{css:{ 'marginLeft':0}})
+        ]),
+    onPin: function() {
+      $('#slide').css('height','100%');
+    },
+    onUnpin: function () {
+      $('#slide').css ('height',$(window).height());
+    }
+  }
+  );
+
+//  console.log("true");
+});
+
+
+  
 
 </script>
 </body>
