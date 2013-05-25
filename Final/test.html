@@ -8,13 +8,14 @@
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 <style>
 body { margin:0; padding:0;}
-.section { height:1000px; position:relative;}
-.sprite { position:relative; background:no-repeat center top;}
-.content { position:relative; padding:20px; background: rgba(255,255,255,.5); width:15%;}
+#container { width:100%; overflow:hidden; height:10000px;}
+.section { height:1000px; position:relative; width:100%;}
+.sprite { position:relative; background:no-repeat center top; }
+.content { position:relative; padding:20px; background: rgba(255,255,255,.6); color:#FFCC00; width:15%;}
 
 #sec1, #sec2 { background-image:url(images/slide2.jpg);}
-#sprite1, #sprite2 {position:relative; top:-150px; left:30%}
-#content1,#content2 { left:60%; top:100px;}
+#sprite1, #sprite2 { left:30%}
+#content1,#content2 { left:60%;  }
 </style>
 
 </head>
@@ -37,10 +38,11 @@ body { margin:0; padding:0;}
     </article>
     <div id="sprite2" class="sprite"><img src="images/photo.png"></div>
   </section>
-
-
   
 </div>
+
+
+
 
 
 <script src="js/jquery.min.js"></script>
@@ -49,21 +51,37 @@ body { margin:0; padding:0;}
 
 <script type="text/javascript" >
 $(document).ready(function(e) {
-  var ctr = $.superscrollorama();
-
+  var ctr = $.superscrollorama({
+	  triggerAtCenter:false
+	});
+  ctr.pin(
+    $('#sec2'),
+    1400,
+    {
+      anmi:(new TimelineLite())
+        .append(
+          TweenMax.fromTo(
+            $('#sec2'),10,
+            {css:{opacity:1}},
+            {css:{opacity:.8}}
+            )
+          ),
+	  onUnpin:function (){
+		ctr.addTween('#sec2',TweenMax.fromTo($('#sec2'),2,{css:{left:0}},{css:{"left":"-100%"}}))
+	  }
+    }
+  
+  )
   ctr.addTween(
-    '#sec1',
+    '#sec2',
     (new TimelineLite())
       .append([
-        TweenMax.to($('sprite2'),1,{css:{top:200}}.
-        TweenMax.to($('content1')),1,{css:{top:400}}
+        TweenMax.fromTo($('#sprite2'),1,{css:{top:-150}},{css:{top:200}}),
+        TweenMax.fromTo($('#content2'),1,{css:{top:200}},{css:{top:400}})
       ]),
-    1000
-  )
-	
-	
-	
-	
+	1400
+  )	;
+//  console.log("true");
 });
 
 
