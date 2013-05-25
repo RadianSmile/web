@@ -6,26 +6,65 @@
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+<style>
+body { margin:0; padding:0;}
+.section { height:1000px; position:relative;}
+.sprite { position:relative; background:no-repeat center top;}
+.content { position:relative; padding:20px; background: rgba(255,255,255,.5); width:15%;}
+
+#sec1, #sec2 { background-image:url(images/slide2.jpg);}
+#sprite1, #sprite2 {position:relative; top:-150px; left:30%}
+#content1,#content2 { left:60%; top:100px;}
+</style>
+
 </head>
 
 <body>
-<div class="container">
-		<div id="examples-pin">
-			<div id="pin-frame-pin" class="pin-frame"><h2>Pin It</h2></div>
-			<div id="pin-frame-slide" class="pin-frame"><h2>Slide It</h2></div>
-			<div id="pin-frame-wipe" class="pin-frame"><h2>Wipe It</h2></div>
-			<div id="pin-frame-bounce" class="pin-frame"><h2>Bounce It</h2></div>
-			<div id="pin-frame-color" class="pin-frame"><h2>Color It</h2></div>
-			<div id="pin-frame-unpin" class="pin-frame"><h2>Unpin It</h2></div>
-		</div>
 
+<div id="container">
+  <section id="sec1" class="section">
+    <article id="content1" class="content">
+      <h2>This is section 1</h2>
+      <p>a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop</p>
+    </article>
+    <div id="sprite1" class="sprite"><img src="images/photo.png"></div>
+  </section>
+  
+  <section id="sec2" class="section">
+    <article id="content2" class="content">
+      <h2>This is section 1</h2>
+      <p>a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop a ab abc abcd abcde abcdefg hi hij hijk hijkl hijklm hijklmn hijklmno hijklmnop</p>
+    </article>
+    <div id="sprite2" class="sprite"><img src="images/photo.png"></div>
+  </section>
+
+
+  
 </div>
+
+
 <script src="js/jquery.min.js"></script>
 <script src="js/TweenMax.min.js"></script>
 <script src="js/jquery.superscrollorama.js"></script>
 
 <script type="text/javascript" >
+$(document).ready(function(e) {
+  var ctr = $.superscrollorama();
 
+  ctr.addTween(
+    '#sec1',
+    (new TimelineLite())
+      .append([
+        TweenMax.to($('sprite2'),1,{css:{top:200}}.
+        TweenMax.to($('content1')),1,{css:{top:400}}
+      ]),
+    1000
+  )
+	
+	
+	
+	
+});
 
 
 </script>

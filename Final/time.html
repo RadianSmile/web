@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Blank</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+</head>
+
+<body onLoad="runTime()">
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <div>
+        <h1 id="time"></h1>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="js/jquery.min.js"></script>
+
+<script type="text/javascript" >
+
+function runTime()
+{	var a = new Date();
+	var h = a.getHours() + ":";
+	var m = a.getMinutes() +":";
+	var s = a.getSeconds();
+	var t = h + m + s ;
+	setTimeout ( "runTime()",1000);
+	console.log (t);
+	$('#time').text(t);
+}
+</script>
+</body>
+</html>

@@ -8,15 +8,10 @@
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 
 <style>
-body {	
-	margin-top:0px;
-	padding-top:0px;
-	position:relative;
-}
+body {	margin:0px;	padding:0px; position:relative;}
 #container{
 	overflow:hidden;
-	padding:0;
-	margin:0px;
+	padding:0;	margin:0;
 	position:relative;
 	}
 #section1 {
@@ -64,22 +59,35 @@ body {
 	left:100px;
 }
 
+
+#second 
+{ background:url(images/slide4.jpg) no-repeat center top ;
+  height:1000px;
+	
+}
 </style>
 </head>
 
 
 <body>
   <div id="section1" style="background:url(img/page1.jpg) top center scroll no-repeat ;" >
-    <div id="page1_sprite"><img id="spr1" src="img/spr1.jpg" ></div>
+    <div id="page1_spri te"><img id="spr1" src="img/spr1.jpg" ></div>
     <div id="page1_cnt">
       <h2>This is Page 1</h2>
       <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p></div>
     <div id="page1_bg"></div>
   </div>
-
   <div id="page2"></div>
-</div>
   
+  <section id="second">
+    <div class="sprite"> </div>
+    <article id="">
+      <h2></h2>
+      <p></p>
+    </article>
+  </section>
+</div>
+ 
 <script src="js/jquery.min.js"></script>
 <script src="js/TweenMax.min.js"></script>
 <script src="js/jquery.superscrollorama.js"></script>
@@ -129,7 +137,15 @@ body {
 					}
 
 	  });
-	  
+	
+	
+	ctrl.pin(
+	  $('#second'),1000,
+	  {
+		anim:(new TimelineLite()) 
+		  .append ([
+		    TweenMax.fromTo($('#')) 
+	  }
 	  
 	  
 	  
