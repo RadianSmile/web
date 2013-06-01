@@ -1,0 +1,19 @@
+/* CSS Document */
+body { padding:0; margin:0;}
+
+.layer {	position:absolute;}
+.layerInner{	position:relative;}
+
+.wMax {width:100%}
+.w960 {	width:960px;}
+.w300{width:300px;}
+
+.aCenter {	margin: auto;}
+.aLeft {	}
+.aRight {	margin-left:70%;}
+
+div,article,p { overflow:hiidden;}
+
+
+.twnAbs { position:absolute; display:block;}
+.twnFix { position:absolute;}
