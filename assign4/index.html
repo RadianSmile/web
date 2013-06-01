@@ -90,12 +90,19 @@
 				/*
 				第四步：
 				*/
-				FB.api('me/friends',function (r){
-					
-					console.log(r);
-					
-					
-				})
+				FB.api('me/friends',function(response){
+
+	var i=0;
+
+	while(response['data'][i] != null){
+
+		var fId = response['data'][i]['id'];
+		var fName = response['data'][i]['name'];
+		$("<div onclick='changeInfo("+fId+");'><img src='https://graph.facebook.com/"+ fId + "/picture' /><span>"+fName+"</span></div>").appendTo("#FillInList");
+
+		i++;
+	}
+})
 				
 				
 				
