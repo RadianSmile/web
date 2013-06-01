@@ -22,6 +22,11 @@ body { margin:0; padding:0; visibility: visible; display:block}
 </head>
 
 <body>
+<div id="test" style="position:absolute ; z-index:300;">
+  <div id="ttt" style="position:relative">
+    <div id="tttt" style="position:relative;"><img src="images/photo.png"></div>
+  </div>
+</div>
 
 <div id="container">
   <section id="sec1" class="section">
@@ -95,6 +100,18 @@ $(document).ready(function(e) {
     }
   
   )*/
+  ctr.pin ($("#ttt"),3000,
+    {
+	  anim:(new TimelineLite())
+	    .append(
+		  TweenMax.fromTo($('#tttt'),1,{css:{top:100} , immediateRender:true},{css:{top:300},immediateRender:true})
+		)
+		.append(
+		  TweenMax.fromTo($('#tttt'),1,{css:{left:100}},{css:{left:500}})
+		)
+	}
+    
+  )
   ctr.addTween(
     '#sec2',
     (new TimelineLite())

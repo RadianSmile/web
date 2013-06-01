@@ -1,0 +1,125 @@
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<title>Facebook Friends Lists</title>
+		<link rel="stylesheet" type="text/css" href="CSS/FriendLists.css"/>
+		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+	</head>
+	<body>
+		<!--第一步：請先在此加入Facebook應用程式開發所需要的的資源，請參考 https://developers.facebook.com/docs/reference/javascript/ -->
+		<script>
+			$(window).load(function () {
+				/*
+				第二步：請在此處加入FB.login，請參考 https://developers.facebook.com/docs/reference/javascript/FB.login/
+				我們需要在login完成後呼叫loginDialog這個function，並且在後方的授權項目中加入所需要的授權
+				因次在實作的過程中，必須先思考自己會需要用到哪些資訊
+				在這次的作業中，我們需要使用者的生日，居住地，讀取朋友清單，管理朋友清單（如果需要的話）
+				*/
+			});
+			
+			function loginDialog(){
+				
+				/*
+				第三步：以FB.getLoginStatus來確認使用者的登入狀態，請參考 https://developers.facebook.com/docs/reference/javascript/FB.getLoginStatus/
+				*/
+				
+			}
+			
+			function listFriends(){
+				
+				//from now on we can decorate our website with the data related to the facebook.
+				//list all your friends.
+				/*
+				第四步：
+				*/
+				
+				
+				
+				
+				/*
+				第五步：
+				*/
+				//We have listed all your friends without any list categories.
+				//Try to use the api to retrieve our friend lists and display them in the website
+				
+					
+			}
+			
+			function getFr(temp){
+			
+				/*第六步*/
+				//use this to record the list number.
+				var i = 0;
+				
+				//create the div of the list and add all of the list into the right area.
+				while (temp["data"][i] != null){
+					GroupID[i] = temp["data"][i]["id"];//Save the id value of the group into an array.
+					
+					$("<div><h1>" + temp["data"][i]["name"] + "</h1><ul class='sortFB connectSort' id='"+ GroupID[i] +"'></ul></div>").appendTo("#GroupList");
+				
+					i++;
+				}
+					
+				var i = 0;
+				
+				getMembers(i);//start to display the existent members in the existent lists.
+				
+			}	
+			
+			function getMembers(num){
+			
+				//request the meber list, then call the insert function
+				if(GroupID[num] != null){
+				
+					/*請在下方FB.api內的第一個欄位，填入要找到哪些東西的對應名稱*/
+					FB.api('/'+GroupID[num]+'/members', function(res){
+						GroupMember[num] = res;
+						listMember(num);
+					});
+				}
+			}
+			
+			function listMember(num){
+				var a = 0;
+				
+				//You have saved the responsed JSON into the array GroupMember, thus you can start to use this array to insert data. 
+				while(GroupMember[num]["data"][a] != null){
+							
+					$("<div onclick='changeInfo("+GroupMember[num]["data"][a]["id"]+");'><img src='https://graph.facebook.com/"+ GroupMember[num]["data"][a]["id"] + "/picture' /><span>"+GroupMember[num]["data"][a]["name"]+"</span></div>").appendTo("#"+GroupID[num]);
+						
+					a++;
+				}
+				
+				getMembers(num+1);
+				
+			}
+			
+			function changeInfo(friends){
+				
+				FB.api("/"+friends, function(response) {
+					
+					$("#name").text(response.name);
+					$("#gender").text(response.gender);
+					$("#birth").text(response.birthday);
+					$("#loca").text(response.location.name);
+					
+				});
+				
+			}
+		</script>
+			<div id="FriendList">
+				<h1>Your Friends</h1>
+				<ul id="FillInList">
+				</ul>
+			</div>
+			<div id="infoDiv">
+				<span>姓名：</span><span id="name"></span><br/>
+				<span>性別：</span><span id="gender"></span><br/>
+				<span>生日：</span><span id="birth"></span><br/>
+				<span>住處：</span><span id="loca"></span><br/>
+			</div>
+			<div id="GroupList">
+			</div>
+	</body>
+</html>
