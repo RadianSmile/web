@@ -111,7 +111,6 @@
 				var friendsDiv = document.getElementById("friendsList");
 				
 				FB.api('/me/friends', function(response){
-				
 					var i=0;
 					
 					while(response['data'][i] != null){
