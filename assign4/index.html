@@ -30,24 +30,24 @@
     </script>
 
 		<script>
-$(window).load(function () {
-FB.login(function(response) {
- 	if (response.authResponse) {
-		console.log('Welcome!  Fetching your information.... ');
-		FB.api('/me', function(response) {
-			console.log('Good to see you, ' + response.name + '.');
-			loginDialog();
-		});
-	} else {
-	console.log('User cancelled login or did not fully authorize.');
-	}
-	},{ scope: ''});
-				/*
-				第二步：請在此處加入FB.login，請參考 https://developers.facebook.com/docs/reference/javascript/FB.login/
-				我們需要在login完成後呼叫loginDialog這個function，並且在後方的授權項目中加入所需要的授權
-				因次在實作的過程中，必須先思考自己會需要用到哪些資訊
-				在這次的作業中，我們需要使用者的生日，居住地，讀取朋友清單，管理朋友清單（如果需要的話）
-				*/
+		$(window).load(function () {
+			/*
+			第二步：請在此處加入FB.login，請參考 https://developers.facebook.com/docs/reference/javascript/FB.login/
+			我們需要在login完成後呼叫loginDialog這個function，並且在後方的授權項目中加入所需要的授權
+			因次在實作的過程中，必須先思考自己會需要用到哪些資訊
+			在這次的作業中，我們需要使用者的生日，居住地，讀取朋友清單，管理朋友清單（如果需要的話）
+			*/
+			FB.login(function(response) {
+				if (response.authResponse) {
+					//console.log('Welcome!  Fetching your information.... ');
+					FB.api('/me', function(response) {
+						//console.log('Good to see you, ' + response.name + '.');
+						loginDialog();
+					});
+				} else {
+				console.log('User cancelled login or did not fully authorize.');
+				}
+			},{ scope: ''});
 			});
 			
 			function loginDialog(){
