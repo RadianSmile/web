@@ -5,10 +5,37 @@
 		<link rel="stylesheet" type="text/css" href="CSS/FriendLists.css"/>
 		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 	</head>
 	<body>
 		<!--第一步：請先在此加入Facebook應用程式開發所需要的的資源，請參考 https://developers.facebook.com/docs/reference/javascript/ -->
 		<div id="fb-root"></div>
+		<script>
+		  function change(para){
+				switch (para){
+					case 1:
+						var temptitle = prompt("請輸入你想建立的朋友清單名稱");
+						
+						if(temptitle){
+				
+							FB.api('me/friendlists', 'post', {name: temptitle}, function(res){
+								var i = GroupID.length;
+								GroupID[i+1] = res.id;
+								$("<div><h1>" + temptitle + "</h1><ul class='sortFB connectSort' id='"+ res.id +"'></ul></div>").appendTo("#GroupList");
+								getMembers(i);//start to display the existent members in the existent lists.
+							});
+						}else{
+							alert("Null list name is not allowed, please check again.");
+						}
+					break;
+					
+					case 2:break;
+				}
+			}
+		
+		
+		</script>
+		
 		<script>
       window.fbAsyncInit = function() {
         // init the FB JS SDK
@@ -46,7 +73,7 @@
 				} else {
 				console.log('User cancelled login or did not fully authorize.');
 				}
-			},{ scope: 'manage_friendlists,read_friendlists'});
+			},{ scope: 'friends_birthday, friends_location,read_friendlists,manage_friendlists'});
 			});
 			
 			function loginDialog(){
@@ -158,14 +185,20 @@
 				<h1>Your Friends</h1>
 				<ul id="FillInList">
 				</ul>
-			</div>
+			</div>     
 			<div id="infoDiv">
 				<span>姓名：</span><span id="name"></span><br/>
 				<span>性別：</span><span id="gender"></span><br/>
 				<span>生日：</span><span id="birth"></span><br/>
 				<span>住處：</span><span id="loca"></span><br/>
+        
+        <ul id="ControlList">
+         	<li id="create" onClick="change(1)"><span>Create</span></li>
+	        <li id="delete" onClick="change(2)"><span>Delete</span></li>
+        </ul>
 			</div>
 			<div id="GroupList">
 			</div>
+      
 	</body>
 </html>

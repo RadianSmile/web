@@ -33,15 +33,15 @@ if(temptitle){
 
 /*在Facebook中刪除使用者群組*/
 //回傳的res是boolean值，代表是否刪除成功
-FB.api('/FRIENDLIST_ID', 'DELETE', function(res){
+FB.api('/FRIENDLIST_ID','DELETE', function(res){
 						
-}
+});
 
 /*將某個id的朋友加入在Facebook中的特定朋友清單*/
 //回傳的res是boolean值，代表是否加入成功
 FB.api('/FRIENDLIST_ID/members/USER_ID', 'POST', function(res){
 	
-}
+});
 
 /*將某個id的朋友在Facebook中的特定朋友清單內刪除*/
 //回傳的res是boolean值，代表是否刪除成功
