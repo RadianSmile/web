@@ -21,7 +21,7 @@
 							FB.api('me/friendlists', 'post', {name: temptitle}, function(res){
 								var i = GroupID.length;
 								GroupID[i+1] = res.id;
-								$("<div><h1>" + temptitle + "</h1><ul class='sortLI sortFB connectSort' id='"+ res.id +"'></ul></div>").appendTo("#GroupList");
+								$("<div><h1>" + temptitle + "</h1><ul class='sortLIs connectSort' id='"+ res.id +"'></ul></div>").appendTo("#GroupList");
 								getMembers(i);//start to display the existent members in the existent lists.
 							});
 						}else{
@@ -58,17 +58,15 @@
     
       <script> // 加分項目
 	 function addScore(){
-      $('.sortFR').sortable({
-			  connectWith: '.sortLI',
+      $('.sortFR','.sortLI').sortable({
+			  connectWith: 'connectSort',
+			  tolerance:'pointer',
 				delay: 0
 			});
 				
-			$('.sortLI').sortable({
-				connectWith:'.sortFR',
-				delay: 0
-			})
 			$('.sortLIs').sortable({
 				connectWith:'#delete',
+				tolerance:'pointer',
 				delay:0
 			})
 			
@@ -88,6 +86,8 @@
 							if (res) {alert ("刪除成功");$i.remove();}
 							else {alert ("刪除失敗");$i.cancel();}
 						});
+					}else{
+						$i.cancel();
 					}
 					
 				}
@@ -225,7 +225,7 @@
 		</script>
 			<div id="FriendList">
 				<h1>Your Friends</h1>
-				<ul class='sortFR' id="FillInList">
+				<ul class='sortFR connectSort' id="FillInList">
 				</ul>
 			</div>     
 			<div id="infoDiv">
