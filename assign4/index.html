@@ -46,7 +46,7 @@
 				} else {
 				console.log('User cancelled login or did not fully authorize.');
 				}
-			},{ scope: ''});
+			},{ scope: 'manage_friendlists,read_friendlists'});
 			});
 			
 			function loginDialog(){
@@ -89,12 +89,9 @@
 				})
 				
 				/*第五步：*/
-				
-				
-				
 				//We have listed all your friends without any list categories.
 				//Try to use the api to retrieve our friend lists and display them in the website
-				
+				FB.api('me/friendlists',getFr(friendList));
 					
 			}
 			
@@ -103,7 +100,6 @@
 				/*第六步*/
 				//use this to record the list number.
 				var i = 0;
-				
 				//create the div of the list and add all of the list into the right area.
 				while (temp["data"][i] != null){
 					GroupID[i] = temp["data"][i]["id"];//Save the id value of the group into an array.
