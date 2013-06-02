@@ -21,7 +21,7 @@
 							FB.api('me/friendlists', 'post', {name: temptitle}, function(res){
 								var i = GroupID.length;
 								GroupID[i+1] = res.id;
-								$("<div><h1>" + temptitle + "</h1><ul class='sortFB connectSort' id='"+ res.id +"'></ul></div>").appendTo("#GroupList");
+								$("<div><h1>" + temptitle + "</h1><ul class='sortLI sortFB connectSort' id='"+ res.id +"'></ul></div>").appendTo("#GroupList");
 								getMembers(i);//start to display the existent members in the existent lists.
 							});
 						}else{
@@ -183,7 +183,7 @@
 		</script>
 			<div id="FriendList">
 				<h1>Your Friends</h1>
-				<ul class='sortable' id="FillInList">
+				<ul class='sortFR' id="FillInList">
 				</ul>
 			</div>     
 			<div id="infoDiv">
@@ -197,11 +197,19 @@
 	        <li id="delete" onClick="change(2)"><span>Delete</span></li>
         </ul>
 			</div>
-			<div id="GroupList" class='sortable'>
+			<div id="GroupList" >
 			</div>
   <script>
 	  $(document).ready(function(e) {
-      $('.sortable').sortable();
+      $('.sortRR').sortable({
+			  connectWith: '.sortLI',
+				delay: 0
+			});
+				
+			$('.sortLI').sortable({
+				connectWith:'sortFR',
+				delay: 0
+			})
     });
 	</script>    
 	</body>
