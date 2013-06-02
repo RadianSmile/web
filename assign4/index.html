@@ -218,10 +218,10 @@
 			$("#delete").sortable({
   			receive: function( e, ui ) {
 					console.log(e,ui);
-					var i = ui.item;
+					var i = ui['item'];
 					var ID = $(i).attr('id');
 					
-					var a = alert("你確定要刪除此清單嗎?這動作會使FB裡的此清單也真的被刪除。");
+					var a = confirm("你確定要刪除此清單嗎?這動作會使FB裡的此清單也真的被刪除。");
 					console.log (a);
 					if (a)
 					{
