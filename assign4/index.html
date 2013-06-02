@@ -104,7 +104,7 @@
 
 		<script>
 		$(window).load(function () {
-			addScore();
+			
 			/*
 			第二步：請在此處加入FB.login，請參考 https://developers.facebook.com/docs/reference/javascript/FB.login/
 			我們需要在login完成後呼叫loginDialog這個function，並且在後方的授權項目中加入所需要的授權
@@ -213,6 +213,7 @@
 						
 					a++;
 				}
+				addScore();
 				getMembers(num+1);
 			}
 			
