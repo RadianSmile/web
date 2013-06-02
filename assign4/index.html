@@ -133,7 +133,7 @@
 				//create the div of the list and add all of the list into the right area.
 				while (temp["data"][i] != null){
 					GroupID[i] = temp["data"][i]["id"];//Save the id value of the group into an array.
-					$("<div><h1>" + temp["data"][i]["name"] + "</h1><ul class='sortLI sortFB connectSort' id='"+ GroupID[i] +"'></ul></div>").appendTo("#GroupList");
+					$("<div><h1>" + temp["data"][i]["name"] + "</h1><ul class='sortLI connectSort' id='"+ GroupID[i] +"'></ul></div>").appendTo("#GroupList");
 
 					i++;
 				}		
@@ -197,7 +197,7 @@
 	        <li id="delete" onClick="change(2)"><span>Delete</span></li>
         </ul>
 			</div>
-			<div id="GroupList" >
+			<div id="GroupList" class="sortLIs">
 			</div>
   <script>
 	  $(document).ready(function(e) {
@@ -210,6 +210,28 @@
 				connectWith:'.sortFR',
 				delay: 0
 			})
+			$('.sortLIs').sortable({
+				connectWith:'#delete',
+				delay:0
+			})
+			
+			$("#delete").sortable({
+  			receive: function( e, ui ) {
+					var a = ui.item;
+					var ID = $(a).attr('id');
+					
+					var a = alert("你確定要刪除此清單嗎?這動作會使FB裡的此清單也真的被刪除。")
+					if (a)
+					{
+						FB.api( ID,'DELETE', function(res){
+							if (res) {alert ("刪除成功");$(a).remove();}
+							else {alert ("刪除失敗");$(a).cancel();}
+						});
+					}
+					
+				}
+			});
+			
     });
 	</script>    
 	</body>
