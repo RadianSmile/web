@@ -161,7 +161,7 @@
 				
 				//You have saved the responsed JSON into the array GroupMember, thus you can start to use this array to insert data. 
 				while(GroupMember[num]["data"][a] != null){
-					$("<div class='sortable' onclick='changeInfo("+GroupMember[num]["data"][a]["id"]+");'><img src='https://graph.facebook.com/"+ GroupMember[num]["data"][a]["id"] + "/picture' /><span>"+GroupMember[num]["data"][a]["name"]+"</span></div>").appendTo("#"+GroupID[num]);
+					$("<div onclick='changeInfo("+GroupMember[num]["data"][a]["id"]+");'><img src='https://graph.facebook.com/"+ GroupMember[num]["data"][a]["id"] + "/picture' /><span>"+GroupMember[num]["data"][a]["name"]+"</span></div>").appendTo("#"+GroupID[num]);
 						
 					a++;
 				}
@@ -183,7 +183,7 @@
 		</script>
 			<div id="FriendList">
 				<h1>Your Friends</h1>
-				<ul id="FillInList">
+				<ul class='sortable' id="FillInList">
 				</ul>
 			</div>     
 			<div id="infoDiv">
@@ -197,7 +197,7 @@
 	        <li id="delete" onClick="change(2)"><span>Delete</span></li>
         </ul>
 			</div>
-			<div id="GroupList">
+			<div id="GroupList" class='sortable'>
 			</div>
   <script>
 	  $(document).ready(function(e) {
