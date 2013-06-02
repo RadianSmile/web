@@ -217,15 +217,16 @@
 			
 			$("#delete").sortable({
   			receive: function( e, ui ) {
-					var a = ui.item;
+					var i = ui.item;
 					var ID = $(a).attr('id');
 					
 					var a = alert("你確定要刪除此清單嗎?這動作會使FB裡的此清單也真的被刪除。")
+					console.log (a);
 					if (a)
 					{
 						FB.api( ID,'DELETE', function(res){
-							if (res) {alert ("刪除成功");$(a).remove();}
-							else {alert ("刪除失敗");$(a).cancel();}
+							if (res) {alert ("刪除成功");$(i).remove();}
+							else {alert ("刪除失敗");$(i).cancel();}
 						});
 					}
 					
