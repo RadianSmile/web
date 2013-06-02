@@ -217,6 +217,7 @@
 			
 			$("#delete").sortable({
   			receive: function( e, ui ) {
+					console.log(e,ui);
 					var i = ui.item;
 					var ID = $(i).attr('id');
 					
