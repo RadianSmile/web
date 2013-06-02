@@ -55,8 +55,50 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
     </script>
+    
+      <script> // 加分項目
+	 function addScore(){
+      $('.sortFR').sortable({
+			  connectWith: '.sortLI',
+				delay: 0
+			});
+				
+			$('.sortLI').sortable({
+				connectWith:'.sortFR',
+				delay: 0
+			})
+			$('.sortLIs').sortable({
+				connectWith:'#delete',
+				delay:0
+			})
+			
+			$("#delete").sortable({
+  			receive: function( e, ui ) {
+					console.log(e,ui);
+					var $i = $(ui['item']);
+					var id = $i.find('ul').attr('id');
+					console.log(id);
+					console.log($i);
+					console.log($(this));
+					var a = confirm("你確定要刪除此清單嗎?這動作會使FB裡的此清單也真的被刪除。");
+					console.log (a);
+					if (a)
+					{
+						FB.api( id ,'DELETE', function(res){
+							if (res) {alert ("刪除成功");$i.remove();}
+							else {alert ("刪除失敗");$i.cancel();}
+						});
+					}
+					
+				}
+			});
+			
+    };
+	</script>    
+
 		<script>
 		$(window).load(function () {
+			addScore();
 			/*
 			第二步：請在此處加入FB.login，請參考 https://developers.facebook.com/docs/reference/javascript/FB.login/
 			我們需要在login完成後呼叫loginDialog這個function，並且在後方的授權項目中加入所需要的授權
@@ -199,45 +241,6 @@
 			</div>
 			<div id="GroupList" class="sortLIs">
 			</div>
-  <script>
-	  $(document).ready(function(e) {
-      $('.sortFR').sortable({
-			  connectWith: '.sortLI',
-				delay: 0
-			});
-				
-			$('.sortLI').sortable({
-				connectWith:'.sortFR',
-				delay: 0
-			})
-			$('.sortLIs').sortable({
-				connectWith:'#delete',
-				delay:0
-			})
-			
-			$("#delete").sortable({
-  			receive: function( e, ui ) {
-					console.log(e,ui);
-					var $i = $(ui['item']);
-					var id = $i.find('ul').attr('id');
-					console.log(id);
-					console.log($i);
-					console.log($(this));
-					var a = confirm("你確定要刪除此清單嗎?這動作會使FB裡的此清單也真的被刪除。");
-					console.log (a);
-					if (a)
-					{
-						FB.api( id ,'DELETE', function(res){
-							if (res) {alert ("刪除成功");$i.remove();}
-							else {alert ("刪除失敗");$i.cancel();}
-						});
-					}
-					
-				}
-			});
-			
-    });
-	</script>    
 	</body>
   
 </html>
