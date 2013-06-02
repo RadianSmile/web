@@ -108,9 +108,12 @@
 					GroupID[i] = temp["data"][i]["id"];//Save the id value of the group into an array.
 					$("<div><h1>" + temp["data"][i]["name"] + "</h1><ul class='sortFB connectSort' id='"+ GroupID[i] +"'></ul></div>").appendTo("#GroupList");
 
-					getMembers(i);//start to display the existent members in the existent lists.
 					i++;
 				}		
+				
+				var i = 0 ;
+				getMembers(i);//start to display the existent members in the existent lists.
+
 			}	
 			
 			function getMembers(num){
