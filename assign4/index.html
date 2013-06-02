@@ -95,7 +95,8 @@
 					
 			}
 			
-			var GroupIP = [];
+			var GroupID = [];
+			var GroupMember = [];
 			function getFr(temp){
 			
 				/*第六步*/
@@ -130,14 +131,11 @@
 				
 				//You have saved the responsed JSON into the array GroupMember, thus you can start to use this array to insert data. 
 				while(GroupMember[num]["data"][a] != null){
-							
 					$("<div onclick='changeInfo("+GroupMember[num]["data"][a]["id"]+");'><img src='https://graph.facebook.com/"+ GroupMember[num]["data"][a]["id"] + "/picture' /><span>"+GroupMember[num]["data"][a]["name"]+"</span></div>").appendTo("#"+GroupID[num]);
 						
 					a++;
 				}
-				
 				getMembers(num+1);
-				
 			}
 			
 			function changeInfo(friends){
