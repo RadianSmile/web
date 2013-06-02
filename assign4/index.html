@@ -219,7 +219,7 @@
   			receive: function( e, ui ) {
 					console.log(e,ui);
 					var $i = $(ui['item']);
-					var ID = $i.attr('id');
+					var ID = $i.fincd('ui').attr('id');
 					console.log($i);
 					console.log($(this));
 					var a = confirm("你確定要刪除此清單嗎?這動作會使FB裡的此清單也真的被刪除。");
