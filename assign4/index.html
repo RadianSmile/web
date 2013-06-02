@@ -58,11 +58,17 @@
     
       <script> // 加分項目
 	 function addScore(){
-      $('.sortFR','.sortLI').sortable({
+      $('.sortFR').sortable({
 			  connectWith: 'connectSort',
 			  tolerance:'pointer',
 				delay: 0
 			});
+	$('.sortLI').sortable({
+			  connectWith: 'connectSort',
+			  tolerance:'pointer',
+				delay: 0
+			});		
+
 				
 			$('.sortLIs').sortable({
 				connectWith:'#delete',
