@@ -201,13 +201,13 @@
 			</div>
   <script>
 	  $(document).ready(function(e) {
-      $('.sortRR').sortable({
+      $('.sortFR').sortable({
 			  connectWith: '.sortLI',
 				delay: 0
 			});
 				
 			$('.sortLI').sortable({
-				connectWith:'sortFR',
+				connectWith:'.sortFR',
 				delay: 0
 			})
     });
