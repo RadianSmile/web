@@ -90,7 +90,7 @@
 					{
 						FB.api( id ,'DELETE', function(res){
 							if (res) {alert ("刪除成功");$i.remove();}
-							else {alert ("刪除失敗");$i.cancel();}
+							else {alert ("刪除失敗");ui.sender.sortable('cancel');}
 						});
 					}else{
 						$i.sortable('cancel');
