@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>無標題文件</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<style>
+li	{ margin:20px; display:block; background:#CCCCFF; padding:5px;}
+ul 	{ display:block;}
+</style>
+
+</head>
+
+<body>
+
+
+
+<div>
+	<ul id="left" class="paper" style="display:block; float:left;">
+  	<li>test11</li>
+  	<li>test1</li>
+  	<li>test1</li>
+  	<li>test1</li>
+  	<li>test1</li>
+  	<li>test1</li>
+  	<li>test1</li>
+  	<li>test1</li>
+  	<li>test1</li>
+  	<li>test1</li>
+  	<li>test1</li>
+  </ul>
+  
+  <ul id="right" class="paper" style="display:block; float:right;">
+  	<li>test1</li>
+  	<li>test1</li>
+  	<li>test1</li>
+  	<li>test1</li>
+  	<li>test1</li>
+  	<li>test1</li>
+  	<li>test1</li>
+  	<li>test1</li>
+  	<li>test1</li>
+  	<li>test1</li>
+  	<li>test1</li>	
+  </ul>
+</div>
+
+<div class="root">
+<script src="Javascript/jquery-1.7.2.min.js"></script>
+<script src="Javascript/jquery-ui-1.8.20.custom.min.js"></script>
+<script>
+		$(function (){
+			console.log($('#left','#right'));
+			$('#left').sortable({ connectWith:'.paper'});
+			$('#right').sortable({ connectWith:'.paper'});
+			
+			$('#right').sortable({ 
+				receive:function (e,u){
+					u.sender.sortable('cancel');
+					console.log($(u['item'].text("EEEEEEEEEEE"))
+				)}})
+		});
+</script>
+</div>
+</body>
+</html>
