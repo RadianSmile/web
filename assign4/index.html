@@ -72,7 +72,7 @@
 			});		
 			$('.connectSort').sortable({
 				receive:function (e,ui){
-					var newID = $(this).attr('id');
+					var newID =  $(this).attr('id');
 					var oldID = ui.sender.attr('id');
 					var addMem = '/'+newID+'/members/'+ui.item.attr('id');
 					var remMem = '/'+oldID+'/members/'+ui.item.attr('id');
@@ -83,15 +83,15 @@
 					if(oldID === 'FillInList')
 					{
 						FB.api(addMem, 'POST', function(res){
-							if(res){
+							if(res === true){
 								console.log('Member added!!');
-							}
+							}else{}
 						});
 					}else{
 						FB.api(remMem, 'DELETE', function(res){
-							if(res){
+							if(res === true){
 								console.log('Member Removed!!');
-							}
+							}else{}
 						});
 						FB.api(addMem, 'POST', function(res){
 							if(res){
@@ -164,7 +164,7 @@
 				*/
 				FB.getLoginStatus(function(response) {
 					if (response.status === 'connected') {
-						listFriends();						
+						s();						
 						//var uid = response.authResponse.userID;
 						//var accessToken = response.authResponse.accessToken;
 
@@ -182,7 +182,7 @@
 				});
 			}
 			
-			function listFriends(){
+			function s(){
 				//from now on we can decorate our website with the data related to the facebook.
 				//list all your friends.
 				/*第四步：*/
@@ -191,7 +191,7 @@
 					while(response['data'][i] != null){				
 						var fId = response['data'][i]['id'];
 						var fName = response['data'][i]['name'];
-						$("<div onclick='changeInfo("+fId+");'><img src='https://graph.facebook.com/"+ fId + "/picture' /><span>"+fName+"</span></div>").appendTo("#FillInList");					
+						$("<div id='"+ fid+ "' onclick='changeInfo("+fId+");'><img src='https://graph.facebook.com/"+ fId + "/picture' /><span>"+fName+"</span></div>").appendTo("#FillInList");					
 						i++;
 					}
 				})

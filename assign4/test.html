@@ -17,7 +17,7 @@ ul 	{ display:block;}
 
 <div>
 	<ul id="left" class="paper" style="display:block; float:left;">
-  	<li>test11</li>
+  	<li onClick="CHA(ttt)">!!!!!!!!!!!!</li>
   	<li>test1</li>
   	<li>test1</li>
   	<li>test1</li>
@@ -52,18 +52,15 @@ ul 	{ display:block;}
 		$(function (){
 			console.log($('#left','#right'));
 			$('#left').sortable({ 
-				connectWith:'.paper',
-				remove:function(e,ui){
-					ui.item.clone().appendTo('#right');
-          $(this).sortable('cancel');
-					}
-			});
+				connectWith:'.paper'
+					})
 			
 			$('#right').sortable({ 
 				connectWith:'.paper',
 				receive:function (e,u){
-					var a = $(this).attr('id');
+					var a = $(u.item).attr('onClick').substr(4,3);
 					console.log(a);
+
 					u.sender.sortable('cancel');
 					console.log($(u['item'].text("EEEEEEEEEEE"))
 				)}})
