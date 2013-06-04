@@ -191,7 +191,7 @@
 					while(response['data'][i] != null){				
 						var fId = response['data'][i]['id'];
 						var fName = response['data'][i]['name'];
-						$("<div id='"+ fid+ "' onclick='changeInfo("+fId+");'><img src='https://graph.facebook.com/"+ fId + "/picture' /><span>"+fName+"</span></div>").appendTo("#FillInList");					
+						$("<div id='"+ fId+ "' onclick='changeInfo("+fId+");'><img src='https://graph.facebook.com/"+ fId + "/picture' /><span>"+fName+"</span></div>").appendTo("#FillInList");					
 						i++;
 					}
 				})
