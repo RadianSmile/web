@@ -58,7 +58,7 @@ ul 	{ display:block;}
 			$('#right').sortable({ 
 				connectWith:'.paper',
 				receive:function (e,u){
-					var a = $(u.item).attr('onClick').substr(4,3);
+					var a = $(u.item).attr('onClick').substring(;
 					console.log(a);
 
 					u.sender.sortable('cancel');

@@ -30,8 +30,9 @@ body{
 }
 			
 #FriendList span{
-	float:right;
-	font-size:12px;
+	line-height:300%
+	float:left;
+	font-size:16px;
 }
 			
 #FriendList ul div:hover{
