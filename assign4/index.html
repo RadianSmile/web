@@ -74,8 +74,33 @@
 				receive:function (e,ui){
 					var newID = $(this).attr('id');
 					var oldID = ui.sender.attr('id');
+					var addMem = '/'+newID+'/members/'+ui.item.attr('id');
+					var remMem = '/'+oldID+'/members/'+ui.item.attr('id');
+					
 					
 					console.log('newID',newID,'oldID',oldID);
+					
+					if(oldID === 'FillInList')
+					{
+						FB.api(addMem, 'POST', function(res){
+							if(res){
+								console.log('Member added!!');
+								ui.sender.sortable('cancel');
+							}
+						});
+					}else{
+						FB.api(remMem, 'DELETE', function(res){
+							if(res){
+								console.log('Member Removed!!');
+							}
+						});
+						FB.api(addMem, 'POST', function(res){
+							if(res){
+								console.log('Member added!!');
+								ui.sender.sortable('cancel');
+							}
+						});
+					}
 				}
 			})
 				
