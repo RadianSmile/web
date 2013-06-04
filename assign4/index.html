@@ -61,16 +61,26 @@
       $('.sortFR').sortable({
 			  connectWith: '.connectSort',
 			  tolerance:'pointer',
+				revert:true,
 				delay: 0
 			});
-	$('.sortLI').sortable({
+			$('.sortLI').sortable({
+				revert:true,
 			  connectWith: '.connectSort',
 			  tolerance:'pointer',
 				delay: 0
 			});		
-
+			$('.connectSort').sortable({
+				receive:function (e,ui){
+					var newID = $(this).attr('id');
+					var oldID = ui.sender.attr('id');
+					
+					console.log('newID',newID,'oldID',oldID);
+				}
+			})
 				
 			$('.sortLIs').sortable({
+				revert:true,
 				connectWith:'#delete',
 				tolerance:'pointer',
 				delay:0
@@ -93,7 +103,7 @@
 							else {alert ("刪除失敗");ui.sender.sortable('cancel');}
 						});
 					}else{
-						$i.sortable('cancel');
+						ui.sender.sortable('cancel');
 					}
 					
 				}
