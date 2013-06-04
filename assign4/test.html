@@ -51,10 +51,16 @@ ul 	{ display:block;}
 <script>
 		$(function (){
 			console.log($('#left','#right'));
-			$('#left').sortable({ connectWith:'.paper'});
-			$('#right').sortable({ connectWith:'.paper'});
+			$('#left').sortable({ 
+				connectWith:'.paper',
+				remove:function(e,ui){
+					ui.item.clone().appendTo('#right');
+          $(this).sortable('cancel');
+					}
+			});
 			
 			$('#right').sortable({ 
+				connectWith:'.paper',
 				receive:function (e,u){
 					var a = $(this).attr('id');
 					console.log(a);
