@@ -21,7 +21,7 @@
 							FB.api('me/friendlists', 'post', {name: temptitle}, function(res){
 								var i = GroupID.length;
 								GroupID[i+1] = res.id;
-								$("<div><h1>" + temptitle + "</h1><ul class='sortLIs connectSort ui-sortable' id='"+ res.id +"'></ul></div>").appendTo("#GroupList");
+								$("<div><h1>" + temptitle + "</h1><ul class='sortLI connectSort ui-sortable' id='"+ res.id +"'></ul></div>").appendTo("#GroupList");
 								getMembers(i);//start to display the existent members in the existent lists.
 							});
 						}else{
