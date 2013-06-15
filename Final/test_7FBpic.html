@@ -80,12 +80,14 @@ function fileUpload() {
     var action_url = 'https://graph.facebook.com/' + album.id + '/photos?access_token=' +  accessToken;
     var form = document.getElementById('upload-photo-form');
     form.setAttribute('action', action_url);
+		
  
     // This does not work because of security reasons. Choose the local file manually.
     // var file = document.getElementById('upload-photo-form-file');
     // file.setAttribute('value', "/Users/nseo/Desktop/test_title_03.gif")
  
     form.submit();
+		alert("File uploaded");
   });
 }
 // POST A IMAGE WITH DIALOG using FB.api
