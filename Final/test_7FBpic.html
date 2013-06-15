@@ -14,9 +14,10 @@
 </head>
 
 <body>
-<div class="container">
 <div id="fb-root"></div>
 <div id="fb-content"></div>
+
+<div class="container">
 <div>
   <a href="#" id="upload-trigger" onClick="javascript:fileUpload();">File Upload!</a>
   <form id="upload-photo-form" target="upload_iframe" method="post" enctype="multipart/form-data">
@@ -57,6 +58,14 @@ window.fbAsyncInit = function(){
    }
   });
 };
+      (function(d, s, id){ // Load the SDK asynchronously
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+
 
 function doSomething() {
  postImage1();
