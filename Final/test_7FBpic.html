@@ -24,7 +24,12 @@
     <input id="upload-photo-form-file" name="file" size="27" type="file" />
   </form>
   <iframe id="upload_iframe" name="upload_iframe" witdh="0px" height="0px" border="0" style="width:0; height:0; border:none;"></iframe>
-</div></div>
+</div>
+
+<a href="#"><div id="post" > 宣傳  </div></a>
+</div>
+
+
 <script src="js/jquery.min.js"></script>
 <script src="js/TweenMax.min.js"></script>
 <script src="js/jquery.superscrollorama.js"></script>
@@ -43,14 +48,14 @@ window.fbAsyncInit = function(){
   FB.getLoginStatus(function(response){
    if (response.status == 'connected') {
      accessToken = response.authResponse.accessToken;
-     doSomething();
+     //doSomething();
    }
    else {
      FB.login(function(response){
        if (response.status == 'connected') {
 				 alert("true");
          accessToken = response.authResponse.accessToken;
-         doSomething();
+         //doSomething();
        }
        else {
          alert("Bye.");
@@ -68,11 +73,7 @@ window.fbAsyncInit = function(){
        }(document, 'script', 'facebook-jssdk'));
 
 
-function doSomething() {
- postImage1();
-//  postFeed();
-//  showFriends();
-}
+
 // UPLOAD A LOCAL IMAGE FILE, BUT THIS CAN NOT BE DONE WITHOUT USER'S MANUAL OPERATION BECAUSE OF SECURITY REASONS
 function fileUpload() {
   FB.api('/me/albums', function(response) {
@@ -93,8 +94,8 @@ function fileUpload() {
 // POST A IMAGE WITH DIALOG using FB.api
 function postImage1() {
   var wallPost = {
-    message: "Test to post a photo",
-    picture: "http://www.photographyblogger.net/wp-content/uploads/2010/05/flower29.jpg"
+    message: "大家快來看!!小王子有全新的面貌了!!",
+    picture: "http://radiansmile.github.io/web/Final/img/littleprince.png"
   };
   FB.api('/me/feed', 'post', wallPost , function(response) {
     if (!response || response.error) {
@@ -105,6 +106,10 @@ function postImage1() {
   });
 }
 
+$('#post').on('click',function (e)
+{
+	 postImage1();
+})
 </script>
 </body>
 </html>
