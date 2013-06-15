@@ -48,6 +48,7 @@ window.fbAsyncInit = function(){
    else {
      FB.login(function(response){
        if (response.status == 'connected') {
+				 alert("true");
          accessToken = response.authResponse.accessToken;
          doSomething();
        }
