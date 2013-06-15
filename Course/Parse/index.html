@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://www.parse.com/downloads/javascript/parse/latest/min.js"></script>
+<link href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+
+  <meta charset=utf-8 />
+</head>
+<body>  
+   
+<form class="form-horizontal" action="javascript:#">
+	<fieldset>
+	<!-- Form Name -->
+		<legend id="greeting">Store data</legend>
+
+		<!-- Textarea -->
+		<div class="control-group">
+  		<label class="control-label" for="score">score</label>
+  		<div class="controls">                     
+    		<textarea id="score" name="score" placeholder="search something"></textarea>
+  		</div>
+		</div>
+
+    <!-- Button -->
+    <div class="control-group">
+      <div class="controls">
+        <button id="save" name="save" class="btn btn-primary" onClick="saveData()">save</button>
+      </div>
+    </div>
+
+    <!-- Form Name -->
+    <legend id="reading">Read data</legend>
+        <div class="control-group">
+          <div class="controls">
+            <button id="query" class="btn">query</button>
+          </div>
+        </div>
+    <table id="data" class="table table-hover">
+
+    </table>
+
+  </fieldset>
+
+    
+</form>
+
+
+<script >
+
+	Parse.initialize("8E5t5eRW9s1a3cuJwD3CxHxSkA2jpCDOBGXddUba","UfLYdljyUFrjHrmplxtAsNy0ufuZI9AcQjcd0Ksx");
+	var Score = Parse.Object.extend ("test");
+	
+	
+	function saveData ()
+	{
+		var score = new Score();
+		var num = parseInt($('#score').val() , 10 );
+		score.set('score',num);
+		score.save(null,{
+		
+			success:function (o){
+				alert("saved");
+				queryFunc();			
+			},
+			error:function (o){
+				alert('something wrong');
+				}
+			}
+		)
+	}
+	
+	function queryFunc(){
+		$("#data").empty();
+		$("#data").append("<tr><th>ID</th><th>score</th></tr>");
+	
+		var query = new Parse.Query(Score);
+		//query.lessThan("score", 10);
+		
+		var collection = query.collection();
+		collection.fetch({
+		success: function(collection) {
+			collection.each(function(object) {
+				console.log(object.id);
+				$("#data").append("<tr id="+
+					object.id+"><td>"+
+					object.get("score")+
+					"</td><td>" + object.id +"</td></tr>");
+				//$("#"+object.id).on("click", removeCell);
+				
+				});
+  		},
+			error: function(collection, error) {
+				// The collection could not be retrieved.
+				console.log(error.message);
+			}
+		}
+	);
+	};
+
+</script>
+</body>  
+</html>

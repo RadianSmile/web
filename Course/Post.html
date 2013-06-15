@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>無標題文件</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://www.parse.com/downloads/javascript/parse/latest/min.js"></script>
+<link href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body>
+<form method="post"  action="javascript:#" class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Form Name</legend>
+
+<!-- Text input-->
+
+<div class="control-group">
+  <label class="control-label" for="name">Name</label>
+  <div class="controls">
+    <input id="name" name="name" type="text" placeholder="name" class="input-xlarge" required>
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="account">E-mail</label>
+  <div class="controls">
+    <input id="email" name="email" type="email" placeholder="E-mail" class="input-xlarge" required>
+    
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="control-group">
+  <label class="control-label" for="password">Password</label>
+  <div class="controls">
+    <input id="password" name="password" type="password" placeholder="password" class="input-xlarge" required>
+    
+  </div>
+</div>
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="signUp"></label>
+  <div class="controls">
+    <button id="signUp" name="signUp" class="btn btn-primary" >Login</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<fieldset>
+  <div id="show" class="btn btn-primary">Show</div>
+ <table class="table" id="data">
+ 
+ </table>
+</fieldset>
+
+<script>
+	Parse.initialize("8E5t5eRW9s1a3cuJwD3CxHxSkA2jpCDOBGXddUba","UfLYdljyUFrjHrmplxtAsNy0ufuZI9AcQjcd0Ksx");
+	
+	
+	function signUp(){
+		var User = Parse.Object.extend('User');
+		var user = new User();
+		var data = {
+			username:$('#name').val(),
+			email:$('#email').val() ,
+			password: $('#password').val()
+		}
+		//user.set('name',$('.name').val());
+		user.save(data,{
+			success:function (user){alert('Signed Up!!')
+				$('#name').val("");;
+				$('#email').val("");
+				$('#password').val("");},
+			error:function (a,b){alert(b.message); console.log(b);}
+			}
+		)
+
+	}
+	function toShow () 
+	{
+		var User = Parse.Object.extend('User');
+		var query = new Parse.Query(User);
+		var collection = query.collection();
+		collection.fetch({
+			success:function (collection){
+				collection.each(function (object){
+					console.log(object.id);
+				})
+			}
+		})
+		
+		
+	}
+	
+	$('#signUp').on('click',signUp);
+	$('#show').on('click',toShow);
+	
+	
+</script>
+</body>
+</html>
