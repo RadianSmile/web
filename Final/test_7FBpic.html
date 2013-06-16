@@ -21,9 +21,10 @@
 <div>
   <a href="#" id="upload-trigger" onClick="javascript:fileUpload();">File Upload!</a>
   <form id="upload-photo-form" target="upload_iframe" method="post" enctype="multipart/form-data">
-    <input id="upload-photo-form-file" name="file" size="27" type="file" />
+    <input id="upload-photo-form-file" id="upFile" name="file" size="27" type="file" />
   </form>
   <iframe id="upload_iframe" name="upload_iframe" witdh="0px" height="0px" border="0" style="width:0; height:0; border:none;"></iframe>
+    <img id="blah" src="#" alt="your image" />
 </div>
 
 <a href="#"><div id="post" > 宣傳  </div></a>
@@ -80,17 +81,37 @@ function fileUpload() {
     var album = response.data[0]; // Now, upload the image to first found album for easiness.
     var action_url = 'https://graph.facebook.com/' + album.id + '/photos?access_token=' +  accessToken;
     var form = document.getElementById('upload-photo-form');
-    form.setAttribute('action', action_url);
-		
- 
+    form.setAttribute('action', action_url);		
+
     // This does not work because of security reasons. Choose the local file manually.
     // var file = document.getElementById('upload-photo-form-file');
     // file.setAttribute('value', "/Users/nseo/Desktop/test_title_03.gif")
  
     form.submit();
-		alert("File uploaded");
+
   });
 }
+
+
+$("#upFile").change(function(){
+	alert('!!!!!!1');
+  readURL(this);
+});
+
+function readURL(input) {
+		if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				
+				reader.onload = function (e) {
+						$('#blah').attr('src', e.target.result);
+				}
+				
+				reader.readAsDataURL(input.files[0]);
+		}
+}
+
+
+
 // POST A IMAGE WITH DIALOG using FB.api
 function postImage1() {
   var wallPost = {

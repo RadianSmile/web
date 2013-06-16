@@ -15,14 +15,32 @@
 
 <body>
 <div class="container">
-	
+    <form id="form1" runat="server">
+        <input type='file' id="imgInp" />    
+    </form>
+    <img id="blah" src="#" alt="your image" />
 </div>
+<div id="pre"></div>
 <script src="js/jquery.min.js"></script>
 <script src="js/TweenMax.min.js"></script>
 <script src="js/jquery.superscrollorama.js"></script>
 
 <script type="text/javascript" >
-
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#imgInp").change(function(){
+        readURL(this);
+    });
 
 
 </script>
