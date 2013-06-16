@@ -21,7 +21,7 @@
 <div>
   <a href="#" id="upload-trigger" onClick="javascript:fileUpload();">File Upload!</a>
   <form id="upload-photo-form" target="upload_iframe" method="post" enctype="multipart/form-data">
-    <input id="upload-photo-form-file" id="upFile" name="file" size="27" type="file" >
+    <input id="upload-photo-form-file"name="file" size="27" type="file" >
   </form>
   <iframe id="upload_iframe" name="upload_iframe" witdh="0px" height="0px" border="0" style="width:0; height:0; border:none;"></iframe>
   <img id="blah" src="#" alt="your image" />
@@ -93,7 +93,7 @@ function fileUpload() {
 }
 
 
-$("#upFile").change(function(){
+$("#upload-photo-form-file").change(function(){
 	alert('!!!!!!1');
   readURL(this);
 });
