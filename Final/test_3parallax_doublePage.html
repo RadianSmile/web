@@ -65,13 +65,15 @@ body {	margin:0px;	padding:0px; position:relative;}
   height:1000px;
 	
 }
+section { position:relative;}
+#page2_bg{ position:absolute;}
 </style>
 </head>
 
 
 <body>
   <div id="section1" style="background:url(img/page1.jpg) top center scroll no-repeat ;" >
-    <div id="page1_spri te"><img id="spr1" src="img/spr1.jpg" ></div>
+    <div id="page1_sprite"><img id="spr1" src="img/spr1.jpg" ></div>
     <div id="page1_cnt">
       <h2>This is Page 1</h2>
       <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p></div>
@@ -80,7 +82,8 @@ body {	margin:0px;	padding:0px; position:relative;}
   <div id="page2"></div>
   
   <section id="second">
-    <div class="sprite"> </div>
+  	<div class="page2_bg"><img src="images/slide4.jpg"></div>
+    <div class="sprite"></div>
     <article id="">
       <h2></h2>
       <p></p>
@@ -97,7 +100,7 @@ body {	margin:0px;	padding:0px; position:relative;}
  $(document).ready(function(e) {
     var ctrl = $.superscrollorama({
 	  triggerAtCenter:false,
-	  playoutAnimations: false
+	  playoutAnimations: true
 	});
 	/*
 	ctrl.addTween (
@@ -123,20 +126,30 @@ body {	margin:0px;	padding:0px; position:relative;}
 	  $('#section1'),1000,
 	  {anim:(new TimelineLite())
 	     .append([
-	  	   TweenMax.fromTo($('#page1_sprite'),.4,{css:{top:400,opacity:0}},{css:{top:100,opacity:1}}),
-		   TweenMax.fromTo($('#page1_bg'),.5,{css:{opacity:0}},{css:{opacity:1}}),
-		   TweenMax.fromTo($('#page1_cnt'),.5,{css:{top:-100,opacity:0}},{css:{top:100,opacity:.8},ease:Bounce.easeIn}),
+				 TweenMax.fromTo($('#page1_sprite'),.4,{css:{top:400,opacity:0}},{css:{top:100,opacity:1}}),
+				 TweenMax.fromTo($('#page1_bg'),.5,{css:{opacity:0}},{css:{opacity:1}}),
+				 TweenMax.fromTo($('#page1_cnt'),.5,{css:{top:-100,opacity:0}},{css:{top:100,opacity:.8},ease:Bounce.easeIn}),
 	   	   TweenMax.fromTo($('#page1_cnt'),.5,{css:{opacity:0}},{css:{opacity:.8}})]),
 
 	   pushFollowers:true,
-	   					onPin: function() {
+	   			onPin: function() {
 						$('#section1').css('height','100%');
-					}, 
+					}/*, 
 					onUnpin: function() {
 						$('#section1').css('height','768px');
-					}
+					}*/
 
 	  });
+	ctrl.pin ($('#section1'),1000,
+		{
+			anim:(new TimelineLite()).append([
+				TweenMax.fromTo($('#page2_bg'),.4,{css:{top:0}},{css:{top:-200}} )
+			
+			])
+		}
+	
+	
+	);
 	  
 	  
 	  
