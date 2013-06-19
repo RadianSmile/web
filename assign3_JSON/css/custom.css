@@ -42,4 +42,4 @@ h2 {color:#FF9900;}
 .rain {width:170px;height:141px;background-position:-219px -185px;background-repeat:no-repeat;}
 .sunny {width:191px;height:181px;background-position:-0px -0px;background-repeat:no-repeat;}
 
-.cloudy1, .cloudy2, .rain, .sunny {  position:absolute; background-image:url(../../assign4_JSON/weather.png);}
+.cloudy1, .cloudy2, .rain, .sunny {  position:absolute; background-image:url(../weather.png);}

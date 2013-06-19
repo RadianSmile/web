@@ -1,13 +1,31 @@
 /* CSS Document */
-body {
-	padding: 0;
-	margin: 0;
-	font-family: "Times New Roman", Times, serif;
-}
 
-.layer {	position:absolute;}
-.layerInner{ position:relative;}
-.layerInInner { position:absolute;}
+
+body { padding: 0px;	margin: 0px;	font-family: "Times New Roman", Times, serif;}
+#container { width:100%; overflow:hidden;}
+.layer {	position:absolute; width:100%;}
+.layerInner{ position:relative; width:100%;}
+.layerInInner { position:absolute; width:100%;}
+
+
+
+
+.roles { background-size:contain !important ; background:no-repeat; width:300px; height:600px; left:100%;}
+.cover { background-size:cover;}
+
+
+
+#nav {width:100%; height:230px; background:#333333; display:none;}
+.chBtn { display:block; width:12.9%; background-color: rgba(155, 155, 0, 0.5);; border: thin solid #FFFFFF ; border-radius:5px; height:160px; margin:1.2%; margin-right:0px; float:left; opacity:.7 }
+.chBtn:hover { opacity:1; color:#FFFFFF;}
+#hideNav:hover { opacity:.8; background:#666666;}
+
+#toCh1 { background:url(img/bg/ch1-1.png); background-size:cover;}
+#toCh2 { background:url(img/bg/ch2-1.png); background-size:cover;}
+#toCh3 { background:url(img/bg/ch1-3.png); background-size:cover;}
+#toCh4 { background:url(img/bg/ch4-1.png); background-size:cover;}
+#toCh5 { background:url(img/bg/ch5-1.png); background-size:cover;}
+
 
 .bg { position:absolute; background-size:cover; width:100%; height:768px; background-repeat:no-repeat;}
 
