@@ -2,24 +2,167 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Final's Tests</title>
+<title>The Little Prince</title>
+
+<!--link href="css/bootstrap.min.css" rel="stylesheet"-->
+<!--link href="css/bootstrap-responsive.min.css" rel="stylesheet"-->
+<link href="css/parallax.css" rel="stylesheet">
+<style>
+
+#bg{ background-image: url(img/bg/home/firstpage.png); background-repeat:repeat-y;}
+</style>
+
 </head>
 
 <body>
+<div class="container">
+<!-- 這裡是背景 -->
+	<div class="layer">
+  	<div id="ly1" class="layerInner" >
+			<div id="bg" ></div>
+      <div id="nullbg" class="layerInInner"></div>
+    </div>
+  </div>
+  
+  
+  
+<!-- 這裡是雲或星星 -->  
+  <div class="layer">
+  	<div id="ly2" class="layerInner">
+    </div>
+  </div>
 
-<p><a href="test_1TweenMax.html">test_1TweenMax.html</a>
 
-<p><a href="test_2TweenMax.html">test_2TweenMax.html</a></p>
+<!-- 這裡是圖片s -->  
+  <div class="layer">
+  	<div id="ly3" class="layerInner">
+    </div>
+  </div>
 
-<p><a href="test_3parallax.html">test_3parallax.html</a></p>
 
-<p><a href="test_4rotateFlower.html">test_4RotateFlower.html</a></p>
+<!-- 這裡是文字 -->  
+  <div class="layer">
+  	<div id="ly4" class="layerInner">
+    </div>
+  </div>
 
-<p><a href="test_5explodeFlower.html">test_5explodeFlower.html</a></p>
 
-<p><a href="test_6Rotating Earth.html">test_6Rotating Earth.html</a></p>
+<!-- 這裡是NAVIGATION -->  
+	<div style="width:100%; position:fixed ; background:#111111 ; border-bottom:solid medium #222222; height:37px; z-index:9999;">
+    <div class="layerInner" style="width:100%">
+     	<a id="index" href="#" style="float:left" ><h2 style="margin:0px; padding:0px; color:#FFFFFF; opacity:.6;padding:5px 0px 5px 10px;"> The Little Prince</h2></a>
+      <a id="preNav" href="#" style="float:right; display:block; margin-right:15px;"><h2 style="margin:0px; padding:0px; color:#FFFFFF; opacity:.6;padding:5px 0px 5px 10px; "> Chapters</h2></a>
 
-<p><a href="test_7FBpic.html">test_7FBpic.html</a></p>
-<p>&nbsp;</p>
+    </div>
+  	<div id="nav" class="layerInner" style="height:220px; clear:both; z-index:9999;">
+      <div>
+        <a id="toCh1" href="#" class="chBtn"></a>
+        <a id="toCh2" href="#" class="chBtn"></a>
+        <a id="toCh3" href="#" class="chBtn"></a>
+        <a id="toCh4" href="#" class="chBtn"></a>
+        <a id="toCh5" href="#" class="chBtn"></a>
+        <a id="toTalk" href="#" class="chBtn"></a>
+       </div>
+      <a id="hideNav" href="#" style="width:100%; float:left; display:block; color:white; " ><div><h3 class="aCenter">hide</h3></div></a>
+    </div>
+  </div>
+
+
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/jquery.superscrollorama.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+<script type="text/javascript" >
+onLoad ();
+function onLoad (){
+	$('#planet').width( $(window).width());
+	$('#planet').height($(window).width());
+}
+
+function setNavBtn (){
+$('#hideNav').on('click',function (e){
+	$("#nav").hide( 'blind', null, 1000, null );	
+});
+$('#preNav').on('click',function (e){
+	$("#nav").show( 'blind', null, 2000, null );
+});
+}
+
+$(window).resize(function(e) {
+	resiz ();
+	var  a = confirm ("Please don't resize the window when reading the pages! This Page will now refresh ");
+	if  (a){ location.reload()} else { location.reload();}
+
+	
+});
+
+function resiz ()
+{
+	if ($(window).width() >= 960)
+	{
+		$('#bg').attr('width',$(window).width());
+	}else{
+		$('#bg').attr('width',960);
+	}
+}
+
+
+
+$(window).resize(function(e) {
+	resiz ();
+	var  a = confirm ("Please don't resize the window when reading the pages! This Page will now refresh ");
+	if  (a){ location.reload()} else { location.reload();}
+
+	
+});
+
+function resiz ()
+{
+	if ($(window).width() >= 960)
+	{
+		$('#bg').attr('width',$(window).width());
+	}else{
+		$('#bg').attr('width',960);
+	}
+}
+
+
+
+
+var ctrl ;
+var bgDy = 0;
+var docDur = 0; 
+function init()
+{
+	bgDy = $('#bg').height() - $(window).height();
+	docDur = $('#bg').height()*2; 	
+	$('body').height($('#bg').height()*2 + $(window).height());
+			//alert($('body').height());
+			//$('body').height($('#bg').height());
+			//alert($(document).height()); 
+	//$.each($('.layer'),function (e){ $(this).height($(window).height()) ;});
+			//	$('#container').height($(body).height());
+//	$("#ly4").height($(window).height());
+}
+
+
+$(document).ready(function(e) {
+	init();
+	resiz ();
+	setNavBtn ();
+	setPara ();
+});
+
+function setPara ()
+{		
+  ctrl = $.superscrollorama ({
+		triggerAtCenter:false,
+	  playoutAnimations: false
+	});	
+}
+
+</script>
 </body>
 </html>

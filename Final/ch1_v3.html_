@@ -38,12 +38,15 @@
 </head>
 
 <body style="width:100%;">
-<div id="container"style="position:relative" >
+
+<div id="container" style="position:relative"  >
 
 <!-- 這裡是背景 -->
+
 	<div class="layer">
+
   	<div id="ly1" class="layerInner" >
-  	  <img id="bg" class="layerInInner" src="img/bg/ch1/ch1_bg.png" width="100%">
+  	  <img id="bg" class="layerInInner" src="img/bg/ch1/ch1_bg.png" width="100%" style="">
       <div id="nullbg" class="layerInInner"></div>
     </div>
   </div>
@@ -149,6 +152,11 @@ When a mystery is too overpowering, one dare not disobey. Absurd as it might see
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
 <script type="text/javascript" >
+function onLoad (){
+	$('#bg').width($(window).width());
+	
+}
+onLoad();
 
 
 //$( "#navInner").hide();
@@ -163,7 +171,7 @@ $('#preNav').on('click',function (e){
 $(window).resize(function(e) {
 	resiz ();
 	var  a = confirm ("Please don't resize the window when reading the pages! This Page will now refresh ");
-	if  (a){ location.reload()} else { location.reload();}
+	if  (a){ location.reload()} else { }
 
 	
 });
@@ -172,9 +180,11 @@ function resiz ()
 {
 	if ($(window).width() >= 960)
 	{
+		$('#ly1').css('width',$(window).width());
 		$('#bg').attr('width',$(window).width());
 	}else{
-		$('#bg').attr('width',960);
+		$('#bg').width($(window).width());
+		$('#ly1').css('width',$(window).width());
 	}
 }
 
@@ -187,13 +197,14 @@ var docDur = 0;
 function init()
 {
 	bgDy = $('#bg').height() - $(window).height();
-	docDur = $('#bg').height()*2; 	
-	$('body').height($('#bg').height()*2 + $(window).height());
+	docDur = $('#bg').height()*2  ; 	
+	$('body').height(docDur);
 	//alert($('body').height());
 	//$('body').height($('#bg').height());
 	//alert($(document).height()); 
 	$.each($('.layer'),function (e){ $(this).height($(window).height()) ;});
-//	$('#container').height($(body).height());
+	//	$('#container').height($(body).height());
+	$("#ly1").height($(window).height());	
 	$("#ly4").height($(window).height());
 }
 
@@ -202,7 +213,7 @@ $(document).ready(function(e) {
 	init();
 	resiz ();
 	//rH ();
-	
+	$(document).scrollTop(3);
   ctrl = $.superscrollorama ({
 		triggerAtCenter:false,
 	  playoutAnimations: false
@@ -216,13 +227,13 @@ var n =
 	 'turnEarth':-1436,
 	 'turnSky':	 -2557,
 	 'closeFloor': -4238,
-	 
 	 'planeShow': -2666
 }
 <!-- 以下是Parallax -->
 	ctrl.pin ($('#ly1'),docDur,{
+//		onPin:function (){alert ('test');},
 		anim:(new TimelineLite())
-			.append(TweenMax.fromTo($('#bg'),40,{css:{top:0},immediateRender:false },{css:{top:n.turnEarth},ease:Linear.easeNone}))
+			.append(TweenMax.fromTo($('#bg'),40,{css:{top:0} },{css:{top:-1436},ease:Linear.easeNone}))
 			.append(TweenMax.fromTo($('#bg'),10,{css:{top:-1436},immediateRender:false },{css:{top:-2557},ease:Linear.easeNone}))	
 			.append(TweenMax.fromTo($('#bg'),20,{css:{top:-2557},immediateRender:false },{css:{top:-4238},ease:Linear.easeNone}))
 			.append(TweenMax.fromTo($('#bg'),40,{css:{top:-4238},immediateRender:false },{css:{top:-bgDy + 200},ease:Linear.easeNone}))
@@ -236,7 +247,7 @@ var n =
 	ctrl.pin ($('#ly4'),docDur,{
 		anim:(new TimelineLite())
 //			.append (TweenMax.fromTo($('#a1p1'),.5,{css:{top:300 , opacity:0},immediateRender:false , ease:Linear.easeNone},{css:{top:250,opacity:1},ease:Linear.easeNone}))
-			.append (TweenMax.fromTo($('#a1p1'),5,{css:{ opacity:1,top:250},immediateRender:false , ease:Linear.easeNone},{css:{top:50},ease:Linear.easeNone}))
+			.append (TweenMax.fromTo($('#a1p1'),5,{css:{ opacity:1,top:250},immediateRender:true , ease:Linear.easeNone},{css:{top:50},ease:Linear.easeNone}))
 			.append (TweenMax.fromTo($('#a1p1'),.5,{css:{top:50 , opacity:1},immediateRender:false , ease:Linear.easeNone},{css:{top:-100,opacity:0},ease:Linear.easeNone}))
 			.append (TweenMax.fromTo($('#a1p2'),.5,{css:{top:300 , opacity:0},immediateRender:false , ease:Linear.easeNone},{css:{top:250,opacity:1},ease:Linear.easeNone}))
 			.append (TweenMax.fromTo($('#a1p2'),5,{css:{top:250},immediateRender:false , ease:Linear.easeNone},{css:{top:50},ease:Linear.easeNone}))
@@ -258,7 +269,7 @@ var n =
 	ctrl.pin ($('#ly3'),docDur,{
 		anim:(new TimelineLite())
 //			.append (TweenMax.fromTo($('#nullg'),20,{css:{opacity:1},immediateRender:true , ease:Linear.easeNone},{css:{opacity:0 },ease:Linear.easeNone}))
-			.append (TweenMax.fromTo($('#earth'),2,{css:{top:200 ,scale:1},immediateRender:false , ease:Linear.easeNone},{css:{ top:300,scale:1.5 },ease:Linear.easeNone}))
+			.append (TweenMax.fromTo($('#earth'),2,{css:{top:200 ,scale:1},immediateRender:true , ease:Linear.easeNone},{css:{ top:300,scale:1.5 },ease:Linear.easeNone}))
 			.append (TweenMax.fromTo($('#earth'),2,{css:{scale:1.5,top:300, opacity:1},immediateRender:true , ease:Linear.easeNone},{css:{scale:2, opacity:0,top:$(window).height() },ease:Linear.easeNone}))			
 
 			.append (TweenMax.fromTo($('#hat1'),.5,{css:{opacity:0,top:300},immediateRender:false  , ease:Linear.easeNone},{css:{opacity:1,top:200},ease:Linear.easeNone}))			

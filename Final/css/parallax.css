@@ -1,40 +1,37 @@
 /* CSS Document */
 
 
-body { padding: 0px;	margin: 0px;	font-family: "Times New Roman", Times, serif;}
+body { padding: 0px;	margin: 0px;	font-family: "Times New Roman", Times, serif; height:100%;}
 #container { width:100%; overflow:hidden;}
-.layer {	position:absolute; width:100%;}
-.layerInner{ position:relative; width:100%;}
-.layerInInner { position:absolute; width:100%;}
+.layer {	position:absolute; width:100%; height:100%;}
+.layerInner{ position:relative; width:100%; height:100%; overflow:visible;}
+.layerInInner { position:absolute; }/* 不可以放 height:100%*/
 
 
-
-
-.roles { background-size:contain !important ; background:no-repeat; width:300px; height:600px; left:100%;}
+.roles { background-size:contain !important ; background-repeat:no-repeat ;width:300px; height:600px;}
 .cover { background-size:cover;}
 
-
-
-#nav {width:100%; height:230px; background:#333333; display:none;}
+#nav {width:100%; height:230px; background:#333333; display:none; box-shadow:4px 4px 3px rgba(0,0,0,0.5);}
 .chBtn { display:block; width:12.9%; background-color: rgba(155, 155, 0, 0.5);; border: thin solid #FFFFFF ; border-radius:5px; height:160px; margin:1.2%; margin-right:0px; float:left; opacity:.7 }
 .chBtn:hover { opacity:1; color:#FFFFFF;}
 #hideNav:hover { opacity:.8; background:#666666;}
 
-#toCh1 { background:url(img/bg/ch1-1.png); background-size:cover;}
-#toCh2 { background:url(img/bg/ch2-1.png); background-size:cover;}
-#toCh3 { background:url(img/bg/ch1-3.png); background-size:cover;}
-#toCh4 { background:url(img/bg/ch4-1.png); background-size:cover;}
-#toCh5 { background:url(img/bg/ch5-1.png); background-size:cover;}
+#toHome { background-image:url(../img/bg/title/Home.png); background-size:cover;}
+#toCh1 { background-image:url(../img/bg/title/ch1.png); background-size:cover;}
+#toCh2 { background-image:url(../img/bg/title/ch2.png); background-size:cover;}
+#toCh3 { background-image:url(../img/bg/title/ch3.png); background-size:cover;}
+#toCh4 { background-image:url(../img/bg/title/ch4.png); background-size:cover;}
+#toCh5 { background-image:url(../img/bg/title/ch5.png); background-size:cover;}
+#toTalk { background-image:url(../img/bg/title/board.png); background-size:cover;}
 
 
+
+/*  FOR TEST */
 .bg { position:absolute; background-size:cover; width:100%; height:768px; background-repeat:no-repeat;}
-
 .wMax {width:100%}
 .w960 {	width:960px;}
 .w300{width:300px;}
-
 .w80p { width:80%; padding:5%;  max-width:960px;}
-
 
 .aCenter {	margin: auto; text-align:center;}
 .aLeft {}
@@ -45,3 +42,9 @@ a , a:hover { text-decoration:none;}
 
 .twnAbs { position:absolute; display:block;}
 .twnFix { position:absolute;}
+
+#ly1 { z-index:1000;}
+#ly2 { z-index:2000;}
+#ly3 { z-index:3000;}
+#ly4 { z-index:4000;}
+#ly5 { z-index:5000;}

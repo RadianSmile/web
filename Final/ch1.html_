@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Blank</title>
+<style>
+#container{ clear:both ; display:block ; height:9000px; }
+.row { position:static; height:auto; clear:both}
+
+
+section 
+{
+	position:relative;
+	clear:both;
+}
+section > .bg { z-index:1 ; position:absolute;}
+section > article { position:absolute; z-index:5;}
+section > .sprite { position:absolute; z-index: 3;}
+
+</style>
+
+<!--link href="css/bootstrap.min.css" rel="stylesheet"-->
+<!--link href="css/bootstrap-responsive.min.css" rel="stylesheet"-->
+<link href="css/parallax.css" rel="stylesheet">
+</head>
+
+<body>
+<div id="container">
+
+
+<section id="sec1" >
+	<img style="position:absolute;" id="bg1" src="img/bg/ch1-1.png" width="1366">
+</section>
+
+<section id="sec2" >
+	<img id="bg2" style="position:absolute" src="img/bg/ch1-2.png" width="1366">
+</section>
+
+<section id="sec3">
+	<img id="bg3" style="position:absolute"  src="img/bg/ch1-3.png" width="1366">
+</section>
+
+<section id="sec4">
+	<img id="bg4" style="position:absolute" src="img/bg/ch1-4.png" width="1366">
+</section>
+<section id="sec5">
+	<img id="bg5" style="position:absolute ; left:100% ;top:-200px; " src="img/bg/ch1-4c.png" width="1366">
+</section>
+
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/jquery.superscrollorama.js"></script>
+
+<script type="text/javascript" >
+	var dur = 1000 ;  
+	var ctrl;
+$(document).ready(function(e) {
+	rH ();
+  ctrl = $.superscrollorama ({
+		triggerAtCenter:false,
+	  playoutAnimations: false
+	});
+	
+	
+/*
+ctrl.pin ($('#sec1'),dur,
+{anim:(new TimelineLite ())
+	.append([
+		TweenMax.fromTo($('#bg1'),5,{css:{top:0},immediateRender:true},{css:{top:-100}})
+	]),
+	onUnpin:function (){$('#bg1').css('position','fixed').css('top',-100)}
+});
+
+ctrl.pin ($('#sec2'),dur,
+{anim:(new TimelineLite ())
+	.append([
+		TweenMax.fromTo($('#bg2'),2,{css:{opacity:0},immediateRender:true},{css:{opacity:1}}),
+		TweenMax.fromTo($('#bg2'),5,{css:{top:0},immediateRender:true},{css:{top:-100}})
+	]),
+	onUnpin:function (){
+		$('#bg2').css('position','fixed').css('top',-100)
+	}
+});
+
+ctrl.pin ($('#sec3'),dur,
+{anim:(new TimelineLite ())
+	.append([
+		TweenMax.fromTo($('#bg3'),2,{css:{opacity:0},immediateRender:true},{css:{opacity:1}}),
+		TweenMax.fromTo($('#bg3'),5,{css:{top:0},immediateRender:true},{css:{top:-200}})
+	]),
+	onUnpin:function (){
+		$('#bg3').css('position','fixed').css('top',-200)
+	}
+});
+
+ctrl.pin ($('#sec4'),dur,
+{anim:(new TimelineLite ())
+	.append([
+		TweenMax.fromTo($('#bg4'),2,{css:{opacity:0},immediateRender:true},{css:{opacity:1}}),
+		TweenMax.fromTo($('#bg4'),5,{css:{top:0},immediateRender:true},{css:{top:-200}})
+	]),
+	onUnpin:function (){
+		$('#bg4').css('position','fixed').css('top',-200);
+	}
+});
+
+ctrl.pin ($('#sec5'),dur,
+{anim:(new TimelineLite ())
+	.append([
+		TweenMax.fromTo($('#bg5'),5,{css:{left:'100%'},immediateRender:true},{css:{left:0}}),
+		TweenMax.fromTo($('#bg4'),5,{css:{left:0},immediateRender:true},{css:{left:'-100%'}})
+	]),
+	onUnpin:function (){
+//		$('#bg4').css('position','fixed').css('top',-200)
+	}
+});
+*/
+
+
+
+
+
+});
+
+
+function rH ()
+{
+	$.each($('#container').children(),function (){ adjH($(this))});
+}
+
+function adjH ($sec)
+{
+	
+	var h = 0 ;
+	var w = 0 ;
+	$.each($sec.children(),function (){ 
+		h = h +  $(this).height(); 
+		//alert($(this).height())
+		if (w < $(this).width() )
+		{
+			w = $(this).width();
+//			alert(w);
+		}
+	});
+	$sec.height(h);
+	$sec.width(w);
+}
+
+
+</script>
+</body>
+</html>
