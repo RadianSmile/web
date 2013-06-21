@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=big5" />
+	<script src="jquery.min.js"></script>
+	<script src="jquery.superscrollorama.js"></script>
+	<script src="TweenMax.min.js"></script>
+	<title>Cahpter 4</title>
+<link href="css/parallax.css" rel="stylesheet" type="text/css" />
+	<style>
+		.frame{
+			background-image: url(images/wood.jpg);
+			width: 400px;
+			height: 360px;
+			left: 100px;
+			top: 50px;
+			position: absolute;
+			box-shadow: 4px 4px 3px rgba(20%,20%,40%,0.5);
+			border-radius: 3px;
+			visibility: hidden;
+			}
+		.photo{
+			width: 300px;
+			height:250px;
+			background-repeat: no-repeat;
+			margin: 50px;
+			position: absolute;
+		}
+		#text1{
+			width: 550px;
+			height: 360px;
+			left: 550px;
+			top: 50px;
+			/*padding-left: 15px;
+			padding-right: 15px;*/
+			position:absolute;
+		}
+		#text2{
+			width: 550px;
+			height: 360px;
+			left: 700px;
+			top: 0px;
+			z-index: 10;
+		}
+		p{
+			text-align: justify;
+			padding: 30px;
+			z-index: 10;
+			padding-top:-50px;
+			color: #fff;
+		}
+		#dig{
+			z-index: 10;
+		}
+		#text2{
+			z-index: 15;
+		}
+	</style>
+</head>
+
+<body class="color_change" style="background-image:url(images/ch2back.png); background-repeat:repeat;">
+
+<!-- 這裡是NAVIGATION -->  
+	<div style="width:100%; position:fixed ; background:#111111 ; border-bottom:solid medium #222222;top:0; height:37px; z-index:9999;">
+    <div class="layerInner" style="width:100%">
+     	<a id="index" href="#" style="float:left" ><h2 style="margin:0px; padding:0px; color:#FFFFFF; opacity:.6;padding:5px 0px 5px 10px;"> The Little Prince</h2></a>
+      <a id="preNav" href="#" style="float:right; display:block; margin-right:15px;"><h2 style="margin:0px; padding:0px; color:#FFFFFF; opacity:.6;padding:5px 0px 5px 10px; "> Chapters</h2></a>
+    </div>
+  	<div id="nav" class="layerInner" style="height:220px; clear:both; z-index:9999;">
+      <div>
+        <a id="toHome" href="index.html" class="chBtn"></a>
+        <a id="toCh1" href="ch1.html" class="chBtn"></a>
+        <a id="toCh2" href="ch2.html" class="chBtn"></a>
+        <a id="toCh3" href="ch3.html" class="chBtn"></a>
+        <a id="toCh4" href="ch4.html" class="chBtn"></a>
+        <a id="toCh5" href="ch5.html" class="chBtn"></a>
+        <a id="toTalk" href="msg.html" class="chBtn"></a>
+       </div>
+      <a id="hideNav" href="#" style="width:100%; float:left; display:block; color:white; " ><div><h3 class="aCenter">hide</h3></div></a>
+    </div>
+  </div>
+
+
+	<div id="pic_div" style="height:800px; position:relative">
+		<div class="frame">
+			<div class="photo">
+				<img src="images/sheep1.png" id="s1" style="visibility:hidden" class="photos" />
+				<img src="images/sheep2.png" id="s2" style="visibility:hidden" class="photos"/>
+				<img src="images/sheep3.png" id="s3" style="visibility:hidden" class="photos"/>
+				<img src="images/box.png" id="box" style="visibility:hidden" class="photos"/>
+			</div>
+		</div>
+		<div id="text1">
+			<p id="p1" class="p" style="visibility: hidden;">He answered me:<br>
+			 
+			&quot;That doesn't matter. Draw me a sheep...&quot;<br>
+			 
+			But I had never drawn a sheep. So I drew for him one of the two pictures .I had drawn so often. It was that of the boa constrictor from the outside. <br>
+			 
+			And I was astounded to hear the little fellow greet it with:<br>
+			 &quot;No, no, no! I do not want an elephant inside a boa constrictor. A boa constrictor is a very dangerous creature, and an elephant is very cumbersome. Where I live, everything is very small. What I need is a sheep. Draw me a sheep.&quot; So then I made a drawing.</p>
+			<p id="p2" class="p" style="visibility: hidden;">
+			He looked at it carefully, then he said:<br>
+			"No. This sheep is already very sickly. Make me another."<br>
+			So I made another drawing.
+			</p>
+			<p id="p3" class="p" style="visibility: hidden;">
+				My friend smiled gently and indulgently.<br>
+			"You see yourself," he said, "that this is not a sheep. This is a ram. It has horns."<br>
+			So then I did my drawing over once more.</p>
+			<p id="p4" class="p" style="visibility: hidden;">
+			But it was rejected too, just like the others.<br>
+			"This one is too old. I want a sheep that will live a long time."<br>
+			By this time my patience was exhausted, because I was in a hurry to start taking my engine apart. So I tossed off this drawing.
+
+			</p>
+			<p id="p5" class="p" style="visibility: hidden;">
+			By this time my patience was exhausted, because I was in a hurry to start taking my engine apart. So I tossed off this drawing.
+			<br>And I threw out an explanation with it.
+			<br>"This is only his box. The sheep you asked for is inside."
+
+			</p>
+			<p id="p6" class="p" style="visibility: hidden;">
+			I was very surprised to see a light break over the face of my young judge:<br>
+			"That is exactly the way I wanted it! Do you think that this sheep will have to have a great deal of grass?"
+			<br><br>"Why?"
+			<br>"Because where I live everything is very small..."
+			<br>"There will surely be enough grass for him," I said. "It is a very small sheep that I have given you." He bent his head over the drawing.
+			<br>"Not so small that &ndash; Look! He has gone to sleep..."
+			<br>And that is how I made the acquaintance of the little prince.
+			</p>
+		</div>
+		<div><img src="images/sad.png" width="300px" style="top:250px;left:950px;position:absolute;z-index:5"/></div>
+	</div>
+	<div id="pic_earth" style="height:1000px; position:relative">
+		<div id="earth">
+		<p id="dig" style="background-size: 120px 210px; z-index: 15; width: 120px; height: 210px; position: absolute; background-repeat: no-repeat no-repeat;margin-left:300px;margin-top:0px"></p>
+		<img src="images/global.png" style="width:300px; height:300px;  position:absolute; left: 200px; top:150px;  z-index: 5;"/ >
+	</div>
+		</div>
+		<div id="text2" style="z-index:10;top: 4300px;left: 650px;position: absolute;" >
+			<p id="text21" style="top:0;z-index:10;">
+			As each day passed I would learn, in our  talk, something about the little prince's planet, his departure from it, his  journey. The information would come very slowly, as it might chance to fall  from his thoughts. It was in this way that I heard, on the third day, about the  catastrophe of the baobabs.<br />
+			 This time, once more, I had the sheep to  thank for it. For the little prince asked me abruptly &ndash; as if seized by a grave  doubt &ndash; &quot;It is true, isn't it, that sheep eat little bushes?&quot;<br />
+			 &quot;Yes, that is true.&quot;<br />
+			 &quot;Ah! I am glad!&quot;<br />
+			 I did not understand why it was so  important that sheep should eat little bushes. But the little prince added:<br />
+			 &quot;Then it follows that they also eat  baobabs?&quot;<br />
+			 I pointed out to the little prince that  baobabs were not little bushes, but, on the contrary, trees as big as castles;  and that even if he took a whole herd of elephants away with him, the herd  would not eat up one single baobab. The idea of the herd of elephants made the  little prince laugh.<br />
+			 &quot;We would have to put them one on top  of the other,&quot; he said.<br />
+			 But he made a wise comment:<br />
+			 &quot;Before they grow so big, the baobabs  start out by being little.&quot;<br />
+			 &quot;That is strictly correct,&quot; I  said. &quot;But why do you want the sheep to eat the little baobabs?&quot;<br />
+			 He answered me at once, &quot;Oh, come,  come!&quot;, as if he were speaking of something that was self&ndash;evident. And I  was obliged to make a great mental effort to solve this problem, without any  assistance.</p>
+			<p id="text22" style="z-index:10;">Indeed, as I learned, there were on the  planet where the little prince lived &ndash; as on all planets &ndash; good plants and bad  plants. In consequence, there were good seeds from good plants, and bad seeds  from bad plants. But seeds are invisible. They sleep deep in the heart of the  earth's darkness, until some one among them is seized with the desire to  awaken. Then this little seed will stretch itself and begin &ndash; timidly at first &ndash; to push a charming little sprig inoffensively upward toward the sun. If it is  only a sprout of radish or the sprig of a rose&ndash;bush, one would let it grow  wherever it might wish. But when it is a bad plant, one must destroy it as soon  as possible, the very first instant that one recognizes it.<br />
+			Now there were some terrible seeds on the  planet that was the home of the little prince; and these were the seeds of the  baobab. The soil of that planet was infested with them. A baobab is something  you will never, never be able to get rid of if you attend to it too late. It  spreads over the entire planet. It bores clear through it with its roots. And  if the planet is too small, and the baobabs are too many, they split it in  pieces...</p>
+			<p>The shrub soon stopped growing, and began  to get ready to produce a flower. The little prince, who was present at the  first appearance of a huge bud, felt at once that some sort of miraculous  apparition must emerge from it. But the flower was not satisfied to complete  the preparations for her beauty in the shelter of her green chamber. She chose  her colors with the greatest care. She dressed herself slowly. She adjusted her  petals one by one. She did not wish to go out into the world all rumpled, like  the field poppies. It was only in the full radiance of her beauty that she  wished to appear. Oh, yes! She was a coquettish creature! And her mysterious  adornment lasted for days and days.</p>
+			<p>Then one morning, exactly at sunrise, she  suddenly showed herself.<br />
+  			And, after working with all this  painstaking precision, she yawned and said:<br />
+  			&quot;Ah! I am scarcely awake. I beg that  you will excuse me. My petals are still all disarranged...&quot;<br />
+  			But the little prince could not restrain  his admiration:<br />
+ 			 &quot;Oh! How beautiful you are!&quot;<br />
+  			&quot;Am I not?&quot; the flower responded,  sweetly. &quot;And I was born at the same moment as the sun...&quot;<br />
+  			The little prince could guess easily enough  that she was not any too modest &ndash; but how moving &ndash;and exciting &ndash; she was!<br />
+  			&quot;I think it is time for  breakfast,&quot; she added an instant later. &quot;If you would have the  kindness to think of my needs &ndash; &quot;</p>
+  			<p>The shrub soon stopped growing, and began  to get ready to produce a flower. The little prince, who was present at the  first appearance of a huge bud, felt at once that some sort of miraculous  apparition must emerge from it. But the flower was not satisfied to complete  the preparations for her beauty in the shelter of her green chamber. She chose  her colors with the greatest care. She dressed herself slowly. She adjusted her  petals one by one. She did not wish to go out into the world all rumpled, like  the field poppies. It was only in the full radiance of her beauty that she  wished to appear. Oh, yes! She was a coquettish creature! And her mysterious  adornment lasted for days and days.</p>
+<p>Then one morning, exactly at sunrise, she  suddenly showed herself.<br />
+  And, after working with all this  painstaking precision, she yawned and said:<br />
+  &quot;Ah! I am scarcely awake. I beg that  you will excuse me. My petals are still all disarranged...&quot;<br />
+  But the little prince could not restrain  his admiration:<br />
+  &quot;Oh! How beautiful you are!&quot;<br />
+  &quot;Am I not?&quot; the flower responded,  sweetly. &quot;And I was born at the same moment as the sun...&quot;<br />
+  The little prince could guess easily enough  that she was not any too modest &ndash; but how moving &ndash; and exciting &ndash;she was!<br />
+  &quot;I think it is time for  breakfast,&quot; she added an instant later. &quot;If you would have the  kindness to think of my needs  &quot;</p>
+		</div>
+	<div style="height:700px;position:relative"></div>
+
+
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//$('body').scrollTop(0);
+			//$('p').css("visibility","hidden");
+			//$('.photo').css("visibility","hidden");
+			var controller = $.superscrollorama({
+				triggerAtCenter: true,
+				playoutAnimations: true
+			});
+			var docDur= 0;
+			docDur = $('#pic_earth').height()*2.5;
+			$(window).scroll(function()
+				{
+					
+					var wintop=$(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
+					var position=$('#pic_div').position();
+					//$('body').scrollTop();
+					if(position.top<=0 && wintop>0 && wintop<300) 
+					{			
+						$('#p1').css("visibility","visible");
+						$('.frame').css("visibility","visible");
+					}
+					else if (position.top<=600 &&wintop>600 && wintop<900) 
+					{
+						$('#p1').css("display","none");
+						$('#p2').css("visibility","visible");
+						$('#s1').css("visibility","visible");
+					}
+					else if (position.top<=1000 && wintop>1000 && wintop<1300) 
+					{
+						$('#p2').css("display","none");
+						$('#s1').css("display","none");
+						$('#p3').css("visibility","visible");
+						$('#s2').css("visibility","visible");
+					}
+					else if (position.top<=1400 && wintop>1400 && wintop<1700) 
+					{
+						$('#p3').css("display","none");
+						$('#s2').css("display","none");
+						$('#p4').css("visibility","visible");
+						$('#s3').css("visibility","visible");
+					}
+					else if (position.top<=1600 && wintop>1800 && wintop<2300) 
+					{
+						$('#p4').css("display","none");
+						$('#s3').css("display","none");
+						$('#p5').css("visibility","visible");
+						$('#box').css("visibility","visible");
+					}
+					else if (position.top<=1600 && wintop>1800 && wintop<2300) 
+					{
+						$('#p4').css("display","none");
+						$('#s3').css("display","none");
+						$('#p5').css("visibility","visible");
+						$('#box').css("visibility","visible");
+					}
+					else if (position.top<=1600 && wintop>1800 && wintop<2300) 
+					{
+						$('#p4').css("display","none");
+						$('#s3').css("display","none");
+						$('#p5').css("visibility","visible");
+						$('#box').css("visibility","visible");
+					}
+					else if (position.top<=1800 && wintop>2500 && wintop<2700) 
+					{
+						$('#p5').css("display","none");
+						$('#box').css("display","none");
+						$('#p6').css("visibility","visible");
+					}
+
+				});
+
+
+					//礎a簡y簣???
+				controller.pin($('#pic_div'),3500,{
+					anim: (new TimelineLite())
+					.append(
+						TweenMax.fromTo($('#pic_div'), 0, 
+						{css:{top: 0}, immediateRender:true}, 
+						{css:{top: 0}})
+						)
+				});
+				/*controller.pin($('#pic_earth'),100,{
+					anim: (new TimelineLite())
+					.append(
+						TweenMax.fromTo($('#text2'), 0, 
+						{css:{top: 0}, immediateRender:true}, 
+						{css:{top: 0}})
+						)
+				});*/
+				
+				controller.pin($('#pic_earth'),docDur,{
+					anim:(new TimelineLite())
+					.append (TweenMax.fromTo($('#earth'),0,{css:{top:0 ,scale:1},immediateRender:false , ease:Linear.easeNone},{css:{ top:0,scale:1 },ease:Linear.easeNone}))
+					.append (TweenMax.fromTo($('#earth'),1,{css:{scale:1,top:0},immediateRender:true , ease:Linear.easeNone},{css:{scale:2,top:200 },ease:Linear.easeNone,opacity:0.8}))
+				});
+
+				
+				var images=['images/dig1.png','images/dig2.png','images/dig3.png'];
+				var i=0;
+				function walk(){
+					$('#dig').css('background-image',function(){
+						if(i>=images.length){
+							i=0;
+							var j=-20*i;
+									}
+						return 'url('+images[i++]+')';
+					});
+				}
+				walk();
+				setInterval(walk, 300);
+				/*
+				controller.pin($('#pic_earth'),docDur,{
+					anim:(new TimelineLite())
+					.append (TweenMax.fromTo($('#text21'),2,{css:{visibility:visible},immediateRender:true},{css:{visibility:hidden}}))
+				});
+
+		*/		
+	});
+	
+
+	
+	
+$('#hideNav').on('click',function (e){
+	$("#nav").hide( 'blind', null, 1000, null );	
+});
+$('#preNav').on('click',function (e){
+	$("#nav").show( 'blind', null, 2000, null );
+});
+	
+	
+</script>
+</body>
+</html>
