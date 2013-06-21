@@ -10,6 +10,7 @@
 <style>
 body { overflow: hihidden;}
 #bg{ background-image: url(img/bg/home/firstpage.png); background-repeat:repeat-y; background-size:cover;}
+#prince { position:absolute; background:url(img/littleprince.png); width:40%; left:30%; top:100px; height:500px; background-size:contain; background-repeat:no-repeat;}
 </style>
 
 </head>
@@ -29,6 +30,21 @@ body { overflow: hihidden;}
 <!-- 這裡是雲或星星 -->  
   <div class="layer">
   	<div id="ly2" class="layerInner">
+    	  <div id="layer2" class="layer wMax" style="z-index:3000">
+    <div class="layerInner wMax">
+      <div id="fl0" class="flower twnAbs" style="top:325px; left:976px ; z-index:3010"></div>
+      <div id="fl1" class="flower twnAbs" style="top:-13px; left:903px ; z-index:3110"></div>
+      <div id="fl2" class="flower twnAbs" style="top: 74px; left: 20px; z-index: 3210"></div>
+      <div id="fl3" class="flower twnAbs" style="top: 7px; left: 215px; z-index: 3310"></div>
+      <div id="fl4" class="flower twnAbs" style="top: 31px; left: 802px; z-index: 3410"></div>
+      <div id="fl5" class="flower twnAbs" style="top:222px; left:114px ; z-index:3510"></div>
+      <div id="fl6" class="flower twnAbs" style="top: 398px; left: 753px; z-index: 3610"></div>
+      <div id="fl7" class="flower twnAbs" style="top: 224px; left: 861px; z-index: 3710"></div>
+      <div id="fl8" class="flower twnAbs" style="top: 480px; left: 186px; z-index: 3810"></div>
+      <div id="fl9" class="flower twnAbs" style="top:379px; left:319px ; z-index:3910"></div>
+    </div>
+  </div>
+
     </div>
   </div>
 
@@ -36,6 +52,7 @@ body { overflow: hihidden;}
 <!-- 這裡是圖片s -->  
   <div class="layer">
   	<div id="ly3" class="layerInner">
+    	<div id="prince"></div>
     </div>
   </div>
 
@@ -97,6 +114,15 @@ $(window).resize(function(e) {
 	if  (a){ location.reload()} else { location.reload();}
 
 	
+});
+
+
+
+$('#hideNav').on('click',function (e){
+	$("#nav").hide( 'blind', null, 1000, null );	
+});
+$('#preNav').on('click',function (e){
+	$("#nav").show( 'blind', null, 2000, null );
 });
 
 
