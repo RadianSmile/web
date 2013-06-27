@@ -10,10 +10,12 @@
 body { background-image:url(img/fabric_plaid.png);}
 p{ margin:0 ; padding:0;}
 #container { width:960px; margin:auto; box-shadow: 0 0 20px 1px #888; background-color:#FFFFFF;position:relative	;}
-`
 
-#headBtns { margin:10px 0px;  }
-#searchBar { width:30%; float:right;}
+
+#headBtns { margin:10px 0px;   }
+#headBtns a { display:inline-block; margin-top:15px;}
+#searchBar { width:30%; position:absolute; left:72%; display:inline-block; margin-top:7px;  }
+#searchBar div { display:inline-block; }
 #banner { width:100%; height:250px; background-image:url(img/other/sky.jpg); background-size:cover; background-position: center center;; }
 
 #nav { margin:0; padding:0px; background:-webkit-linear-gradient(top, #b0d4e3 0%,#88bacf 100%); }
@@ -21,29 +23,33 @@ p{ margin:0 ; padding:0;}
 #nav li:hover {  padding:1%;color:brown;background: -webkit-linear-gradient(top, #fefcea 0%,#f1da36 100%); cursor:pointer;}
 #nav li p { display:block ; text-align:center;}
 
-#content { width:70%;}
-#content article { padding-left:20px;}
+#content { width:70%; background-color:white; float:left; position:relative; border-right:thin #666666 dashed ; box-sizing:border-box;}
+#content article { padding-left:20px; margin-right:10px;}
+
+#rightArea { width:30%; float:left; height:300px; position:relative; }
+#subNav { padding:0px; padding-top:20px; margin-left:0px; width:100%; display:block; position:static;}
+#subNav li { padding:5px; border-bottom:#666666 dashed thin; list-style-position:inside; padding-left:10px; list-style-image:url(img/other/glyphicons_062_paperclip.png);}
+
+#something { width:100%;}
+#something article { margin:5px 5px 0px 5px; border:solid #CCCCCC thin; box-shadow: 0px 0px 1px 1px #999999;  }
+
+.searchIcon { background-image:url(img/other/glyphicons_027_search.png); width:24px; height:24px; background-size:cover !important; display:inline-block; }
+.pinIcon { background-image:url(img/other/glyphicons_062_paperclip.png); width:24px; height:24px; display:inline-block;}
+.afterFloat { clear:both;}
 </style>
 </head>
 <body>
 <div id="container">
 	<div id="headBtns">
-  	<a>test</a>
-  	<a>test</a>
+  	<a><p>中文</p></a>
+  	<a><p>英文</p></a>
     <div id="searchBar">
-    <script>
-  (function() {
-    var cx = '011702641394353158763:cl3vnkemu6u';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//www.google.com/cse/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<gcse:search></gcse:search>
+      <form id="searchbar" method="get" action="http://www.google.com.tw/custom">
+        <div><input type="text" id="text" name="q" size="28" placeholder="請輸入關鍵字" style="width:200px; margin:0px;"></div>
+        <div><input type="submit" id="submit" name="sa" value="" title="search" style="border:none; background-color:transparent; width:24px;" class="searchIcon"></div>
+        <div><input type="hidden" name="domains" value="http://www3.nccu.edu.tw/~ihchang/"></div>
+        <div><input type="hidden" name="sitesearch" value="http://www3.nccu.edu.tw/~ihchang/"></div>
+      </form>
     </div>
   </div>
 
@@ -62,20 +68,39 @@ p{ margin:0 ; padding:0;}
   
   <div id="content">
   	<article>
-    	<h2>test</h2>
+    	<h3>個人簡歷</h3>
       <p>今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，</p>
     </article>
   	<article>
-    	<h2>test</h2>
+    	<h3>校內服務</h3>
       <p>今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，</p>
     </article>
   	<article>
-    	<h2>test</h2>
+    	<h3>校務服務</h3>
       <p>今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，</p>
     </article>
+  	<article>
+    	<h3>經歷</h3>
+      <p>今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，</p>
+    </article>
+    
 
 
   </div>
+  
+  <div id="rightArea">
+  	<ul id="subNav">
+    	<li><h5>test</h5></li>
+    	<li><h5>test</h5></li>
+    	<li><h5>test</h5></li>
+    	<li><h5>test</h5></li>
+    </ul>
+    
+    <div id="something">
+    </div>
+  </div>
+  
+  <div class="afterFloat"></div>
 </div>
 
 
