@@ -6,43 +6,80 @@
 <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
-<link href="css/robin-all.css" rel="stylesheet" type="text/css">
 <style>
+body { background-image:url(img/fabric_plaid.png); font-size:small;}
+p{ margin:0 ; padding:0;}
+#container { width:960px; margin:auto; box-shadow: 0 0 20px 1px #888; background-color:#FFFFFF;position:relative	;}
+
+
+#headBtns { margin:10px 0px;   }
+#headBtns a { display:inline-block; margin-top:15px;}
+#searchBar { width:30%; position:absolute; left:72%; display:inline-block; margin-top:7px;  }
+#searchBar div { display:inline-block; }
+#banner { width:100%; height:250px; background-image:url(img/other/sky.jpg); background-size:cover; background-position: center center;; }
+
+#nav { margin:0; padding:0px; background:-webkit-linear-gradient(top, #b0d4e3 0%,#88bacf 100%); }
+#nav li { padding:1%; color:blue; display:inline-block; width:14%; height:100%; font-family:'微軟正黑體';}
+#nav li:hover {  padding:1%;color:brown;background: -webkit-linear-gradient(top, #fefcea 0%,#f1da36 100%); cursor:pointer;}
+#nav li p { display:block ; text-align:center;}
+
+#content { width:70%; background-color:white; float:left; position:relative; border-right:thin #666666 dashed ; box-sizing:border-box;}
+#content article { padding-left:20px; margin-right:10px; margin-bottom:30px;}
+#content article h4 { font-family:'微軟正黑體';}
+
+#rightArea { width:30%; float:left; height:300px; position:relative; }
+#subNav { padding:0px; padding-top:20px; margin-left:0px; width:100%; display:block; position:static;}
+#subNav li { padding:5px; border-bottom:#666666 dashed thin; list-style-position:inside; padding-left:10px; list-style-image:url(img/other/glyphicons_062_paperclip.png);}
+
+#something { width:100%;}
+#something article { margin:5px 5px 0px 5px; border:solid #CCCCCC thin; box-shadow: 0px 0px 1px 1px #999999;  }
+
+#footer { background-color:#999999; width:100%; clear:both; color:white; display:block;}
+#footer > .inner { padding:20px 20px;}
+
+.searchIcon { background-image:url(img/other/glyphicons_027_search.png); width:24px; height:24px; background-size:cover !important; display:inline-block; }
+.pinIcon { background-image:url(img/other/glyphicons_062_paperclip.png); width:24px; height:24px; display:inline-block;}
+.afterFloat { clear:both;}
+
+
+
 </style>
 </head>
 <body>
 <div id="container">
+	<div id="headBtns">
+  	<a><p>中文</p></a>
+  	<a><p>英文</p></a>
+    <div id="searchBar">
+      <form id="searchbar" method="get" action="http://www.google.com.tw/custom">
+        <div><input type="text" id="text" name="q" size="28" placeholder="請輸入關鍵字" style="width:200px; margin:0px;"></div>
+        <div><input type="submit" id="submit" name="sa" value="" title="search" style="border:none; background-color:transparent; width:24px;" class="searchIcon"></div>
+        <div><input type="hidden" name="domains" value="http://www3.nccu.edu.tw/~ihchang/"></div>
+        <div><input type="hidden" name="sitesearch" value="http://www3.nccu.edu.tw/~ihchang/"></div>
+      </form>
+    </div>
+  </div>
 
 	<div id="banner">
-    <div id="headBtns">
-    </div>
-		
-    <div id="lang" style="position:absolute; top:20px; left:92%;">
-      <a class="langBtn"><p>中</p></a>
-      <a class="langBtn"><p>英</p></a>
-
-    </div>
   
-    <ul id="nav">
-      <a href="#"><li id="introduction" class="navBtn active" ><p>個人簡介</p></li></a>
-      <a href="teaching.html"><li id="teaching" class="navBtn"><p>授課內容</p></li></a>
-      <a href="publications.html"><li id="publication" class="navBtn"><p>學術發表與研究</p></li></a>
-      <a href="instruct.hmtl"><li id="instruct" class="navBtn"><p>論文指導</p></li></a>
-      <a href="international.html"><li id="international" class="navBtn"><p>國際交流</p></li></a>
-      <a href="awards.html"><li id="awards" class="navBtn"><p>獲獎紀錄</p></li></a>
-    </ul>
-
-   
   </div>
 	
+  <ul id="nav">
+    <li id="introduction" class="navBtn " ><p>個人簡介</p></li>
+    <li id="teaching" class="navBtn active"><p>授課內容</p></li>
+    <li id="publication" class="navBtn"><p>學術發表與研究</p></li>
+    <li id="inductor" class="navBtn"><p>論文指導</p></li>
+    <li id="international" class="navBtn"><p>國際交流</p></li>
+    <li id="awards" class="navBtn"><p>獲獎紀錄</p></li>
+  </ul>
   
   <div id="content">
   	<article>
-    	<h3>個人簡介</h3>
+    	<h4>個人簡介</h4>
       <p>今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，</p>
     </article>
   	<article>
-    	<h3>經歷</h3>
+    	<h4>經歷</h4>
       <div>
       	<table class="table">
           <tr>
@@ -84,15 +121,15 @@
       </div>
     </article>
   	<article>
-    	<h3>校內服務</h3>
+    	<h4>校內服務</h4>
       <p>今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，</p>
     </article>
   	<article>
-    	<h3>校外服務</h3>
+    	<h4>校外服務</h4>
       <p>今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，</p>
     </article>
   	<article>
-    	<h3>學術社群</h3>
+    	<h4>學術社群</h4>
       <p>今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，</p>
     </article>
     
@@ -101,14 +138,6 @@
   </div>
   
   <div id="rightArea">
-    <div id="searchBar">
-      <form method="get" action="http://www.google.com.tw/custom" style="margin:0px;">
-        <div><input type="text" id="text" name="q" size="28" placeholder="請輸入關鍵字" style="margin:0px;" ></div>
-        <div><input type="submit" id="submit" name="sa" value="" title="search" style="border:none; background-color:transparent; width:24px;" class="searchIcon"></div>
-        <div><input type="hidden" name="domains" value="http://www3.nccu.edu.tw/~ihchang/"></div>
-        <div><input type="hidden" name="sitesearch" value="http://www3.nccu.edu.tw/~ihchang/"></div>
-      </form>
-    </div>
   	<ul id="subNav">
     	<li><h5>test</h5></li>
     	<li><h5>test</h5></li>
