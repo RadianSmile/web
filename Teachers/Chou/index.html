@@ -7,12 +7,85 @@
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
 <style>
-body { background-image:url(img/wavegrid.png);}
+body { background-image:url(img/wavegrid.png); font-family:"標楷體"; font-size:18px;}
+#container { margin:auto; width:960px; height:1000px; overflow:hidden; }
+
+#banner { border-radius:10px; overflow:hidden;}
+
+#name { font-family:"標楷體"; position:relative; background-image:url(img/banner.png);; height:300px; background-size:cover;}
+#name > p { position:absolute; overflow:visible;}
+#name #n1 { font-size:150px; top:100px;}
+#name #n2 { font-size:120px; top:150px; left:210px;}
+#name #n3 { font-size:135px;  top:120px; left:400px;}
+
+nav { width:100%; margin:15px 0px; font-size:18px; }
+nav > ul { margin:0px; padding:0px;}
+nav > ul a { display:block; margin:10px;}
+nav > ul > li { display:block; float:left; width:15.66%; box-sizing:border-box; margin-right:1.2%;  padding:0px;position:relative; list-style:none;  }
+nav > ul > li > a{ color:brown}
+nav > ul > li:last-child { margin:0px;}
+nav > ul > li:hover { background-color:rgba(102,102,102,.6); }
+nav > ul > li > ul { display:none; width:100%; margin:0px; padding:0px;}
+nav > ul > li:hover > ul { display:block; position:absolute; top:100%; width:100%; z-index:1;}
+nav > ul > li:hover > ul { list-style:none; }
+nav > ul > li:hover > ul >li { padding-top:10px; background-color:rgba(153,153,153,.5); cursor:pointer;}
+nav > ul > li:hover > ul >li:hover { background-color:#FFFFFF;}
+
+#banner { position:relative; top:10px;}
 </style>
 </head>
 <body>
-<div class="container">
+<div id="container">
+<nav>
+  	<ul>
+    	<li><a href="#">個人簡介</a> 
+      	<ul>
+        	<li>個人簡介</li>
+          <li>學歷</li>
+        </ul>
+      </li>
+      <li><a href="#">最新動態</a></li>
 
+      <li><a href="#">研究案</a></li>
+      <li><a href="#">論文及著述</a>
+      	<ul>
+        	<li>專書</li>
+          <li>專書論文</li>
+          <li>期刊</li>
+          <li>研討會論文</li>
+        </ul>
+      </li>
+      <li><a href="#">一般發表</a></li>
+      <li><a href="#">榮譽與服務</a></li>
+    </ul>
+  </nav>
+  <div style="clear:both;"></div>	
+  <div id="banner">
+  	<div id="name">
+    	<p id="n1">周</p>
+      <p id="n2">祝</p>
+      <p id="n3">瑛</p>
+    </div>
+  
+  	<div id="lang">
+    
+    </div>
+  </div>
+ 
+  
+
+	<div id="content">
+  	<article>
+    	<h3>測試</h3>
+      <p>我是段落，我是段落，我是段落，我是段落，我是段落，我是段落，我是段落，我是段落，我是段落，我是段落，我是段落，我是段落，</p>
+    </article>
+  </div>
+  
+  <div id="rightArea">
+	</div>
+  
+  <footer>
+  </footer>
 
 
 </div>
