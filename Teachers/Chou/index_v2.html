@@ -8,13 +8,16 @@
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
 <link href="css/nav.css" rel="stylesheet" type="text/css">
 <style>
-body { background-image:url(img/wavegrid.png); font-family:"標楷體"; font-size:18px;}
-#container { margin:auto; width:960px; height:1000px; overflow:hidden; background-color:white; box-shadow: 0 0 20px 1px #888;}
+body { background-image:url(img/wavegrid.png); font-family:"新細明體" ; font-size:16px;}
+#container { margin:auto; width:960px; overflow:hidden; background-color:white; box-shadow: 0 0 20px 1px #888;}
 
 #banner { border-radius:10px; overflow:hidden;}
 
 #name { font-family:"標楷體"; position:relative; background-image:url(img/banner.png);; height:300px; background-size:cover;}
-#name > p { position:absolute; overflow:visible;}
+#name > p {
+	position: absolute;
+	overflow: visible;
+}
 #name #n1 { font-size:150px; top:100px;}
 #name #n2 { font-size:120px; top:150px; left:210px;}
 #name #n3 { font-size:135px;  top:120px; left:400px;}
@@ -23,8 +26,11 @@ body { background-image:url(img/wavegrid.png); font-family:"標楷體"; font-siz
 
 #content { width:100%; padding-top:20px; background-color:white; float:left; position:relative;  box-sizing:border-box;}
 #content article { padding-left:20px; margin-right:10px; margin-bottom:30px;}
-#content article h3 {  color:#660000;}
+#content article h3 {  color:#660000; font-family:"標楷體";}
 
+#content article > ul li { list-style:none; margin-top:15px;}
+
+.eng { font-family:"Times New Roman", Times, serif; font-size:18px;}
 </style>
 </head>
 <body>
@@ -32,7 +38,7 @@ body { background-image:url(img/wavegrid.png); font-family:"標楷體"; font-siz
   <div style="clear:both;"></div>	
   <div id="banner">
   	<div id="name">
-    	<p id="n1">周</p>
+    	<p id="n1" name="n1">周</p>
       <p id="n2">祝</p>
       <p id="n3">瑛</p>
     </div>
@@ -68,9 +74,52 @@ body { background-image:url(img/wavegrid.png); font-family:"標楷體"; font-siz
 
 	<div id="content">
   	<article>
-    	<h3>測試</h3>
-      <p>我是段落，我是段落，我是段落，我是段落，我是段落，我是段落，我是段落，我是段落，我是段落，我是段落，我是段落，我是段落，</p>
+    	<h3>專書</h3>
+      <ul>
+        <li>Chou, C. P. (Ed.) (forthcoming). The SSCI Syndrome. Netherland: Sage.</li>
+        <li>Chou, C. P.; Ching, Gregory S. (2012).<a href="http://www3.nccu.edu.tw/~iaezcpc/publications/C_publications/Books/Chou,%20C.%20P.;%20Ching%20G.(2012)_Taiwan%20Education%20at%20the%20Crossroad/Chou,%20C.%20P.;%20Ching%20G.(2012)_Taiwan%20Education%20at%20the%20Crossroad_e_renew_20121212.pdf.pdf"> Taiwan Education at the Crossroad: When Globalization Meets Localization. </a>International and Development Education. New York: Palgrave Mcmillian. <br>
+          (<a href="http://www3.nccu.edu.tw/~iaezcpc/publications/C_publications/Books/Chou,%20C.%20P.;%20Ching%20G.(2012)_Taiwan%20Education%20at%20the%20Crossroad/Chou,%20C.%20P.;%20Ching%20G.(2012)_Taiwan%20Education%20at%20the%20Crossroad_c_renew_20121212.pdf.pdf">檢視中文目錄</a>)</li>
+        <li>周祝瑛(2009)。<a href="http://www3.nccu.edu.tw/~iaezcpc/publications/C_publications/Books/Chou,%20C.%20P.(2009)_Comparative%20Education%20and%20Glocbal%20Ed.%20Reform%20from%20Taiwan/Comparative%20Education%20and%20Glocbal%20Ed.%20Reform%20from%20Taiwan%20Introduction.htm">比較教育與國際教改</a>。臺北：三民。</li>
+        <li>周祝瑛(2008)。<a href="http://www3.nccu.edu.tw/~iaezcpc/What%20happened%20toTaiwan.htm">台灣教育怎麼辦？</a>。臺北：心理。</li>
+        <li>Chou, C. P.; Ho, Ai-Hsin.(2007). <a href="http://www3.nccu.edu.tw/~iaezcpc/publications/E_publications/Books/Chou,%20C.%20P.;%20Ho,%20Ai-Hsin.(2007)_Schooling%20in%20Taiwan_Going%20to%20School%20in%20East%20Asia.pdf">Schooling in Taiwan</a>. In G. Postinglione (Ed.)  Going to School in East Asia. N.Y.: Greenwood.</li>
+        <li>周祝瑛(2005)。<a href="http://www3.nccu.edu.tw/~iaezcpc/publications/C_publications/Books/Chou,%20C.%20P.(2005)_Love%20in%20New%20Zealand/Love%20in%20New%20Zealand%20Introduction.htm">愛在紐西蘭：優質創新中小學。</a>臺北：書泉。</li>
+        <li>周祝瑛(2003)。<a href="http://www3.nccu.edu.tw/~iaezcpc/publications/C_publications/Books/Chou,%20C.%20P.(2003)_Aspects%20of%20Taiwan%20Education/B-%20Taiwan's%20educational%20aspects-preface.htm">臺灣教育面面觀</a>。臺南：世一。</li>
+        <li>周祝瑛(2003)。<a href="http://www3.nccu.edu.tw/~iaezcpc/B-%20The%20great%20experiment%20of%20Taiwanese%20Education%20main%20points.htm">誰捉弄了臺灣教改(1987~2003)？。</a>臺北：心理。</li>
+        <li>周祝瑛(2002)。<a href="http://www3.nccu.edu.tw/~iaezcpc/c-how%20to%20study%20in%20china-preface.htm">留學大陸 Must Know：臺灣學生赴大陸求學之研究。</a>臺北：正中。</li>
+      </ul>
     </article>
+    
+    <article>
+      <h3>專書論文</h3>
+				<ul>
+          <li>周祝瑛(2013)。楔子、十二年國教的問題與挑戰、用好的考試形式來引導好的教學制度、面對十二年國教家長的因應之道、高中學校如何因應十二年國教、十二年國教如何回應國際教改的趨勢。收於 教改論壇(主編)，「圖解你應該知道的十二年國教」乙書。台北:商周。</li>
+          <li>周祝瑛、邱韻如 (2013出版中)。橘子和香蕉真的是不能比：反對獨尊 SSCI 連署意見分析報告。「市場邏輯與高等教育理念：人文社會科學的卓越神話」 研討會論文集。台北：世新大學出版中心。</li>
+          <li>周祝瑛、楊景堯(2012)。<a href="http://www3.nccu.edu.tw/~iaezcpc/publications/C_publications/Journals/%E5%91%A8%E7%A5%9D%E7%91%9B.%E6%A5%8A%E6%99%AF%E5%A0%AF%20(2012)_%E5%9C%8B%E9%9A%9B%E4%BA%A4%E6%B5%81%E4%B8%AD%E4%B9%8B%E3%80%8C%E5%85%A9%E5%B2%B8%E5%8C%96%E3%80%8D%E8%AD%B0%E9%A1%8C.pdf">國際交流中之「兩岸化」議題</a>。收於 中國教育學會主編 教育願景2020 乙書，頁51~81。台北，學富。</li>
+          <li>周祝瑛、陳榮政(2012)。<a href="http://www3.nccu.edu.tw/~iaezcpc/publications/C_publications/Journals/%E5%91%A8%E7%A5%9D%E7%91%9B.%E9%99%B3%E6%A6%AE%E6%94%BF%20(2012)_%E5%9C%8B%E9%9A%9B%E6%95%99%E8%82%B2%20..pdf">國際教育</a>。收於 國家教育研究院編印 我國教育政策綱領之研究 乙書，頁203-215。台北，國家教育研究院。</li>
+          <li>周祝瑛、胡祝惠(2011)。<a href="http://www3.nccu.edu.tw/~iaezcpc/publications/C_publications/Conference%20Papers/%E5%91%A8%E7%A5%9D%E7%91%9B%E3%80%81%E8%83%A1%E7%A5%9D%E6%83%A0(2011)_%E5%A4%A7%E5%AD%B8%E8%A9%95%E9%91%91%E7%9A%84%E6%AD%A3%E7%94%A8%E8%88%87%E8%AA%A4%E7%94%A8%20%E4%BB%A5%E6%94%BF%E5%A4%A7%E6%95%99%E5%AD%B8%E8%A9%95%E9%91%91%E7%82%BA%E4%B8%BB.pdf">大學評鑑的正用與誤用:以政大教學評鑑為主</a>。收於高等教育理想與目標反思研討會論文集-世新大學55週年學術專書，145-180。台北，世新大學出版中心。</li>
+          <li>周祝瑛(2011)。<a href="http://www3.nccu.edu.tw/~iaezcpc/publications/C_publications/Books/%E5%91%A8%E7%A5%9D%E7%91%9B(2011)_%E6%AF%94%E8%BC%83%E5%B9%BC%E5%85%92%E6%95%99%E8%82%B2.pdf" target="_blank">比較幼兒教育</a>，1-30。台中，華格那企業。</li>
+          <li>Chou, C. P. (2008). <a href="http://www3.nccu.edu.tw/~iaezcpc/the%20impact%20of%20neo-liberalism%20on%20taiwanese%20higher%20education.htm">The Impact of Neo-Liberalism on Taiwanese Higher Education</a>. In Baker, David P. and Wiseman, Alexander W. (Eds.). The Worldwide Transformation of Higher Education. Vol. 9, 297-312. UK: Emerald Group.</li>
+          <li>周祝瑛(2004)。<a href="http://www3.nccu.edu.tw/~iaezcpc/C-%20the%20character%20of%20public%20intellectual%20&%20female%20collage%20%20teacher%20(3).htm">雙重障礙:從公共知識份子和女性大學教師的角色談起。</a>收於中國教育學會、師範教育學會合編，教師專業成長問題研究乙書(頁93-108)。臺北：學富。</li>
+          <li>周祝瑛(2004)。<a href="http://www3.nccu.edu.tw/~iaezcpc/publications/C_publications/Books/Chou,%20C.%20P.(2004)_Taiwan%20Education%20in%2020th%20Century/B-%20Taiwan's%20education%20catalogue.htm">20世紀臺灣教育</a>。收於 顧明遠主編 「中國教育大系」乙書。中國湖北：湖北教育出版社。頁3370-3739。</li>
+          <li>周祝瑛(2002)。<a href="http://www3.nccu.edu.tw/~iaezcpc/C-%20multiple%20intelligence%20and%20%20child%20edu%20in%20comparitve%20edu.htm">由國際比較觀點談多元智慧及幼稚教育</a>。收於「多元智慧教室，多元智慧孩子」。臺南：世一。</li>
+          <li>周祝瑛(2002)。<a href="http://www3.nccu.edu.tw/~iaezcpc/C-The%20trend%20of%20globalization%20of%20higher%20education%20in%20Taiwan.htm">全球化潮流中的臺灣高等教育</a>。收於馮增俊主編，「WTO與中國教育」乙書。廣東：中山大學出版社。</li>
+          <li>周祝瑛(2001)。多元智慧理論與臺灣中小學辦學模式。收於馮增俊、唐海海主編「新世紀學校模式」乙書，廣東：中山大學書版社。</li>
+          <li>周祝瑛(2001)。多元智慧與課堂教學創新—「班級經營教學」實驗初步結果報告。收於馮增俊、李忠俊主編(2001)「教育創新與建構中國現代教育體系」乙書，成都：四川文藝出版社。</li>
+          <li>周祝瑛(2000)。<a href="http://www3.nccu.edu.tw/~iaezcpc/B-%20learning%20from%20others%20main%20points.htm">他山之石:比較教育專題研究</a><a href="http://www3.nccu.edu.tw/~iaezcpc/C-The%20educator%20from%20the%20market-PREFACE.htm">。</a>臺北：文景。</li>
+          <li>周祝瑛(2000)。<a href="http://www3.nccu.edu.tw/~iaezcpc/publications/C_publications/Books/Chou,%20C.%20P.(2000)_My%20Mother%20my%20teacher/B-%20My%20mother%20my%20teacher%20authors%20preface.htm">猪肉攤上的教育家</a>。臺北：南宏。</li>
+          <li>周祝瑛(1999)。<a href="http://www3.nccu.edu.tw/~iaezcpc/C-China%20Higher%20Education%20Research.htm">大陸高等教育問題研究──兼論臺灣相關課題</a>。臺北:師大書苑。</li>
+          <li>Chou, C. P.; Chang, F.C. (1998). Gender Differences in Taiwan's Academe: Its Implication for the Education Reform in China. Beyond the Face of Reforms: Modernizing Chinese Higher Education for the 21st Century. Hong Kong University Press.</li>
+          <li>周祝瑛、陳膺宇(1997)。ROTC制度與我國軍事教育—從台灣的多元文化社會談起。軍事與社會，國家政策研究中心</li>
+          <li>周祝瑛(1996)。社會學與戰爭的省思。中正理工學院。</li>
+          <li>周祝瑛(1996)。國中日常教學活動之生態研究。行政院教育改革審議委員會。</li>
+          <li>周祝瑛，高承恕等(1995)。台商子女在大陸教育現況與需求調查研究-兼論我政府因應措施之建議。海基會。</li>
+          <li>周祝瑛(1994)。大學教育發展狀況及其評估（一)。第七次全國教育會議參考資料叢書(6)。國立教育資料館。</li>
+          <li>周祝瑛、黃鴻博(1994)。大陸地區教育制度及學歷採證制度之研究。大陸地區教育制度及學歷採證制度之研究。中國大陸問題研究中心。</li>
+          <li>周祝瑛、陳膺宇(1993)。國軍「莒光園地」空中教學民主法治教育之內容分析—1987與1992年之比較。「空中教學論叢」，中華民國空中教育學會。</li>
+          <li>周祝瑛(1992)。成長或公平的掙札—大陸文革期間及文革後大學入學制度比較研究。兩岸教育發展之比較。師大書苑。</li>
+        </ul>
+    </article>
+    
   </div>
   
   <div id="rightArea">
