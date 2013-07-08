@@ -1,6 +1,5 @@
-<?php 
-$a = $_SERVER['REMOTE_ADDR'];
-?><!doctype html>
+<?php session_start(); ?>
+<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -8,6 +7,8 @@ $a = $_SERVER['REMOTE_ADDR'];
 </head>
 
 <body>
+
+<?php $a = $_SESSION['REMOTE_ADDR'];?>
 <p><?php echo $a;?></p>
 
 </body>
