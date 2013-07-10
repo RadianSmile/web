@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<link href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://twitter.github.io/bootstrap/assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.8.min.js"></script>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+</head>
+<body>
+<form id="msgForm" class="form-horizontal">
+<fieldset>
+  
+<!-- Form Name -->
+<legend>留言板</legend>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="name">Name</label>
+  <div class="controls">
+    <input id="name" name="name" type="text" placeholder="name" class="input-xlarge" required>
+    
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="Message">Message</label>
+  <div class="controls">                     
+    <textarea id="message" name="Message"></textarea>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="submit"></label>
+  <div class="controls">
+    <button id="submit" name="submit" class="btn btn-primary">submit</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<script type="text/javascript">
+
+
+
+$('#msgForm').submit(
+  function (){
+    var Good = Parse.Object.extend("Good");
+    var good = new Good();
+    good.save({
+      name: $('#name').val(),
+      message: $('#message').val()
+    	},{
+      success:function (good){
+				alert('success');
+				console.log (good.id);
+      },
+      error:function (good,e){
+				alert ('failed');
+        console.log (e.description);
+			}
+    });
+		return false ;
+  });
+	
+
+</script>
+</body>
+</html>

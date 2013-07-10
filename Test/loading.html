@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>無標題文件</title>
+<style>
+
+.jCProgress {
+     position: absolute;
+     z-index: 9999999;
+     /*  margin-top:-15px; /* offset from the center */
+}
+
+.jCProgress > div.percent {
+     font: 18px/27px 'BebasRegular', Arial, sans-serif;
+     color:#ebebeb;
+     text-shadow: 1px 1px 1px #1f1f1f;
+
+     position:absolute;
+     margin-top:40px;
+     margin-left:22px;
+     text-align: center;
+     width:60px;
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+<div>
+
+<div><img  src="http://big5.ce.cn/gate/big5/blog.ce.cn/sp1/blog_attachments/2008/09/146669_200809121558271X62X.jpg" /></div>
+<img id="theImg" src="http://i.imgur.com/XQL6E.jpg" />
+<div id="test">
+</div>
+<img src="http://aoe3.heavengames.com/albums/Age-of-Empires-III%3A-The-Asian-Dyansties/age_of_empires_iii_the_asian_dynasties_20070625104746407.jpg" />
+<img src="http://img.pconline.com.cn/images/upload/upc/tx/wallpaper/1205/17/c2/11650037_1337236861977.jpg" />
+
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/spin.min.js" language="javascript" type="text/javascript"></script>
+<script type="text/javascript" language="javascript">
+	$("img").one('load', function() {
+		alert ('one');
+}).each(function() {
+  if(this.complete) $(this).load();
+});
+	var opts = {
+  lines: 17, // The number of lines to draw
+  length: 23, // The length of each line
+  width: 8, // The line thickness
+  radius: 30, // The radius of the inner circle
+  corners: 1, // Corner roundness (0..1)
+  rotate: 36, // The rotation offset
+  direction: 1, // 1: clockwise, -1: counterclockwise
+  color: '#000', // #rgb or #rrggbb
+  speed: 0.9, // Rounds per second
+  trail: 100, // Afterglow percentage
+  shadow: false, // Whether to render a shadow
+  hwaccel: false, // Whether to use hardware acceleration
+  className: 'spinner', // The CSS class to assign to the spinner
+  zIndex: 29, // The z-index (defaults to 2000000000)
+  top: 'auto', // Top position relative to parent in px
+  left: 'auto' // Left position relative to parent in px
+};
+var target = document.getElementById("test");
+var spinner = new Spinner(opts).spin(target);
+</script>
+
+</body>
+</html>

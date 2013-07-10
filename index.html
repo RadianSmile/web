@@ -7,6 +7,11 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/custom.css" rel="stylesheet" type="text/css" media="screen" >
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
+		<style>
+		.apd { position:fixed; overflow-y:scroll; top:0px; left:0px; width:100%; display:block; background:rgba(155,155,155,.8); height:1000px}
+		.apd > .apdInner { margin:auto; margin-top:90px; background:rgba(255,255,255,1); border-radius:10px; width:600px; padding:30px; }
+
+		</style>
 
   </head>
   <body>
@@ -107,9 +112,95 @@
           </div>
          	
         </div>
+        
+        <div class="span4 box1">
+        	<h2>Become a member!!</h2>
+          <p>Hey !! this is my new function to sign up. Both, there is a apeend window! You can enjoy the quality!!</p>
+					<div>
+            <a href="#" class="btn btn-primary" id="signupBtn">Sign Up !!</a>
+          </div>
+        </div>
       </div>
+    </div>
+    
+    <div id="appendArea">
+    
     </div>
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="http://www.parsecdn.com/js/parse-1.2.8.min.js"></script>
+
+<script type="text/javascript">
+
+var signupForm;
+init ();
+function init (){
+	signupForm = '	<form id="signupForm" class="form-horizontal"><fieldset><!-- Form Name --><legend>Sign Up</legend><!-- Text input--><div class="control-group">  <label class="control-label" for="textinput">Your Name</label>  <div class="controls">    <input id="username" name="textinput" type="text" placeholder="Your Name" class="input-xlarge" required="">      </div></div><!-- Password input--><div class="control-group">  <label class="control-label" for="password">Password</label>  <div class="controls">    <input id="userPassword" name="password" type="password" placeholder="Your Password" class="input-xlarge" required="">      </div></div><!-- Password input--><div class="control-group">  <label class="control-label" for="passwordCheck">Password Again</label>  <div class="controls">    <input id="passwordCheck" name="passwordCheck" type="password" placeholder="Your Password" class="input-xlarge" required="">      </div></div><!-- Button --><div class="control-group">  <label class="control-label" for="signup"></label>  <div class="controls">    <button id="signup" name="signup" type="submit" class="btn btn-primary">Sign Up</button>  </div></div></fieldset></form>'
+};
+
+$('#signupBtn').click(function (e){
+
+	var con = $('<div class="apd" />');
+	var outer = $('<div class="apdInner" />');
+
+	outer.append(signupForm);
+	con.append(outer);
+	$('#appendArea').append(con);
+
+	$('.apd').click(function (e){
+		$('.apd').fadeOut(300,function (){
+			$('#appendArea').empty();
+		});
+	});
+	$('.apd').hide();
+	$('.apd').fadeIn(300);
+	
+	$('.apdInner').click(function (e){
+		e.stopPropagation();
+		e.preventDefault();
+	});
+	prepareForSignup();	
+	
+});
+</script>
+
+<script type="text/javascript">
+function prepareForSignup(){
+	Parse.initialize("8E5t5eRW9s1a3cuJwD3CxHxSkA2jpCDOBGXddUba", "UfLYdljyUFrjHrmplxtAsNy0ufuZI9AcQjcd0Ksx");
+	var User = Parse.Object.extend("User");
+	var user = new User ();
+	
+
+
+	$('#signup').click( function (){	$('#signupForm').submit(); });
+	$('#signupForm').submit(function (){
+		var 
+		a = $('#username').val(),
+		b = $('#userPassword').val(),
+		c = $('#passwordCheck').val();
+		
+		if ( b === c )
+		{
+			user.signUp({
+				username:a,
+				password:b
+			},{
+				success:function (user){
+					alert('You\'ve signed up!!');
+					$('.apd').trigger('click');
+				},
+				error:function (user,e){
+					alert( e.message);
+				}
+			});
+		}else {
+			alert ('Your password doesn\'t match!!');
+		}
+		
+		return false;
+	});
+}
+</script>
+
   </body>
 </html>
