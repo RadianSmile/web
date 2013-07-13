@@ -117,9 +117,20 @@
         	<h2>Become a member!!</h2>
           <p>Hey !! this is my new function to sign up. Both, there is a apeend window! You can enjoy the quality!!</p>
 					<div>
-            <a href="#" class="btn btn-primary" id="signupBtn">Sign Up !!</a>
+            <a href="#" class="btn btn-primary" id="signupBtn" onClick="return false;">Sign Up !!</a>
           </div>
         </div>
+      </div>
+      
+      <div class="row">
+      	<div class="span4 box1">
+        	<h2>Log In</h2>
+         	<p>Hey Have you Signed up ? Just start your login !!</p>
+          <div>
+          	<a class="btn btn-primary" id="loginBtn" onClick="return false;">Log In !!</a>
+          </div>
+        </div>
+      
       </div>
     </div>
     
@@ -135,71 +146,91 @@
 var signupForm;
 init ();
 function init (){
-	signupForm = '	<form id="signupForm" class="form-horizontal"><fieldset><!-- Form Name --><legend>Sign Up</legend><!-- Text input--><div class="control-group">  <label class="control-label" for="textinput">Your Name</label>  <div class="controls">    <input id="username" name="textinput" type="text" placeholder="Your Name" class="input-xlarge" required="">      </div></div><!-- Password input--><div class="control-group">  <label class="control-label" for="password">Password</label>  <div class="controls">    <input id="userPassword" name="password" type="password" placeholder="Your Password" class="input-xlarge" required="">      </div></div><!-- Password input--><div class="control-group">  <label class="control-label" for="passwordCheck">Password Again</label>  <div class="controls">    <input id="passwordCheck" name="passwordCheck" type="password" placeholder="Your Password" class="input-xlarge" required="">      </div></div><!-- Button --><div class="control-group">  <label class="control-label" for="signup"></label>  <div class="controls">    <button id="signup" name="signup" type="submit" class="btn btn-primary">Sign Up</button>  </div></div></fieldset></form>'
+	signupForm ='<form method="post" id="signupForm" class="form-horizontal"><fieldset><!-- Form Name --><legend>Sign Up</legend><!-- Text input--><div class="control-group">  <label class="control-label" for="textinput">Your Name</label>  <div class="controls">    <input id="username" name="textinput" type="text" placeholder="Your Name" class="input-xlarge" required="">      </div></div><!-- Password input--><div class="control-group">  <label class="control-label" for="password">Password</label>  <div class="controls">    <input id="userPassword" name="password" type="password" placeholder="Your Password" class="input-xlarge" required="">      </div></div><!-- Password input--><div class="control-group">  <label class="control-label" for="passwordCheck">Password Again</label>  <div class="controls">    <input id="passwordCheck" name="passwordCheck" type="password" placeholder="Your Password" class="input-xlarge" required="">      </div></div><!-- Button --><div class="control-group">  <label class="control-label" for="signup"></label>  <div class="controls">    <button id="signup" name="signup" type="submit" class="btn btn-primary">Sign Up</button>  </div></div></fieldset></form>'
+
+
+	$('#appendArea').on('click','.apdInner',function (e){e.stopPropagation();});
+	$('#appendArea').on('click',' .apd',function (e){
+		$('.apd').fadeOut(300,function (){$('#appendArea').empty();});
+	});
 };
 
-$('#signupBtn').click(function (e){
-
+function showApd (theForm)
+{
 	var con = $('<div class="apd" />');
 	var outer = $('<div class="apdInner" />');
 
-	outer.append(signupForm);
+	outer.append(theForm);
 	con.append(outer);
 	$('#appendArea').append(con);
 
-	$('.apd').click(function (e){
-		$('.apd').fadeOut(300,function (){
-			$('#appendArea').empty();
-		});
-	});
 	$('.apd').hide();
-	$('.apd').fadeIn(300);
-	
-	$('.apdInner').click(function (e){
-		e.stopPropagation();
-		e.preventDefault();
-	});
-	prepareForSignup();	
-	
+	$('.apd').fadeIn(300);	
+}
+
+
+$('#signupBtn').click(function (e){
+	showApd (signupForm);
+	$('#signup').on('click', toSignUp);
 });
+
+
 </script>
 
 <script type="text/javascript">
-function prepareForSignup(){
+
+
+function toSignUp (){
+	$('#signupForm').submit(function (){return false});
 	Parse.initialize("8E5t5eRW9s1a3cuJwD3CxHxSkA2jpCDOBGXddUba", "UfLYdljyUFrjHrmplxtAsNy0ufuZI9AcQjcd0Ksx");
 	var User = Parse.Object.extend("User");
 	var user = new User ();
+	var 
+	a = $('#username').val(),
+	b = $('#userPassword').val(),
+	c = $('#passwordCheck').val();
 	
-
-
-	$('#signup').click( function (){	$('#signupForm').submit(); });
-	$('#signupForm').submit(function (){
-		var 
-		a = $('#username').val(),
-		b = $('#userPassword').val(),
-		c = $('#passwordCheck').val();
-		
-		if ( b === c )
-		{
-			user.signUp({
-				username:a,
-				password:b
-			},{
-				success:function (user){
-					alert('You\'ve signed up!!');
-					$('.apd').trigger('click');
-				},
-				error:function (user,e){
-					alert( e.message);
-				}
-			});
-		}else {
-			alert ('Your password doesn\'t match!!');
-		}
-		
-		return false;
-	});
+	if ( b === c )
+	{
+		user.signUp({
+			username:a,
+			password:b
+		},{
+			success:function (user){
+				alert('You\'ve signed up!!');
+				$('.apd').trigger('click');
+			},
+			error:function (user,e){
+				alert( e.message);
+			}
+		});
+	}else {
+		alert ('Your password doesn\'t match!!');
+	}
+	;
 }
+</script>
+
+<script type="text/javascript" >
+	var loginForm = '<form id="loginForm" class="form-horizontal"><fieldset><!-- Form Name --><legend>Log In</legend><!-- Text input--><div class="control-group"> <label class="control-label" for="account">Your Name</label> <div class="controls">  <input id="account" name="account" type="text" placeholder="Your Name" class="input-xlarge"></div></div><!-- Password input--><div class="control-group"> <label class="control-label" for="loginPassword">Passowrd</label> <div class="controls">  <input id="loginPassword" name="loginPassword" type="password" placeholder="Your Password" class="input-xlarge">  <p class="help-block">For get ?</p> </div></div><!-- Button --><div class="control-group"> <label class="control-label" for="login"></label> <div class="controls">  <button id="login" type="submit" name="login" class="btn btn-primary">Log In</button> </div></div></fieldset></form>';
+	$('#loginBtn').click(function (){
+		showApd(loginForm);
+
+		$('#login').click (function (){
+			$('#loginForm').submit( function (){return false;});
+			Parse.initialize("8E5t5eRW9s1a3cuJwD3CxHxSkA2jpCDOBGXddUba", "UfLYdljyUFrjHrmplxtAsNy0ufuZI9AcQjcd0Ksx");
+			var 
+			a = $('#account').val(),
+			b = $('#loginPassword').val();
+			alert (a + b );
+			Parse.User.logIn( a , b ,{
+				success:function (user){console.log (user);alert('You\'ve login!!'); $('.apd').trigger('click'); console.log (user.attributes.username);},
+				error:function (user,error){alert (error.message); console.log (error);}
+			});			
+		});
+	});
+		
+		
 </script>
 
   </body>

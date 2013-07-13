@@ -4256,7 +4256,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 
 					if ( nodeName === "tr" ) {
 						that.currentItem.children().each(function() {
-							$( "<td>&#160;</td>", that.document[0] )
+							$( "<td> </td>", that.document[0] )
 								.attr( "colspan", $( this ).attr( "colspan" ) || 1 )
 								.appendTo( element );
 						});
@@ -9335,7 +9335,7 @@ $.extend(Datepicker.prototype, {
 							(printDate.getTime() === today.getTime() ? " ui-datepicker-today" : "")) + "'" + // highlight today (if different)
 							((!otherMonth || showOtherMonths) && daySettings[2] ? " title='" + daySettings[2].replace(/'/g, "&#39;") + "'" : "") + // cell title
 							(unselectable ? "" : " data-handler='selectDay' data-event='click' data-month='" + printDate.getMonth() + "' data-year='" + printDate.getFullYear() + "'") + ">" + // actions
-							(otherMonth && !showOtherMonths ? "&#xa0;" : // display for other months
+							(otherMonth && !showOtherMonths ? " " : // display for other months
 							(unselectable ? "<span class='ui-state-default'>" + printDate.getDate() + "</span>" : "<a class='ui-state-default" +
 							(printDate.getTime() === today.getTime() ? " ui-state-highlight" : "") +
 							(printDate.getTime() === currentDate.getTime() ? " ui-state-active" : "") + // highlight selected day
@@ -9391,7 +9391,7 @@ $.extend(Datepicker.prototype, {
 		}
 
 		if (!showMonthAfterYear) {
-			html += monthHtml + (secondary || !(changeMonth && changeYear) ? "&#xa0;" : "");
+			html += monthHtml + (secondary || !(changeMonth && changeYear) ? " " : "");
 		}
 
 		// year selection
@@ -9428,7 +9428,7 @@ $.extend(Datepicker.prototype, {
 
 		html += this._get(inst, "yearSuffix");
 		if (showMonthAfterYear) {
-			html += (secondary || !(changeMonth && changeYear) ? "&#xa0;" : "") + monthHtml;
+			html += (secondary || !(changeMonth && changeYear) ? " " : "") + monthHtml;
 		}
 		html += "</div>"; // Close datepicker_header
 		return html;
@@ -9992,7 +9992,7 @@ $.widget( "ui.dialog", {
 
 	_title: function( title ) {
 		if ( !this.options.title ) {
-			title.html("&#160;");
+			title.html(" ");
 		}
 		title.text( this.options.title );
 	},
@@ -13535,10 +13535,10 @@ $.widget( "ui.spinner", {
 	_buttonHtml: function() {
 		return "" +
 			"<a class='ui-spinner-button ui-spinner-up ui-corner-tr'>" +
-				"<span class='ui-icon " + this.options.icons.up + "'>&#9650;</span>" +
+				"<span class='ui-icon " + this.options.icons.up + "'>▲</span>" +
 			"</a>" +
 			"<a class='ui-spinner-button ui-spinner-down ui-corner-br'>" +
-				"<span class='ui-icon " + this.options.icons.down + "'>&#9660;</span>" +
+				"<span class='ui-icon " + this.options.icons.down + "'>▼</span>" +
 			"</a>";
 	},
 
