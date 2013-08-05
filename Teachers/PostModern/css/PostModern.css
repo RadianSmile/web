@@ -29,10 +29,15 @@ header { }
 #logo { margin:30px 5px 0px 0px; height:120px; }
 
 #content { }
-#picShow { background:url(img/fabric_plaid.png) repeat; width:100%; height:300px; position:relative; overflow:hidden; padding-top:30px; }
-.picshowPic { position:absolute; width:100%; height:300px; overflow:hidden; display:none;}
+
+.fontA { font-family: "新細明體","Times New Roman", Times, serif;}
+.fontB { font-family:"微軟正黑體","Times New Roman", Times, serif;}
+
+#picShowOuter { background:url(../img/fabric_plaid.png); overflow:hidden;}
+#picShowInner { box-shadow:0px 0px 5px 3px #999999; z-index:-1;}
+#picShow { width:100%; height:300px; position:relative;  }
+.picshowPic { position:absolute; width:100%; height:300px; overflow:hidden; z-index:2;}
 .showingPic { z-index:3; display:block;}
-.preparePic { z-index:2; display:block;}
 
 .picBtn {}
 
