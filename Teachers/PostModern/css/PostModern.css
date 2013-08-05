@@ -22,7 +22,24 @@ body { margin:0; padding:0; font-family:"微軟正黑體"}
 #mainTitle {  font-size:24px; margin: 0;margin-bottom:7px; color:#CC0000; text-shadow:#CCCCCC 3px 3px 3px; }
 .subTitle { margin: 0; color:#333333; }
 
+
+/*Navigation*/
+
 #nav, header { width:100%; }
+#aboutBtn { position:relative;}
+
+#aboutNav { width:100px; border-radius:5px;  overflow:hidden; background:#FFFFFF; display:none; position:absolute; top:42px; z-index:3; box-shadow:0px 0px 5px 2px #CCCCCC;}
+#aboutNav > li { width:100%;}
+#aboutNav > li > a {padding:5px;}
+#aboutNav > li:last-child { border:0;}
+#aboutNav > li:hover {background:#CCCCCC;}
+#aboutNav:hover, #aboutBtn:hover > #aboutNav { display:block;}
+
+
+
+
+
+
 header { }
 .container { width:960px; margin:auto;}
 #logo , #title { float:left;}
