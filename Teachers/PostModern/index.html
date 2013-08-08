@@ -15,13 +15,25 @@
 .school { width:160px; margin-right:40px; float:left; }
 .schoolLogo { width:160px; height:160px; }
 
-.circleBtns { position:absolute; z-index:5; top:270px; left:850px; }
+.circleBtns { position:absolute; z-index:5; top:270px; left:850px; opacity:.8; }
 .circleBtns li {float:left; margin-right:10px;}
-.circleBtns li a {  width:15px; height:15px; background:#CC66FF; border-radius:50%;}
+.circleBtns li a {  width:13px; height:13px; background:#999999; border-radius:50%; border:#666666 solid thin}
+.activeBtn { background:#FFFFFF !important; }
 #picShow { position:relative;}
 
+#leftBtn:hover { background-position: -3px 0px !important; cursor:pointer; }
+#rightBtn:hover { background-position: 3px 0px !important; cursor:pointer; }
 
-</style>
+
+#schools h4 { color:#999999;}
+
+.footerInfoBox { padding:10px; width:300px;}
+.footerInfoBox > img , .footerInfoBox{ float:left;}
+.footerInfoBox >  h4 , .footerInfoBox > p { margin-top:3px; margin-bottom:0px; color:#666666;}
+.footerInfoBox >  h4 { color:#333333;}
+.footerInfoBox { font-size:12px; color:#666666;}
+</style> 
+
 </head>
 <body>
 
@@ -51,12 +63,12 @@
 					</ul>
 				</li>
 				<li><a href="members.html">研討會貴賓</a></li>
-				<li><a href="#">研討會發表</a></li>
-				<li><a href="#">最新消息</a></li>
+				<li><a href="publications.html">研討會發表</a></li>
+				<li><a href="news.html">最新消息</a></li>
 			</ul>
 			<ul id="navListRight" class="lineUL" >
-				<li><a href="#">政大教育</a></li>
-				<li><a href="#">政大周邊</a></li>
+				<li><a href="http://edu.nccu.edu.tw/main.php">政大教育</a></li>
+				<li><a href="play.html">政大周邊</a></li>
 			</ul>
 		</div>
 	</div>
@@ -66,42 +78,45 @@
 <div id="content">
 	<div id="picShowOuter" >
 		<div id="picShowInner" class="container">
+			<h3>政大一景</h3>
 			<div id="picShow">
 				<div id="pic1" class="picshowPic showingPic" ><img src="img/pic1.png"></div>
 				<div id="pic2" class="picshowPic" ><img src="img/pic2.jpg"></div>
 				<div id="pic3" class="picshowPic"><img src="img/pic3.jpg" width="100%"></div>
-				<ul class="circleBtns">
+				<ul id="picNav" class="circleBtns">
+					<li><a class="picBtn activeBtn" data-pic="0"></a></li>
 					<li><a class="picBtn" data-pic="1"></a></li>
 					<li><a class="picBtn" data-pic="2"></a></li>
-					<li><a class="picBtn" data-pic="3"></a></li>
 				</ul>
 				<div id="bigBtns">
-					<div id="leftBtn" style="position:absolute; top:80px;  left:-100px; z-index:6"><img src="img/leftBtn.png" style="position:absolute;"></div>
-					<div id="rightBtn" style="position:absolute; top:80px; right:-100px; z-index:6"><img src="img/rightBtn.png"></div>
+					<div id="leftBtn" style="position:absolute; top:80px;  left:-100px; z-index:6; background:url(img/leftBtn.png); width:78px; height:158px;"></div>
+					<div id="rightBtn" style="position:absolute; top:80px; right:-100px; z-index:6;background:url(img/rightBtn.png); width:78px; height:158px;"></div>
 				</div>
 			</div>
-
-
+			<div>
+				<p>Contents
+			</div>
 		</div>
 	</div>
 	
 	<div id="news" class="container">
 		<h3>最新消息</h3>
-		
-		<div class="news">
-			<div class="img" style="background-image:url(img/news/9bbf6f84655154fa720887c3669202e8.jpg);"></div>
-			<h4>今天天氣真的很不錯</h4>
-			<p>今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，</p>
-		</div>
-		<div class="news">
-			<div class="img" style="background-image:url(img/news/0980116-1.jpg);"></div>
-			<h4>今天天氣真的很不錯</h4>
-			<p>今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，</p>
-		</div>
-		<div class="news news-last">
-			<div class="img" style="background-image:url(img/news/3949907923_21be5d1f28_o.jpg)"></div>
-			<h4>今天天氣真的很不錯</h4>
-			<p>今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，</p>
+		<div id="newsInner" class="inner">
+			<div class="news">
+				<div class="img" style="background-image:url(img/news/9bbf6f84655154fa720887c3669202e8.jpg);"></div>
+				<h4>今天天氣真的很不錯</h4>
+				<p>今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，</p>
+			</div>
+			<div class="news">
+				<div class="img" style="background-image:url(img/news/0980116-1.jpg);"></div>
+				<h4>今天天氣真的很不錯</h4>
+				<p>今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，</p>
+			</div>
+			<div class="news">
+				<div class="img" style="background-image:url(img/news/3949907923_21be5d1f28_o.jpg)"></div>
+				<h4>今天天氣真的很不錯</h4>
+				<p>今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，今天天氣真的很不錯，</p>
+			</div>
 		</div>
 	</div>
 	
@@ -204,6 +219,48 @@
 </div>
 
 <footer>
+	<div id="footerInner" class="container">
+		<div id="footerLogo" class="clearfix">
+			<img src="img/image021.png" width="60" class="footerInfoBox" style="margin-right:20px; width:60px;">
+			<div id="footerTitle" class="footerInfoBox">
+				<h4>屆海峽兩岸教育學院領導人論壇</h4>
+				<p>主辦單位：國立政治大學教育學院</p>
+				<p>協辦單位：國立政治大學教育行政與政策研究所<br>
+									<span style="margin-left:5em;">國立政治大學教育系</span></p>
+			</div>
+			<div id="contact" class="footerInfoBox">
+				<h4>聯絡方式</h4>
+				<p>電話：(02)2939-3091轉62331或62281</p>
+				<p>傳真：(02)29387717</p>
+				<p>E-Mail：nccuedu@nccu.edu.tw</p>
+				<p>地址：11605 台北市文山區指南路2段64號 國立政治大學教育學系</p>
+				
+			</div>
+		</div>
+		
+	</div>
+<!--div id="footerInner" class="container">
+	<div id="footNavs">
+		<div class="footNav">
+			<h4>研討會首頁</h4>
+			<ul>
+				<li><a></a></li>
+				<li><a></a></li>
+				<li><a></a></li>
+			</ul>
+		</div>
+
+		<div class="footNav">
+			<h4>關於研討會</h4>
+			<ul>
+				<li><a></a></li>
+				<li><a></a></li>
+				<li><a></a></li>
+			</ul>
+		</div>
+
+	</div>
+</div-->
 </footer>
 
 
@@ -219,40 +276,70 @@
 var picArr = ["#pic1","#pic2","#pic3"];
 var nowPic = 0 ;
 var totalPic = 0;
+var looop;
 
 $('.picshowPic').each(function(index, element) {	totalPic++;});console.log (totalPic);
 
+
 function loop (){
-	setTimeout ("autoSwitch()",5000);
-}
-loop ();
+	looop = setTimeout ("autoSwitch()",5000);
+}	loop ();
 function autoSwitch (){
-	$(picArr[nowPic]).show().fadeOut();
-	var a = picArr[goPic(true)];
-	$(a).addClass("showingPic").hide().fadeIn(function (){});
-	console.log ($(picArr[nowPic]));
+	goPic (true);
 	loop();
 }
+
+$('#rightBtn').click(function (){clearTimeout(looop); goPic(true);loop();});
+$('#leftBtn').click(function (){ clearTimeout(looop);goPic(false);loop();});
+
+
 function goPic (dir){
-	if (dir) {
-		if (nowPic < totalPic - 1) { nowPic ++; } else { nowPic = 0;}
-		return nowPic;
-	}else {
-		if (nowPic > 0 ) { nowPic --; } else { nowPic = totalPic - 1;}
-		return nowPic;
+	$(picArr[nowPic]).removeClass('showingPic');
+	if ( typeof dir === "boolean"){
+		$(picArr[nowPic]).show().fadeOut();
+		
+		if (dir) {
+			if (nowPic < totalPic - 1) { nowPic ++;  } else { nowPic = 0;}
+		}else {
+			if (nowPic > 0 ) { nowPic --; } else { nowPic = totalPic - 1;}
+		}
 	}
+	
+	else if (typeof dir === "number" && dir <= totalPic - 1 && dir >= 0){
+		$(picArr[nowPic]).show().fadeOut();
+		nowPic = dir ;
+	}
+
+	$('.picBtn').each(function (index,value){
+		var $v = $(value) ;
+		console.log (value);
+		if ($v.data('pic') !== nowPic ){
+			console.log ($v.data('pic') , nowPic);
+			$v.removeClass('activeBtn');
+		}	else {
+			$v.addClass('activeBtn');
+		}
+	});
+
+	var a = picArr[nowPic];
+	$(a).addClass("showingPic").hide().fadeIn(function (){});
 }
 
-function good (){
-	console.log ("test");
-}
 
-$('.picshowPic').on('click',switchPic());
-function switchPic (e){
-}
+$('#picNav').on( 'click','.picBtn',function (e){
+	//console.log ( $(e.currentTarget).data('pic'));
+	clearTimeout (looop);
+	
 
+	var $a = $(e.currentTarget)
+	var pic = $a.data('pic');
+	if (nowPic !== pic)goPic (pic);
+		//console.log ('nowPic',nowPic," pic",pic);
+	loop();
+});
 
 
 </script>
 </body>
 </html>
+	

@@ -11,9 +11,16 @@
 <!--link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"-->
 <style>
 #joinTitle { margin-top:40px;}
-#introJoin { float:left; margin-top:20px;}
-#joinForm {  margin-bottom:60px; width:480px; float:left; margin-right:30px;}
+#introJoin { float:left; margin-top:20px; width:50%;}
+#joinForm {  margin-bottom:60px; width:480px; float:left;}
 #inviteDes { color:#666666; font-family:"微軟正黑體"; text-align:center;}
+
+#joinForm  .control-label { width:100px;}
+#joinForm .controls { width:360px ; margin-left:120px;}
+.controls > input { width:300px;}
+
+#successMsg { box-shadow:0px 0px 5px 3px #CCCCCC; border-radius:5px; width:50%; float:left;  }
+#successMsg > .inner { padding:10px;}
 </style>
 </head>
 <body>
@@ -63,7 +70,7 @@
 			</div>
 		</div>
 		<div id="joinForm">
-			<form class="form-horizontal">
+			<form class="form-horizontal" >
 				<fieldset>
 				<!-- Form Name -->
 				<legend></legend>		
@@ -71,7 +78,7 @@
 				<div class="control-group">
 					<label class="control-label" for="name">姓名</label>
 					<div class="controls">
-						<input id="name" name="name" type="text" placeholder="姓名" class="input-xlarge" required>		
+						<input id="name" name="name" type="text" placeholder="姓名" class="input-xlarge" value="test" required >		
 					</div>
 				</div>
 				
@@ -79,7 +86,7 @@
 				<div class="control-group">
 					<label class="control-label" for="department">服務單位</label>
 					<div class="controls">
-						<input id="department" name="department" type="text" placeholder="單位" class="input-xlarge" required>
+						<input id="department" name="department" type="text" placeholder="單位" value="test" class="input-xlarge" required>
 						
 					</div>
 				</div>
@@ -88,7 +95,7 @@
 				<div class="control-group">
 					<label class="control-label" for="email">信箱</label>
 					<div class="controls">
-						<input id="email" name="email" type="text" placeholder="信箱" class="input-xlarge" required>
+						<input id="email" name="email" type="email" placeholder="信箱" value="test@test.test" class="input-xlarge" required>
 						
 					</div>
 				</div>
@@ -97,7 +104,7 @@
 				<div class="control-group">
 					<label class="control-label" for="phone">手機號碼</label>
 					<div class="controls">
-						<input id="phone" name="phone" type="text" placeholder="手機" class="input-xlarge" required>
+						<input id="phone" name="phone" type="text" placeholder="手機" value="test" class="input-xlarge" required>
 						
 					</div>
 				</div>
@@ -119,14 +126,40 @@
 				<!-- Button (Double) -->
 				<div class="control-group">
 					<label class="control-label" for="join"></label>
-					<div class="controls">
-						<button id="join" name="join" class="btn btn-primary">我要報名</button>
+					<div class="controls" id="submit1">
+						<button id="tojoin" name="tojoin" class="btn btn-info" type="submit">我要報名</button>
 						<button id="reset" name="reset" class="btn btn-default">重寫</button>
+					</div>
+					<div class="controls" id="submit2" style="display:none;">
+						<button id="join" name="join" class="btn btn-primary" >確定送出</button>
+						<button id="revise" name="reset" class="btn btn-default">我要訂正</button>
+					</div>					
+				</div>
+				<div class="control-group" id="subInfo" style="display:none;">
+					<div class="controls">
+						<p>請再次確認資料是否填寫無誤，如填寫無誤，即可確認送出!!</p>
 					</div>
 				</div>
 				</fieldset>
 			</form>
 		</div>
+		
+		<div id="successMsg" style="display:none;">
+			<div class="inner">
+				<h4 id="welcome"></h4>
+				<p>您已經報名成功，政大教育系非常歡迎您的加入!!</p>
+				<p>日後也歡迎您繼續瀏覽覽此網站，接收最新消息。</p>
+				<p>如有任何問題與指教，隨時歡迎您與我們聯繫。</p>
+				<p>電話</p>
+				<p>信箱</p>
+				<p><a href="index.html">回首頁</a></p>
+			</div>
+		</div>
+		
+		<div id="errorMsg">
+		</div>
+		
+		
 	</div>
 </div>
 <footer>
@@ -134,5 +167,66 @@
 <script src="js/jquery.min.js" type="text/javascript"></script>
 <script src="js/jquery-ui.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+var formEleArr = ['#name','#department','#email','#phone','#food'];
+
+$('#tojoin').click(function(e){
+	console.log('test');
+	$.each(formEleArr,function (index,value){
+		$(value).css('color','purple')//.prop('readonly', true);
+	});
+	$('#submit1').fadeOut(500,function (){
+		$('#submit2').fadeIn(500);
+		$('#subInfo').fadeIn(500);
+
+	});
+	return false;
+});
+
+
+$('#join').click(function(){
+	submitJoin ();
+	return false;
+})
+
+$('#revise').click (function (){
+	$.each(formEleArr,function (index,value){
+		$(value).removeAttr('style')//.prop('readonly', false);
+	});
+	$('#submit2').fadeOut(500,function (){
+		$('#submit1').fadeIn(500);
+		$('#subInfo').fadeIn(500);
+	});
+	return false;
+});
+	
+</script>
+<script src="js/parse-1.2.8.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+Parse.initialize("UwfOM45jM6Hly9KDUSpl21VgdvxtbX9RMEXHGMlI", "0TJTzii5uztd9JdbaxOxlDJn9OB0vS0BHu0IbASw");
+
+function submitJoin (){
+	var PostModern = Parse.Object.extend("PostModern");
+	var postModern = new PostModern();
+	postModern.save({
+		name: $(formEleArr[0]).val(),
+		department: $(formEleArr[1]).val(),
+		email: $(formEleArr[2]).val(),
+		phone: $(formEleArr[3]).val(),
+		food: $(formEleArr[4]).val()}, {
+		success: function(postModern) {
+			//document.location.href="join_success.html";
+			var n = $('#name').val();
+			$('#welcome').append("親愛的"+n+"先生/女士 您好：");
+			$('#joinForm').fadeOut(500,function (){
+				$('#successMsg').fadeIn(500);
+			});
+		},
+		error: function(postModern, error){
+			alert (error);
+		}
+	});
+}
+</script>
 </body>
 </html>

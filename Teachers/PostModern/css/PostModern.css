@@ -28,12 +28,12 @@ body { margin:0; padding:0; font-family:"微軟正黑體"}
 #nav, header { width:100%; }
 #aboutBtn { position:relative;}
 
-#aboutNav { width:100px; border-radius:5px;  overflow:hidden; background:#FFFFFF; display:none; position:absolute; top:42px; z-index:3; box-shadow:0px 0px 5px 2px #CCCCCC;}
-#aboutNav > li { width:100%;}
-#aboutNav > li > a {padding:5px;}
-#aboutNav > li:last-child { border:0;}
-#aboutNav > li:hover {background:#CCCCCC;}
-#aboutNav:hover, #aboutBtn:hover > #aboutNav { display:block;}
+.subNav,#aboutNav { width:100px; border-radius:5px;  overflow:hidden; background:#FFFFFF; display:none; position:absolute; top:42px; z-index:20; box-shadow:0px 0px 5px 2px #CCCCCC;}
+.subNav > li,#aboutNav > li { width:100%;}
+.subNav > li > a,#aboutNav > li > a {padding:5px;}
+.subNav > li:last-child ,#aboutNav > li:last-child { border:0;}
+.subNav > li:hover ,#aboutNav > li:hover {background:#CCCCCC;}
+.subNav:hover , .withSubNav:hover > .subNav ,#aboutNav:hover, #aboutBtn:hover > #aboutNav { display:block;}
 
 
 
@@ -45,22 +45,22 @@ header { }
 #logo , #title { float:left;}
 #logo { margin:30px 5px 0px 0px; height:120px; }
 
-#content { }
+#content { padding-bottom:50px; }
 
 .fontA { font-family: "新細明體","Times New Roman", Times, serif;}
 .fontB { font-family:"微軟正黑體","Times New Roman", Times, serif;}
 
 #picShowOuter { background:url(../img/fabric_plaid.png); overflow:hidden;}
-#picShowInner { box-shadow:0px 0px 5px 3px #999999; z-index:-1;}
-#picShow { width:100%; height:300px; position:relative;  }
-.picshowPic { position:absolute; width:100%; height:300px; overflow:hidden; z-index:2;}
+#picShowInner { }
+#picShow { width:100%; height:300px; position:relative; box-shadow:0px 0px 5px 3px #999999; }
+.picshowPic { position:absolute; width:100%; height:300px; overflow:hidden; z-index:2; display:none;}
 .showingPic { z-index:3; display:block;}
 
 .picBtn {}
 
 #nav { clear:both; background:url(../img/nav_bg.png);}
 #navList { margin:0; float:left;}
-#navList > li { float:left; margin-right:5sdpx; }
+.hrztNav > li ,#navList > li { float:left; margin-right:5sdpx; } #navList > li { border-left:#CCCCCC 1px solid;} #navList > li:last-child { border-right:#CCCCCC 1px solid;}
 #navListRight {float:right;}
 #navListRight > li { float:right; margin-left:5px; }
 
@@ -71,11 +71,13 @@ h3 { color:#CC0000;}
 h4 { color:#CC0000;}
 #news {}
 .news {width:300px; margin-right:30px; float:left;}
-.news-last { margin-right:0;}
+.news:nth-child(3n) { margin-right:0;}/* nth-child 會包含到非同類別的東東!!!*/
 .news > .img {background-size:cover; width:100%; height:168px; overflow:hidden;  border-radius:10px;  }
+.news > h4 { color:black;}
+.news > p { color:#999999;}
 
 
-footer { background-image:url(../img/fabric_plaid.png); background-repeat:repeat; height:250px;}
+footer { background-image:url(../img/fabric_plaid.png); background-repeat:repeat; min-height:100px;box-shadow:0px 0px 3px 2px #999999;}
 
 
 /* about*/
