@@ -79,6 +79,18 @@ h4 { color:#CC0000;}
 
 footer { background-image:url(../img/fabric_plaid.png); background-repeat:repeat; min-height:100px;box-shadow:0px 0px 3px 2px #999999;}
 
+/* Footer*/
+
+
+
+#schools h4 { color:#999999;}
+
+.footerInfoBox { padding:10px; width:300px;}
+.footerInfoBox > img , .footerInfoBox{ float:left;}
+.footerInfoBox >  h4 , .footerInfoBox > p { margin-top:3px; margin-bottom:0px; color:#666666;}
+.footerInfoBox >  h4 { color:#333333;}
+.footerInfoBox { font-size:12px; color:#666666;}
+
 
 /* about*/
 
