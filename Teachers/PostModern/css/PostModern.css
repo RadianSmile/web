@@ -2,9 +2,9 @@
 /* default */
 
 body { font-size:16px; line-height:140%;}
-h3 { font-size:18px} h2 { font-size:20px} h1{ font-size:22px}
-h1,h2,h3,h4 { margin:10px 0;}
 
+h1,h2,h3,h4 { margin:10px 0; display:block;}
+h3 { font-size:18px; margin-top:40px; margin-bottom:10px;} h2 { font-size:20px} h1{ font-size:22px}
 p { line-height:140%; font-family:"新細明體"; margin-bottom:10px;}
 ol { list-style:decimal; list-style-position:inside;}
 
