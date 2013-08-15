@@ -1,0 +1,21 @@
+/* CSS Document */
+body {  color:white;}
+.outer { padding:40px 0px ;}  /*用在padding 上下*/
+.container { width:960px; margin:auto;}
+
+#mainNav > li > a { margin-right:40px;}
+
+#banner , #nav {background: #210000; /* Old browsers */
+background: -moz-linear-gradient(-45deg, #210000 0%, #6d0000 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#210000), color-stop(100%,#6d0000)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg, #210000 0%,#6d0000 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg, #210000 0%,#6d0000 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg, #210000 0%,#6d0000 100%); /* IE10+ */
+background: linear-gradient(135deg, #210000 0%,#6d0000 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#210000', endColorstr='#6d0000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */}
+
+#content { height:720px; background:#FFFFFF;}
+
+.main-wallMov { width:640px !important; height:360px !important;  float:left;}
+[class~=wallMov] { float:left; width:320px; height:180px;  }
+
