@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <title>TEDxNCCU 官方網站</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/5eb168b0154768602b7da05b54081381?s=16" sizes="16x16">
+<link rel="icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/5eb168b0154768602b7da05b54081381?s=16" sizes="16x16">
 
 <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
 <!--link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"-->
@@ -10,6 +12,28 @@
 <!--link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"-->
 <link href="css/tedxnccu2.css" rel="stylesheet" type="text/css">
 <style>
+
+
+
+
+
+
+
+.picshowPic { position:absolute;overflow:hidden; z-index:2; display:none;}
+.showingPic { z-index:3; display:block;}
+
+.circleBtns { position:absolute; z-index:11; right:20px; bottom:-60px; opacity:.8; }
+.circleBtns li {float:left; margin-right:10px;}
+.circleBtns li a {  width:13px; height:13px; background:#999999; border-radius:50%; border:#666666 solid thin; display:block;}
+.activeBtn { background:#FFFFFF !important; }
+#picShow { position:relative;}
+#leftBtn:hover { background-position: -3px 0px !important; cursor:pointer; }
+#rightBtn:hover { background-position: 3px 0px !important; cursor:pointer; }
+
+.bannerInfo { color:white; background:rgba(0,0,0,.7); z-index:5; position:absolute; right:0px; width:500px; min-height:150px; bottom:-80px; display:none;}
+.activeInfo { display:block; z-index:6;}
+.bannerInfo > h3 { color:#FF0000;}
+
 
 </style>
 </head>
@@ -22,36 +46,78 @@
 		</div>
 		<div style="float:right">
 			<ul id="mainNav" class="hrzUL clearfix">
-				<li><a>首頁</a></li>
-				<li><a>贊助夥伴</a></li>
+				<li><a href="index.html">首頁</a></li>
+				<li><a href="spnsors.html">贊助夥伴</a></li>
 				<li class="withSubNav clearfix">
-					<a >TED活動</a>
+					<a href="acts/index.html" >TED活動</a>
 					<ul class="subNav">
 						<li><a href="#">2013 From Idea To Action</a></li>
 					</ul>
 				</li>
 				<li class="withSubNav clearfix">
-					<a>文章分享</a>
+					<a href="blog/index.html">文章分享</a>
 					<ul class="subNav">
-						<li><a href="#"></a></li>
+						<li><a href="#">所有文章</a></li>
+						<li><a href="#">心得分享</a></li>
+						<li><a href="#">演講分享</a></li>
 					</ul>
 				</li>
-				<li><a>關於我們</a></li>
-				<li><a>聯繫我們</a></li>	
+				<li><a href="about.html">關於我們</a></li>
+				<li><a href="contact.html">聯繫我們</a></li>	
 			</ul>
 		</div>
 	</div>
 </nav>
 <div style="width:100%; height:44px;">
 </div>
+
+
+			<!--div id="picShow">
+				<div id="pic1" class="picshowPic showingPic" ><img src="img/pic1.png"></div>
+				<div id="pic2" class="picshowPic" ><img src="img/pic2.jpg"></div>
+				<div id="pic3" class="picshowPic"><img src="img/pic3.jpg" width="100%"></div>
+				<ul id="picNav" class="circleBtns">
+					<li><a class="picBtn activeBtn" data-pic="0"></a></li>
+					<li><a class="picBtn" data-pic="1"></a></li>
+					<li><a class="picBtn" data-pic="2"></a></li>
+				</ul>
+				<div id="bigBtns">
+					<div id="leftBtn" style="position:absolute; top:80px;  left:-100px; z-index:6; background:url(img/leftBtn.png); width:78px; height:158px;"></div>
+					<div id="rightBtn" style="position:absolute; top:80px; right:-100px; z-index:6;background:url(img/rightBtn.png); width:78px; height:158px;"></div>
+				</div>
+			</div-->
+
+
+
 <div id="banner">
-	<div class="bannerPic">
+	<div class="bannerPic shd-large">
+		<div id="pic1" class="bannerPic picshowPic showingPic" ><img src="img/art-pre-pic.jpg"></div>
+		<div id="pic2" class="bannerPic picshowPic" ><img src="../image/7445668486_2ffafcff86_o.jpg"></div>
+		<div id="pic3" class="bannerPic picshowPic"><img src="../image/564545_10200584505310978_1954257377_n.jpg" ></div>
 	</div>
+	
 	<div class="container" style="height:500px; position:relative;">
-		<div class="box bannerInfo">
-			<h3>TEDxNCCU</h3>
-			<p>今天天氣還不錯，我在為一上班，遇到很好的主管，有冷氣吹，有電腦用，有事情做不會無聊，天啊我在打什麼費文，沒辦法，為了測試藥用...今天天氣還不錯，我在為一上班，遇到很好的主管，有冷氣吹，有電腦用，有事情做不會無聊，天啊我在打什麼費文，沒辦法，為了測試藥用...</p>
+		<div id="infos">
+			<div id="info1" class="box bannerInfo activeInfo">
+				<h3>TEDxNCCU</h3>
+				<p>今天天氣還不錯，我在為一上班，遇到很好的主管，有冷氣吹，有電腦用，有事情做不會無聊，天啊我在打什麼費文，沒辦法，為了測試藥用...今天天氣還不錯，我在為一上班，遇到很好的主管，有冷氣吹，有電腦用，有事情做不會無聊，天啊我在打什麼費文，沒辦法，為了測試藥用...</p>
+			</div>
+			<div id="info2" class="box bannerInfo">
+				<h3>From IDeas To Actions</h3>
+				<p>今天天氣還不錯，我在為一上班，遇到很好的主管，有冷氣吹，有電腦用，有事情做不會無聊，天啊我在打什麼費文，沒辦法，為了測試藥用...今天天氣還不錯，我在為一上班，遇到很好的主管，有冷氣吹，有電腦用，有事情做不會無聊，天啊我在打什麼費文，沒辦法，為了測試藥用...</p>
+			</div>
+			<div id="info3" class="box bannerInfo">
+				<h3>Good Morning</h3>
+				<p>今天天氣還不錯，我在為一上班，遇到很好的主管，有冷氣吹，有電腦用，有事情做不會無聊，天啊我在打什麼費文，沒辦法，為了測試藥用...今天天氣還不錯，我在為一上班，遇到很好的主管，有冷氣吹，有電腦用，有事情做不會無聊，天啊我在打什麼費文，沒辦法，為了測試藥用...</p>
+			</div>
 		</div>
+
+		<ul id="picNav" class="circleBtns">
+			<li><a class="picBtn activeBtn" data-pic="0"></a></li>
+			<li><a class="picBtn" data-pic="1"></a></li>
+			<li><a class="picBtn" data-pic="2"></a></li>
+		</ul>
+		
 	</div>
 </div>
 
@@ -69,7 +135,7 @@
 <div id="newArticle" class="outer">
 	<div class="container">
 	<h3 class="tag">最新文章分享</h3>
-		<ul class="largeUL">
+		<ul class="largeUL box block">
 			<li><a href="http://tedxnccu.wordpress.com/2013/06/07/tedglobal-2013-think-again-%e7%8f%be%e5%a0%b4%e8%bd%89%e6%92%ad%e8%ac%9b%e8%80%85%e4%bb%8b%e7%b4%b9/">Think Again 轉播場次講者介紹</a></li>
 			<li><a href="http://tedxnccu.wordpress.com/2013/05/21/tedxncculive-think-again-tedglobal-2013%e7%8f%be%e5%a0%b4%e8%bd%89%e6%92%ad/">TEDxNCCULive - Think Again - TEDGlobal 2013現場轉播</a></li>
 			<li><a href="http://tedxnccu.wordpress.com/2013/05/24/20130522-yves-behar-designing-objects-that-tell-stories-%e5%a6%82%e4%bd%95%e8%a8%ad%e8%a8%88%e6%9c%83%e8%aa%aa%e6%95%85%e4%ba%8b%e7%9a%84%e7%89%a9%e5%93%81/">Yves Behar: Designing objects that tell stories (如何設計會說故事的物品)</a></li>
@@ -87,7 +153,7 @@
 <div id="hotMovie" class="outer">
 	<div class="container clearfix">
 		<h3 class="tag">熱門演講</h3>
-		<ul id="hotMovList" class="hrzUL largeUL">
+		<ul id="hotMovList" class=" clearfix hrzUL largeUL box block">
 			<li>
 				<div><img src="img/mov1.jpg"></div>
 				<div>
@@ -113,11 +179,12 @@
 	</div>
 </div>
 </div>
-<footer class="outer">
+<footer class="outer-small">
 	<div class="container clearfix">
-		<ul class="hrzUL ">
-			<li><a>贊助我們</a></li>
-			<li><a>聯絡我們</a></li>
+		<ul class="hrzUL foot_nav">
+			<li><a href="act/FromIdeaToAction.html">From Idea to Action</a></li>
+			<li><a href="sponsor.html">贊助我們</a></li>
+			<li><a href="contact.html">聯絡我們</a></li>
 		</ul>
 	</div>
 </footer>
@@ -125,6 +192,82 @@
 <script src="js/jquery.min.js" type="text/javascript"></script>
 <script src="js/jquery-ui.js" type="text/javascript"></script>
 <!--script src="js/bootstrap.min.js" type="text/javascript"></script-->
+<script src="js/parse-1.2.8.min.js" type="text/javascript"></script>
+<script src="js/TEDxNCCU.js" type="text/javascript"></script>
+<script type="text/javascript">
+var picArr = ["#pic1","#pic2","#pic3"];
+var infoArr = ["#info1","#info2","#info3"];
+var nowPic = 0 ;
+var totalPic = 0;
+var looop;
+
+$('.picshowPic').each(function(index, element) {	totalPic++;});console.log (totalPic);
+
+function loop (){
+	looop = setTimeout ("autoSwitch()",5000);
+}	loop ();
+function autoSwitch (){
+	goPic (true);
+	loop();
+}
+
+$('#rightBtn').click(function (){clearTimeout(looop); goPic(true);loop();});
+$('#leftBtn').click(function (){ clearTimeout(looop);goPic(false);loop();});
+
+
+function goPic (dir){
+	$(picArr[nowPic]).removeClass('showingPic');
+	$(infoArr[nowPic]).removeClass('activeInfo');
+	if ( typeof dir === "boolean"){
+		$(picArr[nowPic]).show().fadeOut();
+		$(infoArr[nowPic]).show().fadeOut();
+		if (dir) {
+			if (nowPic < totalPic - 1) { nowPic ++;  } else { nowPic = 0;}
+		}else {
+			if (nowPic > 0 ) { nowPic --; } else { nowPic = totalPic - 1;}
+		}
+	}
+	
+	else if (typeof dir === "number" && dir <= totalPic - 1 && dir >= 0){
+		$(picArr[nowPic]).show().fadeOut();
+		$(infoArr[nowPic]).show().fadeOut();
+		nowPic = dir ;
+	}
+
+	$('.picBtn').each(function (index,value){
+		var $v = $(value) ;
+		//console.log (value);
+		if ($v.data('pic') !== nowPic ){
+			//console.log ($v.data('pic') , nowPic);
+			$v.removeClass('activeBtn');
+		}	else {
+			$v.addClass('activeBtn');
+		}
+	});
+
+	var 
+	a = picArr[nowPic],
+	b = infoArr[nowPic];
+	$(a).addClass("showingPic").hide().fadeIn(function (){});
+	$(b).addClass("activeInfo").hide().fadeIn();
+}
+
+
+$('#picNav').on( 'click','.picBtn',function (e){
+	//console.log ( $(e.currentTarget).data('pic'));
+	clearTimeout (looop);
+	
+
+	var $a = $(e.currentTarget)
+	var pic = $a.data('pic');
+	if (nowPic !== pic)goPic (pic);
+		//console.log ('nowPic',nowPic," pic",pic);
+	loop();
+});
+
+
+</script>
+
 <script type="text/javascript">
 
 </script>

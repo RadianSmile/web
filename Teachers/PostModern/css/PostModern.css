@@ -40,7 +40,7 @@ body { margin:0; padding:0; font-family:"微軟正黑體"}
 
 
 
-header { }
+header { background-image:url(../img/footer.jpg);}
 .container { width:960px; margin:auto;}
 #logo , #title { float:left;}
 #logo { margin:30px 5px 0px 0px; height:120px; }
@@ -77,7 +77,7 @@ h4 { color:#CC0000;}
 .news > p { color:#999999;}
 
 
-footer { background-image:url(../img/fabric_plaid.png); background-repeat:repeat; min-height:100px;box-shadow:0px 0px 3px 2px #999999;}
+footer { background-image:url(../img/fabric_plaid.png);background-image:url(../img/footer.jpg); background-repeat:repeat; min-height:100px;box-shadow:0px 0px 3px 2px #999999;}
 
 /* Footer*/
 
