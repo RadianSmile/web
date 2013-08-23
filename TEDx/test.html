@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/5eb168b0154768602b7da05b54081381?s=16" sizes="16x16">
+<link rel="icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/5eb168b0154768602b7da05b54081381?s=16" sizes="16x16">
+
+<title>TEDxNCCU</title>
+<link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
+<!--link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"-->
+<link href="css/reset.css" rel="stylesheet" type="text/css">
+<!--link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"-->
+<link href="css/tedxnccu.css" rel="stylesheet" type="text/css">
+
+<style>
+body { color:black !important}
+</style>
+</head>
+<body>
+
+<div class="outer">
+	<div id="tesss" class="container" contenteditable="true" style="min-height:500px;  border:medium solid #000000;">
+	</div>
+</div>
+
+
+<div id="formCon" class="outer" style="display:none">
+	<div class="container">
+		<form id="testForm">
+			<textarea id="test" style="padding:20px;"></textarea>
+			
+			<button type="submit">送出</button>
+		</form>
+	</div>
+</div>
+
+<div class="outer">
+	<div class="container">
+		<div id="appendArea">
+		</div>
+	</div>
+</div>
+
+
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.js" type="text/javascript"></script>
+<!--script src="js/bootstrap.min.js" type="text/javascript"></script-->
+<script src="js/parse-1.2.8.min.js" type="text/javascript"></script>
+<script src="js/TEDxNCCU.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+$('#tesss').on('paste', function (e) {
+  //e.preventDefault();
+	$('#formCon').fadeIn();
+
+});
+
+$('#testForm').submit(process);
+
+
+function process () {
+	var a = '<p>' + $('#test').val().replace(/\n/g,"</p><p>");
+	
+	console.log (a);
+//  document.execCommand('inserttext', false,a);
+	$('#appendArea').empty().append(a);
+	$('#tesss').append(a);
+	return false;
+}
+
+</script>
+
+
+
+</body>
+</html>

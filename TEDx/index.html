@@ -14,13 +14,9 @@
 <style>
 
 
-
-
-
-
-
 .picshowPic { position:absolute;overflow:hidden; z-index:2; display:none;}
 .showingPic { z-index:3; display:block;}
+
 
 .circleBtns { position:absolute; z-index:11; right:20px; bottom:-60px; opacity:.8; }
 .circleBtns li {float:left; margin-right:10px;}
@@ -30,9 +26,9 @@
 #leftBtn:hover { background-position: -3px 0px !important; cursor:pointer; }
 #rightBtn:hover { background-position: 3px 0px !important; cursor:pointer; }
 
-.bannerInfo { color:white; background:rgba(0,0,0,.7); z-index:5; position:absolute; right:0px; width:500px; min-height:150px; bottom:-80px; display:none;}
+.Info { color:white; background:rgba(0,0,0,.7); z-index:5; position:absolute; right:0px; width:500px; min-height:150px; bottom:-80px; display:none;}
 .activeInfo { display:block; z-index:6;}
-.bannerInfo > h3 { color:#FF0000;}
+.Info > h3 { color:#FF0000;}
 
 
 </style>
@@ -47,7 +43,8 @@
 		<div style="float:right">
 			<ul id="mainNav" class="hrzUL clearfix">
 				<li><a href="index.html">首頁</a></li>
-				<li><a href="spnsors.html">贊助夥伴</a></li>
+				<li><a href="spnsors.html">贊助夥伴</a>
+				</li>
 				<li class="withSubNav clearfix">
 					<a href="acts/index.html" >TED活動</a>
 					<ul class="subNav">
@@ -57,19 +54,20 @@
 				<li class="withSubNav clearfix">
 					<a href="blog/index.html">文章分享</a>
 					<ul class="subNav">
-						<li><a href="#">所有文章</a></li>
-						<li><a href="#">心得分享</a></li>
-						<li><a href="#">演講分享</a></li>
+						<li><a href="#">部落格</a></li>
+						<li><a href="#">TED TALK</a></li>
+						<li><a href="#">活動成果</a></li>
 					</ul>
 				</li>
-				<li class="withSubNav clearfix">
-					<a href="about.html">關於我們</a>
+				<li><a href="aboutTEDx.html">關於TEDx</a></li>	
+				<li class="withSubNav clearfix"><a href="about.html">關於我們</a>
 					<ul class="subNav">
-						<li><a href="#">關於TEDx</a></li>
-						<li><a href="#">關於TEDxNCCU</a></li>
+						<li><a href="#">團隊介紹</a></li>
+						<li><a href="#">團隊理念</a></li>
+						<li><a href="contact.html">聯繫我們</a></li>
 					</ul>
 				</li>
-				<li><a href="contact.html">聯繫我們</a></li>	
+				<li></a></li>	
 			</ul>
 		</div>
 	</div>
@@ -95,24 +93,27 @@
 
 
 
-<div id="banner">
-	<div class="bannerPic shd-large">
-		<div id="pic1" class="bannerPic picshowPic showingPic" ><img src="img/pic1.jpg"></div>
-		<div id="pic2" class="bannerPic picshowPic" ><img src="img/pic2.jpg"></div>
-		<div id="pic3" class="bannerPic picshowPic"><img src="img/pic3.jpg"></div>
+<div id="banner" class="shd-large">
+	<!--div class="container">
+		<img id="large-logo"  style="position:absolute; z-index:20; top:60px; opacity:1" src="img/TEDxNCCU5.png" />
+	</div-->
+	<div class="container pics">
+		<div id="pic1" class="Pic picshowPic showingPic"><img width="960" src="img/pic1.jpg"></div>
+		<div id="pic2" class="Pic picshowPic" ><img width="960" src="img/pic2.jpg"></div>
+		<div id="pic3" class="Pic picshowPic"><img width="960" src="img/pic3.jpg"></div>
 	</div>
 	
-	<div class="container" style="height:500px; position:relative;">
+	<div class="container shd-large"  style="height:540px; position:relative;">
 		<div id="infos">
-			<div id="info1" class="box bannerInfo activeInfo">
+			<div id="info1" class="box Info activeInfo">
 				<h3>TEDxNCCU</h3>
 				<p>今天天氣還不錯，我在為一上班，遇到很好的主管，有冷氣吹，有電腦用，有事情做不會無聊，天啊我在打什麼費文，沒辦法，為了測試藥用...今天天氣還不錯，我在為一上班，遇到很好的主管，有冷氣吹，有電腦用，有事情做不會無聊，天啊我在打什麼費文，沒辦法，為了測試藥用...</p>
 			</div>
-			<div id="info2" class="box bannerInfo">
+			<div id="info2" class="box Info">
 				<h3>From IDeas To Actions</h3>
 				<p>想動嘛?就來聽想●動吧!想動嘛?就來聽想●動吧!想動嘛?就來聽想●動吧!想動嘛?就來聽想●動吧!想動嘛?就來聽想●動吧!想動嘛?就來聽想●動吧!想動嘛?就來聽想●動吧!想動嘛?就來聽想●動吧!想動嘛?就來聽想●動吧!想動嘛?就來聽想●動吧!想動嘛?就來聽想●動吧!想動嘛?就來聽想●動吧!想動嘛?就來聽想●動吧!</p>
 			</div>
-			<div id="info3" class="box bannerInfo">
+			<div id="info3" class="box Info">
 				<h3>Good Morning</h3>
 				<p>祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣祈求天天好天氣</p>
 			</div>
@@ -272,6 +273,15 @@ $('#picNav').on( 'click','.picBtn',function (e){
 });
 
 
+</script>
+<script type="text/javascript">
+$('#large-logo').hover(function (){
+	$('#large-logo').animate({'opacity':'.3'},500);
+});
+
+$('#large-logo').mouseout(function (){
+	$('#large-logo').animate({'opacity':'1'},500);
+});
 </script>
 
 <script type="text/javascript">

@@ -47,7 +47,7 @@ table {
 /* my reset*/
 h1,h2,h3 { margin:0px 0px 10px 0px; display:block;}
 
-h1 { font-size:2.5em; }
+h1 { font-size:3em; font-family:'微軟正黑體'; color:white;}
 h2 { font-size:2em;}
 h3 { font-size:1.5em;}
 

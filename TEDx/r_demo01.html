@@ -1,15 +1,22 @@
 <html>
 <head>
-<title>TEDxNCCU</title>
+
+<title>TEDxNCCU Edit</title>
 <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
 <!--link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"-->
 <link href="css/reset.css" rel="stylesheet" type="text/css">
 <!--link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"-->
 <link href="css/tedxnccu.css" rel="stylesheet" type="text/css">
+
+
 <style>
-body { color:#000000 !important}
+.control-btn { min-width:20px; min-height:20px; background:rgba(3,3,3,.8); border-radius:2px; color:#818181; float:left; margin-right:10px; font-size:1.5em; padding:5px; margin-bottom:10px; cursor:pointer; }
+body {color:black !important}
 </style>
+
 </head>
+
+
 <body>
 
 <div id="menu"></div>
@@ -24,9 +31,13 @@ By calling the nicEditors.allTextareas() function the below example replaces all
 <script type="text/javascript">
 	bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
 </script>
-
-<h4>First Textarea</h4>
-<textarea name="area1" style="width:100%; min-height:300px; padding:20px; background:#FFFFFF; display:block "></textarea>
+<div class="outer">
+	<div class="container">
+		<h4>First Textarea</h4>
+		<textarea name="area1" class="edit-zone shd" style="width:100%; min-height:300px; padding:20px; background:#FFFFFF; ">test
+		</textarea>	
+	</div>
+</div>
 <br />
 </div>
 
