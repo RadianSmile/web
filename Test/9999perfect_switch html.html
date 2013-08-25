@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>無標題文件</title>
+</head>
+
+<body>
+
+<script>
+
+    var YUD = YAHOO.util.Dom;
+    var YUE = YAHOO.util.Event;
+
+    var dEditor, 
+        dForm, // 表單元素
+        dSwitchLink, // 切換編輯器的聯結元素
+        dTextarea, // 原始 Textarea 元素
+        oContainer,
+        oEditor; // 編輯器物件 
+
+    // 插入切換編輯器的聯結
+    dTextarea = YUD.get('msgpost')
+    dSwitchLink = document.createElement('a');
+    dSwitchLink.innerHTML = '使用 HTML 精靈';
+    dSwitchLink.className = 'switch-to-editor';
+    dSwitchLink.setAttribute('href','#');
+    dTextarea.parentNode.insertBefore(dSwitchLink, dTextarea); 
+
+    // 將 Hack 的註解移除
+    dTextarea.value = dTextarea.value.replace(/^<!--\s{0,2}/, '');
+    dTextarea.value = dTextarea.value.replace(/\s{0,2}-->$/, '');
+
+    // 轉換為原始碼
+    var getSourceCode = function (sCode) {
+        var oPattern = /(<[\/\d="a-zA-Z ]+>)</gi; 
+        var sReplace = '$1\n<'; 
+        sCode = sCode.replace(/<br>/g, '\n');
+        sCode = sCode.replace(oPattern, sReplace);
+        sCode = sCode.replace(oPattern, sReplace);
+        return sCode;
+    };
+
+    // 轉換成 HTML 檢視
+    var getHTMLCode = function (sCode) {                        
+        var oPattern = /(<[\/\d="a-zA-Z ]+>)\s+</gi; 
+        var sReplace = '$1<'; 
+        sCode = sCode.replace(oPattern, sReplace);
+        sCode = sCode.replace(oPattern, sReplace);
+        sCode = sCode.replace(/\n/g, '<br>');
+        return sCode;
+    };
+
+    // 編輯器的初始化
+    var setEditor = function () {
+        YUD.generateId(dTextarea);
+        dTextarea.value = getHTMLCode(dTextarea.value);
+        oEditor = new YAHOO.widget.Editor(dTextarea.id, {
+            height: '300px',
+            width: '522px', // 一定要設 522px, 整個工具列的部份才會剛好對齊 :p
+            dompath: true, 
+            animate: false
+        });
+        // 在 Render 之後自動抓到 oContainer 及 Textarea
+        oEditor.on('afterRender', function() {
+            oContainer = oEditor.get('element_cont');
+            dTextarea = oEditor.get('element');
+        });
+        oEditor.render();
+    };
+
+    // 切換的事件
+    var onSwitchLinkClick = function(oEvent) {
+        YUE.preventDefault(oEvent);
+        dTarget = YUE.getTarget(oEvent);
+        switch (dTarget.className) {
+            case 'switch-to-editor': {
+                if (!oEditor) {  // 只有第一次會產生 Editor 
+                    setEditor();
+                }
+                else {
+                    oContainer.replaceClass('yui-textarea-container', 'yui-editor-container');
+                    oEditor._setDesignMode('on');
+                    var sCode = oEditor.get('textarea').value; 
+                    oEditor.setEditorHTML(getHTMLCode(sCode));
+                };
+                // 設定文字
+                dSwitchLink.innerHTML = '檢視原始碼';
+                YUD.replaceClass(dSwitchLink, 'switch-to-editor', 'switch-to-textarea');
+                break;
+            };
+            case 'switch-to-textarea' : {
+                // 先存檔、並處理好文字內容
+                oEditor.saveHTML();
+                var sCode = oEditor.get('textarea').value; 
+                oEditor.get('textarea').value = getSourceCode(sCode);
+                // 設定 Container
+                oContainer.replaceClass('yui-editor-container', 'yui-textarea-container');
+                // 設定文字
+                dSwitchLink.innerHTML = '使用 HTML 精靈';
+                YUD.replaceClass(dSwitchLink, 'switch-to-textarea', 'switch-to-editor');
+                break;
+            };
+        };
+    };
+
+    // 表單的送出一定要存回 Textarea 
+    YUE.on(dForm, 'submit', function(oEvent){
+        switch (dSwitchLink.className) {
+            case 'switch-to-editor' : {
+                oEditor.saveHTML();
+                dTextarea.value = getSourceCode(dTextarea.value);
+                break;
+            };
+            case 'switch-to-textarea' : {
+                dTextarea.value = getSourceCode(dTextarea.value);
+                break;
+            };
+        };
+    });
+
+    YUE.on(dSwitchLink, 'click', onSwitchLinkClick);
+    
+</script>
+</body>
+</html>

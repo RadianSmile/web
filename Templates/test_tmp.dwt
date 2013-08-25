@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>無標題文件</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateParam name="test" type="boolean" value="true" -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+<!-- TemplateBeginIf cond="test" --><!-- TemplateBeginEditable name="EditRegion1" -->testsffd 測試今天<!-- TemplateEndEditable --><!-- TemplateEndIf -->
+</body>
+</html>

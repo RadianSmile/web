@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/5eb168b0154768602b7da05b54081381?s=16" sizes="16x16">
+<link rel="icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/5eb168b0154768602b7da05b54081381?s=16" sizes="16x16">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>TEDxNCCU</title>
+<!-- TemplateEndEditable -->
+<link href="../TEDx/css/jquery-ui.css" rel="stylesheet" type="text/css">
+<!--link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"-->
+<link href="../TEDx/css/reset.css" rel="stylesheet" type="text/css">
+<!--link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"-->
+<link href="../TEDx/css/tedxnccu2.css" rel="stylesheet" type="text/css">
+<!-- TemplateBeginEditable name="head" -->
+<style>
+</style>
+<!-- TemplateEndEditable -->
+</head>
+<body>
+
+<nav>
+	<div id="nav" class="container clearfix">
+		<div style="float:left;">
+			<img src="../TEDx/img/TEDxNCCU5.png" height="30" style="margin:8px 0px 3px 0px;">
+		</div>
+		<div style="float:right">
+			<ul id="mainNav" class="hrzUL clearfix">
+				<li><a href="../TEDx/index.html">首頁</a></li>
+				<li><a href="../TEDx/spnsors.html">贊助夥伴</a>
+				</li>
+				<li class="withSubNav clearfix">
+					<a href="../TEDx/acts/index.html" >TED活動</a>
+					<ul class="subNav">
+						<li><a href="#">2013 From Idea To Action</a></li>
+					</ul>
+				</li>
+				<li class="withSubNav clearfix">
+					<a href="../TEDx/blog/index.html">文章分享</a>
+					<ul class="subNav">
+						<li><a href="#">部落格</a></li>
+						<li><a href="#">TED TALK</a></li>
+						<li><a href="#">活動成果</a></li>
+					</ul>
+				</li>
+				<li><a href="../TEDx/aboutTEDx.html">關於TEDx</a></li>	
+				<li class="withSubNav clearfix"><a href="../TEDx/about.html">關於我們</a>
+					<ul class="subNav">
+						<li><a href="#">團隊介紹</a></li>
+						<li><a href="#">團隊理念</a></li>
+						<li><a href="../TEDx/contact.html">聯繫我們</a></li>
+					</ul>
+				</li>
+	
+			</ul>
+		</div>
+	</div>
+</nav>
+<div style="width:100%; height:44px;">
+</div>
+<!-- TemplateBeginEditable name="content" -->
+<!-- TemplateEndEditable -->
+
+
+<footer class="outer-small">
+	<div class="container clearfix">
+		<ul class="hrzUL foot_nav">
+			<li><a href="../TEDx/act/FromIdeaToAction.html">From Idea to Action</a></li>
+			<li><a href="../TEDx/sponsor.html">贊助我們</a></li>
+			<li><a href="../TEDx/contact.html">聯絡我們</a></li>
+			<li><a href="../TEDx/manageLogin.html">管理模式</a></li>
+		</ul>
+	</div>
+</footer>
+
+<!-- TemplateBeginEditable name="content-aft" -->
+<!-- TemplateEndEditable -->
+
+
+<!-- TemplateBeginEditable name="js-1" -->
+<script type="text/javascript">
+</script>
+<!-- TemplateEndEditable -->
+<script src="../TEDx/js/jquery.min.js" type="text/javascript"></script>
+<script src="../TEDx/js/jquery-ui.js" type="text/javascript"></script>
+<!--script src="js/bootstrap.min.js" type="text/javascript"></script-->
+<script src="../TEDx/js/parse-1.2.8.min.js" type="text/javascript"></script>
+<script src="../TEDx/js/TEDxNCCU.js" type="text/javascript"></script> 
+<!-- TemplateBeginEditable name="js-2" -->
+<script type="text/javascript">
+</script>
+<!-- TemplateEndEditable -->
+</body>
+</html>

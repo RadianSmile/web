@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>無標題文件</title>
+</head>
+
+<body>
+ <button id="test">tewst</button>
+<div id="good" contenteditable="true"x>
+    <div>ljkl las;djfsda <h1>as;dksdlfjlsdffjl;asd</h1>
+sdfljsdklfjkldsjf</div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+
+$('#test').click(function () {
+    var range = document.createRange();
+    var rangeContainer = range.startContainer.parentElement
+    range.selectNodeContents(rangeContainer);
+		var sel = window.getSelection();
+		sel.removeAllRanges();
+		sel.addRange(range);
+		range = sel.getRangeAt(0);
+		var $ele = $(range.startContainer.parentElement);
+		var inn = $ele.html();
+		$ele.wrap('<p>').parent().html(inn);
+
+		
+	/*	var inn = $(ele).html();
+		var h = document.createElement('h1');
+		$(h).html(inn);
+		$(ele).outerHTML(h); */
+		
+		//range.removeContents();
+		//ragne.insertNode(inn);
+});
+  
+</script>
+</body>
+
+</html>

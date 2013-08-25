@@ -27,6 +27,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#210000', end
 .XlargeUL > li { margin:20px 0px;}
 p { line-height:150%;}
 h2, h3 { color:red; font-family:'微軟正黑體';}
+.stlUL { list-style:outside circle; }
+.stlUL { margin-left:1.5em;}
 
 
 
@@ -103,7 +105,7 @@ hr { display:block; width:100%; background:url(../img/hr.png) top center no-repe
 #hotMovList >li { width:280px; margin-right:30px;}
 #hotMovList >li:nth-child(3n) { margin-right:0px !important;}
 
-footer { background:url(../img/footerBG.png) center;}
+footer { background:url(../img/footerBG.png) center; display:block;}
 
 /* content-page*/
 

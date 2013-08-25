@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>無標題文件</title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+var name = "Doe, John. Dode, Jodhn. Dode, Jodssshn. ",rez,i = 0;
+var r = new RegExp (/(\w+)\s*,\s*(\w+)\./g);
+while ( (rez =r.exec(name) )!= null && i < 15 )
+{
+	console.log (rez);
+	
+	i++;
+}
+
+var newname = name.replace(r,'$2, $1.');
+document.write(newname);
+
+//name.replace(/(\w+)\s*, \s*(\w+)/, "$2 $1");
+</script>
+</body>
+</html>
