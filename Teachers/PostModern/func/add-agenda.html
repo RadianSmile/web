@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Test Page</title>
+<link href="../css/jquery-ui.css" rel="stylesheet" type="text/css">
+<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<!--link href="css/reset.css" rel="stylesheet" type="text/css"-->
+<!--link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"-->
+<style>
+.block { padding:5px; border:solid rgb(213,213,213) 1px; margin-bottom:10px;}
+.group-name { margin-bottom:5px;}
+ .group{ padding-left:2em;}
+ .li { margin-bottom:5px;}
+ .add-row { margin-left:2em; margin-top:5px;}
+.n { margin-left:5px;}
+</style>
+</head>
+<body>
+<div class=" row">
+	<div class="container" style="margin-top:100px">
+		<form style="margin-left:80px;">
+			<div id="blocks">
+				<div class="block">
+					<div class="group-name">
+						<input id="dt-1" name="dt-1" class="block-title" placeholder="請輸入群組名稱" />
+					</div>
+					<div class="group">
+						<div class="li"><input placeholder="單位" class="t"><input placeholder="頭銜" class="n"></div>
+					</div>
+					<button class="add-row">新增列</button>
+				</div>
+			</div>
+			<button class="add-block">新增區塊</button>
+			<button id="sum" >產生原始碼</button>
+		</form>
+	</div>
+	<div id="apdArea" class="container">
+	</div>
+</div>
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+<script src="../js/jquery-ui.js" type="text/javascript"></script>
+<!--script src="js/bootstrap.min.js" type="text/javascript"></script-->
+<script type="text/javascript">
+$('body').on('click','.add-row',function (){
+	var $pre = $(this).prev();
+	var row = '<div class="li"><input placeholder="單位" class="t"><input placeholder="頭銜" class="n"></div>';
+	$pre.append(row);
+	return false
+});
+
+$('.add-block').click(function (){
+	var $pre = $(this).prev();
+	var blc ='				<div class="block">					<div class="group-name">						<input id="dt-1" name="dt-1" class="block-title" placeholder="請輸入群組名稱" />					</div>					<div class="group">						<div class="li"><input placeholder="單位" class="t"><input placeholder="頭銜" class="n"></div>					</div>					<button class="add-row">新增列</button>				</div>';
+	$pre.append(blc);
+	return false
+});
+var elements =[];
+
+$('#sum').click( function (e){
+	console.log ('!');
+	e.preventDefault();
+	var ele = [];
+	$('.block').each(function (i,e){
+		var aDl,subDl;
+		var bt = $(e).find('.block-title').val();
+		aDl = dl(bt);
+		subDl = $(aDl).find('dd').append('<dl></dl>').find('dl');
+		$(this).find('.li').each(function (i,e){
+			var t = $(e).find('.t').val();
+			var n = $(e).find('.n').val();
+			var arr = addd (t,n);
+			subDl.append(arr[0]).append(arr[1]);;
+			
+			
+		});
+		var theEleTxt = $(aDl).wrap('<DIV>').parent().html();
+		ele.push(theEleTxt);
+	});
+
+	$(ele).each(function(index, element) {
+		var a = document.createElement('DIV');
+		$(a).text(ele[index]);
+		$('#apdArea').append(a);
+	});
+	console.log (aDl);
+});
+
+
+function dl ( dt , dd ) {
+	var l =document.createElement('DL');
+	var t =document.createElement('DT');
+	var d =document.createElement('DD');
+	
+	$(t).text(dt);
+	$(d).text(dd);
+	$(l).append(t)
+	$(l).append(d);
+	
+	return l ;
+}
+
+function addd ( dt , dd ) {
+	var t =document.createElement('DT');
+	var d =document.createElement('DD');
+	
+	$(t).text(dt);
+	$(d).text(dd);
+	return [t,d];
+}
+</script>
+
+
+
+</body>
+</html>

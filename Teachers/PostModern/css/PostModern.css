@@ -26,14 +26,14 @@ body { margin:0; padding:0; font-family:"微軟正黑體"}
 /*Navigation*/
 
 #nav, header { width:100%; }
-#aboutBtn { position:relative;}
+.withSubNav , #aboutBtn { position:relative;}
 
-.subNav,#aboutNav { width:100px; border-radius:5px;  overflow:hidden; background:#FFFFFF; display:none; position:absolute; top:42px; z-index:20; box-shadow:0px 0px 5px 2px #CCCCCC;}
-.subNav > li,#aboutNav > li { width:100%;}
-.subNav > li > a,#aboutNav > li > a {padding:5px;}
-.subNav > li:last-child ,#aboutNav > li:last-child { border:0;}
-.subNav > li:hover ,#aboutNav > li:hover {background:#CCCCCC;}
-.subNav:hover , .withSubNav:hover > .subNav ,#aboutNav:hover, #aboutBtn:hover > #aboutNav { display:block;}
+.subNav { min-width:100px; max-width:150px; border-radius:5px;  overflow:hidden; background:#FFFFFF; display:none; position:absolute; top:42px; z-index:20; box-shadow:0px 0px 5px 2px #CCCCCC;}
+.subNav > li { width:100%;}
+.subNav > li > a{padding:5px;}
+.subNav > li:last-child { border:0;}
+.subNav > li:hover {background:#CCCCCC;}
+.subNav:hover , .withSubNav:hover > .subNav  { display:block;}
 
 
 
@@ -58,7 +58,7 @@ header { background-image:url(../img/footer.jpg);}
 
 .picBtn {}
 
-#nav { clear:both; background:url(../img/nav_bg.png);}
+nav {background:url(../img/nav_bg.png);}
 #navList { margin:0; float:left;}
 .hrztNav > li ,#navList > li { float:left; margin-right:5sdpx; } #navList > li { border-left:#CCCCCC 1px solid;} #navList > li:last-child { border-right:#CCCCCC 1px solid;}
 #navListRight {float:right;}
@@ -95,3 +95,16 @@ footer { background-image:url(../img/fabric_plaid.png);background-image:url(../i
 /* about*/
 
 #about_Inner { margin-top:30px;}
+
+a { display:block;}
+#contentInner { position:relative;}
+.leftContainer { width:18%; margin-right:2%; position:relative; float:left;}
+.rightContainer { width:80%; position:relative; float:left;}
+
+
+.table { width:100%;}
+.table tr:first-child {  border-bottom:rgb(213,213,213) solid 1px ; border-top:}
+.table th { text-align:left; font-weight:bold;}
+.table  tr { border-bottom:rgb(213,213,213) solid 1px !important; padding:3px;}
+.table tr td, th { vertical-align:middle; padding:8px 0px;}
+.table td > p:last-child { margin-bottom:0px;}

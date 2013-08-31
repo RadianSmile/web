@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+
+<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>榮政老師的網站</title>
+<link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<!--link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"-->
+<link href="css/robin-all_v2.css" rel="stylesheet" type="text/css">
+<style>
+
+/*@media screen and (min-width: 1500px) {
+body {
+	transform: scale(1.5);
+	-webkit-transform: scale(1.5); 
+	-webkit-transform-origin: 50% 0; 
+	-moz-transform: scale(1.5); 
+	-moz-transform-origin: 50% 0; 
+	-o-transform: scale(1.5); 
+	-o-transform-origin: 50% 0; 
+	-ms-transform: scale(1.5); 
+	-ms-transform-origin: 50% 0;}
+}*/
+
+/* clear fix*/
+.clearfix:before,.clearfix:after {content:" ";display: table;}.clearfix:after {clear: both;}.clearfix {*zoom: 1;}
+
+#head { height:200px; background-image:url(img/other/sky.jpg); background-size:cover; background-position: center center; position:relative; }
+.bar {background: rgba(51,51,51,.4); position:absolute;top:253px; width:100%; height:47px; }#b{   margin:0; padding:0px; }
+#nav { position:absolute ; top:163px; 
+background: -moz-linear-gradient(top, rgba(76,76,76,0.5) 0%, rgba(76,76,76,0.5) 1%, rgba(89,89,89,0.5) 50%, rgba(44,44,44,0.5) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(76,76,76,0.5)), color-stop(1%,rgba(76,76,76,0.5)), color-stop(50%,rgba(89,89,89,0.5)), color-stop(100%,rgba(44,44,44,0.5))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(76,76,76,0.5) 0%,rgba(76,76,76,0.5) 1%,rgba(89,89,89,0.5) 50%,rgba(44,44,44,0.5) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(76,76,76,0.5) 0%,rgba(76,76,76,0.5) 1%,rgba(89,89,89,0.5) 50%,rgba(44,44,44,0.5) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(76,76,76,0.5) 0%,rgba(76,76,76,0.5) 1%,rgba(89,89,89,0.5) 50%,rgba(44,44,44,0.5) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(76,76,76,0.5) 0%,rgba(76,76,76,0.5) 1%,rgba(89,89,89,0.5) 50%,rgba(44,44,44,0.5) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#804c4c4c', endColorstr='#802c2c2c',GradientType=0 ); /* IE6-9 */}
+
+#nav li { float:left; display:block; margin-right:20px;}
+
+#nav li > a {  display:block;padding:5px 5px; color:white;   height:100%;font-family:'微軟正黑體'; text-align:center; font-size:.9em;}
+#nav a:hover { background:rgba(51,51,51,.3);cursor:pointer;}
+
+#nav .active { background:rgba(51,51,51,.7);}
+
+.noneUL { list-style:none; margin:0;}
+.container { width:1000px;}
+
+</style>
+</head>
+<body>
+<div id="head" class="row" style="">
+	<div class="container">
+		<img src="img/rogin-sign.png" width="500px" style="position:absolute; top:50px;">
+	</div>
+</div>
+<div id="nav" class="row" style="margin-left:0px; width:100%;">
+	<div  class="container">
+		<ul class=" noneUL clearfix">
+			<li><a id="introduction" href="#">個人簡介</a></li>
+			<li><a id="teaching" href="teaching.html">授課內容</a></li>
+			<li><a id="publication" href="publications.html">學術發表與研究</a></li>
+			<li><a id="instruct" href="instruct.hmtl">論文指導</a></li>
+			<li><a id="international" href="international.html">國際交流</a></li>
+			<li><a id="awards" href="awards.html">獲獎紀錄</a></li>
+		</ul>
+	</div>
+</div>
+
+
+
+
+
+<div class="row">
+	<div class="container clearfix">
+		<div id="content">
+	
+			<a name="intro"></a>
+			<article>
+				<h3>個人簡介</h3>
+				<p>國立政治大學教育學系助理教授</p>
+				<p>西雅圖太平洋大學(Seattle Pacific University)通訊教授(Coordinating Professor)</p>
+				<p>英國倫敦大學教育政策聯位學位</p>
+				<p>國立暨南國際大學比較教育博士</p>
+				<p>國立陽明大學衛生福利研究所</p>
+				<p>國立屏東師範學院社會科教育學系</p>
+			</article>
+	
+			<a name="exp"></a>
+			<article>
+				<h3>經歷</h3>
+				<div>
+					<table class="table">
+						<tr>
+							<th><p>任教(服 務)機構名稱</p></th>
+							<th><p>職務</p></th>
+							<th><p>任職期間</p></th>
+						</tr>
+						<tr>
+							<td><p>雲林縣口湖鄉金湖國小</p></td>
+							<td><p>教師</p></td>
+							<td><p>81.07.01-85.07.31</p></td>
+						</tr>
+						<tr>
+							<td><p>屏東縣新園鄉新園國小</p></td>
+							<td><p>教師</p></td>
+							<td><p>85.08.01-98.07.31</p></td>
+						</tr>
+						<tr>
+							<td><p>Journal of Education Policy (SSCI期刊)</p></td>
+							<td><p>編輯助理</p></td>
+							<td><p>95.10.01-96.07.31</p></td>
+						</tr>
+						<tr>
+							<td><p>國家教育研究院<br>教育制度及政策研究中心</p></td>
+							<td><p>助理研究員</p></td>
+							<td><p>98.08.01-</p></td>
+						</tr>
+						<tr>
+							<td>國家教育研究院<br>教育制度及政策研究中心</td>
+							<td>兼任綜合 規劃室主任</td>
+							<td>100.03.31-</td>
+						</tr>
+						<tr>
+							<td><p>Seattle Pacific University, USA</p></td>
+							<td><p>海外通訊教授<br>(corresponding professor)</p></td>
+							<td><p>102.02-</p></td>
+						</tr>
+					</table>
+				</div>
+			</article>
+			
+			<a name="schoolSvc"></a>
+			<article>
+				<h3>校內服務</h3>
+				<p>今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，</p>
+			</article>
+			
+			<a name="socialSvc"></a>    
+			<article>
+				<h3>校外服務</h3>
+				<p>今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，</p>
+			</article>
+	
+			<a name="scholarGroup"></a>    
+			<article>
+				<h3>學術社群</h3>
+				<p>今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，今天天氣好熱，</p>
+			</article>
+			
+	
+	
+		</div>
+		
+		<div id="rightArea" class="bg">
+			<div id="searchBar">
+				<form method="get" action="http://www.google.com.tw/custom" style="margin:0px;">
+					<div><input type="text" id="text" name="q" size="24" placeholder="請輸入關鍵字" style="margin:0px; width:180px;" ></div>
+					<div><input type="submit" id="submit" name="sa" value="" title="search" style="border:none; background-color:transparent; width:24px;" class="searchIcon"></div>
+					<div><input type="hidden" name="domains" value="http://www3.nccu.edu.tw/~ihchang/"></div>
+					<div><input type="hidden" name="sitesearch" value="http://www3.nccu.edu.tw/~ihchang/"></div>
+				</form>
+			</div>
+			<ul id="subNav">
+				<li><a href="#intro" class="goMark">個人簡介</a></li>
+				<li><a href="#exp" class="goMark">經歷</a></li>
+				<li><a href="#schoolSvc" class="goMark">校內服務</a></li>
+				<li><a href="#socialSvc" class="goMark">校外服務</a></li>
+				<li><a href="#scholarGroup" class="goMark">學術社群</a></li>
+			</ul>
+			
+			<div id="something">
+			</div>
+		</div>
+	</div>
+</div>  
+  
+	
+<div id="footer" class="row" >
+	<div class="container"  >
+		<p>學校：國立政治大學</p>
+		<p>電話：02-0000-0000</p>
+		<p>最後更新日期：2013/6/27</p>
+	</div>
+</div>
+
+
+
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.js" type="text/javascript"></script>
+<!--script src="js/bootstrap.min.js" type="text/javascript"></script-->
+</body>
+</html>
