@@ -22,7 +22,7 @@
 #joinTitle { margin-top:40px;}
 #introJoin { float:left; margin-top:20px; width:50%;}
 #joinForm {  margin-bottom:60px; width:480px; float:left;}
-#inviteDes { color:#666666; font-family:"微軟正黑體"; text-align:center;}
+#inviteDes { color:#666666; font-family:"微軟正黑體"; text-align:center; margin-top:15px;}
 
 #joinForm  .control-label { width:100px;}
 #joinForm .controls { width:360px ; margin-left:120px;}
@@ -32,7 +32,7 @@
 #successMsg > .inner { padding:10px;}
 </style>
 
-<!-- InstanceEndEditable -->
+<!-- InstanceEndEditable --> 
 </head>
 
 <body>
@@ -43,38 +43,44 @@
 			<h1 id="mainTitle">2013年第一屆海峽兩岸教育學院領導人論壇</h1>
 			<h2 id="subTitle" >後現代教育發展與兩岸教育新方向</h2>
 		</div>
-	</div><!--header_inner--><!-- InstanceBeginEditable name="nav" -->
+	</div><!--header_inner--><!-- T emplateBeginEditable name="nav" --><!-- T emplateEndEditable -->
 	<nav>
 		<div id="nav_inner" class="container clearfix">
 			<ul id="navList" class="lineUL" >
 				<li><a href="index.html">首頁</a></li>
-				<li><a href="#">最新消息</a></li>
-				<li id="aboutBtn" class="withSubNav"> <a href="about.html" class="active">研討會內容</a>
+				<li><a href="news.html">新聞</a></li>
+				<li class="withSubNav"><a href="ideal.html" >關於</a>
 					<ul id="aboutNav" class=" subNav clearfix">
-						<li><a href="#ideal">研討會宗旨</a></li>
-						<li><a href="#act">活動內容</a></li>
-						<li><a href="#subIssue">相關子題</a></li>
+						<li><a href="ideal.html#ideal">研討會宗旨</a></li>
+						<li><a href="ideal.html#mean">後現代的意涵</a></li> 
+						<li><a href="ideal.html#link">後現代與教育的連結</a></li>
+						<li><a href="ideal.html#crossroad">兩岸高等教育交流現況</a></li>
+					</ul>		 		
+				</li>
+				<li id="aboutBtn" class="withSubNav"> <a href="about.html" class="active">內容</a>
+					<ul id="aboutNav" class=" subNav clearfix">
+						<li><a href="about.html#act">活動內容</a></li>
+						<li><a href="about.html#subIssue">相關子題</a></li>
 						<li><a href="agenda.html">研討會議程</a></li>
-						<li><a href="">住宿</a></li>
 						<li><a href="">Q&amp;A</a></li>
 					</ul>
 				</li>
-				<li class="withSubNav"> <a href="members-china.html">研討會貴賓</a>
+				<li class="withSubNav"> <a href="members-china.html">貴賓</a>
 					<ul class="subNav clearfix">
 						<li><a href="members-taiwan.html">台灣與會學者</a></li>
 						<li><a href="members-china.html">大陸與會學者</a></li>
 					</ul>
 				</li>
 				<li><a href="join.html">報名</a></li>
-				<li><a href="#">研討會發表</a></li>
+				<li><a href="publications.html">發表</a></li>
 			</ul>
 			<ul id="navListRight" class="lineUL" >
 				<li><a href="//www.educ.nccu.edu.tw">政大教育</a></li>
-				<li><a href="#">政大周邊</a></li>
+				<li><a href="play.html">政大周邊</a></li>
 			</ul>
 		</div>
 	</nav>
-	<!-- InstanceEndEditable -->
+	
 	<!-- InstanceBeginEditable name="header" -->
 
 	
@@ -85,7 +91,7 @@
 	<div id="join_Inner" class="container clearfix">
 		<h3 id="joinTitle">研討會報名</h3>
 		<div id="introJoin">
-			<div><img src="img/07.jpg"></div>
+			<div><img src="img/07.jpg" width="100%"></div>
 			<div>
 				<p id="inviteDes" >政大教育系誠摯地邀請請您加入 !!</p>
 			</div>
@@ -108,9 +114,17 @@
 					<label class="control-label" for="department">服務單位</label>
 					<div class="controls">
 						<input id="department" name="department" type="text" placeholder="單位" value="test" class="input-xlarge" required>
-						
 					</div>
 				</div>
+
+				<!-- Text input-->
+				<div class="control-group">
+					<label class="control-label" for="tit">職稱</label>
+					<div class="controls">
+						<input id="tit" name="tit" type="text" placeholder="職稱" value="test" class="input-xlarge" required>
+					</div>
+				</div>
+
 				
 				<!-- Text input-->
 				<div class="control-group">
@@ -279,9 +293,10 @@ function submitJoin (){
 	postModern.save({
 		name: $(formEleArr[0]).val(),
 		department: $(formEleArr[1]).val(),
-		email: $(formEleArr[2]).val(),
-		phone: $(formEleArr[3]).val(),
-		food: $(formEleArr[4]).val()}, {
+		title: $(formEleArr[2]).val(),
+		email: $(formEleArr[3]).val(),
+		phone: $(formEleArr[4]).val(),
+		food: $(formEleArr[5]).val()}, {
 		success: function(postModern) {
 			//document.location.href="join_success.html";
 			var n = $('#name').val();

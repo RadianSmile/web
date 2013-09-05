@@ -18,7 +18,7 @@
 .showingPic { z-index:3; display:block;}
 
 
-.circleBtns { position:absolute; z-index:11; right:20px; bottom:-60px; opacity:.8; }
+.circleBtns { position:absolute; z-index:11; right:40px; bottom:-60px; opacity:.8; }
 .circleBtns li {float:left; margin-right:10px;}
 .circleBtns li a {  width:13px; height:13px; background:#999999; border-radius:50%; border:#666666 solid thin; display:block;}
 .activeBtn { background:#FFFFFF !important; }
@@ -26,11 +26,22 @@
 #leftBtn:hover { background-position: -3px 0px !important; cursor:pointer; }
 #rightBtn:hover { background-position: 3px 0px !important; cursor:pointer; }
 
-.Info { color:white; background:rgba(0,0,0,.7); z-index:5; position:absolute; right:0px; width:500px; min-height:150px; bottom:-80px; display:none;}
+.Info { color:white; background:rgba(0,0,0,.7); z-index:5; position:absolute; right:30px; width:500px; max-height:150px; bottom:-80px; display:none;}
 .activeInfo { display:block; z-index:6;}
 .Info > h3 { color:#FF0000;}
 
-.pics { position:absolute; height:540px; width:960px;}
+.pics { position:absolute; height:540px; width:960px; overflow:hidden;}
+
+hr { display:block; width:100%; background:url(../img/hr.png) top center no-repeat; height:3px; border:none; background-size:contain; }
+
+
+
+#hotMovList >li { width:280px; margin-right:30px;}
+.index-board-1 { width:320px;float:left}
+.index-board-2 { width:620px;float:left}
+.index-board-inner { padding:20px; width:auto; height:240px; overflow:hidden;}
+
+.container > [class*="index-board-"]:first-child { margin-right:20px;}
 </style>
 </head>
 <body>
@@ -38,15 +49,12 @@
 <nav>
 	<div id="nav" class="container clearfix">
 		<div style="float:left;">
-				<img src="img/TEDxNCCU5.png" height="30" style="margin:8px 0px 3px 0px;">
+			<a href="index.html"><img src="img/TEDxNCCU5.png" height="30" style="margin:8px 0px 3px 0px;"></a>
 		</div>
 		<div style="float:right">
 			<ul id="mainNav" class="hrzUL clearfix">
-				<li><a href="index.html">首頁</a></li>
-				<li><a href="spnsors.html">贊助夥伴</a>
-				</li>
 				<li class="withSubNav clearfix">
-					<a href="acts/index.html" >TED活動</a>
+					<a href="acts/index.html">TED活動</a>
 					<ul class="subNav">
 						<li><a href="#">2013 From Idea To Action</a></li>
 					</ul>
@@ -54,11 +62,12 @@
 				<li class="withSubNav clearfix">
 					<a href="blog/index.html">文章分享</a>
 					<ul class="subNav">
-						<li><a href="#">部落格</a></li>
-						<li><a href="#">TED TALK</a></li>
-						<li><a href="#">活動成果</a></li>
+						<li><a href="blog/blog.html">部落格</a></li>
+						<li><a href="blog/tedtalk.html">TED TALK</a></li>
+						<li><a href="blog/act.html">活動成果</a></li>
 					</ul>
 				</li>
+								<li><a href="spnsors.html">贊助夥伴</a>	</li>
 				<li><a href="aboutTEDx.html">關於TEDx</a></li>	
 				<li class="withSubNav clearfix"><a href="about.html">關於我們</a>
 					<ul class="subNav">
@@ -67,13 +76,14 @@
 						<li><a href="contact.html">聯繫我們</a></li>
 					</ul>
 				</li>
+				<li><a href="https://www.facebook.com/tedxnccu">FaceBook</a></li>
+	
 			</ul>
 		</div>
 	</div>
 </nav>
 <div style="width:100%; height:44px;">
 </div>
-
 
 
 			<!--div id="picShow">
@@ -93,13 +103,13 @@
 
 
 
-<div id="banner" >
+<div id="banner"  shd-large >
 	<!--div class="container">
 		<img id="large-logo"  style="position:absolute; z-index:20; top:60px; opacity:1" src="img/TEDxNCCU5.png" />
 	</div-->
 	<div class="container">
-		<div class="pics shd-large" >
-			<div id="pic1" class="Pic picshowPic showingPic"><img width="960" src="img/pic1.jpg"></div>
+		<div class="pics" >
+			<div id="pic1" class="Pic picshowPic showingPic"><img width="960" src="img/activities/event.png"></div>
 			<div id="pic2" class="Pic picshowPic" ><img width="960" src="img/pic2.jpg"></div>
 			<div id="pic3" class="Pic picshowPic"><img width="960" src="img/pic3.jpg"></div>
 		</div>
@@ -131,7 +141,7 @@
 </div>
 
 <div class="bg shd">
-<div id="subBanner" class="outer subBanner">
+<div id="subBanner" class="outer-small subBanner">
 	<div class="container">
 		<h2>Ideas Worth Spreading</h2>
 	</div>
@@ -141,54 +151,89 @@
 	<hr />
 </div>
 
-<div id="newArticle" class="outer">
-	<div class="container">
-	<h3 class="tag">最新文章分享</h3>
-		<ul class="largeUL box block">
-			<li><a href="http://tedxnccu.wordpress.com/2013/06/07/tedglobal-2013-think-again-%e7%8f%be%e5%a0%b4%e8%bd%89%e6%92%ad%e8%ac%9b%e8%80%85%e4%bb%8b%e7%b4%b9/">Think Again 轉播場次講者介紹</a></li>
-			<li><a href="http://tedxnccu.wordpress.com/2013/05/21/tedxncculive-think-again-tedglobal-2013%e7%8f%be%e5%a0%b4%e8%bd%89%e6%92%ad/">TEDxNCCULive - Think Again - TEDGlobal 2013現場轉播</a></li>
-			<li><a href="http://tedxnccu.wordpress.com/2013/05/24/20130522-yves-behar-designing-objects-that-tell-stories-%e5%a6%82%e4%bd%95%e8%a8%ad%e8%a8%88%e6%9c%83%e8%aa%aa%e6%95%85%e4%ba%8b%e7%9a%84%e7%89%a9%e5%93%81/">Yves Behar: Designing objects that tell stories (如何設計會說故事的物品)</a></li>
-			<li><a href="http://tedxnccutest.wordpress.com/2013/05/21/tedxncculive-think-again-tedglobal-2013%e7%8f%be%e5%a0%b4%e8%bd%89%e6%92%ad/">TEDxNCCULive - Think Again - TEDGlobal 2013現場轉播</a> </li>
-			<li><a href="http://tedxnccutest.wordpress.com/2013/05/14/256/">David Byrne: How architecture helped music evolve（建築如何幫助音樂的演化）</a> </li>
-			<li><a href="http://tedxnccutest.wordpress.com/2013/05/14/20130508-%e5%95%93%e7%99%bc%e7%9a%84%e8%b5%b7%e9%bb%9e%ef%bc%9arethinking-why/">啓發的起點：rethinking Why</a> </li>
-			<li><a href="http://tedxnccutest.wordpress.com/2013/05/14/20130424-%e8%ae%93%e6%88%91%e5%80%91%e4%b8%80%e8%b5%b7%e4%be%86%e5%bb%ba%e7%ab%8b%e4%b8%80%e5%80%8b%e5%b0%8d%e5%85%a7%e5%90%91%e8%80%85%e5%8f%8b%e5%96%84%e7%9a%84%e7%a4%be%e6%9c%83%ef%bc%8f%e7%a4%be/">20130424 - 讓我們一起來建立一個對內向者友善的社會／社群</a> </li>		
-		</ul>
-	</div>
-</div>
+
+
+<!--------------------------------------->
 <div class="container">
 	<hr/>
 </div>
 
-<div id="hotMovie" class="outer">
+<div id="hotMovie" class="outer-small">
 	<div class="container clearfix">
-		<h3 class="tag">熱門演講</h3>
-		<ul id="hotMovList" class=" clearfix hrzUL largeUL box block">
-			<li>
-				<div><img src="img/mov1.jpg"></div>
-				<div>
-					<h4>iPhone Application Developer</h4>
-					<p>Thomas Suarez is a 6th grade student at a middle school in the South Bay of Los Angeles. Thomas Suarez is a 6th grade student at a middle school in the South Bay of Los Angeles</p>
+		<div class="index-board-1 block">
+			<div class="index-board-inner">
+				<h3 class="tag">about TEDx</h3>
+				<p>In the spirit of ideas worth spreading, TEDx is a program of local, self-organized events that bring people together to share a TED-like experience. At a TEDx event, TEDTalks video and live speakers combine to spark deep discussion and connection in a small group.</p>
+			</div>
+		</div>
+		
+		<!--h3 class="tag">熱門演講</h3-->
+		<div class="index-board-2 block">
+			<div class="index-board-inner">
+				<h3 class="tag">Hot TEDx Talk</h3>
+				<div id="hotMovList" class="clearfix" style="width:580px; margin-top:20px;">
+
+						<div style="margin-right:20px; float:left;"><img src="img/mov1.jpg"></div>
+						<div style="float:left; width:280px; ">
+							<h4>iPhone Application Developer</h4>
+							<p>Thomas Suarez is a 6th grade student at a middle school in the South Bay of Los Angeles. Thomas Suarez is a 6th grade student at a middle school in the South Bay of Los Angeles</p>
+						</div>
+					<!--li>
+						<div><img src="img/mov1.jpg"></div>
+						<div>
+							<h4>iPhone Application Developer</h4>
+							<p>Thomas Suarez is a 6th grade student at a middle school in the South Bay of Los Angeles. Thomas Suarez is a 6th grade student at a middle school in the South Bay of Los Angeles</p>
+						</div>
+					</li>
+					<li>
+						<div><img src="img/mov1.jpg"></div>
+						<div>
+							<h4>iPhone Application Developer</h4>
+							<p>Thomas Suarez is a 6th grade student at a middle school in the South Bay of Los Angeles. Thomas Suarez is a 6th grade student at a middle school in the South Bay of Los Angeles</p>
+						</div>
+					</li-->
 				</div>
-			</li>
-			<li>
-				<div><img src="img/mov1.jpg"></div>
-				<div>
-					<h4>iPhone Application Developer</h4>
-					<p>Thomas Suarez is a 6th grade student at a middle school in the South Bay of Los Angeles. Thomas Suarez is a 6th grade student at a middle school in the South Bay of Los Angeles</p>
-				</div>
-			</li>
-			<li>
-				<div><img src="img/mov1.jpg"></div>
-				<div>
-					<h4>iPhone Application Developer</h4>
-					<p>Thomas Suarez is a 6th grade student at a middle school in the South Bay of Los Angeles. Thomas Suarez is a 6th grade student at a middle school in the South Bay of Los Angeles</p>
-				</div>
-			</li>
-		</ul>
+			</div>
+		</div>
 	</div>
 </div>
+
+<div id="newArticle" class="outer">
+	<div class="container clearfix">
+		<div class="index-board-2 block">
+			<div class="index-board-inner">
+				<h3 class="tag">最新文章分享</h3>
+				
+					<ul class="largeUL apdArea" >
+					</ul>
+				
+			</div>
+		</div>
+		
+		<div class="index-board-1 block">
+			<div class="index-board-inner">
+				<h3 class="tag">about TEDxNCCU</h3>
+				<p>無論是多麼小的、看似微不足道的「理念」，都有可能對人類社會造成重大影響。基於此，我們決定成立一個TEDx團隊，期待能夠發掘更多值得傳佈的想法，透過TED的模式，以簡單易懂、激勵人心的故事來讓更多人認識到這些理念或想法。</p>
+			</div>
+		</div>
+	</div><!-- /contaainer-->
 </div>
-<footer class="outer-small">
+
+
+</div>
+
+
+<div class="container">
+	<form class="pageForm" action="blog/view.html" method="get">
+		<input id="pageInput" name="blog" hidden="true" value="0">
+	</form>
+</div>
+
+
+
+
+
+<footer class="outer-small clearfix">
 	<div class="container clearfix">
 		<ul class="hrzUL foot_nav">
 			<li><a href="act/FromIdeaToAction.html">From Idea to Action</a></li>
@@ -288,6 +333,70 @@ $('#large-logo').mouseout(function (){
 </script>
 
 <script type="text/javascript">
+/*Last bind first go !!!*/
+
+$('.apdArea').on('click','a',function(e){
+ 
+ 	var p = $(e.currentTarget).data('blog');
+	$('#pageInput').val(p);
+	$('.pageForm').submit();	
+	return false 
+});
+//$('.art-pre').on('click','.art-pre-pic',function(e){getData(e)});
+
+
+var blogId;
+var blog;
+function getURLParameter(name) {
+	return decodeURI(
+		(RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+	);
+}
+$(document).ready(function(e) {
+	//blogId = '8MROTNof9T'//'My4BYgu7Il' ;//(getURLParameter('blog'));
+	pullBlog ();
+	
+});
+
+var $apd = $('.apdArea');
+function pullBlog () {
+	Parse.initialize("BFuEvRNBwRW6MScfT6nIUrhZaKMBriF4VpAC0DwD", "MvYBNO5NQ6DeixPpLgmH60wQDQvQrf5nIrx6RHgy");
+	var TEDxBLOG = Parse.Object.extend("TEDxBLOG");
+	var query = new Parse.Query(TEDxBLOG);
+	query.find({
+		success:function (o){
+			
+			for (var i = 0 ; i < o.length ; i++){
+				blog = getBlog (o[i]);
+				show (blog);
+			}
+		},
+		error:function (o,e){
+			console.log (e);
+		}	
+	})
+}
+
+function getBlog (o){
+	console.log ('getting');
+	var obj = {
+		'subject': o.get('subject'),
+		'type': o.get('type'),
+		'writer': o.get('writer'),
+		'date': o.get('date'),
+		'preImg': o.get('preImg'),
+		'abstract': o.get('abstract'),
+		'content': o.get('content'),
+		'id':o.id
+	}
+	return obj;
+}
+
+function show (blog){
+	//if (!blog.subject) { return false }//alert ('資料庫問題，請先參閱其他文章');
+	var a = '<li><a href="blog/view.html" title="'+ blog.subject +'" data-blog="'+blog.id+'" >'+ blog.subject +'</a>';
+	$apd.append(a);
+}
 
 </script>
 

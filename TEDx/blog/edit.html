@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <link rel="shortcut icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/5eb168b0154768602b7da05b54081381?s=16" sizes="16x16">
 <link rel="icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/5eb168b0154768602b7da05b54081381?s=16" sizes="16x16">
-<!-- InstanceBeginEditable name="doctitle" -->
-<title>TEDxNCCU</title>
+<!-- InstanceBeginEditable name="head1" -->
+<title>編輯文章--TEDxNCCU 文章分享</title>
 <!-- InstanceEndEditable -->
 <script src="../js/parse-1.2.8.min.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -23,7 +23,9 @@
 <link href="../css/reset.css" rel="stylesheet" type="text/css">
 <!--link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"-->
 <link href="../css/tedxnccu2.css" rel="stylesheet" type="text/css">
-<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceBeginEditable name="head2" -->
+<title>TEDxNCCU</title>
+
 <style>
 .control-btn { min-width:20px; min-height:20px; background:rgba(3,3,3,.8); border-radius:2px; color:#818181; float:left; margin-right:10px; font-size:1.5em; padding:5px; margin-bottom:10px; cursor:pointer; }
 .control-btn:hover { color : white;}
@@ -67,15 +69,12 @@ b { font-weight:bold;}
 <nav>
 	<div id="nav" class="container clearfix">
 		<div style="float:left;">
-			<img src="../img/TEDxNCCU5.png" height="30" style="margin:8px 0px 3px 0px;">
+			<a href="../index.html"><img src="../img/TEDxNCCU5.png" height="30" style="margin:8px 0px 3px 0px;"></a>
 		</div>
 		<div style="float:right">
 			<ul id="mainNav" class="hrzUL clearfix">
-				<li><a href="../index.html">首頁</a></li>
-				<li><a href="../spnsors.html">贊助夥伴</a>
-				</li>
 				<li class="withSubNav clearfix">
-					<a href="../acts/index.html" >TED活動</a>
+					<a href="../acts/index.html">TED活動</a>
 					<ul class="subNav">
 						<li><a href="#">2013 From Idea To Action</a></li>
 					</ul>
@@ -88,6 +87,7 @@ b { font-weight:bold;}
 						<li><a href="#">活動成果</a></li>
 					</ul>
 				</li>
+								<li><a href="../spnsors.html">贊助夥伴</a>	</li>
 				<li><a href="../aboutTEDx.html">關於TEDx</a></li>	
 				<li class="withSubNav clearfix"><a href="../about.html">關於我們</a>
 					<ul class="subNav">
@@ -643,9 +643,14 @@ function toSave (){
 $("#submmit").click(toSubmit);
 function toSubmit (){
 	Parse.initialize("BFuEvRNBwRW6MScfT6nIUrhZaKMBriF4VpAC0DwD", "MvYBNO5NQ6DeixPpLgmH60wQDQvQrf5nIrx6RHgy");
+
 	var TEDxBLOG = Parse.Object.extend("TEDxBLOG");
 	var TEDxBLOG_b = Parse.Object.extend("TEDxBLOG_back");
-	var tedxblog = new TEDxBLOG();
+	if ( editingBlog ){
+		var tedxblog = editingBlog;
+	}else {
+		var tedxblog = new TEDxBLOG();
+	}
 	var tedxblog_b = new TEDxBLOG_b ();
 	var article = {
 		subject:$('#subject').val(),
@@ -656,11 +661,16 @@ function toSubmit (){
 		abstract:$('#abstract').val(),
 		content:getArtCode()
 	}
+	
 	if (article){
 		
 		tedxblog.save(article, {
 			success: function(object) {
+				if (blogId !== 'null'){
+					
+				}
 				alert("文章已經送出!!");
+				window.location = "";
 			},
 			error:function (e,objdect){
 					console.log(e,object);
@@ -697,6 +707,86 @@ function rmdBak(){
 	if (a){ toSave ();}
 	timer ();
 }
+
+</script>
+
+
+
+
+
+<script type="text/javascript">
+var blogId;
+var blog;
+var editingBlog ;
+$(document).ready(function(e) {
+	blogId = getURLParameter('blog');
+	//console.log (typeof(blogId));
+	if (blogId !== 'null'){pullBlog (blogId);}
+	else {show({'subject':"請先選取文章"});}
+	//'My4BYgu7Il' ;//(getURLParameter('blog'));
+
+	
+});
+
+function getURLParameter(name) {
+	return decodeURI(
+		(RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+	);
+}
+
+var $apd = $('.apdArea');
+function pullBlog (blogId) {
+	Parse.initialize("BFuEvRNBwRW6MScfT6nIUrhZaKMBriF4VpAC0DwD", "MvYBNO5NQ6DeixPpLgmH60wQDQvQrf5nIrx6RHgy");
+	var TEDxBLOG = Parse.Object.extend("TEDxBLOG");
+	var query = new Parse.Query(TEDxBLOG);
+	query.get(blogId,{
+		success:function (o){
+			editingBlog = o ;
+			blog = getBlog (o);
+			prepareEdit (blog);
+			//show (blog);
+		},
+		error:function (o,e){
+			alert('');
+		}	
+	})
+}
+
+function getBlog (o){
+	var obj = {
+		'subject': o.get('subject'),
+		'type': o.get('type'),
+		'writer': o.get('writer'),
+		'date': o.get('date'),
+		'preImg': o.get('preImg'),
+		'abstract': o.get('abstract'),
+		'content': o.get('content'),
+		'id':o.id
+	}
+	return obj;
+}
+	
+function show (blog){
+	if (!blog.subject) {alert ('資料庫問題，請先參閱其他文章'); return false}
+	$apd.append('<h2>'+blog.subject+'</h2>').append(blog.content);			
+	$('title').text(blog.subject +'--TEDxNCCU 部落格');	
+	$('#bread').text(blog.subject);
+	if (!blog.id) {$apd.append('<a href="index.html" style="display:block; margin:40px 0px;">回文章列表</a>');}
+}
+
+function prepareEdit(o) {
+	$('#subject').val(o.subject);
+	$('#type').val(o.type);
+	$('#writer').val(o.writer);
+	$('#date').val(o.date);
+	$('#imgSrc').val(o.imgSrc);
+	$('#abstract').val(o.abstract);
+	$('#source-zone').val(o.content);
+
+
+}
+
+	
 </script>
 <!-- InstanceEndEditable -->
 </body>

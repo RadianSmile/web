@@ -10,10 +10,22 @@
 
 <script src="../TEDx/js/parse-1.2.8.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-Parse.initialize("8Y0x2rCA0jKYdiC7wLKQuF9nQqKGFKdpqUHMfue3", "8m7ng0w9UirTV6k4ExsJ0WsmPGeZMsJd5hcu54Oq");
-var SightingObject = Parse.Object.extend("SightingObject");
-var a = new SightingObject ();
-a.save ({test:'test'},{ success:function(){alert('success');}, error:function(){alert('error');}});
+Parse.initialize("8E5t5eRW9s1a3cuJwD3CxHxSkA2jpCDOBGXddUba", "UfLYdljyUFrjHrmplxtAsNy0ufuZI9AcQjcd0Ksx");
+
+
+var TestObject = Parse.Object.extend("TestObject");
+var testObject = new TestObject();
+console.log (testObject);
+testObject.save({foo: "bar"}, {
+  success: function(object) {
+   	console.log (object);
+		object.destroy({success:function (o){ console.log (o);}}
+		
+		);
+		alert("yay! it worked");
+  }
+});
+
 </script>
 </body>
 </html>

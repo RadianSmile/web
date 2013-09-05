@@ -33,15 +33,12 @@
 <nav>
 	<div id="nav" class="container clearfix">
 		<div style="float:left;">
-			<img src="../TEDx/img/TEDxNCCU5.png" height="30" style="margin:8px 0px 3px 0px;">
+			<a href="../TEDx/index.html"><img src="../TEDx/img/TEDxNCCU5.png" height="30" style="margin:8px 0px 3px 0px;"></a>
 		</div>
 		<div style="float:right">
 			<ul id="mainNav" class="hrzUL clearfix">
-				<li><a href="../TEDx/index.html">首頁</a></li>
-				<li><a href="../TEDx/spnsors.html">贊助夥伴</a>
-				</li>
 				<li class="withSubNav clearfix">
-					<a href="../TEDx/acts/index.html" >TED活動</a>
+					<a href="../TEDx/acts/index.html">TED活動</a>
 					<ul class="subNav">
 						<li><a href="#">2013 From Idea To Action</a></li>
 					</ul>
@@ -54,6 +51,7 @@
 						<li><a href="#">活動成果</a></li>
 					</ul>
 				</li>
+								<li><a href="../TEDx/spnsors.html">贊助夥伴</a>	</li>
 				<li><a href="../TEDx/aboutTEDx.html">關於TEDx</a></li>	
 				<li class="withSubNav clearfix"><a href="../TEDx/about.html">關於我們</a>
 					<ul class="subNav">
