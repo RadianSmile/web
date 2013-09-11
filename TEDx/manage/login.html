@@ -6,6 +6,11 @@
 <link rel="icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/5eb168b0154768602b7da05b54081381?s=16" sizes="16x16">
 <!-- InstanceBeginEditable name="head1" -->
 <title>TEDxNCCU</title>
+<script src="../js/parse-1.2.8.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	Parse.initialize("BFuEvRNBwRW6MScfT6nIUrhZaKMBriF4VpAC0DwD", "MvYBNO5NQ6DeixPpLgmH60wQDQvQrf5nIrx6RHgy");
+	if (Parse.User.current()) {window.location='manage.html'}
+</script>
 <!-- InstanceEndEditable -->
 <link href="../css/jquery-ui.css" rel="stylesheet" type="text/css">
 <!--link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"-->
@@ -50,7 +55,7 @@
 				<li><a href="../aboutTEDx.html">關於TEDx</a></li>	
 				<li class="withSubNav clearfix"><a href="../about.html">關於我們</a>
 					<ul class="subNav">
-						<li><a href="members.html">團隊介紹</a></li>
+						<li><a href="../members.html">團隊介紹</a></li>
 						<li><a href="#">團隊理念</a></li>
 						<li><a href="../contact.html">聯繫我們</a></li>
 					</ul>
@@ -120,8 +125,7 @@
 <footer class="outer-small">
 	<div class="container clearfix">
 		<ul class="hrzUL foot_nav">
-			<li><a href="../act/FromIdeaToAction.html">From Idea to Action</a></li>
-			<li><a href="../sponsor.html">贊助我們</a></li>
+			<li><a href="../acts/index.html">From Idea to Action</a></li>
 			<li><a href="../contact.html">聯絡我們</a></li>
 			<li><a href="login.html">管理模式</a></li>
 		</ul>
@@ -143,9 +147,11 @@
 <script src="../js/TEDxNCCU.js" type="text/javascript"></script> 
 <!-- InstanceBeginEditable name="js-2" -->
 <script type="text/javascript">
+	Parse.initialize("BFuEvRNBwRW6MScfT6nIUrhZaKMBriF4VpAC0DwD", "MvYBNO5NQ6DeixPpLgmH60wQDQvQrf5nIrx6RHgy");
+	if (Parse.User.current()) {window.location='manage.html'}
 
 $('#login').click(function(e){
-	Parse.initialize("BFuEvRNBwRW6MScfT6nIUrhZaKMBriF4VpAC0DwD", "MvYBNO5NQ6DeixPpLgmH60wQDQvQrf5nIrx6RHgy");
+
 	Parse.User.logIn('tedxnccu',$('#psd').val(), {//$('#account').val(), $('#psd').val()
 		success: function(user) {
 			alert ('success');
@@ -159,7 +165,7 @@ $('#login').click(function(e){
 			alert(error.message);
 		}
 	});
-	e.preventDefault();
+	return false;
 
 	
 	

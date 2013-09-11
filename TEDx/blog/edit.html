@@ -119,13 +119,13 @@ b { font-weight:bold;}
 	</div>
 	<div class="bannerPic-small shd-large">
 	</div>
-	
+</div>	
 	<!--div class="bread subBanner" style="position:absolute; top:250px; z-index:30;">
 		<div class="container">
 
 		</div>
 	</div-->	
-</div>
+
 
 
 <div id="formCon" class="outer bg" >
@@ -202,7 +202,7 @@ b { font-weight:bold;}
 			<div id="help" class="control-btn shd fr">說明</div>		
 		</div>
 	
-		<div id="content" contenteditable="true" class="edit-zone shd edit" ><p>Put Yor Content Here</p></div>
+		<div id="content" contenteditable="true" class="edit-zone shd edit" ><p>請務必先貼入文字</p></div>
 		<textarea id="source-zone" class="edit" style="display:none;"></textarea>
 		
 	</div>
@@ -227,7 +227,7 @@ b { font-weight:bold;}
 <footer class="outer-small">
 	<div class="container clearfix">
 		<ul class="hrzUL foot_nav">
-			<li><a href="../act/FromIdeaToAction.html">From Idea to Action</a></li>
+			<li><a href="../acts/index.html">From Idea to Action</a></li>
 			<li><a href="../sponsor.html">贊助我們</a></li>
 			<li><a href="../contact.html">聯絡我們</a></li>
 			<li><a href="../manage/login.html">管理模式</a></li>
@@ -256,10 +256,8 @@ $('.edit-pannel').children().each(function(index, element) {
 });
 
 $(document).ready(function(e) {
-	
 	$('#date').datepicker().datepicker("option", "dateFormat",'yy-mm-dd').datepicker("setDate",new Date());;
 	//alert ('請注意，此發文區不是一個很完善的文字編輯區\n 請務必在word打好純文字，\n這裡只提供做格式設定、貼圖以及貼影片\n請小心使用');
-	showHelp ();
 });
 var sel,range;
 var ele;
@@ -412,14 +410,14 @@ $('#v').click(function (){
 	{
 		
 		var	ele = document.createElement('iframe');
-		var a = l.search('\\?'); console.log (a);
+		var a = l.search('\\?'); console.log ('!!!!!!!!!!!!!!!!'+a);
 		var srh = l.substring(a,l.length); console.log(srh);
-		var vID = getURLParameter('v',srh);console.log(vID);
+		var vID = getURLtextParameter('v',srh);console.log(vID);
 		var src = 'http://www.youtube.com/embed/' + vID ;
 		var ifm = document.createElement('iframe');
 		ifm.setAttribute('src',src);
-		ifm.setAttribute('width','940');
-		ifm.setAttribute('height','528');
+		ifm.setAttribute('width','918');
+		ifm.setAttribute('height','516');
 		ifm.setAttribute('framevorder','0');
 		ifm.setAttribute('allowfullscreen','true');
 		console.log (ifm);
@@ -538,7 +536,7 @@ var editingSource = false;
 </script>
 
 <script type="text/javascript">
-function getURLParameter(name,urlSearch) {
+function getURLtextParameter(name,urlSearch) {
     return decodeURI(
         (RegExp(name + '=' + '(.+?)(&|$)').exec(urlSearch)||[,null])[1]
     );
@@ -597,28 +595,38 @@ var isNew = true;
 	}
 // help doc
 	function showHelp (){
-		var helpDovForm = document.createElement('div');
-		$(helpDovForm).load('_helpDoc.html');
-		showApd (helpDovForm);
+//		$(helpDovForm).load('_helpDoc.html');
+		var helpDocForm = '<div class=" container apdInner "><h3>說明文件</h3>		<p>使用前請詳閱此編輯器用法</p>		<ul class="largeUL stlUL">			<li>請務必先在word打好文件之後，再到這邊使用"Paste"按鈕功能貼上，如此可以保護文字避免流失</li>			<li>此文件的"Paste"功能，會過濾掉所有的格式、連結、圖片及影片，因此請在此再加入這些被過濾掉的元素</li>			<li>使用完此編輯器的編輯按鈕後，無法復原，請切記</li>			<li>使用上請小心，在"選取" "套用" 時要精準而避免二次修改，以避免BUG出現</li>			<li>如果有興趣可以進"Source"直接修改原始碼 絕不會有問題</li>		</ul>		<div class="outer">		<div class="apdBtn" style="">我知道了</div>		</div>	</div>';
+//		console.log (helpDocForm);
+		showApd (helpDocForm);
 	}
 </script>
 
 <script type="text/javascript">
+Parse.initialize("BFuEvRNBwRW6MScfT6nIUrhZaKMBriF4VpAC0DwD", "MvYBNO5NQ6DeixPpLgmH60wQDQvQrf5nIrx6RHgy");
+var TEDxBLOG = Parse.Object.extend("TEDxBLOG"),
+		TEDxBLOG_b = Parse.Object.extend("TEDxBLOG_back"),
+		TEDxBLOG_grass = Parse.Object.extend("TEDxBLOG_grass");
+
 
 function getArtCode() {
 	if (!editingSource){
 		$('#html').trigger('click');
+		var c = $('#source-zone').val();
+		$('#html').trigger('click');
+	}else {
+		var c = $('#source-zone').val();
 	}
-	return ($('#source-zone').val())
-
+	
+	return (c)
 } 
-
+var tedxblog_grass = '' ;
+var tedxblog = '';
 $('#save').click(toSave)
 function toSave (){
-	Parse.initialize("BFuEvRNBwRW6MScfT6nIUrhZaKMBriF4VpAC0DwD", "MvYBNO5NQ6DeixPpLgmH60wQDQvQrf5nIrx6RHgy");
-	var TEDxBlog = Parse.Object.extend("TEDxBLOG_grass");
-	var tedxblog = new TEDxBlog();
-
+	
+	if ( typeof(tedxblog_grass)=== 'string' ) {tedxblog_grass = new TEDxBLOG_grass();}
+	console.log ()
 	var article = {
 		subject:$('#subject').val(),
 		type:$('#type').val(),
@@ -629,9 +637,10 @@ function toSave (){
 		content:getArtCode()
 	}
 	if (article){
-		tedxblog.save(article, {
+		tedxblog_grass.save(article, {
 			success: function(object) {
 				timerRst ();
+				tedxblog_grass = object;
 				alert("文章已經成功保存!! 繼續加油!!");
 			},
 			error:function (e,objdect){
@@ -640,17 +649,12 @@ function toSave (){
 		});	
 	}
 }
+
 $("#submmit").click(toSubmit);
 function toSubmit (){
-	Parse.initialize("BFuEvRNBwRW6MScfT6nIUrhZaKMBriF4VpAC0DwD", "MvYBNO5NQ6DeixPpLgmH60wQDQvQrf5nIrx6RHgy");
+	if ( typeof(tedxblog)=== 'string') {tedxblog = new TEDxBLOG(); }
 
-	var TEDxBLOG = Parse.Object.extend("TEDxBLOG");
-	var TEDxBLOG_b = Parse.Object.extend("TEDxBLOG_back");
-	if ( editingBlog ){
-		var tedxblog = editingBlog;
-	}else {
-		var tedxblog = new TEDxBLOG();
-	}
+	//Parse.initialize("BFuEvRNBwRW6MScfT6nIUrhZaKMBriF4VpAC0DwD", "MvYBNO5NQ6DeixPpLgmH60wQDQvQrf5nIrx6RHgy");
 	var tedxblog_b = new TEDxBLOG_b ();
 	var article = {
 		subject:$('#subject').val(),
@@ -661,30 +665,41 @@ function toSubmit (){
 		abstract:$('#abstract').val(),
 		content:getArtCode()
 	}
-	
+	console.log (article);
 	if (article){
 		
 		tedxblog.save(article, {
 			success: function(object) {
-				if (blogId !== 'null'){
-					
-				}
-				alert("文章已經送出!!");
-				window.location = "";
+				tedxblog = object;
+				if ( blogId === 'null' ) alert("文章已送出!!");
+				else {alert("文章已修改!!")}
+				
+				
+				
+
+				tedxblog_b.set ('blog','tedxblog.id');
+				tedxblog_b.save (article, {
+					success: function(object) {
+						tedxblog_b = object;
+						$(window).unbind();
+						console.log (tedxblog_b);
+						window.location = "index.html";
+					},
+					error:function (e,objdect){
+							console.log(e,object);
+					}			
+				});					
+				
 			},
 			error:function (e,objdect){
 					console.log(e,object);
 			}			
 		});	
-		tedxblog_b.save (article, {
-			success: function(object) {
-				alert("文章已經備份!!");
-			},
-			error:function (e,objdect){
-					console.log(e,object);
-			}			
-		});	
+		
+	
 	}	
+
+	return false;
 }
 
 $(window).bind("beforeunload", function() { 
@@ -715,18 +730,15 @@ function rmdBak(){
 
 
 <script type="text/javascript">
+
+
+
+
+var db;
 var blogId;
 var blog;
-var editingBlog ;
-$(document).ready(function(e) {
-	blogId = getURLParameter('blog');
-	//console.log (typeof(blogId));
-	if (blogId !== 'null'){pullBlog (blogId);}
-	else {show({'subject':"請先選取文章"});}
-	//'My4BYgu7Il' ;//(getURLParameter('blog'));
+var dataBase;
 
-	
-});
 
 function getURLParameter(name) {
 	return decodeURI(
@@ -734,20 +746,28 @@ function getURLParameter(name) {
 	);
 }
 
-var $apd = $('.apdArea');
+
 function pullBlog (blogId) {
-	Parse.initialize("BFuEvRNBwRW6MScfT6nIUrhZaKMBriF4VpAC0DwD", "MvYBNO5NQ6DeixPpLgmH60wQDQvQrf5nIrx6RHgy");
-	var TEDxBLOG = Parse.Object.extend("TEDxBLOG");
+	var TEDxBLOG = dataBase ;
 	var query = new Parse.Query(TEDxBLOG);
+	console.log ('pulling');
+	
 	query.get(blogId,{
 		success:function (o){
-			editingBlog = o ;
+			switch (db){
+				case 'G' : tedxblog_grass = o; break;
+				case 'B' : tedxblog_b = o; break;
+				default  : tedxblog = o ; 
+			}
 			blog = getBlog (o);
 			prepareEdit (blog);
 			//show (blog);
 		},
 		error:function (o,e){
-			alert('');
+			console.log (e,db,dataBase);
+			
+			alert('pull failed');
+			
 		}	
 	})
 }
@@ -765,28 +785,58 @@ function getBlog (o){
 	}
 	return obj;
 }
-	
-function show (blog){
-	if (!blog.subject) {alert ('資料庫問題，請先參閱其他文章'); return false}
-	$apd.append('<h2>'+blog.subject+'</h2>').append(blog.content);			
-	$('title').text(blog.subject +'--TEDxNCCU 部落格');	
-	$('#bread').text(blog.subject);
-	if (!blog.id) {$apd.append('<a href="index.html" style="display:block; margin:40px 0px;">回文章列表</a>');}
-}
 
 function prepareEdit(o) {
+	console.log (o.content);
 	$('#subject').val(o.subject);
 	$('#type').val(o.type);
 	$('#writer').val(o.writer);
 	$('#date').val(o.date);
-	$('#imgSrc').val(o.imgSrc);
+
+	$('#imgSrc').val(o.preImg);
+	console.log (o.preImg);
+	var b = '<div class="pre-img" style="background-image:url('+o.preImg+')"></div>';
+	$('#pre-img').empty().append(b);
+
+
 	$('#abstract').val(o.abstract);
+	$('#html').trigger('click');
 	$('#source-zone').val(o.content);
+	$('#html').trigger('click');
 
 
 }
+$(document).ready(function(e) {
+	console.log ('ready');
+	blogId = getURLParameter('blog');
+	if (blogId !== 'null'){
+
+		db = getURLParameter('db');
+	
+		switch (db){
+			case 'G' : dataBase = 	Parse.Object.extend("TEDxBLOG_grass");break;
+			case 'B' : dataBase = 	Parse.Object.extend("TEDxBLOG_back");break;
+			default  : dataBase = 	Parse.Object.extend("TEDxBLOG");
+		}
 
 	
+		pullBlog (blogId)
+				console.log ('ready2');
+	}
+	showHelp ();
+});
+	
+</script>
+
+<script type="text/javascript">
+
+
+</script>
+
+<script type="text/javascript">
+// select database;
+
+
 </script>
 <!-- InstanceEndEditable -->
 </body>

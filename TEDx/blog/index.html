@@ -57,7 +57,7 @@
 				<li><a href="../aboutTEDx.html">關於TEDx</a></li>	
 				<li class="withSubNav clearfix"><a href="../about.html">關於我們</a>
 					<ul class="subNav">
-						<li><a href="members.html">團隊介紹</a></li>
+						<li><a href="../members.html">團隊介紹</a></li>
 						<li><a href="#">團隊理念</a></li>
 						<li><a href="../contact.html">聯繫我們</a></li>
 					</ul>
@@ -95,17 +95,27 @@
 
 
 <div id="content" class="outer bg">
-	<div class="container clearfix apdArea">
+	<div class="container clearfix apdArea" style="min-height:700px;">
+		<noscript>
+			<h3>必須支援 javascript 才能觀看文章</h3>
+		</noscript>
 		<!--div class="leftArea ">
 			<h3 class="tag">文章列表</h3>
 			<hr />
 		</div-->
 	</div> <!-- /container-->
 </div>
-<div class="container">
+<div class="container" style="display:none;">
 	<form class="pageForm" action="view.html" method="get">
-		<input id="pageInput" name="blog" hidden="true" value="0">
+		<input id="pageInput1" name="blog" hidden="true" value="0" style="display:none;">
+		<input id="pageInput2" name="db" hidden="true" value="0" style="display:none;">
 	</form>
+
+	<form class="editForm" action="edit.html" method="get">
+		<input id="editInput1" name="blog" hidden="true" value="0" style="display:none;">
+		<input id="editInput2" name="db" hidden="true" value="0" style="display:none;">
+	</form>
+
 </div>
 <!-- InstanceEndEditable -->
 
@@ -113,8 +123,7 @@
 <footer class="outer-small">
 	<div class="container clearfix">
 		<ul class="hrzUL foot_nav">
-			<li><a href="../act/FromIdeaToAction.html">From Idea to Action</a></li>
-			<li><a href="../sponsor.html">贊助我們</a></li>
+			<li><a href="../acts/index.html">From Idea to Action</a></li>
 			<li><a href="../contact.html">聯絡我們</a></li>
 			<li><a href="../manage/login.html">管理模式</a></li>
 		</ul>
@@ -147,7 +156,7 @@ $('.apdArea').on('click','.art-pre-tit',function(e){
 
 function getData (e){
 	var p = $($(e.currentTarget).parents('.art-pre')[0]).data('blog');
-	$('#pageInput').val(p);
+	$('#pageInput1').val(p);
 	$('.pageForm').submit();
 	return false 
 
@@ -162,17 +171,17 @@ function getURLParameter(name) {
 		(RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
 	);
 }
-$(document).ready(function(e) {
-	//blogId = '8MROTNof9T'//'My4BYgu7Il' ;//(getURLParameter('blog'));
-	pullBlog ();
-	
-});
+
+
+Parse.initialize("BFuEvRNBwRW6MScfT6nIUrhZaKMBriF4VpAC0DwD", "MvYBNO5NQ6DeixPpLgmH60wQDQvQrf5nIrx6RHgy");
+var TEDxBLOG = Parse.Object.extend("TEDxBLOG");
+var query = new Parse.Query(TEDxBLOG);
 
 var $apd = $('.apdArea');
 function pullBlog () {
-	Parse.initialize("BFuEvRNBwRW6MScfT6nIUrhZaKMBriF4VpAC0DwD", "MvYBNO5NQ6DeixPpLgmH60wQDQvQrf5nIrx6RHgy");
-	var TEDxBLOG = Parse.Object.extend("TEDxBLOG");
-	var query = new Parse.Query(TEDxBLOG);
+	query.descending('date');
+	query.limit (10);
+//	query.ckip (n);
 	query.find({
 		success:function (o){
 			
@@ -180,6 +189,7 @@ function pullBlog () {
 				blog = getBlog (o[i]);
 				show (blog);
 			}
+			if(currentUser)$('.control-outer').show();
 		},
 		error:function (o,e){
 			console.log (e);
@@ -204,14 +214,67 @@ function getBlog (o){
 
 function show (blog){
 	if (!blog.subject) { return false }//alert ('資料庫問題，請先參閱其他文章');
-	var a = '<div data-blog="'+ blog.id +'" class="art-pre clearfix block">				<a class="art-pre-pic"  title="'+ blog.subject  +'" href="#"><img width="200" height="200" src="'+ blog.preImg  +'"></a>				<div class="art-pre-info" >					<h3><a  href="#" class="art-pre-tit"  title="'+ blog.subject +'">'+ blog.subject +'</a></h3>					<span class="date">'+ blog.date +'</span>					<p>'+ blog.abstract +'</p>				</div>			</div>';
+	var b = '<div class="art-pre-img" "></div>';
+	var c ;
+	if (Parse.User.current()) {console.log ('current');}
+	(Parse.User.current()) ? c = '<div class="control-outer" style="height:0px; width:auto; clear:both; bottom:60px; " >				<ul class="clearfix admin-btns" style="top:20px; right:20px;">					<li style="margin-right:20px;"><a id="admin-btn-edit" class="admin-btn" href="#" title="編輯"><img width="20" src="../img/btns/edit.png"></a></li>					<li><a id="admin-btn-bin" class="admin-btn" href="#" title="刪除"><img width="15" src="../img/btns/bin.png"></a></li>				</ul>			</div>' : c = ""; // edit or delete func
+	var a = '<div data-blog="'+ blog.id +'" class="art-pre clearfix block">				<a class="art-pre-pic"  title="'+ blog.subject  +'" href="#"><img width="200" height="200" style="background-image:url('+blog.preImg+'); background-size:cover; background-position:center center;"></a>				<div class="art-pre-info" >					<h3><a  href="#" class="art-pre-tit"  title="'+ blog.subject +'">'+ blog.subject +'</a></h3>					<span class="date">'+ blog.date +'</span>					<p>'+ blog.abstract +'</p>				</div>'+ c+'</div>';
+
 	$apd.append(a);
 }
 
 
- 		
+// edit or delete func 
+$apd.on('click','#admin-btn-edit',function (e){
+	var $prn = $($(e.currentTarget).parents('.art-pre')[0]);	
+	var i = $prn.data('blog');
+ 	$('#editInput1').val(i);
+	$('#editInput2').val('');
+	$('.editForm').submit();
+	console.log ('!!');
+	return false;
+});
+$apd.on('click','#admin-btn-bin',function (e){
+	console.log(e.currentTarget);
+	var $prn = $($(e.currentTarget).parents('.art-pre')[0]);
+	var s = $prn.find('.art-pre-tit').text();
+	var i = $prn.data('blog');
+	
+	var a = confirm ("文章："+s+'\n即將被刪除，並無法復原，你確定嗎?');
+	if (a){
+		query.get(i,{success:function (o){
+			o.destroy({success:function (o){
+				alert ('文章已經刪除');
+				$prn.fadeOut();
+			}});
+		},error :function (o,e){console.log (e);}
+		});
+	}
+	return false ;
+
+/*	if (a)theBlog.destroy({success:function (){
+		alert ('刪除成功'); 
+		switch (db){
+			case 'G' : dataBase = 	window.location = "grass.html";break;
+			case 'B' : dataBase = 	window.location = "back.html";break;
+			default  : dataBase = 	window.location = "index.html"
+		}
+	}});*/
+	
+});
 
 
+
+var currentUser = Parse.User.current();
+
+
+$(document).ready(function(e) {
+	//blogId = '8MROTNof9T'//'My4BYgu7Il' ;//(getURLParameter('blog'));
+
+
+	pullBlog ();
+	
+});
 </script>
 <!-- InstanceEndEditable -->
 </body>

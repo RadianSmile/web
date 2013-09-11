@@ -2,6 +2,8 @@
 <html><!-- InstanceBegin template="/Templates/PostModern.dwt" codeOutsideHTMLIsLocked="false" --> 
 <head>
 <meta charset="utf-8">
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/parse-1.2.8.min.js" type="text/javascript"></script>
 <!-- InstanceBeginEditable name="title" -->
 <title>PostModern</title>
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -245,12 +247,12 @@
 </div-->
 </footer>
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
+
 <script src="js/jquery-ui.js" type="text/javascript"></script>
 <!--script src="../Teachers/PostModern/js/bootstrap.min.js" type="text/javascript"></script-->
 <!-- InstanceBeginEditable name="js" -->
 <script type="text/javascript">
-var formEleArr = ['#name','#department','#email','#phone','#food'];
+var formEleArr = ['#name','#department','#tit','#email','#phone'];
 
 $('#tojoin').click(function(e){
 	console.log('test');
@@ -296,9 +298,10 @@ function submitJoin (){
 		title: $(formEleArr[2]).val(),
 		email: $(formEleArr[3]).val(),
 		phone: $(formEleArr[4]).val(),
-		food: $(formEleArr[5]).val()}, {
+		food: $('input[name=food]:checked').val()}, {
 		success: function(postModern) {
 			//document.location.href="join_success.html";
+			console.log (postModern);
 			var n = $('#name').val();
 			$('#welcome').append("親愛的"+n+"先生/女士 您好：");
 			$('#joinForm').fadeOut(500,function (){

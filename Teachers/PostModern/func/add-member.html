@@ -8,7 +8,8 @@
 <!--link href="css/reset.css" rel="stylesheet" type="text/css"-->
 <!--link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"-->
 <style>
-
+.contaienr { padding:20px;}
+#apdArea > * { margin-bottom:20px;}
 </style>
 </head>
 <body>
@@ -27,7 +28,9 @@
 			<button name="submit" id="submit">產生</button>
 		</form>
 	</div>
-	<div id="apdArea" class="container">
+	<div class="container">
+		<div id="apdArea" style=" padding-left : 40px;" >
+		</div>
 	</div>
 </div>
 <script src="../js/jquery.min.js" type="text/javascript"></script>
@@ -46,8 +49,15 @@ $('#submit').click(function(){
 	var cc = '<p>' + $('#title').val() + '</p>';
 	var dd = '<p>' + $('#school').val() + '</p>';
 	
-	var final = a + aa + b + aa + c + '<h4>' + aa + '</h4>'+ cc + cc ;
-	$apd.append(final);
+	var final = a + aa + b + aa + c + '<h4>' + aa + '</h4>'+ cc + dd +'</div></div>' ;
+	var d = document.createElement('DIV');
+	$(d).text(final);
+	$apd.append(d);
+	$('#name').val('');
+	$('#location').val('');
+	$('#title').val('');
+	$('#school').val('');
+	
 	return false;
 });
 </script>

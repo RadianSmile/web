@@ -2,6 +2,8 @@
 <html><!-- InstanceBegin template="/Templates/PostModern.dwt" codeOutsideHTMLIsLocked="false" --> 
 <head>
 <meta charset="utf-8">
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/parse-1.2.8.min.js" type="text/javascript"></script>
 <!-- InstanceBeginEditable name="title" -->
 <title>與會大陸學者--國立政治大學--後現代教育論壇</title>
 <!-- InstanceEndEditable -->
@@ -22,7 +24,7 @@
 <style>
 #members { margin-top:30px; }
 .member {  width:160px; height:300px; float:left; margin-right:40px; overflow:hidden; }
-.member:nth-child(5n){ margin-right:0px;}
+.member:nth-child(5n+1){ margin-right:0px;}
 .photo { width:160px; height:160px; border-radius:50%; background-size:cover;  overflow:hidden }
 .memIntro { width:160px; }
 .memIntro > h4 {text-align:center; }
@@ -86,15 +88,6 @@
 <div id="content">
 	<div id="members" class="container clearfix">
 		<h3>大陸與會貴賓</h3>
-		<div class="clearfix">
-			<div class="member clearfix">
-			<div class="photo"><img src="img/scholars/china/方光華.jpg" alt="方光華"  ></div>
-			<div class="memIntro">
-				<h4>方光華</h4>
-				<p>西北大學校長</p>
-				<p>西北大學中國思想文化博士</p>
-			</div>
-		</div>
 
 		<div class="member clearfix">
 			<div class="photo"><img src="img/scholars/china/史靜寰.jpg" alt="史靜寰" ></div>
@@ -149,24 +142,7 @@
 				<p>華南師範大學心理博士</p>
 			</div>
 		</div>
-		<div class="member clearfix">
-			<div class="photo"><img src="img/scholars/china/周介銘.jpg" alt="周介銘" height="160"></div>
-			<div class="memIntro">
-				<h4>周介銘</h4>
-				<p>四川師範大學校長</p>
-				<p>西南師範大學地理系畢業</p>
-			</div>
-		</div>
 
-		<div class="member clearfix">
-			<div class="photo"><img src="img/scholars/china/孟繁華.jpg" alt="孟繁華"></div>
-			<div class="memIntro">
-				<h4>孟繁華</h4>
-				<p>首都師範大學副校長</p>
-				<p>北京師範大學教育管理學院教育經濟與管理博士</p>
-			</div>
-		</div>
-		
 		<div class="member clearfix">
 			<div class="photo"><img src="img/scholars/china/胡娟.jpg" alt="胡  娟"></div>
 			<div class="memIntro">
@@ -194,14 +170,7 @@
 			</div>
 		</div>
 		
-		<div class="member clearfix">
-			<div class="photo"><img src="img/scholars/china/徐小洲.jpg" alt="徐小洲"></div>
-			<div class="memIntro">
-				<h4>徐小洲</h4>
-				<p>浙江大學教育學院院長</p>
-				<p>杭州大學教育博士</p>
-			</div>
-		</div>
+
 		
 		<div class="member clearfix">
 			<div class="photo"><img src="img/scholars/china/徐緒卿.jpg" alt="徐緒卿"></div>
@@ -221,41 +190,6 @@
 			</div>
 		</div>
 		
-		<div class="member clearfix">
-			<div class="photo"><img src="img/scholars/china/程斯輝.jpg" alt="程斯輝"></div>
-			<div class="memIntro">
-				<h4>程斯輝</h4>
-				<p>武漢大學教育學院院長</p>
-				<p>華中師範大學教育學博士</p>
-			</div>
-		</div>
-		
-		<div class="member clearfix">
-			<div class="photo"><img src="img/scholars/china/華長慧.jpg" alt="華長慧"></div>
-			<div class="memIntro">
-				<h4>華長慧</h4>
-				<p>寧波諾丁漢大學黨委書記</p>
-				<p>在職大學畢業</p>
-			</div>
-		</div>
-		
-		<div class="member clearfix">
-			<div class="photo"><img src="img/scholars/china/楊東平.jpg" alt="楊東平"></div>
-			<div class="memIntro">
-				<h4>楊東平</h4>
-				<p>北京理工大學教育學院院長</p>
-				<p>北京工業學院自動控制系畢業</p>
-			</div>
-		</div>
-		
-		<div class="member clearfix">
-			<div class="photo"><img src="img/scholars/china/褚宏啟.jpg" alt="褚宏啟"></div>
-			<div class="memIntro">
-				<h4>褚宏啟</h4>
-				<p>北京師範大學教育學部副部長</p>
-				<p>北京師範大學教育科學研究所教育學博士</p>
-			</div>
-		</div>
 		
 		<div class="member clearfix">
 			<div class="photo"><img src="img/scholars/china/劉海峰.jpg" alt="劉海峰"></div>
@@ -266,14 +200,7 @@
 			</div>
 		</div>
 		
-		<div class="member clearfix">
-			<div class="photo"><img src="img/scholars/china/鄭燕祥.jpg" alt="鄭燕祥"></div>
-			<div class="memIntro">
-				<h4>鄭燕祥</h4>
-				<p>香港教育學院署理校長</p>
-				<p>哈佛大學教育學博士</p>
-			</div>
-		</div>
+
 		
 		<div class="member clearfix">
 			<div class="photo"><img src="img/scholars/china/盧曉中.jpg" alt="盧曉中"></div>
@@ -283,15 +210,104 @@
 				<p>教育學博士</p>
 			</div>
 		</div>
+
+		<div class="member clearfix"><div class="photo"><img src="img/scholars/china/劉春雷.jpg" alt="劉春雷"></div><div class="memIntro"><h4>劉春雷</h4><p>吉林師範大學教育科學院院長</p><p>吉林大學哲社院心理學博士</p></div></div>
+		<div class="member clearfix"><div class="photo"><img src="img/scholars/china/葛明貴.jpg" alt="葛明貴"></div><div class="memIntro"><h4>葛明貴</h4><p>安徽師大教育科學學院院長</p><p>華東師範大學心理學碩士學位</p></div></div>
+		<div class="member clearfix"><div class="photo"><img src="img/scholars/china/蔣志峰.jpg" alt="蔣志峰"></div><div class="memIntro"><h4>蔣志峰</h4><p>中國教育科學研究院副研究員</p><p>博士</p></div></div>
+		<div class="member clearfix"><div class="photo"><img src="img/scholars/china/曾天山.jpg" alt="曾天山"></div><div class="memIntro"><h4>曾天山</h4><p>中國教育科學研究院副院長</p><p>西北師範大學教育科學研究所博士</p></div></div>
+		<div class="member clearfix"><div class="photo"><img src="img/scholars/china/閻鳳橋.jpg" alt="閻鳳橋"></div><div class="memIntro"><h4>閻鳳橋</h4><p>北京大學教育學院副院長</p><p>北京大學教育學博士</p></div></div>
+		<div class="member clearfix"><div class="photo"><img src="img/scholars/china/李浩.jpg" alt="李浩"></div><div class="memIntro"><h4>李浩</h4><p>西北大學副校長</p><p>西北大學中文系碩士</p></div></div>
+
+
+		<!--div class="member clearfix">
+			<div class="photo"><img src="img/scholars/china/周介銘.jpg" alt="周介銘" height="160"></div>
+			<div class="memIntro">
+				<h4>周介銘</h4>
+				<p>四川師範大學校長</p>
+				<p>西南師範大學地理系畢業</p>
+			</div>
+		</div-->
+
+		<!--div class="member clearfix">
+			<div class="photo"><img src="img/scholars/china/孟繁華.jpg" alt="孟繁華"></div>
+			<div class="memIntro">
+				<h4>孟繁華</h4>
+				<p>首都師範大學副校長</p>
+				<p>北京師範大學教育管理學院教育經濟與管理博士</p>
+			</div>
+		</div-->
+		<!--div class="member clearfix">
+			<div class="photo"><img src="img/scholars/china/徐小洲.jpg" alt="徐小洲"></div>
+			<div class="memIntro">
+				<h4>徐小洲</h4>
+				<p>浙江大學教育學院院長</p>
+				<p>杭州大學教育博士</p>
+			</div>
+		</div-->		
+		<!--div class="member clearfix">
+			<div class="photo"><img src="img/scholars/china/程斯輝.jpg" alt="程斯輝"></div>
+			<div class="memIntro">
+				<h4>程斯輝</h4>
+				<p>武漢大學教育學院院長</p>
+				<p>華中師範大學教育學博士</p>
+			</div>
+		</div-->
 		
-		<div class="member clearfix">
+		<!--div class="member clearfix">
+			<div class="photo"><img src="img/scholars/china/華長慧.jpg" alt="華長慧"></div>
+			<div class="memIntro">
+				<h4>華長慧</h4>
+				<p>寧波諾丁漢大學黨委書記</p>
+				<p>在職大學畢業</p>
+			</div>
+		</div-->
+		
+		<!--div class="member clearfix">
+			<div class="photo"><img src="img/scholars/china/楊東平.jpg" alt="楊東平"></div>
+			<div class="memIntro">
+				<h4>楊東平</h4>
+				<p>北京理工大學教育學院院長</p>
+				<p>北京工業學院自動控制系畢業</p>
+			</div>
+		</div-->
+		
+		<!--div class="member clearfix">
+			<div class="photo"><img src="img/scholars/china/褚宏啟.jpg" alt="褚宏啟"></div>
+			<div class="memIntro">
+				<h4>褚宏啟</h4>
+				<p>北京師範大學教育學部副部長</p>
+				<p>北京師範大學教育科學研究所教育學博士</p>
+			</div>
+		</div-->
+
+
+
+
+
+		<!--div class="member clearfix">
+			<div class="photo"><img src="img/scholars/china/鄭燕祥.jpg" alt="鄭燕祥"></div>
+			<div class="memIntro">
+				<h4>鄭燕祥</h4>
+				<p>香港教育學院署理校長</p>
+				<p>哈佛大學教育學博士</p>
+			</div>
+		</div-->
+		<!--div class="clearfix">
+			<div class="member clearfix">
+			<div class="photo"><img src="img/scholars/china/方光華.jpg" alt="方光華"  ></div>
+			<div class="memIntro">
+				<h4>方光華</h4>
+				<p>西北大學校長</p>
+				<p>西北大學中國思想文化博士</p>
+			</div>
+		<!--div class="member clearfix">
 			<div class="photo"><img src="img/scholars/china/謝維和.jpg" alt="謝維和"></div>
 			<div class="memIntro">
 				<h4>謝維和</h4>
 				<p>清華大學副校長</p>
 				<p>中國社會科學院研究生院哲學博士</p>
 			</div>
-		</div>
+		</div-->
 		</div>
 	</div>
 </div>
@@ -370,7 +386,7 @@
 </div-->
 </footer>
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
+
 <script src="js/jquery-ui.js" type="text/javascript"></script>
 <!--script src="../Teachers/PostModern/js/bootstrap.min.js" type="text/javascript"></script-->
 <!-- InstanceBeginEditable name="js" -->
