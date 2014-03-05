@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style>
+.test{
+	position:relative; top:100px; height:300px; width:800px; left:200px; background:gray; 
+	background-image:url(img/sky.jpg);
+	background-size:cover;
+}
+</style>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<body style="padding:0; margin:0;">
+	<div style="height:3000px">
+		<div class="test" id="test" style="">
+			test
+		</div>
+		<div id="test2" class="test" style="top:500px; left:50px; width:900px; ">
+			test
+		</div>
+	</div>
+<script>
+
+var prxlArr = [];
+	$(window).scroll(function(){
+		$(".test").each(function(i, e) {
+			prlx_scroll($(e));
+		});
+	});
+	
+	
+function prlx_scroll ($e){
+		var $w = $(window),
+			  $wh = $w.height(),
+				$eh = $e.height(),
+				seenHeight = $wh + $eh ; //
+				
+				//Note. 當背景被cover以寬度為標準時。
+				_bgHeight =  $e.data("bh") * $e.width() / $e.data("bw") ; 
+				moveHeight = _bgHeight - $e.height() ;	
+
+		//Note. 偵測可見區域
+		var windowEnd = $w.scrollTop() + $wh ;	 
+		var seenStart = $e.offset().top ;
+		var seenEnd = seenStart + seenHeight ;
+		//Note. 滾動視差！！
+		if (windowEnd > seenStart && windowEnd < seenEnd) {
+			var dy = windowEnd - seenStart ;
+			var percentageY = ( 100 * dy / seenHeight )+"%" ;
+			$e.css('background-position', '50% '+ percentageY);
+			console.log("true");
+		}
+		// 一張圖片能運行的地方的高度：eleHeight + windowHeight ;
+		// 可移動的區塊：moveHeight = bgHeight - eleHeight; // 背景高度 - 元素高度
+		// top += dx * moveHeight/seenHeight ;
+		// 如果物件高度 > 背景圖片高度  ? 
+		//	bgHeight = eleHeight ;
+		//	bgXpos = 50% 	; 
+		
+		//Note. 滾動視差！！
+	}
+
+function prlx_dataBG_H_W (selector){ // 把背景的高度 data 到 ele 上
+	$e = $(selector);
+	var image_url = $e.css('background-image'), image;
+	// Remove url() or in case of Chrome url("")
+	image_url = image_url.match(/^url\("?(.+?)"?\)$/);
+	
+	if (image_url[1]) {
+		image_url = image_url[1];
+		image = new Image();
+		// just in case it is not already loaded
+		$(image).load(function () {
+				$e.data("bw",image.width);
+				$e.data("bh",image.height);
+				//alert(image.width + 'x' + image.height);
+		});
+		image.src = image_url;
+	}
+}
+</script>
+</body>
+</html>
