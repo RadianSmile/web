@@ -26,7 +26,7 @@
 var prxlArr = [];
 	$(window).scroll(function(){
 		$(".test").each(function(i, e) {
-			prlx_scroll($(e));
+			//prlx_scroll($(e));
 		});
 	});
 	
@@ -80,6 +80,22 @@ function prlx_dataBG_H_W (selector){ // 把背景的高度 data 到 ele 上
 		image.src = image_url;
 	}
 }
+/* 我這裡原本要寫的是背景移動較少的 parallax ，但是由套件取代了
+var moveRate = 50 ;
+function prlx_window ($e) { //
+	var hDw = $e.data("bh") / $e.data("bw") ;
+	var	_bgHeight = $e.width() * hDw;
+	if ( _bgHeight > $(window).height() ){
+		
+	}else if ( _bgHeight < $(window).height()){
+		var h = $(window).height() + "px" ;
+		var w = h / hDw +"px " ; 
+		console.log ("h=",h," ","w=",w );
+		$e.css("background-size",w+h );
+		$e.css("background-position","");
+		
+	}
+}*/
 </script>
 </body>
 </html>
