@@ -8,9 +8,10 @@
 <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><link rel="stylesheet" href="css/reset.css">
 <script src="js/jquery.parallax-1.1.3.js"></script>
-<script src="js/Rn_jquery.animate-colors.js"></script>
+<script src="js/Rn_jquery.color.js"></script>
 
 
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <style>
 
 .cf:after {
@@ -35,7 +36,7 @@ body {
 	padding:0;
 	height:2000px;
 }
-#banner {
+#banner-b {
 	width:100%;
 	/*background:url(square.jpg);*/
 	background:url(img/sky.jpg);
@@ -46,7 +47,7 @@ body {
 }
 
 	
-#about {
+#about-b {
 	padding:50px 0 ;
 	background:rgba(220,220,220,1.00);
 	background:url(img/bg/transp_bg.png);
@@ -83,26 +84,20 @@ body {
 }
 #nav {
 	background:rgba(0,0,0,.8);
-	position:fixed;
-	top:0;
-	width:100%;
-	z-index:10000;
-}
-.nav-btn {
-	padding:18px;
-	color:white;
-	display:block;
-	float:left;
 }
 .nav-btn:hover {
 	background:#3C3C3C;
 }
 .nav-btn.active {
 	background:#2EA59A;
+	color:white !important;
+}
+.nav-btn.go.active:hover{
+	background:rgba(52,189,176,1.00);
 }
 
 .prlx {
-	background-size:cover !important;
+	background-size:auto 800px !important;
 
 	
 }
@@ -112,8 +107,8 @@ a {
 	
 }
 
-#about .block { float:left; width:50%; }
-#about {
+#about-b .block { float:left; width:50%; }
+#about-b {
 			background:url(img/bg/geometry/geometry.png);	
 }
 .block_title {
@@ -131,15 +126,15 @@ p.large {
 	
 }
 
-#space {
+#space-b {
 	background-image:url(img/photo1_studio.jpg);
 	background-size:cover;
 
-}#space > .row {
+}#space-b > .container {
 	height:400px;
 }
 
-#banner  h1{
+#banner-b  h1{
 	font-size:80px;
 	color:white; 
 	text-align:center;
@@ -147,57 +142,130 @@ p.large {
 
 	display:inline-block;
 }
-#banner .paper  {
+#banner-b .paper  {
 }
-#products {
+#products-b {
 	background:url(img/bg/geometry/geometry.png);	
 	background:url(img/bg/grey_wash_wall/grey_wash_wall.png);
 	background:url(img/bg/tree_bark/tree_bark.png);
 }
 
+.anchor {
+	display:block !important;
+	visibility:hidden;
+	background:black;
+	position:relative; 
+	top:-50px; 
+}
+
+/*這裡是做respnsiveness*/
+/*Break points / container width: auto	750px	970px	1170px*/
+#games-b	 .container {width: 650px ;}
+
+
+@media (max-width: 767px) { 
+	.product >.txt { width:570px !important ; } 
+.product > .lft  ,  .product > .txt { float:none !important; display:block;width:auto !important; margin:auto !important; }
+.product > .lft  { width:130px !important; }
+
+.game { margin:3% !important; width:44%;}
+.con img { margin:auto;}
+.game > .con { margin:10% !important; width:80% !important; }
+#games-b .row ,#games-b	 .container{
+		width:auto !important;}
+
+
+
+#tv {
+	float: none !important;
+display: block !important;
+margin: 30px auto !important;
+}
+
+#about-b .block{
+	width:auto;
+	float:none;
+}
+}
+@media (min-width: 768px) and (max-width: 991px) { 
+	.product >.txt { width:570px !important ; } 
+	#about-b	
+
+}
+@media (min-width: 992px) and (max-width: 1199px ) { 
+	.product >.txt { width:790px !important ; } 
+ }
+@media (min-width: 1200px	) { 
+	.product > .txt{ width:990px !important; } 
+ }
 </style>
 </head>
 
 <body>
-<div id="nav">
-	<div class="row">
-		<div class="left">
-			<a class="nav-btn">方白科技</a>
+
+<div id="nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">方白科技</a>
 		</div>
-		<div class="right">
-			<a class="nav-btn go" href="#about" data-block="#about">關於</a>
-			<a class="nav-btn go" href="#space" data-block="#space">空間</a>
-			<a id="test" class="nav-btn go" href="#products" data-block="#products">產品</a>
-			<a class="nav-btn go" href="#team" data-block="#team">團隊</a>
-			<a class="nav-btn go" href="#games" data-block="#games">小品</a>		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li><a class="nav-btn go" href="#about" data-block="#about-b">關於</a></li>
+				<li><a class="nav-btn go" href="#space" data-block="#space-b">空間</a></li>
+				<li><a class="nav-btn go" href="#products" data-block="#products-b">產品</a></li>
+				<li><a class="nav-btn go" href="#team" data-block="#team-b">團隊</a></li>
+				<li><a class="nav-btn go" href="#games" data-block="#games-b">小品</a>		</li>
+				<li><a class="nav-btn" href="intern.html" style="background:brown;">實習</a>		</li>
+
+			</ul>
+		</div><!--/.nav-collapse -->
 	</div>
 </div>
-
 <style>
-#banner .paper h3 {
+#banner-b .paper h3 {
 	font-size:25px;
 	margin:10px 0 ;
+	color:white;
+	margin:50px 0 ;
 	
 }
+#banner-b .des {
+	background:rgba(0,0,0,0.81);
+	color:white;
+	position:relative;
+	padding:30px;
+	width:40%;
+	right:0px;
+}
+
+
 </style>
-<div id="banner" class="section prlx ">
-	<div class="row">
-	<h1 >FineBind-Tech.方白科技</h1>
+
+<div id="banner-b" class="section prlx ">
+	<div class="container">
+	<h1 style="text-shadow: 3px 3px 10px #000000;" >方白科技</h1>
 	<div class="paper">
-		<h3>What we Strive to do</h3>
-		<p>理念：我們想做的事情就是讓台灣的社會更美好，更便利，同時也創造更多就業機會，沒辦法，因為我們是大大。我們想做的事情就是讓台灣的社會更美好，更便利，同時也創造更多就業機會，沒辦法，因為我們是大大</p>
+		<h3 style="text-shadow: 0px 0px 3px #000000;">創業不為別的，只想著如何創造一個既有趣又便利的生活方式。</h3><!--ＩＣ（interesting and convenient)-->
+		<!--div class="des">
+		</div-->
 	</div>
 	</div>
 	<!--div id="rnd" class="round"></div-->
 </div>
-<div id="about" class="section ">
-	<div class="row cf">
+<a name="about" class="anchor"></a>
+<div id="about-b" class="section ">
+	<div class="container cf">
 		<h2 class="block_title">ABOUT FINEBIND TECH.</h2>
 
 		<div class="paper block" >
-			<p class="large">
-				自我介紹：我在進行測試，我在進行測試，我在進行測試，我在進行測試，我在進行測試，我在進行測試，我在進行測試，我在進行測試，我在進行測試，我在進行測試，我在進行測試，我在進行測試，我在進行測試，我在進行測試，我在進行測試，我在進行測試，我在進行測試，我在進行測試，我在進行測試，我在進行測試，
-			</p>
+			<p class="large">「尋找需求，解決問題，有趣生活，給你便利」是我們一直在努力的方向，不斷持續的整合吃喝玩樂四個生活基本需求的資訊，讓方白科技能夠融合在人們的生活之中，一想到方白，就會馬上聯想到「有趣、實用和美好」！未來也將觸角延伸到海外，不管你在世界的哪個角落都能使用到我們的服務。</p>
+			<p class="large">我們不想改變世界，但是我們希望世界因我們而改變，希望這世界因為我們提供的服務而變得更美好。</p>
 		</div>
 		<div class="logo block">
 			<img style="margin:auto; display:block" src="img/logo.png" width="300">
@@ -205,7 +273,7 @@ p.large {
 	</div>
 </div>
 <style>
-#photo1 .paper {
+#photo1-b .paper {
 	position:absolute;
 	bottom:100px;
 	right:10px;
@@ -214,17 +282,26 @@ p.large {
 	
 	
 </style>
-<div id="space" class="glimpse section prlx" >
-	<div class="row" >
+<a name="space" class="anchor"></a>
+<div id="space-b" class="glimpse section prlx" >
+	<div class="container" >
 		<div class="paper">
-			<p style="color:white" >這是我們的工作室。</p>
+			<p style="color:white" >雖然沒有金窩銀窩，但是我們最愛的還是這個小窩<br>
+因為有小窩讓我們吃喝拉撒睡，我們才能提供使用者吃喝玩樂的服務
+</p>
 		</div>
 	</div>
 </div>
 <style>
 
-.product > .lft  ,  .product > .txt { float:left;}
-.product > .txt { width:470px; margin-left:20px;}
+.product > .lft {  float:left;}
+.product > .lft  ,  .product > .txt { float:left;  }
+.product > .txt { 
+	margin-left:20px; 
+	padding-left:20px;
+	border-left:rgba(132,132,132,1.00) thin  dashed;
+
+}
 
 .product  .img { border-radius:10px; display:block; background:white; width:130px ; height:130px;}
 
@@ -240,9 +317,10 @@ p.large {
 	margin-bottom:20px;
 }
 </style>
-<div id="products" class="section">
+<a name="products" class="anchor"></a>
+<div id="products-b" class="section">
 	<!--div id="rnd2" class="round "></div-->
-	<div  class="row" style="width:640px;" >
+	<div  class="container" >
 		<h2 class="block_title">Our Products</h2>
 		<div class="papers">
 			<div class="product cf">
@@ -252,8 +330,14 @@ p.large {
 						電視美食APP
 					</div>
 					<p class="des">
-						電視美食的特殊事跡<br>特殊事跡二<br>特殊事跡三<br>還有他的敘述
+										<iframe id="tv" style="float:right; display:inline" width="280" height="210" src="//www.youtube.com/embed/oX5rIK9gZCE" frameborder="0" allowfullscreen></iframe>
+
+						電視視美食APP 特色:*精選超過8500家電視節目採訪過的美食店家，依使用者所在位置，精準找到附近美食，或是依照商圈、景點提供分類美食，另外也可輸入想吃的菜名，搜尋特定地區或餐廳，超方便！					
 					</p>
+					<ul>
+					<li>上架半年的累積下載量高達88萬人次</li>
+					<li>榮獲Android不分類熱門下載排名冠軍、iOS不分類熱門下載排名亞軍的殊榮，</li>
+					</ul>
 				</div>
 			</div>
 
@@ -282,29 +366,28 @@ p.large {
 	</div>
 </div>
 <style>
-	#team{
+	#team-b{
 		background:url(img/team.jpg);
 		height:400px;
 		
 	}
 </style>
-
-<div id="team" class="section glimpse prlx">
-	<div class="row" style=" height:500px;">
+<a name="team" class="anchor"></a>
+<div id="team-b" class="section glimpse prlx">
+	<div class="container" style=" height:500px;">
 		<div class="paper" >
-			<p style="" >這是我們的團隊</p>
+			<p>這是我們的團隊</p>
 		</div>
 	</div>
 </div>
-<div id="games" class="section">
+<a name="games" class="anchor"></a>
+<div id="games-b" class="section">
 <style>
-	#games{
+	#games-b{
 		background:url(img/bg/brickwall/brickwall.png);
 	}
-	#games .row{
+	#games-b .row{
 		width:620px;
-		
-		
 	}
 	.game {
 		background:rgba(212,212,212,1.00);
@@ -316,7 +399,7 @@ p.large {
 	.last-margin-fix ,.lmf{
 		margin-right : 0;
 	}
-	.game > .con > img {
+	.game > .con  img {
 		display:block;
 		overflow:hidden;
 		border-radius:10px;
@@ -332,37 +415,33 @@ p.large {
 	font-size:16px;
 	text-align:center;
 }
-.game > .con > 
+
 
 </style>
-	<div class="row" style="padding-bottom:50px;">
+	<div class="container" style="padding-bottom:50px;">
 		<h2 class="block_title">Small Analisys Games</h2>
 		<div class="papers cf">
 			<div class="game">
-				<div class="con">
-					<img src="img/game/1.jpg">
-					<h4 class="tit">你最關心誰</h4>
+				<div class="con"> <a href="http://www.finebind-tech.com/fb2013/" target="_blank"><img src="img/game/1.jpg"></a>
+					<h4 class="tit"><a href="http://www.finebind-tech.com/fb2013/" target="_blank">你最關心誰</a></h4>
 					<p class="des">這個APP可以讓你測試出你在FB上關心的人是誰，另外更會提供到底誰默默關心你的情報給你知道喲。</p>
 				</div> 
 			</div>
 			<div class="game">
-				<div class="con">
-					<img src="img/game/2.jpg">
-					<h4 class="tit">人脈銀行</h4>
+				<div class="con"> <a href="http://www.finebind-tech.com/job/#Company/group" target="_blank"><img src="img/game/2.jpg"></a>
+					<h4 class="tit"><a href="http://www.finebind-tech.com/job/#Company/group" target="_blank">人脈銀行</a></h4>
 					<p class="des">在這個工具裡，會幫你列出你朋友都在哪些單位組織工作，他們的職稱、公司等等。透過這些資訊，來幫助你尋找你未來的工作機會。</p>
 				</div> 
 			</div>
 			<div class="game">
-				<div class="con">
-					<img src="img/game/3.jpg">
-					<h4 class="tit">桃花寶典</h4>
+				<div class="con"> <a href="http://www.finebind-tech.com/peachbook/" target="_blank"><img src="img/game/3.jpg"></a>
+					<h4 class="tit"><a href="http://www.finebind-tech.com/peachbook/" target="_blank">桃花寶典</a></h4>
 					<p class="des"></p>
 				</div> 
 			</div>
 			<div class="game lmf">
-				<div class="con">
-					<img src="img/game/4.jpg">
-					<h4 class="tit">新年大PK</h4>
+				<div class="con"> <a href="http://www.finebind-tech.com/pk2014/" target="_blank"><img src="img/game/4.jpg"></a>
+					<h4 class="tit"><a href="http://www.finebind-tech.com/pk2014/" target="_blank">新年大PK</a></h4>
 					<p class="des"></p>
 				</div> 
 			</div>
@@ -370,15 +449,16 @@ p.large {
 	</div>
 </div>
 <style>
-#footer > .row {
+#footer-b > .row {
 	padding:50px 0 ;
 }
 </style>
 <div id="footer">
-	<div class="row">
-		<p style="text-align:center;">方白科技製作。</p>
+	<div class="container">
+		<p style="text-align:center; ">方白科技製作。</p>
 	</div> 
 </div>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="Rns/Rn_inView.js"></script>
 <script src="Rns/Rn_getUrlPara.js"></script>
 <script type="text/javascript">
@@ -391,21 +471,36 @@ $(document).keyup(function (e) {
 });
 // }
 
-$("#banner").parallax("50%",-0.5); 
-$("#space").parallax("50%",-0.9);
-$("#team").parallax("50%",-0.9);
+$(document).ready(function(e) {
+	if (window.location.hash){
+		console.log($(window.location.hash).offset().top);
+		console.log($(window.location.hash).offset().top + $("#nav").height());
+		$("html,body").scrollTop($(window.location.hash).offset().top - $("#nav").height());
+		//alert("test");
+	}
+});
+$("#banner-b").parallax("50%",-0.5); 
+$("#space-b").parallax("50%",-0.9);
+$("#team-b").parallax("50%",-0.9);
 
 $('.go').click(function (e){
 	e.preventDefault();
-	var bm = $(this).data('block');
+	$this = $(this);
+	var bm = $this.data('block');
 	var n = $(bm).offset().top - $("#nav").height()  ;
 	var t = n+'px';
-	$("html, body").animate({ scrollTop: t });
+	$("html, body").animate({ scrollTop: t },{complete:function(){
+			var a = $this.attr("href");
+			var l = a.length;
+			a.substring(0,-1);
+			window.location.hash = a;
+		}
+	});
 	
-	$('.go').each(function(index, e) {
+	/*$('.go').each(function(index, e) {
 		$(e).removeClass('active');
 	});
-	$(this).addClass('active');
+	$(this).addClass('active');*/
 });
 
 $(window).on('DOMContentLoaded load resize scroll',function(){
