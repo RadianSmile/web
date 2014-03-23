@@ -59,7 +59,18 @@ http://www.gnu.org/licenses/gpl.html
 					return;
 				}
 
-				$this.css('backgroundPosition', xpos + " " + Math.round((firstTop - pos) * speedFactor) + "px");
+
+				var mq = window.matchMedia( "(min-width: 769px)" );
+				console.log ("mq.matches", mq.matches);
+				if (mq.matches ){	
+					//console.log (mq);
+					console.log("true");
+					$this.css('backgroundPosition', xpos + " " + Math.round((firstTop - pos) * speedFactor) + "px");			
+				}else {
+					console.log ("flase");
+					$this.css('background-size',"cover").css('background-position',"center");
+				}
+
 			});
 		}		
 

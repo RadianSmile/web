@@ -166,6 +166,7 @@ p.large {
 
 
 @media (max-width: 767px) { 
+	.section { background-size:cover;}
 	.product >.txt { width:570px !important ; } 
 .product > .lft  ,  .product > .txt { float:none !important; display:block;width:auto !important; margin:auto !important; }
 .product > .lft  { width:130px !important; }
@@ -350,6 +351,7 @@ margin: 30px auto !important;
 						好店到相報
 					</div>
 					<p class="des">
+						好店到相報！
 					</p>
 				</div>
 			</div>
@@ -360,6 +362,7 @@ margin: 30px auto !important;
 						噗朗克統計
 					</div>
 					<p class="des">
+						噗朗克統計
 					</p>
 				</div>
 			</div>
@@ -436,15 +439,15 @@ margin: 30px auto !important;
 				</div> 
 			</div>
 			<div class="game">
-				<div class="con"> <a href="http://www.finebind-tech.com/peachbook/" target="_blank"><img src="img/game/3.jpg"></a>
+				<div class="con"><a href="http://www.finebind-tech.com/peachbook/" target="_blank"><img src="img/game/3.jpg"></a>
 					<h4 class="tit"><a href="http://www.finebind-tech.com/peachbook/" target="_blank">桃花寶典</a></h4>
-					<p class="des"></p>
+					<p class="des">在這個工具裡，它可以幫你分析在你FaceBook上的異性朋友，是如何與你的塗鴉牆或貼文互動著！並透過這些數據幫你推測你未來的桃花地點以及對象！</p>
 				</div> 
 			</div>
 			<div class="game lmf">
 				<div class="con"> <a href="http://www.finebind-tech.com/pk2014/" target="_blank"><img src="img/game/4.jpg"></a>
 					<h4 class="tit"><a href="http://www.finebind-tech.com/pk2014/" target="_blank">新年大PK</a></h4>
-					<p class="des"></p>
+					<p class="des">在這個小遊戲中，你可已挑選一位你FB的好友，和他決鬥看誰比較關心誰！並透過這項數據，來決定你未來要怎麼善待你的好友！</p>
 				</div> 
 			</div>
 		</div>
@@ -458,12 +461,14 @@ margin: 30px auto !important;
 <div id="footer">
 	<div class="container">
 		<p style="text-align:center; ">方白科技製作。</p>
+		<script> $("#footer").find("p").append( $(window).width());</script>
 	</div> 
 </div>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="Rns/Rn_inView.js"></script>
 <script src="Rns/Rn_getUrlPara.js"></script>
 <script type="text/javascript">
+var G_navH = $("#nav").height();
 // { 當點選esc時，頁面會重新整理，同時將頁面滾到原本的地方。
 getURLParameter("h") ? $(window).scrollTop(getURLParameter("h")):0;
 $(document).keyup(function (e) {
@@ -481,6 +486,7 @@ $(document).ready(function(e) {
 		//alert("test");
 	}
 });
+
 $("#banner-b").parallax("50%",-0.5); 
 $("#space-b").parallax("50%",-0.9);
 $("#team-b").parallax("50%",-0.9);
@@ -489,7 +495,7 @@ $('.go').click(function (e){
 	e.preventDefault();
 	$this = $(this);
 	var bm = $this.data('block');
-	var n = $(bm).offset().top - $("#nav").height()  ;
+	var n = $(bm).offset().top - G_navH  ;
 	var t = n+'px';
 	$("html, body").animate({ scrollTop: t },{complete:function(){
 			var a = $this.attr("href");
@@ -498,6 +504,13 @@ $('.go').click(function (e){
 			window.location.hash = a;
 		}
 	});
+	var mq = window.matchMedia ( "(min-width: 769px)" );
+	
+	if (!mq.matches) {
+		console.log(mq.matches);
+		$(".navbar-toggle").trigger("click");
+	}
+
 	
 	/*$('.go').each(function(index, e) {
 		$(e).removeClass('active');
@@ -546,6 +559,7 @@ if ($ele.isOnScreen()){
 	return true;
 }
 }
+$._data($('.navbar-toggle'), "events");
 
 
 
@@ -597,7 +611,9 @@ function prlx_dataBG_H_W (selector){ // 把背景的高度 data 到 ele 上
 	}
 }
 */
-</script>
+
+
+
 
 </script>
 </body>
