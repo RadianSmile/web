@@ -133,7 +133,7 @@ p.large {
 	background-size:cover;
 
 }#space-b > .container {
-	height:400px;
+	min-height:400px;
 }
 
 #banner-b  h1{
@@ -199,6 +199,10 @@ margin: 30px auto !important;
 		.product  .tit { 
 		text-align: center !important;
 	}
+	
+			#team-b .sub{
+				width:100% !important;
+			}
 
 }
 @media (min-width: 768px) and (max-width: 991px) { 
@@ -320,12 +324,25 @@ margin: 30px auto !important;
 <a name="space" class="anchor"></a>
 <div id="space-b" class="glimpse section prlx" >
 	<div class="container" >
+		<h2 class="block_title">Our History</h2>
 		<div class="paper">
-			<p style="color:white" >雖然沒有金窩銀窩，但是我們最愛的還是這個小窩<br>
-因為有小窩讓我們吃喝拉撒睡，我們才能提供使用者吃喝玩樂的服務
-</p>
+			<!--p style="color:white" >雖然沒有金窩銀窩，但是我們最愛的還是這個小窩<br>
+			因為有小窩讓我們吃喝拉撒睡，我們才能提供使用者吃喝玩樂的服務
+			</p-->
+		</div>
+		<div class="paper">
+			<iframe id="timeLine" src='http://cdn.knightlab.com/libs/timeline/latest/embed/index.html?source=0AhCFVSDeJa00dEdUektCdGJOWnF5bzRLZkxzUE9Ia1E&font=SansitaOne-Kameron&maptype=toner&lang=zh-cn&height=650' width='100%' height='650' frameborder='0'></iframe>
 		</div>
 	</div>
+	
+<script>
+var cssLink = document.createElement("link") ;
+cssLink.href = "css/timeline.css"; 
+cssLink.rel = "stylesheet"; 
+cssLink.type = "text/css"; 
+frames['timeLine'].document.body.appendChild(cssLink);
+</script>
+	
 </div>
 <style>
 
@@ -406,15 +423,27 @@ margin: 30px auto !important;
 <style>
 	#team-b{
 		background:url(img/team.jpg);
-		height:400px;
 		
 	}
+		#team-b .sub{
+			width:50%;
+			float:left;
+		}
 </style>
 <a name="team" class="anchor"></a>
 <div id="team-b" class="section glimpse prlx">
-	<div class="container" style=" height:500px;">
-		<div class="paper" >
-			<p>這是我們的團隊</p>
+	<div class="container">
+		<h2 class="block_title">Find Us</h2>
+		<div class="sub">
+			<p>電話：(02) 2598-7495</p>
+			<p>傳真：(02) 2598-7492</p>
+			<p>地址：104台北市中山區民權西路19號9樓 (新北市電腦商業同業公會)
+			<p>公車：287, 612, 218, 277, 220, 247, 42, 203, 260區, 279, 1717, 310, </p>
+			<p>捷運：捷運民權西路站9號出口步行三分鐘。	</p>
+			<p>聯絡我們：<a href="https://www.facebook.com/messages/finebindtech" target="_blank">私訊到我們粉專</a> 				</div>
+
+		<div class="sub">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3614.146832215882!2d121.521627!3d25.063012!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a94475e6994b%3A0x994e9ddad65fe079!2zMTA05Y-w5YyX5biC5Lit5bGx5Y2A5rCR5qyK6KW_6LevMTnomZ8!5e0!3m2!1szh-TW!2stw!4v1396147644160" width="100%" height="300" frameborder="0" style="border:0"></iframe>
 		</div>
 	</div>
 </div>
