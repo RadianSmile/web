@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<body>
+<div id="test"></div>
+
+
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script>
+function getZip (zip){
+	if (zip > 100){
+		throw "b";
+	}else if (zip >50 ){
+		throw (new Error ("testError"));
+	}else return  zip ;
+}
+
+document.onkeyup = function (e) {
+	if (e.which === 27 ){
+		location.reload();
+	}
+}
+
+function show (txt) {
+	var h = document.getElementById("test");
+	var p = document.createElement("p");
+	var t = document.createTextNode(txt);
+		p.appendChild(t);
+		h.appendChild(p);
+}
+
+function inputZip (zip){
+	try {
+		getZip (zip);
+		show (zip);
+	}catch (e) {
+	 if (e == "b"){ 
+		show ("bigger");
+	 }else if (e instanceof Error){
+		show (e.name +"  "+ e.message);	 
+	 }
+	}
+}
+
+/*
+
+function inputZip (zip){
+	try {
+		getZip (zip);
+		show (zip);
+	}catch (e if (e == "b") ) {
+		show ("bigger");
+	}catch (e if (e instanceof Error)){
+		show (getZip().name + getZip().message);
+	}
+}
+
+*/
+
+inputZip (10);
+inputZip (51);
+inputZip (101);
+</script>
+</body>
+</html>
