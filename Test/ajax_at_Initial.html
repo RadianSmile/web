@@ -4,56 +4,26 @@
 <meta charset="UTF-8">
 <title>Ajax from Google</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
-
-<script>
-// set yout sheet Id
-var ID = "1rnLnui4IXBKZcsDH5zxFHS_rO4TpRPGQD9RY4C_OMAc" ;
-var data ;
-
-</script>
-
-<style>
-</style>
 </head>
-
 <body>
-<h3>Pulling Data From Google SpreadSheet Demo!</h3>
-<div id="apd">
-	Pulling Data ...
-</div>
-
-
+	<h3>Pulling Data From Google SpreadSheet Demo!</h3>
+	<div id="apd">
+		Pulling Data ...
+	</div>
+<script src= "https://script.google.com/macros/s/AKfycbwjTaclaKdzdr4IgCOM_PpIWJvxFSGkz2qLgrhfJ5fNYf09djI/exec?id=1rnLnui4IXBKZcsDH5zxFHS_rO4TpRPGQD9RY4C_OMAc&callback=pullDone"></script>
 <script>
-
-function pullServer (callback) {//connectData (){
-	var script= document.createElement('script');
-	script.id="db";
-	script.type= 'text/javascript';
-	script.src= "https://script.google.com/macros/s/AKfycbwjTaclaKdzdr4IgCOM_PpIWJvxFSGkz2qLgrhfJ5fNYf09djI/exec?id="+ ID +"&callback="+ callback;
-	document.getElementsByTagName('head')[0].appendChild(script);
-
-}
-pullServer ("pullDone");
-
 function pullDone (data) {
 	$("#apd").html("");
 	console.log (data.publications);
 	var rows = data.publications;
-	 for (var i = 0 ; i < rows.length ; i ++ ){
-		 
+	 for (var i = 0 ; i < rows.length ; i ++ ){	 
 		 $("#apd").append("<p>"+rows[i]["time"] +" , " + rows[i]["publication"] + " , " + rows [i]["editor"] +"<p>" )
 	 }
 	$("#apd").append("<h4>Pull done</h4>");
 	$("#apd").append("<span style='color:green;'>I hope that the data pulled could be crawled by google robot, how to do that ?</span> ");
 }
-
-function forcerefresh (){
-	localStorage.clear();
-	location.reload();
-}
 </script>
-<!--script src="https://script.google.com/macros/s/AKfycbwjTaclaKdzdr4IgCOM_PpIWJvxFSGkz2qLgrhfJ5fNYf09djI/exec?id=0AgOZauWX0uR8dHFxOHJuTzV2NmRFNVo2N2pGMnd2TWc&callback=test"></script-->
 <br>
-<a onClick="forcerefresh()" href="#" id="rf">REFRESH</a>
+<a onClick="javascript:location.reload();" href="#" id="rf">REFRESH</a>
 </body>
 </html>
