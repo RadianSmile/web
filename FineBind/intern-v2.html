@@ -30,7 +30,7 @@ html[xmlns] .cf {
 	height: 1%;
 }
 
-
+.nav a { font-size:0.7em !important;}
 
 
 
@@ -49,8 +49,9 @@ body {
 }
 
 .outer {width:100%;
-	background:url(img/bg/brickwall/brickwall.png);
+	+background:url(img/bg/brickwall/brickwall.png);
 }
+
 
 .tit , h2 {
 		color:rgba(46,165,154,1.00);
@@ -128,7 +129,38 @@ body {
 	z-index:0;
 }
 
+#intro .imgs .intro-img {
+	display:block;
+	width:29% !important;
+	margin:2%;
+	float:left;
+}
+#intro .imgs .intro-img .img { 
+	width:100%;
+}
+#intro .imgs .note {
+	color:gray;
+	display:block;
+	text-align:center;
+	font-size:0.6em;
+	position:relative;
+	top:-20px;
+}
+/* steps */
+#steps { background: rgba(191,245,218,1.00); }
+#steps .step { float:left; position:relative;  width:25%;  height:160px;  }
+#steps .step .con ,#steps .step .add { float :left;  border-left-color:rgba(191,245,218,1.00); z-index:5; }
+#steps .step .add { position:absolute; right:-20px;}
+#steps .step .con {  background: rgba(191,245,218,1.00); width:100%; height:inherit; padding-left:40px; padding-top:20px; padding-bottom:20px; }
+#steps .title { 		color:rgba(46,165,154,1.00);
+}
+
+#steps .step:nth-child(2n) .con { background:rgba(104,213,132,1.00); } 
+#steps .step:nth-child(2n) .add { border-left-color:rgba(104,213,132,1.00); }
+
+
 @media screen and (max-width:768px){
+	.bar { display:none;}
 	.type {
 		width:95%;
 		margin:20px auto;
@@ -142,9 +174,88 @@ body {
 	padding-top:0 !important;
 }
 }
+
+.add*d, .t9 {
+display:block;
+margin:0 auto;
+width:0;
+height:0;
+border-color:red blue yellow green;
+border-style:solid;
+border-width:40px 80px 40px 80px;
+}
+
+ .add ,.arrow-right {
+	width: 0; 
+	height: 0; 
+	border-top: 80px solid transparent;
+	border-bottom: 80px solid transparent ;
+	
+	border-left: 20px solid green;
+}
+
+
+.arrow-down {
+	width: 0; 
+	height: 0; 
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	
+	border-top: 30px solid #f00;
+}
 @media (min-width: 992px)  {
 	#want .row {*width:970px; margin:auto;}
 	
+}
+
+@media (max-width: 768px)  {
+	#intro .imgs .intro-img{ width:100% !important;  margin:0;}
+#banner { height:320px !important; }
+.tri-toggle { display:none;}
+#steps .step  {left:0px; }
+
+#steps .step:nth-child .con { background:rgba(104,213,132,1.00);  } 
+#steps .step:nth-child(2n) .con { background:inherit;  } 
+
+#steps .step:nth-child(2n) .add { border-left-color:transparent; }	
+
+#steps  { padding: 20px 0 20px 0;}
+
+	#steps .step .add { 
+	border-left-color: transparent;
+	border-bottom: 0px solid transparent;
+		border:0;
+		position:absolute; 
+		right:0px;
+		bottom:-30px;
+	width: 0; 
+	height: 0; 
+	border-left: 60px solid transparent;
+	border-right:60px solid transparent;
+	
+	border-top: 30px solid #f00;
+	}
+
+
+	#steps .step { width:100%; margin:auto; margin-bottom:20px;}
+	#steps .step .con {
+		width:100%;
+		padding:20px;
+		background:rgba(60,214,100,1.00) !important;
+	}
+
+	
+	#steps {
+		
+		
+	}
+}
+@media (max-width:320px){
+
+body {
+	font-size:2.5em;
+	
+}
 }
 .titles h1 {
 	margin-top:50px;
@@ -167,7 +278,7 @@ body {
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#about">關於</a></li>
+            <li class="active"><a href="#intro">關於</a></li>
             <li><a href="#lct">地點</a></li>
             <li><a href="#type">職缺</a></li>
             <li><a href="#join">加入</a></li>
@@ -176,7 +287,7 @@ body {
         </div><!--/.nav-collapse -->
       </div>
     </div>
-<div class="outer"  style="background:url(img/sky.jpg) center center; background-size:cover; height:200px;">
+<div id="banner" class="outer"  style="background:url(img/sky.jpg) center center; background-size:cover; height:250px;">
 	<div class="container">
 		<div class="titles" style="color:white;">
 			<h1>方白科技-成為我們的實習生！</h1>
@@ -190,6 +301,20 @@ body {
 <h2>關於我們</h2>
 <p>我們的目標是希望提供實習生未來求職最有價值的履歷和經驗，並成為生活中一件非常有趣的事。我們給予實習生充份發揮的舞台，把實習生當作一起創業的夥伴。不論產品設計、行銷活動我們都希望實習生可以一起參與決定。</p>
 <p>團隊由台大資工博士生與商管所講師所組成，目前有4隻開發APP的經驗，其中2隻曾榮登Google Play首頁、1隻榮登iTunes首頁。</p>
+<div class="imgs clearfix">
+<div class="intro-img">	
+	<img class="img" src="img/intern/no1.png">
+	<span class="note">Google Play不分類冠軍</span>
+</div>
+<div class="intro-img">	
+	<img class="img" src="img/intern/recommend.png">
+	<span class="note">麻辣主動推薦App</span>
+</div>
+<div class="intro-img">	
+	<img class="img" src="img/intern/snd.png">
+	<span class="note">App Store熱門不分類亞軍</span>
+</div></div>
+
 <!--h2>關於我們</h2> 
 <p>我們的公司希望給習生一個友善的環境，讓同學在實習過程中擁有舞台，累積豐富的經驗，並成為未來履歷上最值得津津樂道的經驗是我們的目標。我們在同一條船上，實習生是我們的「夥伴」，不論產品設計、行銷活動我們都希望實習生可以一起參與決定。團隊由台大資工博士生與商管所講師所組成，目前有4隻開發APP的經驗，其中2隻曾榮登Google Play首頁、1隻榮登iTunes首頁，而產品「電視美食」也曾榮獲：</p>
 <p>1. Google Play不分類冠軍<br>
@@ -255,8 +380,7 @@ body {
 	background:white;
 }
 .btn-con {
-	width:150px;
-		padding:100px 0 ;
+	padding:100px 0 ;
 
 	display:block; margin:auto;
 }
@@ -272,8 +396,11 @@ body {
 	float:left;
 }
 .snd-block {
-	margin-bottom:20px;
+	margin-bottom:50px;
+}.snd-block:last-child {
+	margin-bottom:0;
 }
+
 
 #rsmImg {
 	padding-top:40px;
@@ -335,16 +462,61 @@ body {
 		</div>
 	</div>
 
-	<div class="btn-con">
-			<a class="btn btn-lg btn-primary" href="//goo.gl/t2LDx9" >
-				私訊方白，加入我們！！
-			</a>
-		</div>
 		</div>
 </div>
-<div class="outer lg">
+
+<div id="steps">
+	<div class="tri-toggle" style="position:absolute; width:50%; height:160px; background:rgba(104,213,132,1.00);"></div>
+	<div class="container clearfix">
+		<div class="step clearfix">
+			<div class="tri-toggle add" style="right:auto; left:0; border-left-color:white; border-left-color:rgba(104,213,132,1.00);">
+			</div>
+			<div class="con">
+				<div class="img"></div>
+				<p> 填寫履歷<br>
+						搜尋「方白科技」
+				</p>
+			</div>
+			<div class="add ">
+			</div>
+		</div>
+		<div class="step clearfix">
+			<div class="con">
+				<div class="img"></div>
+					<p class="title">參與面試</p>
+					<p>搜尋「方白科技」</p>
+			</div>
+			<div class="add ">
+			</div>
+		</div>
+
+<div class="step clearfix">
+			<div class="con">
+				<div class="img"></div>
+					<p class="title">finebind-tech</p>
+					<p>方白科技</p>
+			</div>
+			<div class="add ">
+			</div>
+		</div>
+
+<div class="step clearfix">
+			<div class="con">
+				<div class="img"></div>
+					<p class="title">最有價值的經驗</p>
+					<p>的經驗</p>
+			</div>
+			<div class="add tri-toggle ">
+			</div>
+		</div>
+
+
+	</div>
+</div>
+
+<div class="lg">
 	<div class="container">
-		<a class="anchor" id="lct"></a>
+			<a class="anchor" id="lct"></a>
 <h2>實習資訊</h2>
 <p>上班地點：10452台北市中山區民權西路19號9樓（民權西路站出站步行約3分鐘）。
 </p>
@@ -353,11 +525,20 @@ body {
 	</div>
 </div>
 
+<div class="outer lg" style="background:url(img/bg/brickwall/brickwall.png);">
+	<div class="container">
+			<a class=" center-block btn btn-lg btn-primary" href="//goo.gl/t2LDx9" style=" padding:30px 0 30px 0;" >
+				私訊方白，加入我們！！
+			</a>
+	</div>
+</div>
+<style>
+
+</style>
+
 <div id="footer" class="outer" style="background:white;">
-	<div class="container" >
- <div style="margin:auto; text-align:center; padding:20px 0 ;">
- 	方白科技
- </div>
+	<div class="container" > 
+ <div style="margin:auto; text-align:center; padding:20px 0 ; font-size:0.7em;">網站著作權屬於 方白科技 團隊© Since 2012。</div>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="Rns/Rn_getUrlPara.js"></script>
@@ -368,7 +549,7 @@ body {
 getURLParameter("h") ? $(window).scrollTop(getURLParameter("h")):0;
 $(document).keyup(function (e) {
    if (e.which == '27') {
-     location.href = "http://localhost/FineBind/intern.html" + "?h="+ $(document).scrollTop();
+     location.href = "http://localhost/FineBind/intern-v2.html" + "?h="+ $(document).scrollTop();
    }
 });
 // }
