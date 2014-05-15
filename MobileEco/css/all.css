@@ -2,6 +2,7 @@
 body {
 	font-size:2em;
 	background:rgba(219,219,219,1.00);
+	font-family:"微軟正黑體","新繫明體";
 }
 .ctm-nav{
 	background:rgba(206,255,250,1.00);
@@ -26,7 +27,7 @@ body {
 }
 footer > .container {
 	padding:15px;
-	background:rgba(0,0,0,1.00);
+	background:url(../img/footer.jpg);
 	font-size:0.8em;
 	color:white;
 }
@@ -35,18 +36,54 @@ footer p {
 }
 
 .pre-intro{
-	width:60%;
-	background:rgba(251,233,188,1.00);
-	padding:30px;
+	width:33%;
+	padding:0 10px;
 	margin-bottom:20px;
+	float:left;
+	
+}
+.pre-intro > div {
+		background:rgba(255,247,230,1.00);
+		padding:20px;
+}
+.inside {
+	min-height:100px;
+	padding:20px 0;
+	
+	line-height: 80px;
+}
+.time {
+	color:rgba(133,132,132,1.00);
+	text-align:right;
+	font-size:14px;
 }
 
 .pre-intro h2 {
-	font-size:2em;
-	
+	font-size:1.1em;
+}
+.pre-intro ul { 
+padding-left:20px;
 }
 
 .main-intro {
+			color:rgba(177,91,0,1.00);
+
 	padding:10px;
-	font-size:1.5em;
+	font-size:1.1em;
+	line-height:200%;
+	color:
+}
+#movie h1, #commerce h1 , #mobile h1 {
+	color:rgba(0,145,255,1.00);
+	margin-bottom:30px;
+}
+
+#movie p , #commerce p , #mobile p {
+	line-height:180%;
+}
+
+.middle span {
+	display: inline-block;
+  vertical-align: middle;
+  line-height: 150%; 
 }
