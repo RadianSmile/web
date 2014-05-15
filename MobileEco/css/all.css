@@ -32,3 +32,21 @@ footer > .container {
 }
 footer p {
 	margin:2px;
+}
+
+.pre-intro{
+	width:60%;
+	background:rgba(251,233,188,1.00);
+	padding:30px;
+	margin-bottom:20px;
+}
+
+.pre-intro h2 {
+	font-size:2em;
+	
+}
+
+.main-intro {
+	padding:10px;
+	font-size:1.5em;
+}
