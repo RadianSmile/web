@@ -14,6 +14,13 @@ body {
 #nav { background:none !important;
 
 }
+#nav  * {
+	color:white;
+}
+
+#nav  li:hover * {
+	color:rgba(139,202,255,1.00);
+}
 .navbar {
 	margin:0
 }
@@ -36,7 +43,7 @@ footer p {
 }
 
 .pre-intro{
-	width:33%;
+	width:33.33%;
 	padding:0 10px;
 	margin-bottom:20px;
 	float:left;
@@ -73,7 +80,7 @@ padding-left:20px;
 	line-height:200%;
 	color:
 }
-#movie h1, #commerce h1 , #mobile h1 {
+.content h1{
 	color:rgba(0,145,255,1.00);
 	margin-bottom:30px;
 }
