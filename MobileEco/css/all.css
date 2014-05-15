@@ -1,0 +1,34 @@
+/* CSS Document */
+body {
+	font-size:2em;
+	background:rgba(219,219,219,1.00);
+}
+.ctm-nav{
+	background:rgba(206,255,250,1.00);
+}
+.seo * {
+	text-indent:-99999px;
+}
+
+#nav { background:none !important;
+
+}
+.navbar {
+	margin:0
+}
+
+.content >.container {
+	padding-top:20px;
+	background:rgba(255,255,255,1.00);
+}
+.container-np {
+	padding:0;
+}
+footer > .container {
+	padding:15px;
+	background:rgba(0,0,0,1.00);
+	font-size:0.8em;
+	color:white;
+}
+footer p {
+	margin:2px;
