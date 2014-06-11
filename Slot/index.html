@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<link href='http://fonts.googleapis.com/css?family=Lato:700italic' rel='stylesheet' type='text/css'>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="jquery.jSlots.js" charset="utf-8"></script>  
+<script src="jquery.easing.1.3.js" charset="utf-8"></script>
+<script type="text/javascript">
+var man = [["邱劭雯", [0,2] , "Shao Wen , Chiu"],
+["周泓儒", [0,7] , "Hung Ju , Chou"],
+["許宇萱", [4,5] , "Yu Hsuan , Hsu"],
+["呂宜庭", [5,3] , "Yi Ting , Lu"],
+["陳姿縈", [6,4] , "Tzu Ying , Chen"],
+["廖珮雯", [0,3] , "Pei Wen , Liao"],
+["鄭雅文", [1,5] , "Ya Wen , Cheng"],
+["丁羿心", [1,7] , "Yi Hsin , Ting"],
+["許君如", [2,0] , "Chun Ju , Hsu"],
+["李京諭", [3,6] , "Ching Yu , Lee"],
+["徐逸晴", [1,6] , "Yi Ching , Hsu"],
+["江珮瑄", [2,1] , "Pei Hsuan , Chiang"],
+["蔡依紋", [2,2] , "Yi Wen , Tsai"],
+["張家瑋", [2,4] , "Chia Wei , Chang"],
+["陳家蓁", [5,9] , "Chia Chen , Chen"],
+["蕭子芸", [0,5] , "Tzu Yun , Hsiao"],
+["李昀霓", [5,1] , "Yun Ni , Lee"],
+["李岳霖", [4,4] , "Yueh Lin , Lee"],
+["羅毓蓮", [4,6] , "Yu Lien , Lo"],
+["張家綺", [1,0] , "Chia Chi , Chang"],
+["毛乃恩", [1,3] , "Nai En , Mao"],
+["黃稟方", [4,7] , "Pin Fang , Huang"],
+["陳庭羽", [5,5] , "Ting Yu , Chen"],
+["沈奕君", [1,8] , "Yi Chun , Shen"],
+["游捷", [0,4] , "Chieh , Yu"],
+["丁嘉緯", [6,1] , "Chia Wei , Ting"],
+["蕭仲凱", [1,1] , "Chung Kai , Hsiao"],
+["林傳陽", [1,2] , "Chuan Yang , Lin"],
+["王鼎元", [0,9] , "Ting Yuan , Wang"],
+["藍婉甄", [2,3] , "Wan Chen , Lan"],
+["石蕙綺", [3,8] , "Hui Chi , Shih"],
+["蔡孟學", [0,6] , "Meng Hsueh , Tsai"],
+["鄒祖白", [4,2] , "Tsu Pai , Tsou"],
+["吳庭宇", [5,2] , "Ting Yu , Wu"],
+["黃俊豪", [5,6] , "Chun Hao , Huang"],
+["陳凱文", [6,5] , "Kai Wen , Chen"],
+["王廷婷", [0,8] , "Ting Ting , Wang"],
+["黃嫣涵", [1,9] , "Yen Han , Huang"],
+["許祐僖", [2,6] , "Yu Hsi , Hsu"],
+["陳映伊", [4,8] , "Ying Yi , Chen"],
+["呂昕蓉", [5,8] , "Hsin Jung , Lu"],
+["林益慈", [6,0] , "Yi Tzu , Lin"]];
+
+</script>  
+<style>
+body {
+	margin:0;
+	padding:0;	
+}
+#body { 
+width:100%;
+min-height:720px;
+	background:url(bg.jpg) center center;
+	background-size:cover;
+}
+#bodyin{
+	background:rgba(0,0,0,0.80);
+	min-height:720px;
+	
+}
+.num { 
+	background:url(NUMS.png);
+	background-repeat:repeat-y;
+	width:85px;
+	height:2000px;
+	overflow:hidden;
+	color:white;
+	float:left;
+}
+#name { color:white; font-family:"微軟正黑體"; font-size:3em;}
+#playBtn:hover {
+color:rgba(229,0,163,1.00) !important;
+}
+
+.con { height:150px; width:680px; overflow:hidden; padding:100px 0 0 0 ; margin:auto; }
+</style>
+</head>
+
+<body>
+<div id="body">
+<div id="bodyin">
+<div id="con" class="con">
+	<div id="num1" class="num" data-num="9"></div>
+	<div id="num2" class="num" data-num="9"></div>
+	<div id="num3" class="num" data-num="1"></div>
+	<div id="num4" class="num" data-num="0"></div>
+	<div id="num5" class="num" data-num="2"></div>
+	<div id="num6" class="num" data-num="0"></div>
+	<div id="num7" class="num c1"></div>
+	<div id="num8" class="num c2"></div>	
+</div>
+<div style=" clear:both;"></div>
+<div id="name" style="display:none; margin:auto; text-align:center;">
+	<span id="en" style=" font-family: 'Lato', sans-serif; font-size:2em;"></span>  <span id="cn"></span>
+</div> 
+<div style="text-align:center">
+
+<div id="playBtn"style=" display:inline-block; border-radius:10px; margin-top:30px;  padding:20px; text-align:center; color:rgba(193,15,107,1.00); cursor:pointer; font-size:3em;">
+Tell me who is Lucky ?
+</div>  
+</div>
+</div>
+</div>
+<!-- this button will start the spin -->  
+
+
+
+<script type="text/javascript" charset="utf-8">  
+var Dur = 8000;
+var H = 150 ;
+var H_var = 400; 
+
+function toRand () {
+	var man_rand = Math.floor((Math.random() * 42) + 1);
+	var ans = man[man_rand];
+	var name = ans[0];
+	var eng = ans [2];
+	var n = ans[1];
+	$("#num7").data("num",n[0]);
+	$("#num8").data("num",n[1]);	
+	$("#cn").text(ans[0]);
+	$("#en").text(ans[2]);
+}
+
+$.fn.animateBG = function(x, y, speed , com ) {
+   var pos = this.css('background-position').split(' ');
+    this.x = pos[0] || 0,
+    this.y = pos[1] || 0;
+    $.Animation( this, {
+        x: x,
+        y: y
+      }, { 
+        duration: speed,
+				 easing : "easeOutQuart",
+				 complete :com 
+      }).progress(function(e) {
+          this.css('background-position', e.tweens[0].now+'px '+e.tweens[1].now+'px');
+    });
+    return this;
+}  
+
+
+
+//
+var y = H * H_var; 
+
+var startRoll = function (){
+	$("#playBtn").unbind('click', startRoll);
+	$("#name").fadeOut({complete:function (){
+		toRand();
+		start();
+			return false
+	}});
+}
+
+$("#playBtn").bind('click', startRoll);
+	
+	
+
+
+var lng = $('#con').children().length;
+console.log (lng);
+var i = 1 ;
+function start () {           //  create a loop function
+   setTimeout(function () {    //  call a 3s setTimeout when the loop is called
+			var eleId = "#num" + i;
+			var num = parseInt($(eleId).data("num"));
+			if (i ===8 ){
+			$(eleId).animateBG(0, (y - H * num) , Dur , function (){
+				$("#name").fadeIn();
+				$("#playBtn").bind('click', startRoll);
+
+			});
+			}else{
+			$(eleId).animateBG(0, (y - H * num) , Dur , null );
+			}
+      i++;                     //  increment the counter
+      if (i <= lng) {            //  if the counter < 10, call the loop function
+         start();             //  ..  again which will trigger another 
+      } else {                       //  ..  setTimeout()
+				i = 1 ; 
+				
+			}
+   }, Math.floor((Math.random() * 500) + 100))
+}
+
+
+</script>
+</body>
+</html>

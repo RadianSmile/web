@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+for (var i = 1 ; i <100 ; i++ ){
+	i = pad (i , 3);
+	var url = "http://www.6manga.com/comics/10/08/16/01/29110"+i+".jpg";
+					var img = "<img src='"+url+"' style='display:block;margin:auto;'>";
+					//$("body").append(img);
+	
+}
+
+function pad(num, size) {
+    var s = num+"";
+    while (s.length < size) s = "0" + s;
+    return s;
+}
+/*var Url = "http://www.6manga.com/page/comics/3/2/913_fuqichengchangriji.html?pic" ;
+
+
+for (var i = 1 ; i <100 ; i++ ){
+	$.ajax({
+    type: 'GET',
+    url: Url + i ,
+	success: function(res) {
+				 var src = "http://www.6manga.com" +  $(res.responseText).find('#TheImg').src();
+					var img = "<img src='"+src+"' width='100%'>";
+					$("body").append(img);
+	},
+	error: function() {
+			
+	}
+});
+}*/
+</script>
+</body>
+
+</html>
