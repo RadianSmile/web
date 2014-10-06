@@ -1,0 +1,362 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/5eb168b0154768602b7da05b54081381?s=16" sizes="16x16">
+<link rel="icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/5eb168b0154768602b7da05b54081381?s=16" sizes="16x16">
+<script src="js/jquery.min.js"></script>
+<title>想‧動 | TEDxNCCU</title>
+<link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
+<!--link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"-->
+<link href="css/reset.css" rel="stylesheet" type="text/css">
+<!--link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"-->
+
+<style>
+
+.nav_space { height:100px; width:100%;}
+
+
+body { background:black; color:WHITE; line-height:180%;}
+
+body {
+	font-family: inherit;
+}
+.outer {}  /*用在padding 上下*/
+.outer-small { padding:20px 0px;}
+.container { width:960px; margin:auto;}
+.padding { padding:0px 20px;}
+
+
+a , a:hover , a:checked , a:visited , a:active , a:focus , a:link { text-decoration:none; }
+
+.subNav { background-color:rgba(0,0,0,.8); width:200px; border-radius:2px;  overflow:hidden;  display:none; position:absolute; top:44px; z-index:20;}
+.subNav > li { width:100%;}
+.subNav > li > a {padding:14px; display:block;}
+.subNav > li:last-child ,{ border:0;}
+.subNav > li >a:hover { color:red;}
+.subNav:hover , .withSubNav:hover > .subNav { display:block;}
+
+nav { color:white; position:fixed; z-index:100; width:100%; background-image:url(../img/nav_bg.jpg); 
+background: rgb(0,0,0); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(0,0,0,1) 1%, rgba(35,35,35,1) 44%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(0,0,0,1)), color-stop(44%,rgba(35,35,35,1)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(0,0,0,1) 1%,rgba(35,35,35,1) 44%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(0,0,0,1) 1%,rgba(35,35,35,1) 44%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(0,0,0,1) 1%,rgba(35,35,35,1) 44%,rgba(0,0,0,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(0,0,0,1) 1%,rgba(35,35,35,1) 44%,rgba(0,0,0,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */}
+#mainNav a { color:white;}
+
+#mainNav > li > a { padding:14px; display:block; }
+#mainNav > li { border-left:#0A0A0A 1px solid;}
+#mainNav > li:last-child { border-right:#0A0A0A 1px solid;}
+#mainNav > li a:hover { color:red;}
+#mainNav > li > a:hover { color:red; background: rgb(0,0,0); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(0,0,0,1) 1%, rgba(35,35,35,1) 44%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(0,0,0,1)), color-stop(44%,rgba(35,35,35,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(0,0,0,1) 1%,rgba(35,35,35,1) 44%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(0,0,0,1) 1%,rgba(35,35,35,1) 44%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(0,0,0,1) 1%,rgba(35,35,35,1) 44%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(0,0,0,1) 1%,rgba(35,35,35,1) 44%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#232323',GradientType=0 ); /* IE6-9 */ }
+
+#mainNav > li > .subNav { background:rgba(35,35,35,.9)}
+
+
+.iframe { border-radius:20px;}
+
+
+.table { width:100%; margin:30px 0px;}
+.table tr:first-child {  border-bottom:rgb(213,213,213) solid 1px ; border-top:}
+.table th { text-align:center; font-weight:bold; background:rgb(234,234,234);}
+.table  tr { border:rgb(213,213,213) solid 1px !important; padding:3px;}
+.table tr td, th { border:rgb(213,213,213) solid 1px !important; vertical-align:middle; padding:8px 5px;}
+.table td > p { text-align:center;}
+.table td > p:last-child { margin-bottom:0px;}
+
+
+
+
+.spnList { margin-top:50px;}
+.spnLogo { margin-right:20px; margin-top:20px; float:left;}
+.spnLogo > img { width:168px;}
+
+
+
+
+
+
+#title { position:relative; display:table;}
+.titleImg { position:absolute; display:table-cell; text-align:center;}
+
+.text  { position:relative;}
+</style>
+</head>
+<body>
+
+
+<nav>
+	<div id="nav" class="container clearfix">
+		<div style="float:left;">
+			<a href="index.html"><img src="img/TEDxNCCU5.png" height="30" style="margin:8px 0px 3px 0px;"></a>
+		</div>
+		<div style="float:right">
+			<ul id="mainNav" class="hrzUL clearfix">
+				<li><a href="">講者介紹</a></li>
+				<li><a href="">年會流程</a></li>
+				<li><a href="">活動地點</a></li>
+				<li><a href="">購票資訊</a></li>
+				<li><a href="">贊助夥伴</a></li>
+				<li><a href="">關於我們</a></li>
+			</ul>
+		</div>
+	</div>
+</nav><div class="nav_space"></div>
+
+
+<div id="con_title" class="outer">
+	<div class="pad">
+		<div  class="container" >
+			<div id="title" style="position:relative; width:480px; height:440px; float:left;">
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="outer" >
+	<div class="container">
+		<div id="text-1" class="text" style=" position:relative; float:left; width:480px;"  >
+			<p style="line-height:300%;">今年的主題是「From Idea to Action」，旨在強調一個簡單的理念從發想到落實的過程，以及彼此的互動關係。好的想法是帶來改變的第一步，然而，改變之所以能夠發揮效用則有賴於行動。當想法從抽象的概念經由行動轉化成具體的事件後，它便與外在的世界有了對話；此外，對外在世界而言，行動的價值與意義又在於其背後的核心理念，由此可見觀念與行動密不可分的關係。</p>
+		</div>
+	</div>
+</div>
+
+<div class="outer">
+	<div class="container">
+		<div>
+			德國猶太裔政治哲學家漢娜‧鄂蘭論思考時有言，思考必須透過實踐才能在公共領域中被釋放出來，而每一次行動過後又當復歸於思考，然後再做出新的行動，二者不斷的良性循環促進個人與社會達到日新又新的境界。因此，今年的年會不僅期望講者能夠分享各自的創新想法，更著重於如何落實想法，讓創新力與行動力相輔相成，好的想法便不會因為碰到執行障礙而胎死腹中；聽眾在受啟發的同時也能夠從不一樣的角度思考想法與行動的互動關係。		
+		</div>
+	</div>
+</div>
+
+<div class="outer">
+	<div class="container">
+		<div>
+			<iframe class="iframe" width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=%E5%9C%8B%E7%AB%8B%E6%94%BF%E6%B2%BB%E5%A4%A7%E5%AD%B8&amp;hl=zh-TW&amp;ie=UTF8&amp;sll=24.986914,121.574814&amp;sspn=0.003642,0.007253&amp;t=m&amp;radius=0.27&amp;hq=%E5%9C%8B%E7%AB%8B%E6%94%BF%E6%B2%BB%E5%A4%A7%E5%AD%B8&amp;hnear=&amp;ll=24.986914,121.574814&amp;spn=0.014568,0.029011&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?q=%E5%9C%8B%E7%AB%8B%E6%94%BF%E6%B2%BB%E5%A4%A7%E5%AD%B8&amp;hl=zh-TW&amp;ie=UTF8&amp;sll=24.986914,121.574814&amp;sspn=0.003642,0.007253&amp;t=m&amp;radius=0.27&amp;hq=%E5%9C%8B%E7%AB%8B%E6%94%BF%E6%B2%BB%E5%A4%A7%E5%AD%B8&amp;hnear=&amp;ll=24.986914,121.574814&amp;spn=0.014568,0.029011&amp;source=embed" style="color:#0000FF;text-align:left">顯示詳細地圖</a></small>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="outer">
+	<div class="container">
+		<div>
+			<table class="table" border="1" cellspacing="0" cellpadding="0" bordercolor="#FFFFFF">
+				<tr>
+					<td valign="top"><p align="center">時間</p></td>
+					<td valign="top"><p align="center">議程</p></td>
+					<td valign="top"><p align="center">內容</p></td>
+					<td valign="top"><p align="center">備註</p></td>
+				</tr>
+				<tr>
+					<td><p align="center">12:00-13:00</p></td>
+					<td><p align="center">報到+餐會</p></td>
+					<td><p>報到＋發放贈品、手冊等</p></td>
+					<td valign="top"><p>預計人數300人</p></td>
+				</tr>
+				<tr>
+					<td rowspan="2"><p align="center">13:00-13:20</p></td>
+					<td><p align="center">開場影片</p></td>
+					<td><p>自製動畫</p></td>
+					<td valign="top"><p>1min</p></td>
+				</tr>
+				<tr>
+					<td><p align="center">開場致詞</p></td>
+					<td><p>邀請與會貴賓</p></td>
+					<td valign="top"><p>預計邀請其他人致詞</p></td>
+				</tr>
+				<tr>
+					<td><p align="center">13:20-13:40</p></td>
+					<td rowspan="5"><p align="center">上半場</p></td>
+					<td><p>講者1</p></td>
+					<td valign="top"><p>&nbsp;</p></td>
+				</tr>
+				<tr>
+					<td><p align="center">13:40-14:00</p></td>
+					<td><p>講者2</p></td>
+					<td valign="top"><p>&nbsp;</p></td>
+				</tr>
+				<tr>
+					<td><p align="center">14:00-14:20</p></td>
+					<td><p>講者3</p></td>
+					<td valign="top"><p>&nbsp;</p></td>
+				</tr>
+				<tr>
+					<td><p align="center">14:20-14:40</p></td>
+					<td><p>講者4</p></td>
+					<td valign="top"><p>&nbsp;</p></td>
+				</tr>
+				<tr>
+					<td><p align="center">14:40~15:00</p></td>
+					<td><p>講者5</p></td>
+					<td valign="top"><p>&nbsp;</p></td>
+				</tr>
+				<tr>
+					<td><p align="center">15:00-15:15</p></td>
+					<td><p align="center">中場休息</p></td>
+					<td><p>Social Time</p></td>
+					<td valign="top"><p>自由交流時間<br>
+						提供茶品</p></td>
+				</tr>
+				<tr>
+					<td><p align="center">15:15~15:30</p></td>
+					<td><p align="center">表演</p></td>
+					<td><p>現代舞＋街舞</p></td>
+					<td valign="top"><p>&nbsp;</p></td>
+				</tr>
+				<tr>
+					<td><p align="center">15:30-15:50</p></td>
+					<td rowspan="5"><p align="center">下半場</p></td>
+					<td><p>講者6</p></td>
+					<td valign="top"><p>&nbsp;</p></td>
+				</tr>
+				<tr>
+					<td><p align="center">15:50-16:10</p></td>
+					<td><p>講者7</p></td>
+					<td valign="top"><p>&nbsp;</p></td>
+				</tr>
+				<tr>
+					<td><p align="center">16:10-16:30</p></td>
+					<td><p>講者8</p></td>
+					<td valign="top"><p>&nbsp;</p></td>
+				</tr>
+				<tr>
+					<td><p align="center">16:30-16:50</p></td>
+					<td><p>講者9</p></td>
+					<td valign="top"><p>&nbsp;</p></td>
+				</tr>
+				<tr>
+					<td><p align="center">16:50~17:10</p></td>
+					<td><p>講者10</p></td>
+					<td valign="top"><p>&nbsp;</p></td>
+				</tr>
+				<tr>
+					<td><p align="center">17:10-17:20</p></td>
+					<td><p align="center">閉幕</p></td>
+					<td><p>全體人員</p></td>
+					<td valign="top"><p>&nbsp;</p></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+<div class="outer bg">
+	<div class="container">
+		<div class="block box">
+				<article class="clearfix spnList">
+					<h3>協辦單位</h3>
+					<div class="spnLogo"><a href="http://rcid.nccu.edu.tw/main.php"><img src="img/sponsors/id.png" height="80px;"></a></div>
+					<div class="spnLogo"><a href="https://www.facebook.com/taiwan.doit?directed_target_id=0"><img src="img/sponsors/doit.png" height="80"></a></div>
+				</article>
+
+				<article class="clearfix spnList">
+					<h3>媒體協辦</h3>
+					<div class="spnLogo"><a href="https://www.facebook.com/Oknow2013"><img src="img/sponsors/oknow.png" height="80"></a></div>
+					<div class="spnLogo"><a href="http://www.ppaper.net/store_index.asp"><img src="img/sponsors/ppaper.png" height="80"></a></div>
+						
+				</article>
+
+				<article class="clearfix spnList">
+					<h3>贊助夥伴</h3>
+					<div class="spnLogo"><a href="http://www.gvm.com.tw/"><img src="img/sponsors/farlook.jpg" height="80"></a></div>
+					<div class="spnLogo"><a href="http://www.studioclassroom.com/default.php"><img src="img/sponsors/sky_logo.gif" height="80"></a></div>
+					<div class="spnLogo"><a href="http://www.ivy.com.tw/"><img src="img/sponsors/ivy.jpg" height="80"></a></div>
+					<div class="spnLogo"><a href="http://www.4hhouse.com.tw/"><img src="img/sponsors/cattea_logo.jpg" height="80"></a></div>
+				</article>
+
+				<article class="clearfix spnList">
+					<h3>票卷贊助</h3>
+					<div class="spnLogo"><a href="http://www.blink.com.tw/"><img src="img/sponsors/blink-logo.png" height="80" border="0"></a></div>
+				</article>
+		</div>
+	</div>
+	
+	<div class="container" style="margin-top:30px;">
+		<div class="block box">
+			<h3>加入我們!</h3>
+			<p>聯絡信箱：tedxnccu@gmail.com</p>
+		</div>
+	</div>
+</div>
+
+<script src="js/scroll/jquery.superscrollorama.js"></script>
+<script src="js/scroll/greensock/TweenLite.min.js"></script>
+<script src="js/scroll/greensock/TweenMax.min.js"></script>
+<script type="text/javascript">
+var $title = $('#title');
+
+var titleCfg = {'br':[0,4,8,12,16],'class':'titleImg','path':'img/title/','total':16, 'img':'title_','type':'.png','height':100,'width':100,'marginRight':10,'marginBottom':10};
+for (var  t = 0 ; t < titleCfg.total ; t ++)
+{
+	var i=t+1 ;
+	var ele = document.createElement("DIV");
+	var g = document.createElement("IMG");
+
+	var s = titleCfg.path+titleCfg.img;
+	if ( i < 10 ) { 
+		s = s+'0'+i; 
+	}else {
+		s = s+i;
+	}
+	$(g).attr('src',s+titleCfg.type).attr('height',titleCfg.height);
+	
+	
+	var $ele = $(ele);
+	$ele.css('width',titleCfg.width).addClass(titleCfg.class).append(g);
+
+	var j = 0 , l , line , char;
+	for ( j; j < titleCfg.br.length ; j++ )
+	{
+		if ( titleCfg.br[j] < i && titleCfg.br[j+1] >= i ){ l = i - titleCfg.br[j]  ; break; }
+		
+	}
+	console.log ('line: '+line+' ,char: '+char);
+	
+	line = j +　1;
+	char = i - titleCfg.br[j];
+	
+	$ele.css('left',(char - 1)*(titleCfg.width + titleCfg.marginRight) ).css('top', (line - 1)*(titleCfg.height + titleCfg.marginBottom) );
+	
+	
+	$title.append(ele);
+}	
+
+
+
+$(document).ready(function() {
+		var controller = $.superscrollorama({
+			triggerAtCenter: true,
+			playoutAnimations: false
+		});
+		controller.pin($('#con_title'),500,
+			{
+			}
+		
+		);
+		title
+		controller.addTween('#test', (new TimelineLite()).append (TweenMax.from($('#test'),1,{css:{opacity:0}} ) ),300,-100);
+	});
+</script>
+</body>
+</html>

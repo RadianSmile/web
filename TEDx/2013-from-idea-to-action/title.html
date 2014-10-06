@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="js/jquery.min.js"></script>
+<script src="js/scroll/jquery.superscrollorama.js"></script>
+<script src="js/scroll/greensock/TweenLite.min.js"></script>
+<script src="js/scroll/greensock/TweenMax.min.js"></script>
+
+
+
+<link rel="shortcut icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/5eb168b0154768602b7da05b54081381?s=16" sizes="16x16">
+<link rel="icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/5eb168b0154768602b7da05b54081381?s=16" sizes="16x16">
+
+<link href="css/reset.css" rel="stylesheet" type="text/css">
+<link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
+
+<title>宣傳</title>
+<style>
+.outer { width:1020px; margin:auto; border:black 1px solid;}
+.pad { padding:40px;}
+.container { width:100%; position:relative;}
+.titleImg { position:absolute;}
+</style>
+
+</head>
+<body>
+<div class="outer">
+	<div class="pad">
+		<div style="height:1000px;" class="container">
+		</div>
+	</div>
+</div>
+
+<div class="outer">
+	<div class="pad">
+		<div id="testCon" class="container" style=" height:1000px;">
+			<div id="test" class="titleImg" style=" left:0" ><img height="120" src="img/title/title_01.png"></div>
+			<div class="titleImg" style=" left:150px"  ><img height="120" src="img/title/title_02.png"></div>
+			<div class="titleImg" style=" left:300px"  ><img height="120" src="img/title/title_03.png"></div>
+			<div class="titleImg" style=" left:450px"  ><img height="120" src="img/title/title_04.png"></div>
+			<div class="titleImg" style=" top:150px; left:0"  ><img height="120" src="img/title/title_05.png"></div>
+			<div class="titleImg" style=" top:150px; left:150px"  ><img height="120" src="img/title/title_06.png"></div>
+			<div class="titleImg" style=" top:150px;  left:300px"  ><img height="120" src="img/title/title_07.png"></div>
+			<div class="titleImg" style=" top:150px;  left:450px"  ><img height="120" src="img/title/title_08.png"></div>
+			<div class="titleImg" style=" top:300px;  left:0"  ><img height="120" src="img/title/title_09.png"></div>
+			<div class="titleImg" style=" top:300px;  left:150px"  ><img height="120" src="img/title/title_10.png"></div>
+			<div class="titleImg" style=" top:450px;  left:0px"  ><img height="120" src="img/title/title_11.png"></div>
+			<div class="titleImg" style=" top:450px;  left:150px"  ><img height="120" src="img/title/title_12.png"></div>
+			<div class="titleImg" style=" top:450px;  left:300px"  ><img height="120" src="img/title/title_13.png"></div>
+			<div class="titleImg" style=" top:450px;  left:450px"  ><img height="120" src="img/title/title_14.png"></div>
+			<div class="titleImg" style=" top:450px;  left:600px"  ><img height="120" src="img/title/title_15.png"></div>
+			<div class="titleImg" style=" top:450px;  left:750px"  ><img height="120" src="img/title/title_16.png"></div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+		var controller = $.superscrollorama({
+			triggerAtCenter: true,
+			playoutAnimations: false
+		});
+
+		controller.addTween('#test', (new TimelineLite()).append (TweenMax.from($('#test'),1,{css:{opacity:0}} ) ),300,-100);
+	});
+</script>
+</body>
+</html>

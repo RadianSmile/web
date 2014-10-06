@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>無標題文件</title>
+</head>
+<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<style>
+</style>
+<body>
+
+<div class="row">
+	<div class="container">
+		<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Add Member</legend>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="name">姓名</label>
+  <div class="controls">
+    <input id="name" name="name" type="text" placeholder="姓名" class="input-xlarge">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="title">職稱</label>
+  <div class="controls">
+    <input id="title" name="title" type="text" placeholder="職稱" class="input-xlarge">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="img">照片</label>
+  <div class="controls">
+    <input id="img" name="img" type="text" placeholder="照片號碼" class="input-xlarge">
+    
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="intro">介紹</label>
+  <div class="controls">                     
+    <textarea id="intro" name="intro" style=" width:100%; min-height:100px;"></textarea>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="submit"></label>
+  <div class="controls">
+    <button id="submit" name="submit" class="btn btn-primary">產生原始碼</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+	</div>
+</div>
+
+<div class="row">
+	<div class="container apdArea">
+	</div>
+</div>
+
+
+<script src="../js/bootstrap.min.js" type="text/javascript"></script>
+
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+var $apd = $('.apdArea');
+
+	$('#submit').click(function (e){
+		var a = [];
+		$('input').each(function(index, element) {
+			a[$(element).attr('name')] = $(element).val();
+			$(element).val('');
+		});
+		$('textarea').each(function(index, element) {
+			a[$(element).attr('name')] = $(element).val();
+			$(element).val('');
+		});		
+		var b = '<div class="mem clearfix"><div class="img"><img src="img/members/mem ('+a['img']+').jpg" /></div><div class="art"><h4 class="nam">'+a['name']+'</h4><span class="tit">'+a['title']+'</span><p>'+a['intro']+'</p></div><!--mem--></div>';
+		var c = document.createElement('DIV');
+		$(c).text(b);
+		$apd.append(c);
+		return false;
+	});
+	
+	
+</script>
+</body>
+
+
+
+</html>

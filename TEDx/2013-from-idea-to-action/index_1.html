@@ -1,0 +1,689 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/5eb168b0154768602b7da05b54081381?s=16" sizes="16x16">
+<link rel="icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/5eb168b0154768602b7da05b54081381?s=16" sizes="16x16">
+<script src="js/jquery.min.js"></script>
+<title>想。動 | TEDxNCCU 2013</title>
+<link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
+<!--link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"-->
+<link href="css/reset.css" rel="stylesheet" type="text/css">
+<!--link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"-->
+
+<style>
+.bigger { font-size:1.3em;}
+.nav_space { height:48px; width:100%;}
+
+
+body { background:#ebe7de; color:rgb(51,51,51); line-height:140%; height:3000px;  }
+
+body {
+	font-family: inherit;
+}
+.outer {}  /*用在padding 上下*/
+.outer-small { padding:20px 0px;}
+.container { width:960px; margin:auto;}
+.padding { padding:0px 20px;}
+
+.active {color:red !important;}
+a , a:hover , a:checked , a:visited , a:active , a:focus , a:link { text-decoration:none; }
+
+.subNav { background-color:rgba(0,0,0,.8); width:200px; border-radius:2px;  overflow:hidden;  display:none; position:absolute; top:44px; z-index:20;}
+.subNav > li { width:100%;}
+.subNav > li > a {padding:14px; display:block;}
+.subNav > li:last-child ,{ border:0;}
+.subNav > li >a:hover { color:red;}
+.subNav:hover , .withSubNav:hover > .subNav { display:block;}
+
+nav { color:white; position:fixed; z-index:100; width:100%; background-image:url(../img/nav_bg.jpg); 
+background: rgb(0,0,0); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(0,0,0,1) 1%, rgba(35,35,35,1) 44%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(0,0,0,1)), color-stop(44%,rgba(35,35,35,1)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(0,0,0,1) 1%,rgba(35,35,35,1) 44%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(0,0,0,1) 1%,rgba(35,35,35,1) 44%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(0,0,0,1) 1%,rgba(35,35,35,1) 44%,rgba(0,0,0,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(0,0,0,1) 1%,rgba(35,35,35,1) 44%,rgba(0,0,0,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */}
+#mainNav a { color:white;}
+
+#mainNav > li > a { padding:10px; display:block; }
+#mainNav > li { border-left:#0A0A0A 1px solid;}
+#mainNav > li:last-child { border-right:#0A0A0A 1px solid;}
+#mainNav > li a:hover { color:red;}
+#mainNav > li > a:hover { color:red; background: rgb(0,0,0); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(0,0,0,1) 1%, rgba(35,35,35,1) 44%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(0,0,0,1)), color-stop(44%,rgba(35,35,35,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(0,0,0,1) 1%,rgba(35,35,35,1) 44%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(0,0,0,1) 1%,rgba(35,35,35,1) 44%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(0,0,0,1) 1%,rgba(35,35,35,1) 44%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(0,0,0,1) 1%,rgba(35,35,35,1) 44%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#232323',GradientType=0 ); /* IE6-9 */ }
+
+#mainNav > li > .subNav { background:rgba(35,35,35,.9)}
+
+
+.iframe { border-radius:20px;}
+
+
+.table { width:100%; margin:30px 0px;}
+.table tr:first-child {  border-bottom:rgb(213,213,213) solid 1px ; border-top:}
+.table th { text-align:center; font-weight:bold; background:rgb(234,234,234);}
+.table  tr { border:rgb(213,213,213) solid 1px !important; padding:3px;}
+.table tr td, th { border:rgb(213,213,213) solid 1px !important; vertical-align:middle; padding:8px 5px;}
+.table td > p { text-align:center;}
+.table td > p:last-child { margin-bottom:0px;}
+
+
+
+
+.spnList { margin-top:50px;}
+.spnLogo { margin-right:20px; margin-top:20px; float:left;}
+.spnLogo > img { width:168px;}
+
+
+.outer { position:absolute; width:100%; margin-top:100px;}
+.inner { position:relative; width:960px; margin:auto;}
+
+#title { position:relative; display:table;}
+.titleImg { position:absolute; display:table-cell; text-align:center;}
+
+
+#talkers > #lamps { width:200px;}
+.talkers-lamp {  height:100%; display:block; margin-bottom:20px;}
+
+
+.boxHead {color:red; font-size:2em; font-weight:900; font-family:'微軟正黑體'; text-align:center; margin-bottom:50px;}
+
+</style>
+<style>
+.apdArea { position:fixed; width:100%; display:none; background-color:rgba(200,200,200,.8); z-index:99; }
+.apdOuter { }
+.apdOuter > .container { height:100%;}
+.talker { background:white; box-shadow: 0 0 3px 5px #D5D5D5; position:relative;}
+
+.talker .intro { margin-bottom:30px;}
+.talker > *  { line-height:180%; }
+.talkers > hr  { margin:40px 0;} 
+.talker-pre { position:relative; overflow:hidden;}
+.talker-pre .name { background:rgba(51,51,51,.6); color:white; width:150px; position:absolute; bottom:-42px;}
+.talker-pre .name > span { display:block; margin:7px;}
+.talker > .head {  overflow:hidden; margin-right:30px; background:rgba(234,234,234,1);; height:100%; position:absolute;} 
+.talker > .head h3 { color:black; font-weight:900; margin-right:20px;}
+.talker > .head h4 { color:black;  padding:0 20px; width:240px;}
+.talker > .info { left:310px; position:relative;width:600px; min-height:400px;}
+.talker > .info > .exp > ul { list-style-type:disc; list-style-position:outside; margin-left:2em;}
+
+.head > .img{ margin:20px; width:240px;}
+.head h3 {color:#FF2B06; font-family:'微軟正黑體';}
+.head * { text-align:right; line-height:200%;}
+.tableDiv { display:table;}
+.tableDiv > .middle { display:table-cell; vertical-align:middle; }
+
+
+.stone { color:#FF2B06; font-size:1.4em; font-weight:900; margin-top:30px; display:block;}
+#talkerApd  .container { height:100%;}
+.rel { position:relative;}
+</style>
+<style>
+#talkers > tr { height:180px;}
+#talkers .type { width:150px; font-size:3em; background-color:rgba(255,0,0,.8); color:white; vertical-align:middle; text-align:center; font-family:'微軟正黑體';  margin-right:20px;box-shadow:2px 2px 2px 1px #CCCCCC;}
+#talkers .img { vertical-align:middle !important;}
+
+
+.talkerPics { vertical-align:middle;}
+.talkerPics > div { float:left; margin-left:20px ; width:150px; height:150px; box-shadow:2px 2px 2px 1px #CCCCCC;}
+
+.talker-yet { background-image:url(img/talkers/yet.jpg); background-size:contain;}
+.talker-yet { display:block; width:150px ; height:150px; float:left; ;}
+.spacer { height:20px; width:20px;}
+</style>
+<style>
+.agenda td { font-size:1.1em; font-family:'微軟正黑體'}
+.agenda { border:0; padding:5px; color:black; width:600px; margin:auto;}
+.agenda:first-child { margin-right:20px;}
+.agenda td { padding:10px 10px; margin:3px ;}
+.agenda  tr { background:none;}
+.agenda  tr:nth-child(2n -1) { background:white;}
+.agenda .head { font-size:2em; font-weight:400; height:30px; }
+
+.spacerr { height:150px; width:100%;}
+
+#join *,#placeInfo > * { text-align:center; }
+#buyInfo { width:640px; font-size:1.1em;}
+#buyInfo tr  { }
+#buyInfo tr > td { width:400px; padding-left:20px; height:100px; vertical-align:middle;  color:black; background:white; line-height:160%; box-shadow:2px 2px 5px 2px  #CCCCCC; }
+#buyInfo tr > td:first-child { width:100px; padding:20px; background:rgba(187,187,187,1); font-size:1.2em; text-align:center; font-family:'微軟正黑體'; color:white; border-radius: 50% 0 0 0 }
+
+#spnList { margin:auto;} 
+#spnList tr > td:first-child { padding-right:20px; vertical-align:middle;}
+
+.b { font-weight:bolder;}
+
+bookMark { display:block; width:20px; height:20px; background:rgba(255,102,255,1);}
+</style> 
+
+
+
+</head>
+<body>
+
+<a class="bookMark" name="top"></a>
+
+<nav>
+	<div id="nav" class="container clearfix">
+		<div style="float:left;">
+			<a href="//tedxnccu.com"><img src="img/TEDxNCCU5.png" height="30" style="margin:8px 0px 3px 0px;"></a>
+		</div>
+		<div style="float:right">
+			<ul id="mainNav" class="hrzUL clearfix">
+				<li><a class="go-bm" data-mark="top" href="#">年會介紹</a></li>
+				<li><a class="go-bm" data-mark="talkers" href="#talkers">講者介紹</a></li>
+				<li><a class="go-bm" data-mark="agenda" href="#agenda">年會流程</a></li>
+				<li><a class="go-bm" data-mark="place" href="#place">年會地點</a></li>
+				<li><a class="go-bm" data-mark="buy" href="#buy">購票資訊</a></li>
+				<li><a class="go-bm" data-mark="sponsors" href="#sponsors">贊助夥伴</a></li>			</ul>
+		</div>
+	</div>
+</nav><div class="nav_space"></div>
+<div id="talkerApd" class="apdArea">
+</div>
+<script type="text/javascript">
+var h ;
+	$( document).ready(function(e) {
+		h = $(window).height() - 48;
+		console.log(h);
+		//$('.apdArea').css('height',h).show(function (){ $(this).css('display','table'); $('.apdOuter > .container').height(h); console.log ('test') });
+
+	});
+</script>
+
+
+<div class="outer">
+	<div class="inner">
+		<div id="con_title" >
+			<div id="title" style="position:relative; width:480px; height:440px; ">
+			</div>
+		</div><!--con_title-->
+	</div><!--inner-->
+</div><!--outer-->
+
+<div class="outer">
+	<div class="inner">
+		<div class="container">
+			<div id="text-1" style="position:relative; width:480px; margin:10px 0 35px 480px;"  >
+				<p class="bigger" style="line-height:100%; font-family:'微軟正黑體'; font-weight:900; font-size:1.8em; ">
+				【想。動】
+				</p>
+				<p class="bigger" style="line-height:100%; font-family:'微軟正黑體'; text-align:center; font-weight:900; font-size:1.8em; ">
+					把想法化成行動、用行動轉動世界。
+				</p>
+			</div>
+			<div id="text-1" style="position:relative; width:480px; margin:10px 0 35px 480px;"  >
+				<p class="bigger" style="line-height:200%; font-family:'微軟正黑體'; ">今年的主題是【想。動】（From Idea to Action），旨在強調一個簡單的理念從發想到落實的過程。
+好的想法是帶來改變的第一步，然而，改變之所以能夠發揮效用則有賴於行動。
+當想法從抽象的概念經由行動轉化成具體的事件後，它便與外在的世界有了對話；
+此外，對外在世界而言，行動的價值與意義又在於其背後的核心理念，由此可見觀念與行動密不可分的關係。</p>
+			</div>
+
+			<div id="text-1" style=" position:relative; left:0; width:480px; margin:10px 0 100px 480px;"  >
+				<p  class="bigger" style="line-height:200%; font-family:'微軟正黑體'; ">德國猶太裔政治哲學家漢娜‧鄂蘭論思考時有言，
+思考必須透過實踐才能在公共領域中被釋放出來，
+而每一次行動過後又當復歸於思考，然後再做出新的行動，
+二者不斷的良性循環促進個人與社會達到日新又新的境界。
+因此，今年的年會不僅期望講者能夠分享各自的創新想法，
+更著重於如何落實想法，
+讓創新力與行動力相輔相成，好的想法便不會因為碰到執行障礙而胎死腹中；
+聽眾在受啟發的同時也能夠從不一樣的角度思考想法與行動的互動關係。</p>
+			</div>
+
+		
+		</div><!-- /container-->
+		
+		
+		<div id="talkers_con">
+			<div style="width:960px;">
+				<div id="talkers" style="margin:auto;">
+					<a class="bookMark" name="talkers"></a>
+					<h2 class="boxHead">講者介紹</h2>
+					<table style="margin:auto;" cellspacing="20">
+						<tr>
+							<td style="text-align:center; padding:10px; font-size:1.2em; color:black; background:rgba(228,228,228,.9); box-shadow:2px 2px 2px 1px #CCCCCC; font-weight:900; font-family:'微軟正黑體';" class="bubble">夢想三元素</td>
+							<td><div style="text-align:center; padding:10px; font-size:1.2em; color:black; background:rgba(228,228,228,.9);  margin-left:20px; box-shadow:2px 2px 2px 1px #CCCCCC;font-weight:900; font-family:'微軟正黑體';" class="bubble">講者</div></td>
+						</tr>
+						<tr class="spacer"><td></td></tr>
+						<tr>
+							<!--td class="img">
+								<div class="talkers-lamp"><img src="img/lamp/1.png" width="120"></div>
+							</td-->
+							<td class="type">信念</td>
+							<td class=" talkerPics clearfix">
+								<div class="talker-pre"><a data-talker="1" href="index.html?talker=1"><img src="img/talkers/洪智杰.jpg" width="150"><div class="name"><span>洪智杰</span></div></a></div>
+								<div class="talker-pre"><a data-talker="6" href="index.html?talker=1"><img src="img/talkers/崔愫欣.jpg" width="150"><div class="name"><span>崔愫欣</span></div></a></div>
+								<div class="talker-pre"><a data-talker="4" href="index.html?talker=1"><img src="img/talkers/夢.jpg" width="150"><div class="name"><span>黃威愷、胡庭碩</span></div></a></div>
+								<div class="talker-pre"><a data-talker="8" href="index.html?talker=1"><img src="img/talkers/季淳.jpg" width="150"><div class="name"><span>季淳</span></div></a></div>
+
+							</td>
+						</tr>
+						<tr class="spacer"><td></td></tr>
+						<tr>
+							<!--td class="img">
+								<div class="talkers-lamp"><img src="img/lamp/2.png" width="120"></div>
+							</td-->
+							<td class="type">力量</td>
+							<td class=" talkerPics clearfix">
+								<div class="talker-pre"><a data-talker="2" href="index.html?talker=1"><img src="img/talkers/金惟純.jpg" width="150"><div class="name"><span>金惟純</span></div></a></div>
+								<div class="talker-yet" style=" background:0;"><div style="display:table; height:100%; width:100%"><div style="display:table-cell; vertical-align:middle; text-align:center;"><img src="img/想‧動.png" width="140"></div></div></div>
+								<!--div class="talker-yet" style="background:none; box-shadow:none !important;"><div style="display:table; height:100%; width:100%"><div style="display:table-cell; vertical-align:middle; text-align:center;"><img src="img/title/title_03.png" width="120" style="display:inline;"></div></div></div-->
+								<div class="talker-pre"><a data-talker="3" href="index.html?talker=1"><img src="img/talkers/許峰源.jpg" width="150"><div class="name"><span>許峰源</span></div></a></div>
+								<div class="talker-pre"><a data-talker="7" href="index.html?talker=1"><img src="img/talkers/彭蒙惠.jpg" width="150"><div class="name"><span>彭蒙惠</span></div></a></div>
+						</tr>
+						<tr class="spacer"><td></td></tr>
+						<tr id="lamps">
+							<!--td class="img">
+								<div class="talkers-lamp"><img src="img/lamp/3.png" width="120"></div>
+							</td-->
+							<td class="type">態度</td>
+							<td class=" talkerPics clearfix">
+								<!--div class="talker-yet" style=""><div style="display:table; height:100%; width:100%"><div style="display:table-cell; vertical-align:middle; text-align:center;">即將公布</div></div></div-->
+								<div class="talker-pre"><a data-talker="9" href="index.html?talker=1"><img src="https://doit-prod.s3.amazonaws.com/ED5m6.jpg" width="150"><div class="name"><span>劉沛玉</span></div></a></div>
+								<div class="talker-pre"><a data-talker="0" href="index.html?talker=1"><img src="img/talkers/廖哲毅.jpg" width="150"><div class="name"><span>廖哲毅</span></div></a></div>
+								<div class="talker-pre"><a data-talker="10" href="index.html?talker=1"><img src="img/talkers/鋼琴.jpg" width="150"><div class="name"><span>帶著鋼琴去旅行</span></div></a></div>
+								<div class="talker-pre"><a data-talker="5" href="index.html?talker=1"><img src="img/talkers/吳佳玲.jpg" width="150"><div class="name"><span>吳佳玲</span></div></a></div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div><!--con_talker-->	
+				
+		<div class="container clearfix" style="margin-top:200px; ">
+			<a class="bookMark" name="agenda"></a>
+			<h2 style="text-align:center; font-size:4em; font-family:'centurygothicstd-bold'; margin-bottom:60px; font-weight:900; color:red">11/9 </h2>
+			
+
+			<div class="clearfix" style="width:600px; margin:auto;">
+				<table class="agenda" border="1" cellspacing="0" cellpadding="0" style=" float:left;">
+					<tr>
+						<td colspan="2" valign="top" >上半場</td>
+					</tr>
+					<tr>
+						<td>12:00-13:00</td>
+						<td>報到＋現場提供地方特色茶點</td>
+					</tr>
+
+					<tr>
+						<td>13:00-13:20</td>
+						<td>開場</td>
+					</tr>
+					<tr>
+						<td>13:20-15:00</td>
+						<td>From Idea to Action</td>
+					</tr>
+					<tr>
+						<td>15:00-15:15</td>
+						<td>Social Time</td>
+					</tr>
+					<tr>
+						<td colspan="2" valign="top" >下半場</td>
+					</tr>
+					<tr>
+						<td>15:15-15:30</td>
+						<td>表演</td>
+					</tr>
+					<tr>
+						<td>15:30-17:10</td>
+						<td>From Idea to Action</td>
+					</tr>
+					<tr>
+						<td>17:10-17:20</td>
+						<td>閉幕</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="container">
+			<div class="spacerr"></div>
+			<div id="placeInfo">
+				<a class="bookMark" name="place"></a>
+				<h2 class="boxHead">年會地點</h2>
+				<p class="bigger b">政治大學藝文中心視聽館</p>
+				<p>地址：臺北市文山區指南路二段64號</p>
+				<p>交通資訊：<a href="http://oic.nccu.edu.tw/chinese/NCCUMAP2012.swf">政大校園導覽App</a>、<a href="http://www.nccu.edu.tw/about/traffic">國立政治大學交通資訊</a></p>
+			</div>
+		</div>
+
+		<div id="buyInfo" class="container" >
+			
+			<div class="spacerr"></div>
+			<a class="bookMark" name="buy"></a>
+			<h2 class="boxHead" style="">購票資訊</h2>
+			<div >
+				<table id="buyInfo">
+					<tr>
+					<td>售票期間</td>
+					
+					<td>
+					<span style="text-decoration:line-through;"> 9/30-10/6 早鳥票 </span> ( <span style="color:red;">已經售完</span> )<br>
+					<span style="color:red;">10/3-11/8 <span style="text-decoration:line-through;">原價票</span>10/31已經售完</span>
+					</td>
+					 </tr>
+					<tr class="spacer">
+					</tr>
+					<tr>
+					<td>票價</td>
+										
+					<td>
+					<span style="text-decoration:line-through;">早鳥票 NTD. 250（限量80張）</span><br>	
+					
+					政大學生 NTD. 280 ( 入場時須持政大有效學生證 )<br>
+					
+					非政大學生 NTD. 320( 入場時須持學生證 )<br>
+					
+					一般大眾 NTD. 380
+					</td>
+					</tr>
+				</table>
+				<div style="margin-top:30px; width:100%;"></div>
+								<a href="http://www.blink.com.tw/events/49/"><div class="bigger b" style="text-align:center;">購票頁面</div></a>
+
+			</div>
+		</div>
+	
+
+		
+		<div class="container">
+		<div class="spacerr"></div>
+			<div id="sponsors" class="block box">
+			<a class="bookMark" name="sponsors"></a>
+					<h2 class="boxHead">贊助夥伴</h2>
+					<table id="spnList">
+						<tr class="spnList">	
+							<td><h4>主辦單位</h4></td>
+							<td>
+								<div class="spnLogo"><a href=""><img src="img/TEDxNCCU1-o.png" height="45"></a></div>
+							</td>
+						</tr>
+
+						<tr class="spnList">	
+							<td><h4>合辦單位</h4></td>
+							<td>
+								<div class="spnLogo"><a href="http://rcid.nccu.edu.tw/main.php"><img src="img/sponsors/id.png" height="45"></a></div>
+								<div class="spnLogo"><a href="https://www.facebook.com/nccuarts"><img src="img/sponsors/art_center.png" height="45"></a></div>
+							</td>
+						</tr>
+						
+						<tr class="spnList">
+							<td><h4>協辦單位</h4></td>
+							<td>
+							<div style="display:inline-block;">
+
+								<div class="spnLogo"><a href="https://www.facebook.com/taiwan.doit?directed_target_id=0"><img src="img/sponsors/doit.png" height="45"></a></div>
+							</div>
+							</td>
+						</tr>
+		
+						<tr class="spnList">
+						
+							<td><h4>媒體協辦</h4></td>
+							<td>
+							<div style="display:inline-block;">
+								<div class="spnLogo" style="position:relative;" ><a href="https://www.facebook.com/Oknow2013"><img src="img/sponsors/oknow.png" height="35"></a></div>
+								<div class="spnLogo" style="position:relative;" ><a href="http://www.ppaper.net/store_index.asp"><img src="img/sponsors/ppaper.png" height="35"></a></div>
+							</div>
+							</td>
+						</tr>
+		
+						<tr class="spnList">
+						
+							<td><h4>贊助夥伴</h4></td>
+							<td>
+							<div style="display:inline-block; ">
+								<div class="spnLogo"><a href="http://www.gvm.com.tw/"><img src="img/sponsors/farlook.jpg" height="45"></a></div>
+								<div class="spnLogo"><a href="http://www.studioclassroom.com/default.php"><img src="img/sponsors/sky_logo.png" height="45"></a></div>
+								<div class="spnLogo"><a href="http://www.ivy.com.tw/"><img src="img/sponsors/ivy.png" height="45"></a></div>
+								<div class="spnLogo"><a href="http://www.4hhouse.com.tw/"><img src="img/sponsors/cattea_logo.png" height="45"></a></div>
+								<div class="spnLogo" style="position:relative; top:10px;"><a href="http://panasonic.com.tw/Home/"><img src="img/sponsors/panasonic.png" width="120"></a></div>
+							</div>
+							</td>
+						</tr>
+
+						<tr class="spnList">	
+							<td><h4>場地贊助</h4></td>
+							<td>
+								<div class="spnLogo" style="position:relative; top:10px;"><a href="http://www.creativelab.nccu.edu.tw/creativelab.htm" title="Ｘ書院＠政大創意實驗室"><img src="img/sponsors/x_logo.jpg" height="60"></a></div>
+							</td>
+						</tr>
+
+						<tr class="spnList">
+						
+							<td><h4>票卷贊助</h4></td>
+							<td>
+							<div style="display:inline-block; ">
+								<div class="spnLogo"><a href="http://www.blink.com.tw/"><img src="img/sponsors/blink-logo.png" height="45" border="0"></a></div>
+							</div>
+							</td>
+						</tr>
+					</table>
+					<div class="spacerr"></div>
+			</div>
+		</div>
+	
+<footer class="clearfix" style="margin-bottom:20px;">
+<div class="container">
+	<div style="width:960px; margin:auto; background:#ff2b06; height:5px; margin-bottom:20px;"></div>
+	<p style=" float:left;text-align:center; color:#ff2b06">TEDxNCCU © This independent TEDx event is operated under license from TED </p>
+	<div style="float:right; margin-right:20px;">
+			<a alt="TEDxNCCU" title="TEDxNCCU" href="//tedxnccu.com"><img alt="TEDxNCCU" src="img/TEDxNCCU1.png" height="30" style="margin:8px 0px 3px 0px;"></a>
+	</div>
+	
+</div>
+</footer>		
+
+
+	</div>
+</div>
+
+
+
+
+
+	</div><!--inner-->
+</div><!--outer-->
+
+<div class="outer" >
+	<div class="container">
+	</div>
+</div>
+
+<div class="outer" style="margin-top:4000px;">
+	<div class="inner">
+	
+	</div><!--inner-->
+</div><!--outer-->
+
+<script src="js/talkers.js"></script>
+<script src="js/scroll/jquery.superscrollorama.js"></script>
+<script src="js/scroll/greensock/TweenLite.min.js"></script>
+<script src="js/scroll/greensock/TweenMax.min.js"></script>
+<script src="js/scroll/greensock/TweenMax.min.js"></script>
+
+<script type="text/javascript">
+var $title = $('#title');
+
+var titleCfg = {'br':[0,4,8,12,16],'class':'titleImg','path':'img/title/','total':16, 'img':'title_','type':'.png','height':100,'width':100,'marginRight':10,'marginBottom':10};
+function initTitle (){
+for (var  t = 0 ; t < titleCfg.total ; t ++)
+	{
+		var i=t+1 ;
+		var ele = document.createElement("DIV");
+		var g = document.createElement("IMG");
+	
+		var s = titleCfg.path+titleCfg.img;
+		var num = '';
+		if ( i < 10 ) { 
+			num = '0'+i;
+			s = s+ num; 
+		}else {
+			num = i ;
+			s = s+i;
+		}
+		$(g).attr('src',s+titleCfg.type).attr('height',titleCfg.height).attr('alt','From Idea To Action');
+		
+		
+		var $ele = $(ele);
+		$ele.css('width',titleCfg.width).addClass(titleCfg.class).append(g);
+		$ele.attr('id', titleCfg.img + num);
+	
+		var j = 0 , l , line , char;
+		for ( j; j < titleCfg.br.length ; j++ )
+		{
+			if ( titleCfg.br[j] < i && titleCfg.br[j+1] >= i ){ l = i - titleCfg.br[j]  ; break; }
+			
+		}
+		console.log ('line: '+line+' ,char: '+char);
+		
+		line = j +　1;
+		char = i - titleCfg.br[j];
+		
+		$ele.css('left',(char - 1)*(titleCfg.width + titleCfg.marginRight) ).css('top', (line - 1)*(titleCfg.height + titleCfg.marginBottom) );
+		
+		
+		$title.append(ele);
+	}	
+}initTitle ();
+
+var ml = 80 ;
+var mb = titleCfg.height + titleCfg.marginBottom ;
+$(document).ready(function() {
+		var controller = $.superscrollorama({
+			triggerAtCenter: true,
+			playoutAnimations: false
+		});
+		controller.pin($('#con_title'),330,
+			{
+				offset:-100,
+				anim:
+				(new TimelineLite())
+					.append([
+						TweenMax.to($('#title_01 > img'),1,
+							{height:110,css:{}}),//immediateRender:true,
+						TweenMax.to($('#title_02 > img'), 1,
+							{height:110,css:{}}),
+						TweenMax.to($('#title_03 > img'),1,
+							{height:110,css:{}}),
+						TweenMax.to($('#title_04 > img'), 1,
+							{height:110,css:{}}),
+						TweenMax.to($('#title_05 > img'), 1,
+							{height:110,css:{}}),
+						TweenMax.to($('#title_06 > img'),1,
+							{height:110,css:{}}),
+						TweenMax.to($('#title_07 > img'), 1,
+							{height:110,css:{}}),
+						TweenMax.to($('#title_08 > img'),1,
+							{height:110,css:{}}),
+						TweenMax.to($('#title_09 > img'), 1,
+							{height:110,css:{}}),
+						TweenMax.to($('#title_10 > img'), 1,
+							{height:110,css:{}}),
+						TweenMax.to($('#title_11 > img'), 1,
+							{height:110,css:{}}),
+						TweenMax.to($('#title_12 > img'),1,
+							{height:110,css:{}}),
+						TweenMax.to($('#title_13 > img'), 1,
+							{height:110,css:{}}),
+						TweenMax.to($('#title_14 > img'), 1,
+							{height:110,css:{}}),
+						TweenMax.to($('#title_15 > img'),1,
+							{height:110,css:{}}),
+						TweenMax.to($('#title_16 > img'), 1,
+							{height:110,css:{} }) //ease:Strong.easeOut
+					])
+			});
+/*		controller.pin ( $('#talkers_con'),200,{
+			onPin: function (){TweenMax.to($(' #talkers_con .bubble'), .5,{css:{backgroundColor:'#FEFE96'}, ease:Strong.easeIn})},	
+			anim: (new TimelineLite())
+				.append ([
+					
+				]),
+			onUnpin :function (){TweenMax.to($('body'), .5,{css:{backgroundColor:'#ebe7de'}, ease:Strong.easeIn})},
+			offset:-150
+		
+		});*/
+			
+			
+/*		controller.addTween(
+			'#',
+			(new TimelineLite())
+				.append([
+					TweenMax.from($('#bring-it .char1'), 1, 
+						{css:{fontSize: 0}, immediateRender:true, ease:Elastic.easeOut}),
+					TweenMax.from($('#bring-it .char2'), .6, 
+						{css:{fontSize: 0}, immediateRender:true, ease:Elastic.easeOut}),
+					TweenMax.from($('#bring-it .char3'), 1.1, 
+						{css:{fontSize: 0}, immediateRender:true, ease:Elastic.easeOut}),
+					TweenMax.from($('#bring-it .char4'), .7, 
+						{css:{fontSize: 0}, immediateRender:true, ease:Elastic.easeOut}),
+					TweenMax.from($('#bring-it .char5'), .9, 
+						{css:{fontSize: 0}, immediateRender:true, ease:Elastic.easeOut}),
+					TweenMax.from($('#bring-it .char6'), 1.2, 
+						{css:{fontSize: 0}, immediateRender:true, ease:Elastic.easeOut}),
+					TweenMax.from($('#bring-it .char7'), .6, 
+						{css:{fontSize: 0}, immediateRender:true, ease:Elastic.easeOut}),
+					TweenMax.from($('#bring-it .char8'), .8, 
+						{css:{fontSize: 0}, immediateRender:true, ease:Elastic.easeOut})
+				])
+				,
+			1200,
+			-100 // offset for better timing
+		);*/
+
+				
+
+	});
+	
+	
+
+
+
+
+
+
+
+
+
+
+$('.talker-pre').on('click','a',function (e){
+	e.preventDefault();
+	var a = $(this).data('talker');
+	showTalker(a);
+});
+
+$('.talker-pre').hover(function (e){
+	var $ele = $(this).find('.name');
+	TweenMax.to($ele, .5,{css:{bottom:0 }});
+},function (e){
+	var $ele = $(this).find('.name');
+	TweenMax.to($ele, .5,{css:{bottom:-42 }});
+	
+});
+
+$('.go-bm').click(function (e){
+	e.preventDefault();
+	var bm = $(this).data('mark');
+	console.log (bm);
+	var ele = document.getElementsByName(bm)[0];
+	console.log (ele);
+	console.log ($(ele).offset());
+	var n = $(ele).offset().top -100 ;
+	var t = n+'px';
+	$("html, body").animate({ scrollTop: t });
+	$('.go-bm').each(function(index, e) {
+		$(e).removeClass('active');
+	});
+	$(this).addClass('active');
+});
+
+</script>
+</body>
+</html>
